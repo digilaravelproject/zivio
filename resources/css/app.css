@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+
 @import 'tailwindcss';
 
 @import 'tw-animate-css';
@@ -9,9 +11,15 @@
 
 @theme {
     --font-sans:
-        'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
+        'Cormorant Garamond', 'Instrument Sans', ui-serif, Georgia, serif,
         'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
         'Noto Color Emoji';
+
+    --color-zivio-black: #0a0a0a;
+    --color-zivio-charcoal: #111111;
+    --color-zivio-warm-white: #f5f5f2;
+    --color-zivio-gold: #b89b72;
+    --color-zivio-soft-gray: #cfcfcb;
 
     --radius-lg: var(--radius);
     --radius-md: calc(var(--radius) - 2px);
@@ -133,11 +141,23 @@
 }
 
 @layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
     * {
         @apply border-border;
     }
 
     body {
         @apply bg-background text-foreground;
+        font-feature-settings:
+            'liga' 1,
+            'kern' 1;
+    }
+
+    ::selection {
+        background: #b89b72;
+        color: #0a0a0a;
     }
 }

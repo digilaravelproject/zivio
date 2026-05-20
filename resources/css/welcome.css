@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+
+@import 'tailwindcss';
+
+@source '../js/pages/welcome.tsx';
+@source '../js/components/layout/Navbar.tsx';
+@source '../js/components/site/SiteButton.tsx';
+@source '../js/sections/HeroSection.tsx';
+@source '../js/data/heroSlides.ts';
+@source '../js/data/navigationData.ts';
+
+@theme {
+    --font-sans:
+        'Cormorant Garamond', ui-serif, Georgia, serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji';
+
+    --color-zivio-black: #0a0a0a;
+    --color-zivio-charcoal: #111111;
+    --color-zivio-warm-white: #f5f5f2;
+    --color-zivio-gold: #b89b72;
+    --color-zivio-soft-gray: #cfcfcb;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        margin: 0;
+        background: #0a0a0a;
+        color: #f5f5f2;
+        font-feature-settings:
+            'liga' 1,
+            'kern' 1;
+    }
+
+    ::selection {
+        background: #b89b72;
+        color: #0a0a0a;
+    }
+}
