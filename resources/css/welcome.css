@@ -5,9 +5,13 @@
 @source '../js/pages/welcome.tsx';
 @source '../js/components/layout/Navbar.tsx';
 @source '../js/components/site/SiteButton.tsx';
+@source '../js/components/category/CategoryCard.tsx';
 @source '../js/sections/HeroSection.tsx';
+@source '../js/sections/BrandStorySection.tsx';
+@source '../js/sections/CategoryShowcaseSection.tsx';
 @source '../js/data/heroSlides.ts';
 @source '../js/data/navigationData.ts';
+@source '../js/data/categoriesData.ts';
 
 @theme {
     --font-sans:

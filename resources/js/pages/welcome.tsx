@@ -2,6 +2,8 @@ import { Head } from '@inertiajs/react';
 
 import { Navbar } from '@/components/layout/Navbar';
 import { heroSlides } from '@/data/heroSlides';
+import { BrandStorySection } from '@/sections/BrandStorySection';
+import { CategoryShowcaseSection } from '@/sections/CategoryShowcaseSection';
 import { HeroSection } from '@/sections/HeroSection';
 
 const pageTitle = 'ZIVIO LIFE | Architectural & Modern Lighting Solutions';
@@ -27,6 +29,8 @@ export default function Welcome() {
             <main className="min-h-screen bg-[#0A0A0A] text-[#F5F5F2]">
                 <Navbar />
                 <HeroSection />
+                <BrandStorySection />
+                <CategoryShowcaseSection />
             </main>
         </>
     );
