@@ -6,6 +6,7 @@ import { BrandStorySection } from '@/sections/BrandStorySection';
 import { CategoryShowcaseSection } from '@/sections/CategoryShowcaseSection';
 import { FeaturedApplicationSection } from '@/sections/FeaturedApplicationSection';
 import { HeroSection } from '@/sections/HeroSection';
+import { ProjectsShowcaseSection } from '@/sections/ProjectsShowcaseSection';
 
 const pageTitle = 'ZIVIO LIFE | Architectural & Modern Lighting Solutions';
 const pageDescription =
@@ -33,6 +34,7 @@ export default function Welcome() {
                 <BrandStorySection />
                 <CategoryShowcaseSection />
                 <FeaturedApplicationSection />
+                <ProjectsShowcaseSection />
             </main>
         </>
     );

@@ -38,7 +38,7 @@ export function ApplicationAccordion({
                 <div className="absolute inset-0 shadow-[inset_0_0_100px_rgba(184,155,114,0.1)]" />
 
                 <figcaption className="absolute inset-x-5 bottom-5 sm:inset-x-7 sm:bottom-7">
-                    <span className="mb-4 block h-px w-12 bg-[#B89B72]/85" />
+                    <span className="mb-4 block h-px w-12 bg-[#DA9807]/85" />
                     <h3 className="text-3xl leading-none font-semibold text-[#F8F5EC] sm:text-4xl lg:text-5xl">
                         {application.title}
                     </h3>

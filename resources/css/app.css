@@ -18,7 +18,8 @@
     --color-zivio-black: #0a0a0a;
     --color-zivio-charcoal: #111111;
     --color-zivio-warm-white: #f5f5f2;
-    --color-zivio-gold: #b89b72;
+    /* --color-zivio-gold: #DA9807; */
+    --color-zivio-gold: #DA9807;
     --color-zivio-soft-gray: #cfcfcb;
 
     --radius-lg: var(--radius);
@@ -157,7 +158,7 @@
     }
 
     ::selection {
-        background: #b89b72;
+        background: #DA9807;
         color: #0a0a0a;
     }
 }

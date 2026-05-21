@@ -146,7 +146,7 @@ export function HeroSection() {
             <div className="absolute right-4 bottom-6 left-4 z-50 mx-auto flex max-w-7xl items-center justify-between gap-3 sm:right-6 sm:bottom-8 sm:left-6 sm:gap-6 lg:right-10 lg:left-10">
                 <div className="flex min-w-20 items-center gap-2 text-sm font-medium tracking-[0.16em] text-[#F5F5F2] sm:min-w-28 sm:gap-3 sm:text-base sm:tracking-[0.2em]">
                     <span>{formatSlideNumber(activeIndex + 1)}</span>
-                    <span className="h-px w-6 bg-[#B89B72] sm:w-10" />
+                    <span className="h-px w-6 bg-[#DA9807] sm:w-10" />
                     <span className="text-[#CFCFCB]">
                         {formatSlideNumber(heroSlides.length)}
                     </span>
@@ -154,7 +154,7 @@ export function HeroSection() {
 
                 <div className="hidden h-px flex-1 overflow-hidden bg-white/20 sm:block">
                     <motion.div
-                        className="h-full bg-[#B89B72]"
+                        className="h-full bg-[#DA9807]"
                         animate={{ scaleX: autoplayProgress }}
                         transition={{ duration: 0.15 }}
                         style={{ transformOrigin: 'left' }}
@@ -165,7 +165,7 @@ export function HeroSection() {
                     <button
                         type="button"
                         onClick={() => swiper?.slidePrev()}
-                        className="grid size-10 place-items-center border border-white/20 bg-[#0A0A0A]/20 text-[#F5F5F2] backdrop-blur-sm transition duration-300 hover:border-[#B89B72] hover:bg-[#B89B72]/10 hover:text-[#B89B72] sm:size-11"
+                        className="grid size-10 place-items-center border border-white/20 bg-[#0A0A0A]/20 text-[#F5F5F2] backdrop-blur-sm transition duration-300 hover:border-[#DA9807] hover:bg-[#DA9807]/10 hover:text-[#DA9807] sm:size-11"
                         aria-label="Previous slide"
                     >
                         <ArrowLeft className="size-5" strokeWidth={1.5} />
@@ -173,7 +173,7 @@ export function HeroSection() {
                     <button
                         type="button"
                         onClick={() => swiper?.slideNext()}
-                        className="grid size-10 place-items-center border border-white/20 bg-[#0A0A0A]/20 text-[#F5F5F2] backdrop-blur-sm transition duration-300 hover:border-[#B89B72] hover:bg-[#B89B72]/10 hover:text-[#B89B72] sm:size-11"
+                        className="grid size-10 place-items-center border border-white/20 bg-[#0A0A0A]/20 text-[#F5F5F2] backdrop-blur-sm transition duration-300 hover:border-[#DA9807] hover:bg-[#DA9807]/10 hover:text-[#DA9807] sm:size-11"
                         aria-label="Next slide"
                     >
                         <ArrowRight className="size-5" strokeWidth={1.5} />

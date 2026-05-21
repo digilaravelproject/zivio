@@ -8,14 +8,18 @@
 @source '../js/components/category/CategoryCard.tsx';
 @source '../js/components/application/ApplicationAccordion.tsx';
 @source '../js/components/application/ApplicationProductCard.tsx';
+@source '../js/components/projects/ProjectAccordion.tsx';
+@source '../js/components/projects/ProjectContent.tsx';
 @source '../js/sections/HeroSection.tsx';
 @source '../js/sections/BrandStorySection.tsx';
 @source '../js/sections/CategoryShowcaseSection.tsx';
 @source '../js/sections/FeaturedApplicationSection.tsx';
+@source '../js/sections/ProjectsShowcaseSection.tsx';
 @source '../js/data/heroSlides.ts';
 @source '../js/data/navigationData.ts';
 @source '../js/data/categoriesData.ts';
 @source '../js/data/featuredApplicationData.ts';
+@source '../js/data/projectsData.ts';
 
 @theme {
     --font-sans:
@@ -26,7 +30,7 @@
     --color-zivio-black: #0a0a0a;
     --color-zivio-charcoal: #111111;
     --color-zivio-warm-white: #f5f5f2;
-    --color-zivio-gold: #b89b72;
+    --color-zivio-gold: #DA9807;
     --color-zivio-soft-gray: #cfcfcb;
 }
 
@@ -45,7 +49,8 @@
     }
 
     ::selection {
-        background: #b89b72;
+        /* background: #DA9807; */
+        background: #DA9807;
         color: #0a0a0a;
     }
 }

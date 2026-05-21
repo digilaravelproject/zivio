@@ -41,8 +41,8 @@ export function FeaturedApplicationSection() {
             >
                 <div>
                     <div className="mb-5 flex items-center gap-4">
-                        <span className="h-px w-9 bg-[#B89B72]/80" />
-                        <p className="text-[0.68rem] font-semibold tracking-[0.34em] text-[#B89B72] uppercase">
+                        <span className="h-px w-9 bg-[#DA9807]/80" />
+                        <p className="text-[0.68rem] font-semibold tracking-[0.34em] text-[#DA9807] uppercase">
                             {featuredApplicationIntro.label}
                         </p>
                     </div>
@@ -67,7 +67,7 @@ export function FeaturedApplicationSection() {
                             </p>
 
                             <div className="mt-7">
-                                <p className="text-[0.68rem] font-semibold tracking-[0.28em] text-[#B89B72] uppercase">
+                                <p className="text-[0.68rem] font-semibold tracking-[0.28em] text-[#DA9807] uppercase">
                                     {activeProduct.category}
                                 </p>
                                 <h3 className="mt-2 max-w-xl text-2xl leading-8 font-semibold text-[#F8F5EC] sm:text-3xl sm:leading-9">
@@ -89,7 +89,7 @@ export function FeaturedApplicationSection() {
                             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                                 <Link
                                     href={activeProduct.href}
-                                    className="inline-flex w-full items-center justify-center gap-2 border border-[#B89B72]/60 px-5 py-3 text-[0.68rem] font-semibold tracking-[0.2em] text-[#F5F5F2] uppercase transition duration-300 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A] sm:w-auto"
+                                    className="inline-flex w-full items-center justify-center gap-2 border border-[#DA9807]/60 px-5 py-3 text-[0.68rem] font-semibold tracking-[0.2em] text-[#F5F5F2] uppercase transition duration-300 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A] sm:w-auto"
                                 >
                                     Explore Product
                                     <ArrowUpRight
@@ -99,7 +99,7 @@ export function FeaturedApplicationSection() {
                                 </Link>
                                 <Link
                                     href={activeProduct.collectionHref}
-                                    className="inline-flex w-full items-center justify-center gap-2 px-5 py-3 text-[0.68rem] font-semibold tracking-[0.2em] text-[#CFCFCB] uppercase transition duration-300 hover:text-[#B89B72] sm:w-auto"
+                                    className="inline-flex w-full items-center justify-center gap-2 px-5 py-3 text-[0.68rem] font-semibold tracking-[0.2em] text-[#CFCFCB] uppercase transition duration-300 hover:text-[#DA9807] sm:w-auto"
                                 >
                                     View Collection
                                 </Link>
@@ -110,7 +110,7 @@ export function FeaturedApplicationSection() {
                     <div className="mt-8 flex items-center justify-between gap-5 border-t border-white/[0.08] pt-6 sm:justify-start">
                         <div className="flex min-w-24 items-center gap-3 text-sm font-semibold tracking-[0.18em]">
                             <span>{formatCounter(activeProductIndex + 1)}</span>
-                            <span className="h-px w-8 bg-[#B89B72]/80" />
+                            <span className="h-px w-8 bg-[#DA9807]/80" />
                             <span className="text-[#CFCFCB]">
                                 {formatCounter(totalProducts)}
                             </span>
@@ -119,7 +119,7 @@ export function FeaturedApplicationSection() {
                             <button
                                 type="button"
                                 onClick={handlePrevious}
-                                className="grid size-12 place-items-center rounded-full border border-white/[0.1] bg-white/[0.025] text-[#F5F5F2] transition duration-300 hover:border-[#B89B72]/70 hover:bg-[#B89B72]/10 hover:text-[#B89B72] sm:size-11"
+                                className="grid size-12 place-items-center rounded-full border border-white/[0.1] bg-white/[0.025] text-[#F5F5F2] transition duration-300 hover:border-[#DA9807]/70 hover:bg-[#DA9807]/10 hover:text-[#DA9807] sm:size-11"
                                 aria-label="Previous featured product"
                             >
                                 <ArrowLeft
@@ -130,7 +130,7 @@ export function FeaturedApplicationSection() {
                             <button
                                 type="button"
                                 onClick={handleNext}
-                                className="grid size-12 place-items-center rounded-full border border-white/[0.1] bg-white/[0.025] text-[#F5F5F2] transition duration-300 hover:border-[#B89B72]/70 hover:bg-[#B89B72]/10 hover:text-[#B89B72] sm:size-11"
+                                className="grid size-12 place-items-center rounded-full border border-white/[0.1] bg-white/[0.025] text-[#F5F5F2] transition duration-300 hover:border-[#DA9807]/70 hover:bg-[#DA9807]/10 hover:text-[#DA9807] sm:size-11"
                                 aria-label="Next featured product"
                             >
                                 <ArrowRight

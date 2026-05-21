@@ -45,7 +45,7 @@ export function CategoryCard({
             />
 
             <motion.div
-                className="pointer-events-none absolute -inset-px z-30 border border-[#B89B72]/0 transition duration-500 group-hover:border-[#B89B72]/45"
+                className="pointer-events-none absolute -inset-px z-30 border border-[#DA9807]/0 transition duration-500 group-hover:border-[#DA9807]/45"
                 animate={{
                     boxShadow: isActive
                         ? '0 0 70px rgba(184, 155, 114, 0.22)'
@@ -71,7 +71,7 @@ export function CategoryCard({
             <div className="absolute inset-0 bg-[#0A0A0A]/42 transition duration-500 group-hover:bg-[#0A0A0A]/22" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/95 via-[#0A0A0A]/30 to-[#0A0A0A]/15" />
             <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#0A0A0A]/50 to-transparent" />
-            <div className="absolute top-5 right-5 z-40 grid size-10 place-items-center border border-white/15 bg-[#0A0A0A]/20 text-[#F5F5F2] backdrop-blur-sm transition duration-500 group-hover:border-[#B89B72]/70 group-hover:text-[#B89B72]">
+            <div className="absolute top-5 right-5 z-40 grid size-10 place-items-center border border-white/15 bg-[#0A0A0A]/20 text-[#F5F5F2] backdrop-blur-sm transition duration-500 group-hover:border-[#DA9807]/70 group-hover:text-[#DA9807]">
                 <ArrowUpRight className="size-4" strokeWidth={1.5} />
             </div>
 
@@ -80,8 +80,8 @@ export function CategoryCard({
                     animate={{ y: isActive ? -8 : 0 }}
                     transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
                 >
-                    <span className="mb-4 block h-px w-10 bg-[#B89B72]" />
-                    <p className="mb-3 text-[0.68rem] font-semibold tracking-[0.28em] text-[#B89B72] uppercase">
+                    <span className="mb-4 block h-px w-10 bg-[#DA9807]" />
+                    <p className="mb-3 text-[0.68rem] font-semibold tracking-[0.28em] text-[#DA9807] uppercase">
                         {String(index + 1).padStart(2, '0')}
                     </p>
                     <h3 className="max-w-[13rem] text-4xl leading-[0.92] font-semibold text-[#F8F5EC] sm:text-5xl xl:text-[3.4rem]">

@@ -9,7 +9,7 @@ export function CategoryShowcaseSection() {
 
     return (
         <section className="relative overflow-hidden bg-[#0A0A0A] px-4 pt-16 pb-24 text-[#F5F5F2] sm:px-6 sm:pt-20 sm:pb-28 lg:px-10 lg:pt-24 lg:pb-36">
-            <div className="pointer-events-none absolute top-16 left-1/2 h-80 w-[38rem] -translate-x-1/2 rounded-full bg-[#B89B72]/8 blur-3xl" />
+            <div className="pointer-events-none absolute top-16 left-1/2 h-80 w-[38rem] -translate-x-1/2 rounded-full bg-[#DA9807]/8 blur-3xl" />
             <div className="mx-auto max-w-7xl">
                 <motion.div
                     initial={{ opacity: 0, y: 32 }}
@@ -20,8 +20,8 @@ export function CategoryShowcaseSection() {
                 >
                     <div>
                         <div className="mb-5 flex items-center gap-4">
-                            <span className="h-px w-10 bg-[#B89B72]" />
-                            <p className="text-[0.68rem] font-semibold tracking-[0.34em] text-[#B89B72] uppercase">
+                            <span className="h-px w-10 bg-[#DA9807]" />
+                            <p className="text-[0.68rem] font-semibold tracking-[0.34em] text-[#DA9807] uppercase">
                                 Collections
                             </p>
                         </div>
@@ -30,12 +30,12 @@ export function CategoryShowcaseSection() {
                         </h2>
                     </div>
 
-                    <div className="relative border-l border-[#B89B72]/35 pl-5 lg:justify-self-end">
+                    <div className="relative border-l border-[#DA9807]/35 pl-5 lg:justify-self-end">
                         <p className="max-w-md font-sans text-sm leading-7 tracking-[0.02em] text-[#CFCFCB] sm:text-base sm:leading-8">
                             Designed for modern architecture, crafted for
                             lasting visual impact.
                         </p>
-                        <p className="mt-5 text-[0.65rem] font-semibold tracking-[0.28em] text-[#B89B72] uppercase">
+                        <p className="mt-5 text-[0.65rem] font-semibold tracking-[0.28em] text-[#DA9807] uppercase">
                             Architectural Lighting
                         </p>
                     </div>
