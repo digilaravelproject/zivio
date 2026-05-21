@@ -41,7 +41,7 @@ export function ProjectAccordion({
                             alt={project.title}
                             width={1400}
                             height={1600}
-                            loading={index === 0 ? 'eager' : 'lazy'}
+                            loading="lazy"
                             decoding="async"
                             className="h-full w-full object-cover transition duration-[1600ms] ease-out group-hover:scale-105"
                             sizes={

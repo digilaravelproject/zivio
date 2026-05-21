@@ -1,12 +1,33 @@
 import { Head } from '@inertiajs/react';
+import { lazy, Suspense } from 'react';
 
 import { Navbar } from '@/components/layout/Navbar';
 import { heroSlides } from '@/data/heroSlides';
-import { BrandStorySection } from '@/sections/BrandStorySection';
-import { CategoryShowcaseSection } from '@/sections/CategoryShowcaseSection';
-import { FeaturedApplicationSection } from '@/sections/FeaturedApplicationSection';
 import { HeroSection } from '@/sections/HeroSection';
-import { ProjectsShowcaseSection } from '@/sections/ProjectsShowcaseSection';
+
+const BrandStorySection = lazy(() =>
+    import('@/sections/BrandStorySection').then((module) => ({
+        default: module.BrandStorySection,
+    })),
+);
+
+const CategoryShowcaseSection = lazy(() =>
+    import('@/sections/CategoryShowcaseSection').then((module) => ({
+        default: module.CategoryShowcaseSection,
+    })),
+);
+
+const FeaturedApplicationSection = lazy(() =>
+    import('@/sections/FeaturedApplicationSection').then((module) => ({
+        default: module.FeaturedApplicationSection,
+    })),
+);
+
+const ProjectsShowcaseSection = lazy(() =>
+    import('@/sections/ProjectsShowcaseSection').then((module) => ({
+        default: module.ProjectsShowcaseSection,
+    })),
+);
 
 const pageTitle = 'ZIVIO LIFE | Architectural & Modern Lighting Solutions';
 const pageDescription =
@@ -31,10 +52,16 @@ export default function Welcome() {
             <main className="min-h-screen bg-[#0A0A0A] text-[#F5F5F2]">
                 <Navbar />
                 <HeroSection />
-                <BrandStorySection />
-                <CategoryShowcaseSection />
-                <FeaturedApplicationSection />
-                <ProjectsShowcaseSection />
+                <Suspense
+                    fallback={
+                        <div className="h-24 bg-gradient-to-b from-[#0A0A0A] to-[#111111]" />
+                    }
+                >
+                    <BrandStorySection />
+                    <CategoryShowcaseSection />
+                    <FeaturedApplicationSection />
+                    <ProjectsShowcaseSection />
+                </Suspense>
             </main>
         </>
     );

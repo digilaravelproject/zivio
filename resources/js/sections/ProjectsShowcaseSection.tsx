@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 
+import { ScrollDepthWrapper } from '@/components/animations/ScrollDepthWrapper';
 import { ProjectAccordion } from '@/components/projects/ProjectAccordion';
 import { ProjectContent } from '@/components/projects/ProjectContent';
 import { projectsData } from '@/data/projectsData';
@@ -43,7 +44,7 @@ export function ProjectsShowcaseSection() {
                     totalProjects={totalProjects}
                 />
 
-                <div className="relative">
+                <ScrollDepthWrapper className="relative" intensity="medium">
                     <ProjectAccordion
                         projects={projectsData}
                         activeIndex={activeProjectIndex}
@@ -124,7 +125,7 @@ export function ProjectsShowcaseSection() {
                             </button>
                         </div>
                     </div>
-                </div>
+                </ScrollDepthWrapper>
             </motion.div>
         </section>
     );

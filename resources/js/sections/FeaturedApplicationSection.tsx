@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { useState } from 'react';
 
+import { ScrollDepthWrapper } from '@/components/animations/ScrollDepthWrapper';
 import { ApplicationAccordion } from '@/components/application/ApplicationAccordion';
 import { ApplicationProductCard } from '@/components/application/ApplicationProductCard';
 import {
@@ -142,7 +143,7 @@ export function FeaturedApplicationSection() {
                     </div>
                 </div>
 
-                <div className="relative">
+                <ScrollDepthWrapper className="relative" intensity="soft">
                     <AnimatePresence mode="wait">
                         <ApplicationAccordion
                             key={activeProduct.id}
@@ -154,7 +155,7 @@ export function FeaturedApplicationSection() {
                     <div className="relative z-20 mt-4 flex justify-end sm:absolute sm:right-6 sm:bottom-6 sm:mt-0 lg:right-8 lg:bottom-8">
                         <ApplicationProductCard product={activeProduct} />
                     </div>
-                </div>
+                </ScrollDepthWrapper>
             </motion.div>
         </section>
     );

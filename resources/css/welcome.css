@@ -3,6 +3,7 @@
 @import 'tailwindcss';
 
 @source '../js/pages/welcome.tsx';
+@source '../js/components/animations/ScrollDepthWrapper.tsx';
 @source '../js/components/layout/Navbar.tsx';
 @source '../js/components/site/SiteButton.tsx';
 @source '../js/components/category/CategoryCard.tsx';

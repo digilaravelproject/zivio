@@ -28,7 +28,7 @@ export function ApplicationAccordion({
                     alt={application.title}
                     width={1400}
                     height={1800}
-                    loading={productIndex === 0 ? 'eager' : 'lazy'}
+                    loading="lazy"
                     decoding="async"
                     className="h-full w-full object-cover"
                     sizes="(min-width: 1024px) 58vw, 100vw"
