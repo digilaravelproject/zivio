@@ -6,12 +6,16 @@
 @source '../js/components/layout/Navbar.tsx';
 @source '../js/components/site/SiteButton.tsx';
 @source '../js/components/category/CategoryCard.tsx';
+@source '../js/components/application/ApplicationAccordion.tsx';
+@source '../js/components/application/ApplicationProductCard.tsx';
 @source '../js/sections/HeroSection.tsx';
 @source '../js/sections/BrandStorySection.tsx';
 @source '../js/sections/CategoryShowcaseSection.tsx';
+@source '../js/sections/FeaturedApplicationSection.tsx';
 @source '../js/data/heroSlides.ts';
 @source '../js/data/navigationData.ts';
 @source '../js/data/categoriesData.ts';
+@source '../js/data/featuredApplicationData.ts';
 
 @theme {
     --font-sans:

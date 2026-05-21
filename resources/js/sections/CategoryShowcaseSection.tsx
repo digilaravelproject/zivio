@@ -16,21 +16,29 @@ export function CategoryShowcaseSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.35 }}
                     transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-                    className="relative mb-12 grid gap-7 border-b border-white/10 pb-10 lg:mb-14 lg:grid-cols-[1fr_0.72fr] lg:items-end"
+                    className="relative mb-10 grid gap-7 border-b border-white/10 pb-8 lg:mb-12 lg:grid-cols-[0.88fr_0.62fr] lg:items-end"
                 >
                     <div>
-                        <p className="mb-5 text-[0.68rem] font-semibold tracking-[0.34em] text-[#B89B72] uppercase">
-                            Collections
-                        </p>
-                        <h2 className="max-w-4xl text-[clamp(3.7rem,12vw,6rem)] leading-[0.88] font-semibold text-[#F8F5EC] lg:text-[clamp(5.6rem,6.6vw,7.8rem)]">
+                        <div className="mb-5 flex items-center gap-4">
+                            <span className="h-px w-10 bg-[#B89B72]" />
+                            <p className="text-[0.68rem] font-semibold tracking-[0.34em] text-[#B89B72] uppercase">
+                                Collections
+                            </p>
+                        </div>
+                        <h2 className="max-w-3xl text-[clamp(2.8rem,9vw,4.8rem)] leading-[0.94] font-semibold text-balance text-[#F8F5EC] lg:text-[clamp(4.6rem,5.2vw,6.2rem)]">
                             Explore Our Lighting Collections
                         </h2>
                     </div>
 
-                    <p className="max-w-xl text-xl leading-8 text-[#CFCFCB] sm:text-2xl sm:leading-9 lg:justify-self-end">
-                        Designed for modern architecture, crafted for lasting
-                        visual impact.
-                    </p>
+                    <div className="relative border-l border-[#B89B72]/35 pl-5 lg:justify-self-end">
+                        <p className="max-w-md font-sans text-sm leading-7 tracking-[0.02em] text-[#CFCFCB] sm:text-base sm:leading-8">
+                            Designed for modern architecture, crafted for
+                            lasting visual impact.
+                        </p>
+                        <p className="mt-5 text-[0.65rem] font-semibold tracking-[0.28em] text-[#B89B72] uppercase">
+                            Architectural Lighting
+                        </p>
+                    </div>
                 </motion.div>
 
                 <div

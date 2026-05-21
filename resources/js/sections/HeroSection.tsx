@@ -90,7 +90,7 @@ export function HeroSection() {
 
             <div className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(90deg,rgba(184,155,114,0.14)_1px,transparent_1px)] bg-[size:28vw_100%] opacity-20" />
 
-            <div className="absolute inset-0 z-40 mx-auto flex h-full max-w-7xl items-end px-4 pb-28 pt-24 sm:px-6 sm:pb-32 lg:px-10 lg:pb-36">
+            <div className="pointer-events-none absolute inset-0 z-40 mx-auto flex h-full max-w-7xl items-end px-4 pb-28 pt-24 sm:px-6 sm:pb-32 lg:px-10 lg:pb-36">
                 <AnimatePresence mode="wait">
                     {shouldShowText && (
                         <motion.div
@@ -99,7 +99,7 @@ export function HeroSection() {
                             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                             exit={{ opacity: 0, y: -18, filter: 'blur(6px)' }}
                             transition={{ duration: 0.85, ease: 'easeOut' }}
-                            className="relative w-full max-w-[46rem] drop-shadow-[0_24px_60px_rgba(0,0,0,0.65)]"
+                            className="pointer-events-auto relative w-full max-w-[46rem] drop-shadow-[0_24px_60px_rgba(0,0,0,0.65)]"
                         >
                             <motion.p
                                 initial={{ opacity: 0, y: 14 }}
@@ -143,7 +143,7 @@ export function HeroSection() {
                 </AnimatePresence>
             </div>
 
-            <div className="absolute right-4 bottom-6 left-4 z-30 mx-auto flex max-w-7xl items-center justify-between gap-3 sm:right-6 sm:bottom-8 sm:left-6 sm:gap-6 lg:right-10 lg:left-10">
+            <div className="absolute right-4 bottom-6 left-4 z-50 mx-auto flex max-w-7xl items-center justify-between gap-3 sm:right-6 sm:bottom-8 sm:left-6 sm:gap-6 lg:right-10 lg:left-10">
                 <div className="flex min-w-20 items-center gap-2 text-sm font-medium tracking-[0.16em] text-[#F5F5F2] sm:min-w-28 sm:gap-3 sm:text-base sm:tracking-[0.2em]">
                     <span>{formatSlideNumber(activeIndex + 1)}</span>
                     <span className="h-px w-6 bg-[#B89B72] sm:w-10" />

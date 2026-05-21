@@ -296,7 +296,7 @@
     "name": "wayfinder"
   },
   "resources/css/app.css": {
-    "file": "assets/app-CvVBdYDc.css",
+    "file": "assets/app-90V4wkr2.css",
     "name": "app",
     "names": [
       "app.css"
@@ -305,7 +305,7 @@
     "isEntry": true
   },
   "resources/css/welcome.css": {
-    "file": "assets/welcome-3f78jzT7.css",
+    "file": "assets/welcome-DuNOsZxO.css",
     "name": "welcome",
     "names": [
       "welcome.css"
@@ -314,7 +314,7 @@
     "isEntry": true
   },
   "resources/js/app.tsx": {
-    "file": "assets/app-Jqd6V80u.js",
+    "file": "assets/app-Ct7hgmkx.js",
     "name": "app",
     "src": "resources/js/app.tsx",
     "isEntry": true,
@@ -345,7 +345,7 @@
     ]
   },
   "resources/js/components/ui/sonner.tsx": {
-    "file": "assets/sonner-O9bI2-Hm.js",
+    "file": "assets/sonner-7xwGcZpW.js",
     "name": "sonner",
     "src": "resources/js/components/ui/sonner.tsx",
     "isDynamicEntry": true,
@@ -561,7 +561,7 @@
     ]
   },
   "resources/js/pages/settings/appearance.tsx": {
-    "file": "assets/appearance-BORaGBb3.js",
+    "file": "assets/appearance-t1PIPK2o.js",
     "name": "appearance",
     "src": "resources/js/pages/settings/appearance.tsx",
     "isDynamicEntry": true,
@@ -599,7 +599,7 @@
     ]
   },
   "resources/js/pages/settings/security.tsx": {
-    "file": "assets/security-mM3z-RUq.js",
+    "file": "assets/security-DJKUHL7x.js",
     "name": "security",
     "src": "resources/js/pages/settings/security.tsx",
     "isDynamicEntry": true,
@@ -626,7 +626,7 @@
     ]
   },
   "resources/js/pages/welcome.tsx": {
-    "file": "assets/welcome-RfQUTjkF.js",
+    "file": "assets/welcome-BAyDK8AS.js",
     "name": "welcome",
     "src": "resources/js/pages/welcome.tsx",
     "isDynamicEntry": true,

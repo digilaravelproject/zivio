@@ -4,6 +4,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { heroSlides } from '@/data/heroSlides';
 import { BrandStorySection } from '@/sections/BrandStorySection';
 import { CategoryShowcaseSection } from '@/sections/CategoryShowcaseSection';
+import { FeaturedApplicationSection } from '@/sections/FeaturedApplicationSection';
 import { HeroSection } from '@/sections/HeroSection';
 
 const pageTitle = 'ZIVIO LIFE | Architectural & Modern Lighting Solutions';
@@ -31,6 +32,7 @@ export default function Welcome() {
                 <HeroSection />
                 <BrandStorySection />
                 <CategoryShowcaseSection />
+                <FeaturedApplicationSection />
             </main>
         </>
     );
