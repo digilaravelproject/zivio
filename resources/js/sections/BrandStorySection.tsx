@@ -10,36 +10,36 @@ const brandStory = {
 
 export function BrandStorySection() {
     return (
-        <section className="relative overflow-hidden bg-[#0A0A0A] px-4 py-16 text-[#F5F5F2] sm:px-6 sm:py-20 lg:px-10 lg:py-28">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(184,155,114,0.13),transparent_28%),linear-gradient(135deg,#0A0A0A_0%,#111111_52%,#080808_100%)]" />
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(184,155,114,0.08)_1px,transparent_1px),linear-gradient(180deg,rgba(184,155,114,0.045)_1px,transparent_1px)] bg-[size:18rem_100%,100%_7rem] opacity-20" />
-            <div className="pointer-events-none absolute top-1/2 right-[-8rem] h-96 w-96 -translate-y-1/2 rounded-full bg-[#DA9807]/12 blur-3xl" />
-            <div className="pointer-events-none absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-[#DA9807]/30 to-transparent" />
+        <section className="relative overflow-hidden bg-[#0A0A0A] px-4 py-12 text-[#F5F5F2] sm:px-6 sm:py-20 lg:px-10 lg:py-[7.5rem]">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_16%,rgba(184,138,42,0.08),transparent_30%),linear-gradient(150deg,#0A0A0A_0%,#101010_48%,#080808_100%)]" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(184,138,42,0.055)_1px,transparent_1px),linear-gradient(180deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:22rem_100%,100%_8rem] opacity-[0.16]" />
+            <div className="pointer-events-none absolute top-1/2 right-[-10rem] h-96 w-96 -translate-y-1/2 rounded-full bg-[#B88A2A]/8 blur-3xl" />
+            <div className="pointer-events-none absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-[#B88A2A]/22 to-transparent" />
 
             <motion.div
                 initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.35 }}
-                transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-                className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.92fr_0.78fr] lg:items-center lg:gap-20"
+                transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                className="relative mx-auto grid max-w-7xl gap-7 sm:gap-10 lg:grid-cols-[1.05fr_0.72fr] lg:items-end lg:gap-24"
             >
-                <div className="max-w-[640px]">
-                    <div className="mb-7 flex items-center gap-5">
-                        <span className="h-px w-12 bg-[#DA9807]" />
-                        <p className="text-[0.68rem] font-semibold tracking-[0.34em] text-[#DA9807] uppercase">
+                <div className="max-w-[720px]">
+                    <div className="mb-5 flex items-center gap-4 sm:mb-6 sm:gap-5">
+                        <span className="h-px w-10 bg-[#B88A2A] sm:w-12" />
+                        <p className="font-sans text-[0.64rem] font-semibold tracking-[0.34em] text-[#B88A2A] uppercase">
                             {brandStory.label}
                         </p>
                     </div>
 
-                    <h2 className="text-4xl leading-[1.02] font-semibold text-balance text-[#F8F5EC] sm:text-5xl sm:leading-[0.98] lg:text-6xl xl:text-7xl">
+                    <h2 className="text-[clamp(2.35rem,9vw,3.6rem)] leading-[1] font-semibold text-balance text-[#F8F5EC] sm:text-[clamp(2.7rem,10vw,4.5rem)] lg:text-[clamp(4.5rem,6vw,6.8rem)]">
                         {brandStory.heading}
                     </h2>
 
-                    <div className="mt-10 grid max-w-sm grid-cols-[auto_1fr] items-center gap-4 text-[#DA9807]">
-                        <span className="grid size-14 place-items-center border border-[#DA9807]/35 text-xs font-semibold tracking-[0.22em] uppercase">
+                    <div className="mt-7 grid max-w-sm grid-cols-[auto_1fr] items-center gap-3 text-[#B88A2A] sm:mt-12 sm:gap-4">
+                        <span className="grid size-12 place-items-center border border-[#B88A2A]/28 font-sans text-[0.66rem] font-semibold tracking-[0.22em] uppercase sm:size-14">
                             01
                         </span>
-                        <p className="text-sm tracking-[0.22em] uppercase">
+                        <p className="font-sans text-xs font-semibold tracking-[0.24em] uppercase sm:text-sm">
                             {brandStory.since}
                         </p>
                     </div>
@@ -54,12 +54,12 @@ export function BrandStorySection() {
                         duration: 0.75,
                         ease: [0.22, 1, 0.36, 1],
                     }}
-                    className="relative overflow-hidden border border-white/10 bg-white/[0.035] p-7 shadow-[0_28px_90px_rgba(0,0,0,0.38)] backdrop-blur-md sm:p-9 lg:p-10"
+                    className="relative overflow-hidden border-l border-[#B88A2A]/24 bg-white/[0.022] p-5 shadow-[0_28px_90px_rgba(0,0,0,0.28)] backdrop-blur-sm sm:p-9 lg:translate-y-8 lg:p-10"
                 >
-                    <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#DA9807]/65 to-transparent" />
-                    <div className="pointer-events-none absolute -right-20 -bottom-20 h-56 w-56 rounded-full bg-[#DA9807]/10 blur-3xl" />
+                    <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#B88A2A]/45 to-transparent" />
+                    <div className="pointer-events-none absolute -right-20 -bottom-20 h-56 w-56 rounded-full bg-[#B88A2A]/7 blur-3xl" />
 
-                    <p className="font-sans text-base leading-8 text-[#D8D3C8] sm:text-lg sm:leading-9">
+                    <p className="font-sans text-sm leading-7 tracking-[0.01em] text-[#D8D3C8] sm:text-lg sm:leading-9">
                         {brandStory.paragraph}
                     </p>
                 </motion.aside>

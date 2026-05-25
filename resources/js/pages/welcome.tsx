@@ -2,6 +2,7 @@ import { Head } from '@inertiajs/react';
 import { lazy, Suspense } from 'react';
 
 import { Navbar } from '@/components/layout/Navbar';
+import { LazySection } from '@/components/site/LazySection';
 import { heroSlides } from '@/data/heroSlides';
 import { HeroSection } from '@/sections/HeroSection';
 
@@ -40,6 +41,10 @@ const pageDescription =
     'ZIVIO LIFE creates premium architectural, indoor, outdoor, pole, and solar lighting solutions for residential, commercial, and modern spaces.';
 
 export default function Welcome() {
+    const sectionFallback = (
+        <div className="min-h-32 bg-gradient-to-b from-[#0A0A0A] to-[#080808]" />
+    );
+
     return (
         <>
             <Head title={pageTitle}>
@@ -58,17 +63,31 @@ export default function Welcome() {
             <main className="min-h-screen bg-[#0A0A0A] text-[#F5F5F2]">
                 <Navbar />
                 <HeroSection />
-                <Suspense
-                    fallback={
-                        <div className="h-24 bg-gradient-to-b from-[#0A0A0A] to-[#111111]" />
-                    }
-                >
-                    <BrandStorySection />
-                    <CategoryShowcaseSection />
-                    <FeaturedApplicationSection />
-                    <ProjectsShowcaseSection />
-                    <ProductsShowcaseSection />
-                </Suspense>
+                <LazySection minHeight="min-h-40">
+                    <Suspense fallback={sectionFallback}>
+                        <BrandStorySection />
+                    </Suspense>
+                </LazySection>
+                <LazySection minHeight="min-h-40">
+                    <Suspense fallback={sectionFallback}>
+                        <CategoryShowcaseSection />
+                    </Suspense>
+                </LazySection>
+                <LazySection minHeight="min-h-40">
+                    <Suspense fallback={sectionFallback}>
+                        <FeaturedApplicationSection />
+                    </Suspense>
+                </LazySection>
+                <LazySection minHeight="min-h-40">
+                    <Suspense fallback={sectionFallback}>
+                        <ProjectsShowcaseSection />
+                    </Suspense>
+                </LazySection>
+                <LazySection minHeight="min-h-40">
+                    <Suspense fallback={sectionFallback}>
+                        <ProductsShowcaseSection />
+                    </Suspense>
+                </LazySection>
             </main>
         </>
     );

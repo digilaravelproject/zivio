@@ -16,7 +16,7 @@ export function ProjectAccordion({
     onActivate,
 }: ProjectAccordionProps) {
     return (
-        <div className="relative hidden h-[460px] gap-4 [perspective:1400px] md:flex xl:h-[520px]">
+        <div className="relative hidden h-[500px] gap-4 [perspective:1400px] md:flex xl:h-[580px]">
             {projects.map((project, index) => {
                 const isActive = activeIndex === index;
 
@@ -30,10 +30,10 @@ export function ProjectAccordion({
                         initial={false}
                         animate={{ flex: isActive ? 1.7 : 0.62 }}
                         transition={{
-                            duration: 0.55,
+                            duration: 0.7,
                             ease: [0.22, 1, 0.36, 1],
                         }}
-                        className="group relative min-w-0 overflow-hidden border border-white/[0.08] bg-[#111111] text-left shadow-[0_28px_80px_rgba(0,0,0,0.34)] outline-none transition duration-300 focus-visible:border-[#DA9807]/80"
+                        className="group relative min-w-0 overflow-hidden border border-white/[0.07] bg-[#101010] text-left shadow-[0_30px_90px_rgba(0,0,0,0.34)] outline-none transition duration-500 focus-visible:border-[#B88A2A]/70"
                         aria-label={`View ${project.title}`}
                     >
                         <img
@@ -43,7 +43,7 @@ export function ProjectAccordion({
                             height={1600}
                             loading="lazy"
                             decoding="async"
-                            className="h-full w-full object-cover transition duration-[1600ms] ease-out group-hover:scale-105"
+                            className="h-full w-full object-cover transition duration-[1800ms] ease-out group-hover:scale-[1.04]"
                             sizes={
                                 isActive
                                     ? '(min-width: 1024px) 42vw, 100vw'
@@ -55,7 +55,7 @@ export function ProjectAccordion({
                         <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/92 via-[#0A0A0A]/26 to-transparent" />
                         <div
                             className={`absolute inset-0 transition duration-500 ${isActive
-                                    ? 'shadow-[inset_0_0_100px_rgba(184,155,114,0.16)]'
+                                    ? 'shadow-[inset_0_0_120px_rgba(184,138,42,0.1)]'
                                     : 'shadow-[inset_0_0_80px_rgba(0,0,0,0.45)]'
                                 }`}
                         />
@@ -66,8 +66,8 @@ export function ProjectAccordion({
                                     : 'translate-y-3 opacity-0'
                                 }`}
                         >
-                            <span className="mb-4 block h-px w-12 bg-[#DA9807]/85" />
-                            <p className="mb-3 font-sans text-xs font-semibold tracking-[0.24em] text-[#DA9807] uppercase">
+                            <span className="mb-4 block h-px w-12 bg-[#B88A2A]/80" />
+                            <p className="mb-3 font-sans text-[0.68rem] font-semibold tracking-[0.24em] text-[#B88A2A] uppercase">
                                 {formatCounter(index + 1)} /{' '}
                                 {project.category}
                             </p>
@@ -85,7 +85,7 @@ export function ProjectAccordion({
                                     : 'opacity-100 group-hover:opacity-70'
                                 }`}
                         >
-                            <span className="h-10 w-px bg-[#DA9807]/60" />
+                            <span className="h-10 w-px bg-[#B88A2A]/55" />
                             <span className="[writing-mode:vertical-rl] font-sans text-[0.68rem] font-semibold tracking-[0.24em] text-[#F5F5F2] uppercase">
                                 {project.title}
                             </span>

@@ -30,9 +30,9 @@ export function Navbar() {
     return (
         <header
             className={cn(
-                'fixed top-0 right-0 left-0 z-50 transition-all duration-500',
+                'fixed top-0 right-0 left-0 z-50 transition-all duration-700',
                 isScrolled
-                    ? 'border-b border-white/10 bg-[#0A0A0A]/88 shadow-2xl shadow-black/25 backdrop-blur-xl'
+                    ? 'border-b border-white/[0.08] bg-[#080808]/78 shadow-[0_18px_60px_rgba(0,0,0,0.28)] backdrop-blur-2xl'
                     : 'border-b border-white/0 bg-transparent',
             )}
         >
@@ -51,15 +51,15 @@ export function Navbar() {
                     />
                 </Link>
 
-                <div className="hidden items-center gap-6 xl:gap-8 lg:flex">
+                <div className="hidden items-center gap-6 xl:gap-9 lg:flex">
                     {navigationLinks.map((link) => (
                         <Link
                             key={link.label}
                             href={link.href}
-                            className="group relative whitespace-nowrap text-xs font-medium tracking-[0.18em] text-[#CFCFCB] uppercase transition duration-300 hover:text-[#F5F5F2] xl:tracking-[0.2em]"
+                            className="group relative whitespace-nowrap font-sans text-[0.66rem] font-semibold tracking-[0.2em] text-[#D8D3C8] uppercase transition duration-500 hover:text-[#F5F5F2] xl:tracking-[0.22em]"
                         >
                             {link.label}
-                            <span className="absolute -bottom-2 left-0 h-px w-0 bg-[#DA9807] transition-all duration-300 group-hover:w-full" />
+                            <span className="absolute -bottom-2 left-0 h-px w-0 bg-[#B88A2A] transition-all duration-500 group-hover:w-full" />
                         </Link>
                     ))}
                 </div>
@@ -75,7 +75,7 @@ export function Navbar() {
 
                     <Link
                         href="/contact"
-                        className="hidden whitespace-nowrap border border-[#DA9807]/70 bg-[#0A0A0A]/20 px-4 py-2.5 text-[0.68rem] font-semibold tracking-[0.16em] text-[#F5F5F2] uppercase backdrop-blur-sm transition duration-300 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A] md:inline-flex xl:px-5 xl:py-3 xl:text-xs xl:tracking-[0.18em]"
+                        className="hidden whitespace-nowrap border border-[#B88A2A]/60 bg-[#0A0A0A]/20 px-4 py-2.5 font-sans text-[0.66rem] font-semibold tracking-[0.18em] text-[#F5F5F2] uppercase backdrop-blur-sm transition duration-500 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A] md:inline-flex xl:px-5 xl:py-3 xl:tracking-[0.2em]"
                     >
                         Start a Project
                     </Link>
@@ -102,10 +102,10 @@ export function Navbar() {
                         initial={{ opacity: 0, y: -18 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -18 }}
-                        transition={{ duration: 0.28, ease: 'easeOut' }}
-                        className="max-h-[calc(100svh-4rem)] overflow-y-auto border-t border-white/10 bg-[#0A0A0A]/96 px-4 pb-7 shadow-2xl shadow-black/30 backdrop-blur-xl sm:px-6 lg:hidden"
+                        transition={{ duration: 0.36, ease: [0.22, 1, 0.36, 1] }}
+                        className="max-h-[calc(100svh-4rem)] overflow-y-auto border-t border-white/[0.08] bg-[#080808]/96 px-4 pb-8 shadow-[0_28px_80px_rgba(0,0,0,0.4)] backdrop-blur-2xl sm:px-6 lg:hidden"
                     >
-                        <div className="mx-auto flex max-w-7xl flex-col pt-4">
+                        <div className="mx-auto flex max-w-7xl flex-col pt-5">
                             {navigationLinks.map((link, index) => (
                                 <motion.div
                                     key={link.label}
@@ -119,7 +119,7 @@ export function Navbar() {
                                     <Link
                                         href={link.href}
                                         onClick={() => setIsMenuOpen(false)}
-                                        className="flex border-b border-white/10 py-4 text-sm font-medium tracking-[0.18em] text-[#F5F5F2] uppercase transition hover:text-[#DA9807] sm:py-5 sm:tracking-[0.22em]"
+                                        className="flex border-b border-white/[0.08] py-4 font-sans text-xs font-semibold tracking-[0.22em] text-[#F5F5F2] uppercase transition duration-300 hover:text-[#B88A2A] sm:py-5 sm:tracking-[0.24em]"
                                     >
                                         {link.label}
                                     </Link>
@@ -129,7 +129,7 @@ export function Navbar() {
                             <Link
                                 href="/contact"
                                 onClick={() => setIsMenuOpen(false)}
-                                className="mt-6 inline-flex max-w-full justify-center border border-[#DA9807]/70 px-4 py-4 text-center text-xs font-semibold tracking-[0.16em] text-[#F5F5F2] uppercase transition hover:bg-[#F5F5F2] hover:text-[#0A0A0A] sm:px-5 sm:tracking-[0.22em]"
+                                className="mt-7 inline-flex max-w-full justify-center border border-[#B88A2A]/65 px-4 py-4 text-center font-sans text-xs font-semibold tracking-[0.18em] text-[#F5F5F2] uppercase transition duration-300 hover:bg-[#F5F5F2] hover:text-[#0A0A0A] sm:px-5 sm:tracking-[0.22em]"
                             >
                                 Start a Project
                             </Link>

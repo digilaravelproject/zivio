@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 import type { Swiper as SwiperType } from 'swiper';
@@ -17,11 +17,12 @@ export function HeroSection() {
     const [activeIndex, setActiveIndex] = useState(0);
     const [autoplayProgress, setAutoplayProgress] = useState(0);
     const [swiper, setSwiper] = useState<SwiperType | null>(null);
+    const prefersReducedMotion = useReducedMotion();
     const activeSlide = heroSlides[activeIndex] ?? heroSlides[0];
     const shouldShowText = activeSlide.showText !== false;
 
     return (
-        <section className="relative h-[100svh] min-h-[620px] overflow-hidden bg-[#0A0A0A] text-[#F5F5F2] sm:min-h-[680px]">
+        <section className="relative h-[100svh] min-h-[560px] overflow-hidden bg-[#080808] text-[#F5F5F2] sm:min-h-[680px]">
             <Swiper
                 modules={[Autoplay, EffectFade]}
                 effect="fade"
@@ -49,14 +50,16 @@ export function HeroSection() {
                                 className="absolute inset-0 will-change-transform"
                                 style={{
                                     background:
-                                        'radial-gradient(circle at 72% 42%, rgba(184, 155, 114, 0.18), transparent 28%), linear-gradient(120deg, rgba(10, 10, 10, 0.12), rgba(10, 10, 10, 0.22))',
+                                        'radial-gradient(circle at 74% 40%, rgba(184, 138, 42, 0.12), transparent 30%), linear-gradient(120deg, rgba(8, 8, 8, 0.1), rgba(8, 8, 8, 0.26))',
                                 }}
                                 initial={false}
                                 animate={{
                                     scale:
-                                        activeIndex === index
-                                            ? [1.08, 1.18]
-                                            : 1,
+                                        prefersReducedMotion
+                                            ? 1
+                                            : activeIndex === index
+                                              ? [1.08, 1.18]
+                                              : 1,
                                 }}
                                 transition={{
                                     duration:
@@ -79,18 +82,19 @@ export function HeroSection() {
                                     sizes="100vw"
                                 />
                             </motion.div>
-                            <div className="absolute inset-0 bg-[#0A0A0A]/25" />
-                            <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/90 via-[#0A0A0A]/44 to-[#0A0A0A]/10" />
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/86 via-[#0A0A0A]/8 to-[#0A0A0A]/36" />
-                            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0A0A0A] to-transparent" />
+                            <div className="absolute inset-0 bg-[#080808]/22" />
+                            <div className="absolute inset-0 bg-gradient-to-r from-[#080808]/92 via-[#080808]/42 to-[#080808]/8" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/88 via-[#080808]/8 to-[#080808]/34" />
+                            <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/72 to-transparent" />
                         </div>
                     </SwiperSlide>
                 ))}
             </Swiper>
 
-            <div className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(90deg,rgba(184,155,114,0.14)_1px,transparent_1px)] bg-[size:28vw_100%] opacity-20" />
+            <div className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(90deg,rgba(184,138,42,0.1)_1px,transparent_1px)] bg-[size:28vw_100%] opacity-[0.16]" />
+            <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(circle_at_24%_76%,rgba(255,255,255,0.055),transparent_28%)]" />
 
-            <div className="pointer-events-none absolute inset-0 z-40 mx-auto flex h-full max-w-7xl items-end px-4 pb-28 pt-24 sm:px-6 sm:pb-32 lg:px-10 lg:pb-36">
+            <div className="pointer-events-none absolute inset-0 z-40 mx-auto flex h-full max-w-7xl items-end px-4 pt-24 pb-24 sm:px-6 sm:pb-32 lg:px-10 lg:pb-36">
                 <AnimatePresence mode="wait">
                     {shouldShowText && (
                         <motion.div
@@ -98,14 +102,14 @@ export function HeroSection() {
                             initial={{ opacity: 0, y: 34, filter: 'blur(8px)' }}
                             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                             exit={{ opacity: 0, y: -18, filter: 'blur(6px)' }}
-                            transition={{ duration: 0.85, ease: 'easeOut' }}
-                            className="pointer-events-auto relative w-full max-w-[46rem] drop-shadow-[0_24px_60px_rgba(0,0,0,0.65)]"
+                            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+                            className="pointer-events-auto relative w-full max-w-[48rem] drop-shadow-[0_24px_60px_rgba(0,0,0,0.65)]"
                         >
                             <motion.p
                                 initial={{ opacity: 0, y: 14 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.1, duration: 0.55 }}
-                                className="mb-4 text-[0.68rem] font-semibold tracking-[0.24em] text-[#D7B98A] uppercase sm:mb-5 sm:text-xs sm:tracking-[0.34em]"
+                                className="mb-3 font-sans text-[0.6rem] font-semibold tracking-[0.24em] text-[#D2B276] uppercase sm:mb-5 sm:text-xs sm:tracking-[0.36em]"
                             >
                                 Premium Architectural Lighting
                             </motion.p>
@@ -114,7 +118,7 @@ export function HeroSection() {
                                 initial={{ opacity: 0, y: 18 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.18, duration: 0.65 }}
-                                className="max-w-4xl text-[clamp(3.25rem,15vw,5.2rem)] leading-[0.88] font-semibold tracking-normal text-balance text-[#F8F5EC] sm:text-[clamp(4.6rem,10vw,7.4rem)] lg:text-[clamp(6.5rem,8vw,8.5rem)]"
+                                className="max-w-4xl text-[clamp(2.55rem,12vw,4.35rem)] leading-[0.94] font-semibold tracking-normal text-balance text-[#F8F5EC] sm:text-[clamp(4.6rem,10vw,7.2rem)] lg:text-[clamp(6.3rem,7.8vw,8.4rem)]"
                             >
                                 {activeSlide.title}
                             </motion.h1>
@@ -123,7 +127,7 @@ export function HeroSection() {
                                 initial={{ opacity: 0, y: 18 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.28, duration: 0.65 }}
-                                className="mt-5 max-w-2xl text-base leading-7 text-[#E0DBCF] sm:mt-6 sm:text-xl sm:leading-8"
+                                className="mt-4 max-w-xl font-sans text-sm leading-6 tracking-[0.01em] text-[#E0DBCF] sm:mt-6 sm:text-lg sm:leading-8"
                             >
                                 {activeSlide.subtitle}
                             </motion.p>
@@ -132,7 +136,7 @@ export function HeroSection() {
                                 initial={{ opacity: 0, y: 18 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.38, duration: 0.65 }}
-                                className="mt-7 sm:mt-9"
+                                className="mt-6 sm:mt-9"
                             >
                                 <SiteButton href={activeSlide.buttonHref}>
                                     {activeSlide.buttonText}
@@ -143,10 +147,10 @@ export function HeroSection() {
                 </AnimatePresence>
             </div>
 
-            <div className="absolute right-4 bottom-6 left-4 z-50 mx-auto flex max-w-7xl items-center justify-between gap-3 sm:right-6 sm:bottom-8 sm:left-6 sm:gap-6 lg:right-10 lg:left-10">
-                <div className="flex min-w-20 items-center gap-2 text-sm font-medium tracking-[0.16em] text-[#F5F5F2] sm:min-w-28 sm:gap-3 sm:text-base sm:tracking-[0.2em]">
+            <div className="absolute right-4 bottom-5 left-4 z-50 mx-auto flex max-w-7xl items-center justify-between gap-3 sm:right-6 sm:bottom-8 sm:left-6 sm:gap-6 lg:right-10 lg:left-10">
+                <div className="flex min-w-20 items-center gap-2 font-sans text-xs font-semibold tracking-[0.18em] text-[#F5F5F2] sm:min-w-28 sm:gap-3 sm:text-sm sm:tracking-[0.22em]">
                     <span>{formatSlideNumber(activeIndex + 1)}</span>
-                    <span className="h-px w-6 bg-[#DA9807] sm:w-10" />
+                    <span className="h-px w-6 bg-[#B88A2A] sm:w-10" />
                     <span className="text-[#CFCFCB]">
                         {formatSlideNumber(heroSlides.length)}
                     </span>
@@ -154,7 +158,7 @@ export function HeroSection() {
 
                 <div className="hidden h-px flex-1 overflow-hidden bg-white/20 sm:block">
                     <motion.div
-                        className="h-full bg-[#DA9807]"
+                        className="h-full bg-[#B88A2A]"
                         animate={{ scaleX: autoplayProgress }}
                         transition={{ duration: 0.15 }}
                         style={{ transformOrigin: 'left' }}
@@ -165,7 +169,7 @@ export function HeroSection() {
                     <button
                         type="button"
                         onClick={() => swiper?.slidePrev()}
-                        className="grid size-10 place-items-center border border-white/20 bg-[#0A0A0A]/20 text-[#F5F5F2] backdrop-blur-sm transition duration-300 hover:border-[#DA9807] hover:bg-[#DA9807]/10 hover:text-[#DA9807] sm:size-11"
+                        className="grid size-11 place-items-center border border-white/[0.16] bg-[#0A0A0A]/22 text-[#F5F5F2] backdrop-blur-sm transition duration-500 hover:border-[#B88A2A]/80 hover:bg-[#B88A2A]/10 hover:text-[#D2B276]"
                         aria-label="Previous slide"
                     >
                         <ArrowLeft className="size-5" strokeWidth={1.5} />
@@ -173,7 +177,7 @@ export function HeroSection() {
                     <button
                         type="button"
                         onClick={() => swiper?.slideNext()}
-                        className="grid size-10 place-items-center border border-white/20 bg-[#0A0A0A]/20 text-[#F5F5F2] backdrop-blur-sm transition duration-300 hover:border-[#DA9807] hover:bg-[#DA9807]/10 hover:text-[#DA9807] sm:size-11"
+                        className="grid size-11 place-items-center border border-white/[0.16] bg-[#0A0A0A]/22 text-[#F5F5F2] backdrop-blur-sm transition duration-500 hover:border-[#B88A2A]/80 hover:bg-[#B88A2A]/10 hover:text-[#D2B276]"
                         aria-label="Next slide"
                     >
                         <ArrowRight className="size-5" strokeWidth={1.5} />

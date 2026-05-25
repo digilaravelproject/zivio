@@ -24,7 +24,7 @@ export function ProductCard({ product, index }: ProductCardProps) {
                 duration: 0.56,
                 ease: [0.22, 1, 0.36, 1],
             }}
-            className="group relative overflow-hidden rounded-[8px] border border-white/[0.09] bg-white/[0.035] shadow-[0_24px_70px_rgba(0,0,0,0.32)] backdrop-blur-md transition duration-700 hover:-translate-y-2 hover:border-[#DA9807]/55 hover:shadow-[0_34px_95px_rgba(0,0,0,0.45),0_0_42px_rgba(218,152,7,0.13)] md:[transform-style:preserve-3d] md:hover:[transform:rotateX(2deg)_rotateY(-2deg)_translateY(-8px)]"
+            className="group relative overflow-hidden rounded-[8px] border border-white/[0.08] bg-white/[0.03] shadow-[0_18px_52px_rgba(0,0,0,0.28)] backdrop-blur-md transition duration-700 hover:-translate-y-1 hover:border-[#B88A2A]/40 sm:shadow-[0_24px_70px_rgba(0,0,0,0.3)] md:hover:-translate-y-2 md:hover:border-[#B88A2A]/45 md:hover:shadow-[0_34px_95px_rgba(0,0,0,0.42),0_0_34px_rgba(184,138,42,0.1)] md:[transform-style:preserve-3d] md:hover:[transform:rotateX(1.4deg)_rotateY(-1.4deg)_translateY(-8px)]"
         >
             <Link
                 href={product.href}
@@ -32,12 +32,12 @@ export function ProductCard({ product, index }: ProductCardProps) {
                 aria-label={`View ${product.name}`}
             />
 
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.1),transparent_34%),radial-gradient(circle_at_50%_0%,rgba(218,152,7,0.13),transparent_36%)] opacity-60 transition duration-700 group-hover:opacity-100" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.09),transparent_34%),radial-gradient(circle_at_50%_0%,rgba(184,138,42,0.1),transparent_36%)] opacity-60 transition duration-700 group-hover:opacity-100" />
             <div className="pointer-events-none absolute inset-px rounded-[7px] border border-white/[0.04]" />
             <div className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
 
             <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-[#171717] via-[#101010] to-[#080808]">
-                <div className="pointer-events-none absolute inset-5 rounded-full bg-[#DA9807]/8 blur-2xl transition duration-700 group-hover:bg-[#DA9807]/14" />
+                <div className="pointer-events-none absolute inset-5 rounded-full bg-[#B88A2A]/7 blur-2xl transition duration-700 group-hover:bg-[#B88A2A]/11" />
                 <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,transparent_0%,rgba(255,255,255,0.09)_48%,transparent_64%)] opacity-0 transition duration-700 group-hover:translate-x-8 group-hover:opacity-70" />
 
                 <img
@@ -48,7 +48,7 @@ export function ProductCard({ product, index }: ProductCardProps) {
                     loading="lazy"
                     decoding="async"
                     className={cn(
-                        'relative z-10 h-full w-full p-4 transition duration-700 ease-out group-hover:-translate-y-1.5 group-hover:scale-[1.04] sm:p-5',
+                        'relative z-10 h-full w-full p-2.5 transition duration-700 ease-out group-hover:-translate-y-1 group-hover:scale-[1.03] sm:p-5 sm:group-hover:-translate-y-1.5 sm:group-hover:scale-[1.04]',
                         product.imageFit === 'contain'
                             ? 'object-contain'
                             : 'object-cover',
@@ -57,26 +57,26 @@ export function ProductCard({ product, index }: ProductCardProps) {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/64 via-transparent to-[#0A0A0A]/16" />
 
-                <div className="absolute top-4 left-4 z-20 font-sans text-[0.68rem] font-semibold tracking-[0.24em] text-[#DA9807]">
+                <div className="absolute top-3 left-3 z-20 font-sans text-[0.58rem] font-semibold tracking-[0.22em] text-[#B88A2A] sm:top-4 sm:left-4 sm:text-[0.66rem] sm:tracking-[0.24em]">
                     {productNumber}
                 </div>
-                <p className="absolute right-4 bottom-4 z-20 rounded-full border border-[#DA9807]/30 bg-[#0A0A0A]/45 px-3 py-1.5 font-sans text-[0.58rem] font-semibold tracking-[0.18em] text-[#DA9807] uppercase backdrop-blur-sm">
+                <p className="absolute right-2 bottom-2 z-20 rounded-full border border-[#B88A2A]/28 bg-[#0A0A0A]/45 px-2 py-1 font-sans text-[0.5rem] font-semibold tracking-[0.12em] text-[#B88A2A] uppercase backdrop-blur-sm sm:right-4 sm:bottom-4 sm:px-3 sm:py-1.5 sm:text-[0.58rem] sm:tracking-[0.18em]">
                     {product.categories[0]}
                 </p>
             </div>
 
-            <div className="relative p-5 sm:p-6">
-                <span className="mb-4 block h-px w-12 bg-gradient-to-r from-[#DA9807] to-transparent" />
-                <h3 className="text-[1.45rem] leading-7 font-semibold text-[#F8F5EC]">
+            <div className="relative p-3 sm:p-6">
+                <span className="mb-3 block h-px w-9 bg-gradient-to-r from-[#B88A2A] to-transparent sm:mb-4 sm:w-12" />
+                <h3 className="text-[1rem] leading-5 font-semibold text-[#F8F5EC] sm:text-[1.45rem] sm:leading-7">
                     {product.name}
                 </h3>
-                <p className="mt-3 min-h-12 font-sans text-sm leading-6 text-[#CFCFCB]">
+                <p className="mt-2 min-h-10 font-sans text-[0.72rem] leading-5 text-[#CFCFCB] sm:mt-3 sm:min-h-12 sm:text-sm sm:leading-6">
                     {product.subtitle}
                 </p>
-                <div className="mt-5 inline-flex items-center gap-2 font-sans text-[0.66rem] font-semibold tracking-[0.2em] text-[#F8F5EC] uppercase opacity-90 transition duration-500 group-hover:translate-x-1 group-hover:text-[#DA9807] group-hover:opacity-100">
+                <div className="mt-3 inline-flex items-center gap-1.5 font-sans text-[0.56rem] font-semibold tracking-[0.16em] text-[#F8F5EC] uppercase opacity-90 transition duration-500 group-hover:translate-x-1 group-hover:text-[#B88A2A] group-hover:opacity-100 sm:mt-5 sm:gap-2 sm:text-[0.66rem] sm:tracking-[0.2em]">
                     Details
                     <ArrowUpRight
-                        className="size-4 transition duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                        className="size-3.5 transition duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 sm:size-4"
                         strokeWidth={1.5}
                     />
                 </div>
