@@ -36,6 +36,18 @@ const ProductsShowcaseSection = lazy(() =>
     })),
 );
 
+const PrecisionCraftsmanshipSection = lazy(() =>
+    import('@/sections/PrecisionCraftsmanshipSection').then((module) => ({
+        default: module.PrecisionCraftsmanshipSection,
+    })),
+);
+
+const CatalogueCtaSection = lazy(() =>
+    import('@/sections/CatalogueCtaSection').then((module) => ({
+        default: module.CatalogueCtaSection,
+    })),
+);
+
 const pageTitle = 'ZIVIO LIFE | Architectural & Modern Lighting Solutions';
 const pageDescription =
     'ZIVIO LIFE creates premium architectural, indoor, outdoor, pole, and solar lighting solutions for residential, commercial, and modern spaces.';
@@ -86,6 +98,16 @@ export default function Welcome() {
                 <LazySection minHeight="min-h-40">
                     <Suspense fallback={sectionFallback}>
                         <ProductsShowcaseSection />
+                    </Suspense>
+                </LazySection>
+                <LazySection minHeight="min-h-40">
+                    <Suspense fallback={sectionFallback}>
+                        <PrecisionCraftsmanshipSection />
+                    </Suspense>
+                </LazySection>
+                <LazySection minHeight="min-h-40">
+                    <Suspense fallback={sectionFallback}>
+                        <CatalogueCtaSection />
                     </Suspense>
                 </LazySection>
             </main>

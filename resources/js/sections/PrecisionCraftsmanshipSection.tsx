@@ -1,0 +1,113 @@
+import { Link } from '@inertiajs/react';
+import { motion } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
+
+import { precisionData } from '@/data/precisionData';
+
+export function PrecisionCraftsmanshipSection() {
+    return (
+        <section className="relative overflow-hidden bg-[#080808] px-4 py-14 text-[#F5F5F2] sm:px-6 sm:py-20 lg:px-10 lg:py-[7.5rem]">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_24%,rgba(184,138,42,0.08),transparent_28%),radial-gradient(circle_at_80%_22%,rgba(255,255,255,0.045),transparent_26%),linear-gradient(140deg,#080808_0%,#101010_48%,#070707_100%)]" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(184,138,42,0.04)_1px,transparent_1px),linear-gradient(180deg,rgba(255,255,255,0.026)_1px,transparent_1px)] bg-[size:20rem_100%,100%_7rem] opacity-[0.16]" />
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#B88A2A]/22 to-transparent" />
+
+            <motion.div
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.22 }}
+                transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                className="relative mx-auto grid max-w-7xl gap-9 lg:grid-cols-[1.02fr_0.78fr] lg:items-center lg:gap-16"
+            >
+                <div className="relative order-1 lg:order-none">
+                    <div className="group relative aspect-[4/3] overflow-hidden border border-white/[0.08] bg-[#111111] shadow-[0_30px_90px_rgba(0,0,0,0.34)] sm:aspect-[16/11] lg:aspect-[5/4]">
+                        <img
+                            src={precisionData.mainImage}
+                            alt="Architectural lighting detail"
+                            width={1600}
+                            height={1280}
+                            loading="lazy"
+                            decoding="async"
+                            className="h-full w-full object-cover transition duration-[1400ms] ease-out group-hover:scale-[1.04]"
+                            sizes="(min-width: 1024px) 54vw, 100vw"
+                        />
+                        <div className="absolute inset-0 bg-[#080808]/18" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/82 via-transparent to-[#080808]/18" />
+                        <div className="absolute inset-0 shadow-[inset_0_0_110px_rgba(184,138,42,0.08)]" />
+                        <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/28 to-transparent" />
+                    </div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 22 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.35 }}
+                        transition={{
+                            delay: 0.12,
+                            duration: 0.78,
+                            ease: [0.22, 1, 0.36, 1],
+                        }}
+                        className="relative z-10 mx-4 -mt-12 max-w-[18rem] overflow-hidden border border-white/[0.08] bg-[#080808]/82 p-3 shadow-[0_24px_70px_rgba(0,0,0,0.38)] backdrop-blur-xl sm:mx-8 sm:-mt-16 sm:max-w-[20rem] sm:p-4 lg:absolute lg:right-8 lg:bottom-8 lg:mx-0 lg:mt-0"
+                    >
+                        <div className="relative aspect-[5/3] overflow-hidden bg-[#111111]">
+                            <img
+                                src={precisionData.detailImage}
+                                alt="Premium lighting finish close up"
+                                width={900}
+                                height={540}
+                                loading="lazy"
+                                decoding="async"
+                                className="h-full w-full object-cover"
+                                sizes="(min-width: 1024px) 20rem, 18rem"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/54 to-transparent" />
+                        </div>
+                        <p className="mt-3 font-sans text-[0.58rem] font-semibold tracking-[0.22em] text-[#B88A2A] uppercase sm:text-[0.62rem]">
+                            Premium Finish
+                        </p>
+                    </motion.div>
+                </div>
+
+                <div className="relative order-2">
+                    <div className="mb-5 flex items-center gap-4">
+                        <span className="h-px w-10 bg-[#B88A2A]" />
+                        <p className="font-sans text-[0.62rem] font-semibold tracking-[0.3em] text-[#B88A2A] uppercase sm:text-[0.64rem] sm:tracking-[0.34em]">
+                            {precisionData.label}
+                        </p>
+                    </div>
+
+                    <h2 className="max-w-xl text-[2.25rem] leading-[1.02] font-semibold text-balance text-[#F8F5EC] sm:text-5xl lg:text-[3.65rem]">
+                        {precisionData.heading}
+                    </h2>
+
+                    <p className="mt-5 max-w-xl font-sans text-sm leading-7 tracking-[0.01em] text-[#CFCFCB] sm:mt-6 sm:text-base sm:leading-8">
+                        {precisionData.paragraph}
+                    </p>
+
+                    <div className="mt-7 grid grid-cols-2 gap-3 sm:mt-8 sm:gap-4">
+                        {precisionData.features.map((feature, index) => (
+                            <div
+                                key={feature.title}
+                                className="relative border border-white/[0.08] bg-white/[0.025] p-3 sm:p-4"
+                            >
+                                <span className="mb-3 block h-px w-8 bg-[#B88A2A]/80" />
+                                <p className="mb-2 font-sans text-[0.58rem] font-semibold tracking-[0.2em] text-[#B88A2A] uppercase">
+                                    {String(index + 1).padStart(2, '0')}
+                                </p>
+                                <h3 className="text-lg leading-5 font-semibold text-[#F8F5EC] sm:text-xl sm:leading-6">
+                                    {feature.title}
+                                </h3>
+                            </div>
+                        ))}
+                    </div>
+
+                    <Link
+                        href={precisionData.ctaHref}
+                        className="mt-8 inline-flex w-full items-center justify-center gap-2 border border-[#B88A2A]/55 px-5 py-3.5 font-sans text-[0.66rem] font-semibold tracking-[0.2em] text-[#F5F5F2] uppercase transition duration-500 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A] sm:w-auto"
+                    >
+                        {precisionData.ctaLabel}
+                        <ArrowUpRight className="size-4" strokeWidth={1.5} />
+                    </Link>
+                </div>
+            </motion.div>
+        </section>
+    );
+}
