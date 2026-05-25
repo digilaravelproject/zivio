@@ -29,6 +29,12 @@ const ProjectsShowcaseSection = lazy(() =>
     })),
 );
 
+const ProductsShowcaseSection = lazy(() =>
+    import('@/sections/ProductsShowcaseSection').then((module) => ({
+        default: module.ProductsShowcaseSection,
+    })),
+);
+
 const pageTitle = 'ZIVIO LIFE | Architectural & Modern Lighting Solutions';
 const pageDescription =
     'ZIVIO LIFE creates premium architectural, indoor, outdoor, pole, and solar lighting solutions for residential, commercial, and modern spaces.';
@@ -61,6 +67,7 @@ export default function Welcome() {
                     <CategoryShowcaseSection />
                     <FeaturedApplicationSection />
                     <ProjectsShowcaseSection />
+                    <ProductsShowcaseSection />
                 </Suspense>
             </main>
         </>

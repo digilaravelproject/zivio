@@ -307,7 +307,7 @@
     "name": "wayfinder"
   },
   "resources/css/app.css": {
-    "file": "assets/app-BZbeM_gF.css",
+    "file": "assets/app-D5kW4l0J.css",
     "name": "app",
     "names": [
       "app.css"
@@ -316,7 +316,7 @@
     "isEntry": true
   },
   "resources/css/welcome.css": {
-    "file": "assets/welcome-BiHQ0v0W.css",
+    "file": "assets/welcome-BrjxEnA6.css",
     "name": "welcome",
     "names": [
       "welcome.css"
@@ -325,7 +325,7 @@
     "isEntry": true
   },
   "resources/js/app.tsx": {
-    "file": "assets/app-CHVGUa_S.js",
+    "file": "assets/app-1aOKEt3D.js",
     "name": "app",
     "src": "resources/js/app.tsx",
     "isEntry": true,
@@ -356,7 +356,7 @@
     ]
   },
   "resources/js/components/ui/sonner.tsx": {
-    "file": "assets/sonner-hWoBjGyy.js",
+    "file": "assets/sonner-enzcgdai.js",
     "name": "sonner",
     "src": "resources/js/components/ui/sonner.tsx",
     "isDynamicEntry": true,
@@ -572,7 +572,7 @@
     ]
   },
   "resources/js/pages/settings/appearance.tsx": {
-    "file": "assets/appearance-mB16jQzO.js",
+    "file": "assets/appearance-CwtOQ7Q1.js",
     "name": "appearance",
     "src": "resources/js/pages/settings/appearance.tsx",
     "isDynamicEntry": true,
@@ -610,7 +610,7 @@
     ]
   },
   "resources/js/pages/settings/security.tsx": {
-    "file": "assets/security-C_dq066N.js",
+    "file": "assets/security-vYgxtCVD.js",
     "name": "security",
     "src": "resources/js/pages/settings/security.tsx",
     "isDynamicEntry": true,
@@ -637,7 +637,7 @@
     ]
   },
   "resources/js/pages/welcome.tsx": {
-    "file": "assets/welcome-Dvbn3_0Y.js",
+    "file": "assets/welcome-BfTYNr1C.js",
     "name": "welcome",
     "src": "resources/js/pages/welcome.tsx",
     "isDynamicEntry": true,
@@ -654,7 +654,8 @@
       "resources/js/sections/BrandStorySection.tsx",
       "resources/js/sections/CategoryShowcaseSection.tsx",
       "resources/js/sections/FeaturedApplicationSection.tsx",
-      "resources/js/sections/ProjectsShowcaseSection.tsx"
+      "resources/js/sections/ProjectsShowcaseSection.tsx",
+      "resources/js/sections/ProductsShowcaseSection.tsx"
     ]
   },
   "resources/js/sections/BrandStorySection.tsx": {
@@ -695,8 +696,22 @@
       "_ScrollDepthWrapper-BSichCn8.js"
     ]
   },
+  "resources/js/sections/ProductsShowcaseSection.tsx": {
+    "file": "assets/ProductsShowcaseSection-DDnDk4qs.js",
+    "name": "ProductsShowcaseSection",
+    "src": "resources/js/sections/ProductsShowcaseSection.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-BKS5pmYO.js",
+      "_inertia-BqzFoydG.js",
+      "_utilities-oky2tmzs.js",
+      "_motion-D3nLgHot.js",
+      "_react-Bn_NlQuA.js",
+      "_utils-C9ZdRBqa.js"
+    ]
+  },
   "resources/js/sections/ProjectsShowcaseSection.tsx": {
-    "file": "assets/ProjectsShowcaseSection-BhNz-Gft.js",
+    "file": "assets/ProjectsShowcaseSection-uJqQZGNI.js",
     "name": "ProjectsShowcaseSection",
     "src": "resources/js/sections/ProjectsShowcaseSection.tsx",
     "isDynamicEntry": true,
