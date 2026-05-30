@@ -17,10 +17,11 @@ type AppProvidersProps = {
 };
 
 export function AppProviders({ children }: AppProvidersProps) {
-    const isPublicHome =
-        typeof window !== 'undefined' && window.location.pathname === '/';
+    const isPublicWeb =
+        typeof window !== 'undefined' &&
+        ['/', '/about-company'].includes(window.location.pathname);
 
-    if (isPublicHome) {
+    if (isPublicWeb) {
         return children;
     }
 

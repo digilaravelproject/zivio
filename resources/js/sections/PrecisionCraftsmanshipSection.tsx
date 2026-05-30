@@ -1,22 +1,19 @@
 import { Link } from '@inertiajs/react';
-import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
-
 import { precisionData } from '@/data/precisionData';
+import { Reveal } from '@/components/animations/Reveal';
 
 export function PrecisionCraftsmanshipSection() {
     return (
         <section className="relative overflow-hidden bg-[#080808] px-4 py-14 text-[#F5F5F2] sm:px-6 sm:py-20 lg:px-10 lg:py-[7.5rem]">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_24%,rgba(184,138,42,0.08),transparent_28%),radial-gradient(circle_at_80%_22%,rgba(255,255,255,0.045),transparent_26%),linear-gradient(140deg,#080808_0%,#101010_48%,#070707_100%)]" />
+            {/* Adopting clean, single CSS utility for luxury section backgrounds */}
+            <div className="pointer-events-none absolute inset-0 bg-luxury-glow-1" />
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(184,138,42,0.04)_1px,transparent_1px),linear-gradient(180deg,rgba(255,255,255,0.026)_1px,transparent_1px)] bg-[size:20rem_100%,100%_7rem] opacity-[0.16]" />
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#B88A2A]/22 to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-luxury-divider" />
 
-            <motion.div
-                initial={{ opacity: 0, y: 28 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.22 }}
-                transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            <Reveal
                 className="relative mx-auto grid max-w-7xl gap-9 lg:grid-cols-[1.02fr_0.78fr] lg:items-center lg:gap-16"
+                threshold={0.15}
             >
                 <div className="relative order-1 lg:order-none">
                     <div className="group relative aspect-[4/3] overflow-hidden border border-white/[0.08] bg-[#111111] shadow-[0_30px_90px_rgba(0,0,0,0.34)] sm:aspect-[16/11] lg:aspect-[5/4]">
@@ -36,15 +33,9 @@ export function PrecisionCraftsmanshipSection() {
                         <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/28 to-transparent" />
                     </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 22 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.35 }}
-                        transition={{
-                            delay: 0.12,
-                            duration: 0.78,
-                            ease: [0.22, 1, 0.36, 1],
-                        }}
+                    <Reveal
+                        delay={120}
+                        duration={780}
                         className="relative z-10 mx-4 -mt-12 max-w-[18rem] overflow-hidden border border-white/[0.08] bg-[#080808]/82 p-3 shadow-[0_24px_70px_rgba(0,0,0,0.38)] backdrop-blur-xl sm:mx-8 sm:-mt-16 sm:max-w-[20rem] sm:p-4 lg:absolute lg:right-8 lg:bottom-8 lg:mx-0 lg:mt-0"
                     >
                         <div className="relative aspect-[5/3] overflow-hidden bg-[#111111]">
@@ -60,25 +51,25 @@ export function PrecisionCraftsmanshipSection() {
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/54 to-transparent" />
                         </div>
-                        <p className="mt-3 font-sans text-[0.58rem] font-semibold tracking-[0.22em] text-[#B88A2A] uppercase sm:text-[0.62rem]">
+                        <p className="mt-3 text-luxury-label sm:text-[0.62rem]">
                             Premium Finish
                         </p>
-                    </motion.div>
+                    </Reveal>
                 </div>
 
                 <div className="relative order-2">
                     <div className="mb-5 flex items-center gap-4">
-                        <span className="h-px w-10 bg-[#B88A2A]" />
-                        <p className="font-sans text-[0.62rem] font-semibold tracking-[0.3em] text-[#B88A2A] uppercase sm:text-[0.64rem] sm:tracking-[0.34em]">
+                        <span className="h-[1px] w-10 bg-[#B88A2A]" />
+                        <p className="text-luxury-label">
                             {precisionData.label}
                         </p>
                     </div>
 
-                    <h2 className="max-w-xl text-[2.25rem] leading-[1.02] font-semibold text-balance text-[#F8F5EC] sm:text-5xl lg:text-[3.65rem]">
+                    <h2 className="text-luxury-heading">
                         {precisionData.heading}
                     </h2>
 
-                    <p className="mt-5 max-w-xl font-sans text-sm leading-7 tracking-[0.01em] text-[#CFCFCB] sm:mt-6 sm:text-base sm:leading-8">
+                    <p className="mt-5 text-luxury-paragraph">
                         {precisionData.paragraph}
                     </p>
 
@@ -107,7 +98,7 @@ export function PrecisionCraftsmanshipSection() {
                         <ArrowUpRight className="size-4" strokeWidth={1.5} />
                     </Link>
                 </div>
-            </motion.div>
+            </Reveal>
         </section>
     );
 }

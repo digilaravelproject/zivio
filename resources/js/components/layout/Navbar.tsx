@@ -27,6 +27,13 @@ export function Navbar() {
         };
     }, [isMenuOpen]);
 
+    const handleHomeClick = (e: React.MouseEvent) => {
+        if (window.location.pathname === '/') {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    };
+
     return (
         <header
             className={cn(
@@ -39,6 +46,7 @@ export function Navbar() {
             <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 sm:h-20 sm:px-6 lg:px-10">
                 <Link
                     href="/"
+                    onClick={handleHomeClick}
                     className="flex shrink-0 items-center"
                     aria-label="ZIVIO LIFE home"
                 >
@@ -81,6 +89,7 @@ export function Navbar() {
                             <Link
                                 key={link.label}
                                 href={link.href!}
+                                onClick={link.href === '/' ? handleHomeClick : undefined}
                                 className="group relative whitespace-nowrap font-sans text-[0.75rem] font-semibold tracking-[0.15em] text-[#D8D3C8] uppercase transition duration-500 hover:text-[#F5F5F2] xl:tracking-[0.18em] py-6"
                             >
                                 {link.label}
@@ -217,7 +226,13 @@ function MobileNavLink({
         >
             <Link
                 href={link.href!}
-                onClick={() => setIsMenuOpen(false)}
+                onClick={(e) => {
+                    setIsMenuOpen(false);
+                    if (link.href === '/' && window.location.pathname === '/') {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                }}
                 className="flex border-b border-white/[0.08] py-4 font-sans text-sm font-semibold tracking-[0.18em] text-[#F5F5F2] uppercase transition duration-300 hover:text-[#B88A2A] sm:py-5 sm:tracking-[0.2em]"
             >
                 {link.label}

@@ -1,0 +1,180 @@
+export interface PhilosophyBlock {
+    title: string;
+    description: string;
+    image: string;
+}
+
+export interface ValueCard {
+    title: string;
+    description: string;
+    image: string;
+}
+
+export interface Partner {
+    name: string;
+    logoPlaceholder: string;
+}
+
+export interface TeamMember {
+    name: string;
+    role: string;
+    image: string;
+}
+
+export interface Testimonial {
+    quote: string;
+    author: string;
+    role: string;
+}
+
+export const heroData = {
+    label: 'ABOUT ZIVIO',
+    heading: 'Shaping spaces through precision, design, and light.',
+    paragraph: 'ZIVIO combines precision engineering and timeless design to shape a brighter, more sustainable world.',
+    backgroundImage: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?q=80&w=1920',
+};
+
+export const introData = {
+    heading: 'Architectural lighting with purpose.',
+    paragraph1: 'ZIVIO Life stands as a benchmark in architectural outdoor lighting, combining innovation, precision, and timeless design.',
+    paragraph2: 'We approach each architectural space as a unique canvas. By developing highly engineered luminaire systems that integrate seamlessly with structural forms, we enhance both functional visibility and visual grandeur.',
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800',
+};
+
+export const philosophyBlocks: PhilosophyBlock[] = [
+    {
+        title: 'Our Philosophy',
+        description: 'We believe that light is the ultimate structural material. By manipulating its temperature, direction, and intensity, we do not merely make spaces visible—we craft their atmosphere, dictate their emotional response, and sculpt their spatial perception. Every fixture is designed to disappear, leaving only the pure, sublime impact of light.',
+        image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800',
+    },
+    {
+        title: 'Commitment to Sustainability',
+        description: 'True luxury is responsible. ZIVIO is dedicated to high-efficiency LED architectures, intelligent power management, and eco-friendly manufacturing materials. By reducing operational energy and embedding solar-powered excellence into outdoor spaces, we deliver luminous beauty that honors the natural world.',
+        image: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=800',
+    },
+    {
+        title: 'Our Vision',
+        description: 'To redefine how modern structures interact with the night. By setting the global benchmark for intelligence, efficiency, and uncompromising design aesthetics, ZIVIO lights the path toward a beautifully illuminated, highly responsible future. We are building the legacy of timeless architectural illumination.',
+        image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800',
+    },
+];
+
+export const trustData = {
+    heading: 'Why thousands trust ZIVIO?',
+    paragraph: 'Lighting is about more than visibility — it is about responsibility, sustainable innovation, uncompromising quality, and design reliability.',
+};
+
+export const valuesData: ValueCard[] = [
+    {
+        title: 'Imagination',
+        description: 'We dare to conceptualize the unprecedented, pushing technical boundaries to synthesize custom-tailored lighting architectures.',
+        image: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=600',
+    },
+    {
+        title: 'Beauty',
+        description: 'We seek absolute elegance in pure form and pure illumination, balancing subtle aesthetics with high-performance metrics.',
+        image: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?q=80&w=600',
+    },
+    {
+        title: 'Inclusivity',
+        description: 'Designing spaces that welcome everyone. We collaborate across boundaries to craft lighting environments that cater to diverse spatial needs.',
+        image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=600',
+    },
+    {
+        title: 'Authenticity',
+        description: 'Delivering real build quality with honest premium materials like solid aluminum, brass, and optics that perform exactly as spec’d.',
+        image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=600',
+    },
+];
+
+export const partnersData: Partner[] = [
+    { name: 'BARC', logoPlaceholder: 'BARC' },
+    { name: 'Reserve Bank', logoPlaceholder: 'RBI' },
+    { name: 'HP', logoPlaceholder: 'HP' },
+    { name: 'Tata', logoPlaceholder: 'TATA' },
+    { name: 'Jaypee Group', logoPlaceholder: 'JAYPEE' },
+    { name: 'JW Marriott', logoPlaceholder: 'JW MARRIOTT' },
+    { name: 'Hyatt', logoPlaceholder: 'HYATT' },
+    { name: 'Godrej Interio', logoPlaceholder: 'GODREJ' },
+];
+
+export const teamData: TeamMember[] = [
+    {
+        name: 'Cs Jirapure',
+        role: 'Chief Executive Officer',
+        image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400',
+    },
+    {
+        name: 'Marcus Leong',
+        role: 'Head of Design & Innovation',
+        image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400',
+    },
+    {
+        name: 'Sophia Grant',
+        role: 'Lighting Design Specialist',
+        image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400',
+    },
+    {
+        name: 'Isabella Moreau',
+        role: 'Creative Director',
+        image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400',
+    },
+    {
+        name: 'Camila Rodríguez',
+        role: 'Marketing & Communications Lead',
+        image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400',
+    },
+    {
+        name: 'Arjun Patel',
+        role: 'Senior Electrical Engineer',
+        image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400',
+    },
+    {
+        name: 'Hiroshi Tanaka',
+        role: 'Sustainability Consultant',
+        image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400',
+    },
+    {
+        name: 'David Kim',
+        role: 'Project Operations Manager',
+        image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400',
+    },
+];
+
+export const testimonialsData: Testimonial[] = [
+    {
+        quote: 'ZIVIO’s fixtures transformed our workspace project. The precision and consistency of the color rendering are unmatched, providing a premium ambience that our clients immediately appreciate.',
+        author: 'Rohit Mehra',
+        role: 'Design Head, Godrej Interio',
+    },
+    {
+        quote: 'Uncompromising quality and incredible design reliability. ZIVIO met our strict sustainability standards while delivering an outstanding visual aesthetic that elevated the entire complex.',
+        author: 'Ananya Iyer',
+        role: 'Project Lead, TATA',
+    },
+    {
+        quote: 'We choose ZIVIO when we need custom lighting solutions that require structural integration. Their engineering support and product build quality are exceptional.',
+        author: 'Vikram Choudhary',
+        role: 'Senior Architect, Jaypee Group',
+    },
+    {
+        quote: 'Atmosphere is everything in luxury hospitality. ZIVIO helped us achieve the perfect warm, intimate light control that makes our spaces feel premium and inviting.',
+        author: 'Sophia D’Souza',
+        role: 'Hospitality Design Manager, JW Marriott',
+    },
+    {
+        quote: 'Operating a luxury hotel demands reliability. ZIVIO’s fixtures have shown remarkable durability and efficiency, reducing maintenance while keeping our spaces perfectly lit.',
+        author: 'Daniel Wong',
+        role: 'Regional Operations Director, Hyatt',
+    },
+    {
+        quote: 'Outdoor lighting must endure harsh environments while offering high visibility. ZIVIO’s smart pole and exterior luminaires are robust, sustainable, and perform flawlessly.',
+        author: 'Kavita Sharma',
+        role: 'Infrastructure Manager, Hindustan Petroleum',
+    },
+    {
+        quote: 'Technical compliance, structural safety, and high-efficiency lighting were crucial. ZIVIO delivered outstanding engineering and architectural synergy.',
+        author: 'Arun Menon',
+        role: 'Facility Planning Lead, BARC',
+    },
+];

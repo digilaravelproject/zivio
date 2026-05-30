@@ -1,8 +1,7 @@
-import { motion } from 'framer-motion';
 import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react';
-import { FormEvent, useState } from 'react';
-
+import { type FormEvent, useState } from 'react';
 import { contactData, type ContactFormField } from '@/data/contactData';
+import { Reveal } from '@/components/animations/Reveal';
 
 type ContactFormState = Record<ContactFormField, string>;
 
@@ -32,30 +31,28 @@ export function ContactSection() {
 
     return (
         <section className="relative overflow-hidden bg-[#080808] px-4 py-14 text-[#F5F5F2] sm:px-6 sm:py-20 lg:px-10 lg:py-[7.5rem]">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_22%,rgba(184,138,42,0.08),transparent_28%),radial-gradient(circle_at_78%_22%,rgba(255,255,255,0.04),transparent_26%),linear-gradient(140deg,#080808_0%,#101010_48%,#070707_100%)]" />
+            {/* Optimized background radial using CSS utility */}
+            <div className="pointer-events-none absolute inset-0 bg-luxury-glow-1" />
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(184,138,42,0.04)_1px,transparent_1px),linear-gradient(180deg,rgba(255,255,255,0.026)_1px,transparent_1px)] bg-[size:20rem_100%,100%_7rem] opacity-[0.16]" />
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#B88A2A]/24 to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-luxury-divider" />
 
-            <motion.div
-                initial={{ opacity: 0, y: 28 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.22 }}
-                transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            <Reveal
                 className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.82fr_0.78fr] lg:items-start lg:gap-16"
+                threshold={0.15}
             >
                 <div className="max-w-2xl">
                     <div className="mb-5 flex items-center gap-4">
-                        <span className="h-px w-10 bg-[#B88A2A]" />
-                        <p className="font-sans text-[0.62rem] font-semibold tracking-[0.32em] text-[#B88A2A] uppercase sm:text-[0.64rem]">
+                        <span className="h-[1px] w-10 bg-[#B88A2A]" />
+                        <p className="text-luxury-label">
                             {contactData.label}
                         </p>
                     </div>
 
-                    <h2 className="max-w-2xl text-[2.35rem] leading-[1.02] font-semibold text-balance text-[#F8F5EC] sm:text-5xl lg:text-[3.8rem]">
+                    <h2 className="text-luxury-heading">
                         {contactData.heading}
                     </h2>
 
-                    <p className="mt-5 max-w-xl font-sans text-sm leading-7 tracking-[0.01em] text-[#CFCFCB] sm:mt-6 sm:text-base sm:leading-8">
+                    <p className="mt-5 text-luxury-paragraph">
                         {contactData.paragraph}
                     </p>
 
@@ -203,7 +200,7 @@ export function ContactSection() {
                         </p>
                     )}
                 </form>
-            </motion.div>
+            </Reveal>
         </section>
     );
 }

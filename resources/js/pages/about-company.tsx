@@ -3,48 +3,41 @@ import { lazy, Suspense, useEffect } from 'react';
 
 import { Navbar } from '@/components/layout/Navbar';
 import { LazySection } from '@/components/site/LazySection';
-import { heroSlides } from '@/data/heroSlides';
-import { HeroSection } from '@/sections/HeroSection';
+import { AboutHeroSection } from '@/sections/about/AboutHeroSection';
 
-const BrandStorySection = lazy(() =>
-    import('@/sections/BrandStorySection').then((module) => ({
-        default: module.BrandStorySection,
+const AboutIntroSection = lazy(() =>
+    import('@/sections/about/AboutIntroSection').then((module) => ({
+        default: module.AboutIntroSection,
     })),
 );
 
-const CategoryShowcaseSection = lazy(() =>
-    import('@/sections/CategoryShowcaseSection').then((module) => ({
-        default: module.CategoryShowcaseSection,
+const AboutPhilosophySection = lazy(() =>
+    import('@/sections/about/AboutPhilosophySection').then((module) => ({
+        default: module.AboutPhilosophySection,
     })),
 );
 
-const FeaturedApplicationSection = lazy(() =>
-    import('@/sections/FeaturedApplicationSection').then((module) => ({
-        default: module.FeaturedApplicationSection,
+const AboutValuesSection = lazy(() =>
+    import('@/sections/about/AboutValuesSection').then((module) => ({
+        default: module.AboutValuesSection,
     })),
 );
 
-const ProjectsShowcaseSection = lazy(() =>
-    import('@/sections/ProjectsShowcaseSection').then((module) => ({
-        default: module.ProjectsShowcaseSection,
+const AboutPartnersSection = lazy(() =>
+    import('@/sections/about/AboutPartnersSection').then((module) => ({
+        default: module.AboutPartnersSection,
     })),
 );
 
-const ProductsShowcaseSection = lazy(() =>
-    import('@/sections/ProductsShowcaseSection').then((module) => ({
-        default: module.ProductsShowcaseSection,
+const AboutTeamSection = lazy(() =>
+    import('@/sections/about/AboutTeamSection').then((module) => ({
+        default: module.AboutTeamSection,
     })),
 );
 
-const PrecisionCraftsmanshipSection = lazy(() =>
-    import('@/sections/PrecisionCraftsmanshipSection').then((module) => ({
-        default: module.PrecisionCraftsmanshipSection,
-    })),
-);
-
-const CatalogueCtaSection = lazy(() =>
-    import('@/sections/CatalogueCtaSection').then((module) => ({
-        default: module.CatalogueCtaSection,
+const AboutTestimonialsSection = lazy(() =>
+    import('@/sections/about/AboutTestimonialsSection').then((module) => ({
+        default: module.AboutTestimonialsSection,
     })),
 );
 
@@ -60,11 +53,11 @@ const FooterSection = lazy(() =>
     })),
 );
 
-const pageTitle = 'ZIVIO LIFE | Architectural & Modern Lighting Solutions';
+const pageTitle = 'ZIVIO LIFE | About Company — Architectural Lighting Benchmarks';
 const pageDescription =
-    'ZIVIO LIFE creates premium architectural, indoor, outdoor, pole, and solar lighting solutions for residential, commercial, and modern spaces.';
+    'Discover ZIVIO LIFE’s dedication to precision engineering, sustainable innovation, luxury design, and outstanding architectural outdoor and indoor lighting solutions.';
 
-export default function Welcome() {
+export default function AboutCompany() {
     useEffect(() => {
         const originalScrollRestoration = window.history.scrollRestoration;
         window.history.scrollRestoration = 'manual';
@@ -86,57 +79,59 @@ export default function Welcome() {
                 <meta property="og:title" content={pageTitle} />
                 <meta property="og:description" content={pageDescription} />
                 <meta property="og:type" content="website" />
-                <link
-                    rel="preload"
-                    as="image"
-                    href={heroSlides[0].image}
-                    fetchPriority="high"
-                />
             </Head>
 
-            <main className="min-h-screen bg-[#0A0A0A] text-[#F5F5F2]">
+            <main className="min-h-screen bg-[#0A0A0A] text-[#F5F5F2] antialiased">
+                {/* Refined Luxury Navbar */}
                 <Navbar />
-                <HeroSection />
+
+                {/* Eager loaded Hero section for instant visual response */}
+                <AboutHeroSection />
+
+                {/* Lazy-loaded components grouped for progressive render */}
                 <LazySection minHeight="min-h-40">
                     <Suspense fallback={sectionFallback}>
-                        <BrandStorySection />
+                        <AboutIntroSection />
                     </Suspense>
                 </LazySection>
+
                 <LazySection minHeight="min-h-40">
                     <Suspense fallback={sectionFallback}>
-                        <CategoryShowcaseSection />
+                        <AboutPhilosophySection />
                     </Suspense>
                 </LazySection>
+
                 <LazySection minHeight="min-h-40">
                     <Suspense fallback={sectionFallback}>
-                        <FeaturedApplicationSection />
+                        <AboutValuesSection />
                     </Suspense>
                 </LazySection>
+
                 <LazySection minHeight="min-h-40">
                     <Suspense fallback={sectionFallback}>
-                        <ProjectsShowcaseSection />
+                        <AboutPartnersSection />
                     </Suspense>
                 </LazySection>
+
                 <LazySection minHeight="min-h-40">
                     <Suspense fallback={sectionFallback}>
-                        <ProductsShowcaseSection />
+                        <AboutTeamSection />
                     </Suspense>
                 </LazySection>
+
                 <LazySection minHeight="min-h-40">
                     <Suspense fallback={sectionFallback}>
-                        <PrecisionCraftsmanshipSection />
+                        <AboutTestimonialsSection />
                     </Suspense>
                 </LazySection>
-                <LazySection minHeight="min-h-40">
-                    <Suspense fallback={sectionFallback}>
-                        <CatalogueCtaSection />
-                    </Suspense>
-                </LazySection>
+
                 <LazySection minHeight="min-h-40">
                     <Suspense fallback={sectionFallback}>
                         <ContactSection />
                     </Suspense>
                 </LazySection>
+
+                {/* Footer Section */}
                 <Suspense fallback={sectionFallback}>
                     <FooterSection />
                 </Suspense>

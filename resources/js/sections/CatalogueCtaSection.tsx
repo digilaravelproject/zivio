@@ -1,36 +1,33 @@
 import { Link } from '@inertiajs/react';
-import { motion } from 'framer-motion';
 import { ArrowDownToLine, ArrowUpRight } from 'lucide-react';
-
 import { catalogueCtaData } from '@/data/catalogueCtaData';
+import { Reveal } from '@/components/animations/Reveal';
 
 export function CatalogueCtaSection() {
     return (
         <section className="relative overflow-hidden bg-[#070707] px-4 py-14 text-[#F5F5F2] sm:px-6 sm:py-20 lg:px-10 lg:py-[7rem]">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_76%_42%,rgba(184,138,42,0.1),transparent_27%),radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.04),transparent_24%),linear-gradient(140deg,#070707_0%,#101010_52%,#080808_100%)]" />
+            {/* Optimized background radial and grids */}
+            <div className="pointer-events-none absolute inset-0 bg-luxury-glow-1" />
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(184,138,42,0.04)_1px,transparent_1px)] bg-[size:22rem_100%] opacity-[0.14]" />
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#B88A2A]/24 to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-luxury-divider" />
 
-            <motion.div
-                initial={{ opacity: 0, y: 28 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.22 }}
-                transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            <Reveal
                 className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.82fr_0.78fr] lg:items-center lg:gap-16"
+                threshold={0.2}
             >
                 <div className="max-w-2xl">
                     <div className="mb-5 flex items-center gap-4">
-                        <span className="h-px w-10 bg-[#B88A2A]" />
-                        <p className="font-sans text-[0.62rem] font-semibold tracking-[0.32em] text-[#B88A2A] uppercase sm:text-[0.64rem]">
+                        <span className="h-[1px] w-10 bg-[#B88A2A]" />
+                        <p className="text-luxury-label">
                             {catalogueCtaData.label}
                         </p>
                     </div>
 
-                    <h2 className="max-w-2xl text-[2.3rem] leading-[1.02] font-semibold text-balance text-[#F8F5EC] sm:text-5xl lg:text-[3.8rem]">
+                    <h2 className="text-luxury-heading">
                         {catalogueCtaData.heading}
                     </h2>
 
-                    <p className="mt-5 max-w-xl font-sans text-sm leading-7 tracking-[0.01em] text-[#CFCFCB] sm:mt-6 sm:text-base sm:leading-8">
+                    <p className="mt-5 text-luxury-paragraph">
                         {catalogueCtaData.paragraph}
                     </p>
 
@@ -58,25 +55,12 @@ export function CatalogueCtaSection() {
                     </div>
                 </div>
 
-                <div className="relative mx-auto w-full max-w-[25rem] lg:max-w-[30rem]">
-                    <div className="pointer-events-none absolute inset-8 rounded-full bg-[#B88A2A]/12 blur-3xl" />
-                    <motion.div
-                        initial={{ opacity: 0, y: 24, rotateX: 0, rotateY: 0 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.3 }}
-                        whileHover={{
-                            y: -8,
-                            rotateX: 2,
-                            rotateY: -3,
-                            transition: { duration: 0.55 },
-                        }}
-                        transition={{
-                            delay: 0.08,
-                            duration: 0.82,
-                            ease: [0.22, 1, 0.36, 1],
-                        }}
-                        className="group relative overflow-hidden border border-white/[0.1] bg-[#101010] p-3 shadow-[0_34px_100px_rgba(0,0,0,0.42)] [transform-style:preserve-3d] sm:p-4"
-                    >
+                <div className="relative mx-auto w-full max-w-[25rem] lg:max-w-[30rem] group">
+                    {/* Glow blurred background node: hidden on mobile */}
+                    <div className="pointer-events-none absolute inset-8 rounded-full bg-[#B88A2A]/12 blur-3xl hidden md:block" />
+                    
+                    {/* CSS tilted GPU-accelerated card replacement for Framer Motion */}
+                    <div className="relative overflow-hidden border border-white/[0.1] bg-[#101010] p-3 shadow-[0_34px_100px_rgba(0,0,0,0.42)] [transform-style:preserve-3d] transition-all duration-[600ms] ease-out group-hover:-translate-y-2 group-hover:[transform:rotateX(2deg)_rotateY(-3deg)] sm:p-4">
                         <div className="relative aspect-[3/4] overflow-hidden bg-[#151515]">
                             <img
                                 src={catalogueCtaData.catalogueImage}
@@ -101,9 +85,9 @@ export function CatalogueCtaSection() {
                                 Lighting Catalogue
                             </h3>
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
-            </motion.div>
+            </Reveal>
         </section>
     );
 }

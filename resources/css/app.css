@@ -162,3 +162,52 @@
         color: #0a0a0a;
     }
 }
+
+@utility bg-luxury-glow-1 {
+    background-image: radial-gradient(circle at 18% 24%, rgba(184, 138, 42, 0.08), transparent 28%),
+                      radial-gradient(circle at 80% 22%, rgba(255, 255, 255, 0.045), transparent 26%),
+                      linear-gradient(140deg, #080808 0%, #101010 48%, #070707 100%);
+}
+
+@utility bg-luxury-divider {
+    background-image: linear-gradient(to right, transparent, rgba(184, 138, 42, 0.22), transparent);
+}
+
+@utility text-luxury-label {
+    font-family: var(--font-sans);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    color: #B88A2A;
+    text-transform: uppercase;
+    @media (min-width: 640px) {
+        font-size: 0.64rem;
+        letter-spacing: 0.34em;
+    }
+}
+
+@utility text-luxury-heading {
+    font-size: 2.25rem;
+    line-height: 1.02;
+    font-weight: 600;
+    text-wrap: balance;
+    color: #F8F5EC;
+    @media (min-width: 640px) {
+        font-size: 3rem;
+    }
+    @media (min-width: 1024px) {
+        font-size: 3.65rem;
+    }
+}
+
+@utility text-luxury-paragraph {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    line-height: 1.75rem;
+    letter-spacing: 0.01em;
+    color: #CFCFCB;
+    @media (min-width: 640px) {
+        font-size: 1rem;
+        line-height: 2rem;
+    }
+}

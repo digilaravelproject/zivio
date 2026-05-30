@@ -17,6 +17,7 @@ export function ProductCategoryTabs({
 }: ProductCategoryTabsProps) {
     const scrollRef = useRef<HTMLDivElement | null>(null);
     const activeButtonRef = useRef<HTMLButtonElement | null>(null);
+    const isFirstRender = useRef(true);
     const [canScrollLeft, setCanScrollLeft] = useState(false);
     const [canScrollRight, setCanScrollRight] = useState(false);
 
@@ -66,11 +67,31 @@ export function ProductCategoryTabs({
     }, []);
 
     useEffect(() => {
-        activeButtonRef.current?.scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest',
-            inline: 'center',
-        });
+        if (isFirstRender.current) {
+            isFirstRender.current = false;
+            return;
+        }
+
+        const container = scrollRef.current;
+        const button = activeButtonRef.current;
+
+        if (container && button) {
+            const containerRect = container.getBoundingClientRect();
+            const buttonRect = button.getBoundingClientRect();
+
+            if (containerRect.width > 0) {
+                const targetScrollLeft =
+                    container.scrollLeft +
+                    (buttonRect.left - containerRect.left) -
+                    containerRect.width / 2 +
+                    buttonRect.width / 2;
+
+                container.scrollTo({
+                    left: targetScrollLeft,
+                    behavior: 'smooth',
+                });
+            }
+        }
 
         window.setTimeout(updateScrollState, 260);
     }, [activeCategory]);
