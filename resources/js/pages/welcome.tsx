@@ -4,6 +4,10 @@ import { lazy, Suspense, useEffect } from 'react';
 import { Navbar } from '@/components/layout/Navbar';
 import { LazySection } from '@/components/site/LazySection';
 import { heroSlides } from '@/data/heroSlides';
+import {
+    homepageSeo,
+    homepageStructuredData,
+} from '@/lib/homepage-seo';
 import { HeroSection } from '@/sections/HeroSection';
 
 const BrandStorySection = lazy(() =>
@@ -60,10 +64,6 @@ const FooterSection = lazy(() =>
     })),
 );
 
-const pageTitle = 'ZIVIO LIFE | Architectural & Modern Lighting Solutions';
-const pageDescription =
-    'ZIVIO LIFE creates premium architectural, indoor, outdoor, pole, and solar lighting solutions for residential, commercial, and modern spaces.';
-
 export default function Welcome() {
     useEffect(() => {
         const originalScrollRestoration = window.history.scrollRestoration;
@@ -79,17 +79,71 @@ export default function Welcome() {
 
     return (
         <>
-            <Head title={pageTitle}>
-                <meta name="description" content={pageDescription} />
-                <meta property="og:title" content={pageTitle} />
-                <meta property="og:description" content={pageDescription} />
+            <Head title={homepageSeo.title}>
+                <meta name="description" content={homepageSeo.description} />
+                <meta name="keywords" content={homepageSeo.keywords} />
+                <meta name="robots" content="index, follow" />
+                <link rel="canonical" href={homepageSeo.url} />
+
+                <meta property="og:title" content={homepageSeo.title} />
+                <meta
+                    property="og:description"
+                    content={homepageSeo.description}
+                />
                 <meta property="og:type" content="website" />
+                <meta property="og:url" content={homepageSeo.url} />
+                <meta property="og:image" content={homepageSeo.imageUrl} />
+                <meta
+                    property="og:image:secure_url"
+                    content={homepageSeo.imageUrl}
+                />
+                <meta property="og:image:width" content={homepageSeo.imageWidth} />
+                <meta
+                    property="og:image:height"
+                    content={homepageSeo.imageHeight}
+                />
+                <meta
+                    property="og:image:alt"
+                    content="ZIVIO LIFE premium architectural lighting solutions"
+                />
+                <meta property="og:site_name" content={homepageSeo.siteName} />
+                <meta property="og:locale" content={homepageSeo.locale} />
+
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={homepageSeo.title} />
+                <meta
+                    name="twitter:description"
+                    content={homepageSeo.description}
+                />
+                <meta name="twitter:image" content={homepageSeo.imageUrl} />
+                <meta
+                    name="twitter:image:alt"
+                    content="ZIVIO LIFE premium architectural lighting solutions"
+                />
+
+                <link rel="icon" href="/favicon.ico" sizes="any" />
+                <link
+                    rel="icon"
+                    type="image/png"
+                    sizes="32x32"
+                    href="/favicon-32x32.png"
+                />
+                <link
+                    rel="icon"
+                    type="image/png"
+                    sizes="16x16"
+                    href="/favicon-16x16.png"
+                />
+                <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
                 <link
                     rel="preload"
                     as="image"
                     href={heroSlides[0].image}
                     fetchPriority="high"
                 />
+                <script type="application/ld+json">
+                    {JSON.stringify(homepageStructuredData)}
+                </script>
             </Head>
 
             <main className="min-h-screen bg-[#F1EADF] text-[#171512]">
