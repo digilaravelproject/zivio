@@ -45,6 +45,9 @@ export function ProjectsShowcaseSection() {
                             opacity: 1,
                             scale: prefersReducedMotion ? 1 : 1.09,
                         }}
+                        whileHover={{
+                            scale: prefersReducedMotion ? 1 : 1.105,
+                        }}
                         exit={{ opacity: 0, scale: 1.02 }}
                         transition={{
                             duration: 1.05,
@@ -64,14 +67,10 @@ export function ProjectsShowcaseSection() {
                     <div className="max-w-3xl pt-10">
                         <div className="mb-6 flex items-center gap-4">
                             <span className="h-px w-12 bg-[#B88A2A]/85" />
-                            <p className="font-sans text-[0.64rem] font-semibold tracking-[0.34em] text-[#D2B276] uppercase">
+                            <p className="font-sans text-[0.58rem] font-medium tracking-[0.24em] text-[#D2B276] uppercase">
                                 Project Showcase
                             </p>
                         </div>
-
-                        <h2 className="max-w-3xl text-[clamp(3.15rem,5.2vw,5.2rem)] leading-[1] font-medium text-balance text-[#F8F5EC]">
-                            Built light, at architectural scale.
-                        </h2>
                     </div>
 
                     <div className="grid items-end gap-10 xl:grid-cols-[0.92fr_0.78fr]">
@@ -87,21 +86,18 @@ export function ProjectsShowcaseSection() {
                                 }}
                                 className="max-w-xl"
                             >
-                                <p className="mb-4 inline-flex border border-[#B88A2A]/24 bg-[#050505]/36 px-3 py-1.5 font-sans text-[0.62rem] font-semibold tracking-[0.22em] text-[#D2B276] uppercase backdrop-blur-sm">
+                                <p className="mb-4 inline-flex border border-[#B88A2A]/20 bg-[#050505]/28 px-3 py-1.5 font-sans text-[0.58rem] font-medium tracking-[0.18em] text-[#D2B276] uppercase backdrop-blur-sm">
                                     {activeProject.category}
                                 </p>
-                                <h3 className="text-4xl leading-[1] font-medium text-[#F8F5EC] xl:text-[2.65rem]">
+                                <h3 className="text-3xl leading-[1.06] font-light text-[#F8F5EC] xl:text-[2.35rem]">
                                     {activeProject.title}
                                 </h3>
-                                <p className="mt-3 font-sans text-sm font-semibold tracking-[0.18em] text-[#D2B276] uppercase">
+                                <p className="mt-3 font-sans text-xs font-medium tracking-[0.16em] text-[#D2B276] uppercase">
                                     {activeProject.location}
-                                </p>
-                                <p className="mt-5 max-w-lg font-sans text-base leading-8 text-[#D8D3C8]">
-                                    {activeProject.description}
                                 </p>
                                 <Link
                                     href={activeProject.href}
-                                    className="mt-7 inline-flex items-center justify-center gap-2 border border-[#B8945F]/58 px-5 py-3 font-sans text-[0.64rem] font-semibold tracking-[0.17em] text-[#F5F5F2] uppercase backdrop-blur-sm transition duration-500 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A]"
+                                    className="mt-7 inline-flex items-center justify-center gap-2 border border-[#B8945F]/50 px-5 py-3 font-sans text-[0.62rem] font-medium tracking-[0.15em] text-[#F5F5F2] uppercase backdrop-blur-sm transition duration-500 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A]"
                                 >
                                     Read More
                                 </Link>
@@ -151,11 +147,11 @@ export function ProjectsShowcaseSection() {
                                                 />
                                             </span>
                                             <span>
-                                                <span className="mb-1 block font-sans text-[0.6rem] font-semibold tracking-[0.22em] text-[#B88A2A] uppercase">
+                                                <span className="mb-1 block font-sans text-[0.56rem] font-medium tracking-[0.17em] text-[#B8945F] uppercase">
                                                     {formatCounter(index + 1)} /{' '}
                                                     {project.category}
                                                 </span>
-                                                <span className="block text-lg leading-6 font-medium text-[#F8F5EC]">
+                                                <span className="block text-base leading-6 font-normal text-[#F8F5EC]">
                                                     {project.title}
                                                 </span>
                                             </span>
@@ -198,14 +194,10 @@ export function ProjectsShowcaseSection() {
                 <div className="relative mx-auto max-w-2xl">
                     <div className="mb-5 flex items-center gap-4 sm:mb-7">
                         <span className="h-px w-10 bg-[#B88A2A]/80" />
-                        <p className="font-sans text-[0.64rem] font-semibold tracking-[0.34em] text-[#D2B276] uppercase">
+                        <p className="font-sans text-[0.58rem] font-medium tracking-[0.24em] text-[#D2B276] uppercase">
                             Project Showcase
                         </p>
                     </div>
-
-                    <h2 className="mb-6 text-[2rem] leading-[1.08] font-medium text-balance text-[#F8F5EC] sm:mb-8 sm:text-[2.8rem]">
-                        Built light, at architectural scale.
-                    </h2>
 
                     <AnimatePresence mode="wait">
                         <motion.figure
@@ -217,7 +209,7 @@ export function ProjectsShowcaseSection() {
                                 duration: 0.58,
                                 ease: [0.22, 1, 0.36, 1],
                             }}
-                            className="cinematic-image-frame"
+                            className="cinematic-image-frame group"
                         >
                             <div className="relative aspect-[4/3] overflow-hidden">
                                 <img
@@ -227,27 +219,24 @@ export function ProjectsShowcaseSection() {
                                     height={675}
                                     loading="lazy"
                                     decoding="async"
-                                    className="h-full w-full object-cover"
+                                    className="h-full w-full object-cover transition duration-[1200ms] ease-out group-hover:scale-[1.035]"
                                     sizes="100vw"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/66 via-transparent to-transparent" />
                             </div>
                             <figcaption className="p-4 sm:p-6">
-                                <p className="mb-3 inline-flex border border-[#B88A2A]/22 bg-[#B88A2A]/7 px-3 py-1.5 font-sans text-[0.6rem] font-semibold tracking-[0.2em] text-[#B88A2A] uppercase">
+                                <p className="mb-3 inline-flex border border-[#B88A2A]/20 bg-[#B88A2A]/7 px-3 py-1.5 font-sans text-[0.56rem] font-medium tracking-[0.16em] text-[#B88A2A] uppercase">
                                     {activeProject.category}
                                 </p>
-                                <h3 className="text-[1.55rem] leading-[1.06] font-medium text-[#F8F5EC] sm:text-3xl">
+                                <h3 className="text-[1.45rem] leading-[1.08] font-light text-[#F8F5EC] sm:text-[2.35rem]">
                                     {activeProject.title}
                                 </h3>
-                                <p className="mt-2 font-sans text-xs font-semibold tracking-[0.16em] text-[#B88A2A] uppercase">
+                                <p className="mt-2 font-sans text-xs font-medium tracking-[0.14em] text-[#B88A2A] uppercase">
                                     {activeProject.location}
-                                </p>
-                                <p className="mt-4 font-sans text-sm leading-6 text-[#CFCFCB] sm:leading-7">
-                                    {activeProject.description}
                                 </p>
                                 <Link
                                     href={activeProject.href}
-                                    className="mt-6 inline-flex w-full items-center justify-center border border-[#B88A2A]/55 px-5 py-3 font-sans text-[0.66rem] font-semibold tracking-[0.2em] text-[#F5F5F2] uppercase transition duration-500 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A] sm:w-auto"
+                                    className="mt-6 inline-flex w-full items-center justify-center border border-[#B88A2A]/55 px-5 py-3 font-sans text-[0.62rem] font-medium tracking-[0.16em] text-[#F5F5F2] uppercase transition duration-500 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A] sm:w-auto"
                                 >
                                     Read More
                                 </Link>

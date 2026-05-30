@@ -82,17 +82,17 @@ export function HeroSection() {
                                     sizes="100vw"
                                 />
                             </motion.div>
-                            <div className="absolute inset-0 bg-[#080808]/12" />
-                            <div className="absolute inset-0 bg-gradient-to-r from-[#080808]/76 via-[#080808]/30 to-[#080808]/4" />
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/78 via-[#080808]/6 to-[#080808]/22" />
-                            <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#090909] via-[#090909]/56 to-transparent" />
+                            <div className="absolute inset-0 bg-[#080808]/8" />
+                            <div className="absolute inset-0 bg-gradient-to-r from-[#080808]/66 via-[#080808]/24 to-[#080808]/3" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/68 via-[#080808]/4 to-[#080808]/16" />
+                            <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#090909]/92 via-[#090909]/42 to-transparent" />
                         </div>
                     </SwiperSlide>
                 ))}
             </Swiper>
 
-            <div className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(90deg,rgba(184,148,95,0.08)_1px,transparent_1px)] bg-[size:28vw_100%] opacity-[0.1]" />
-            <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(circle_at_26%_78%,rgba(255,239,205,0.07),transparent_28%)]" />
+            <div className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(90deg,rgba(184,148,95,0.06)_1px,transparent_1px)] bg-[size:28vw_100%] opacity-[0.08]" />
+            <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(circle_at_26%_78%,rgba(255,239,205,0.055),transparent_28%)]" />
 
             <div className="pointer-events-none absolute inset-0 z-40 mx-auto flex h-full max-w-7xl items-end px-4 pt-24 pb-28 sm:px-6 sm:pb-34 lg:px-10 lg:pb-36">
                 <AnimatePresence mode="wait">
@@ -103,13 +103,13 @@ export function HeroSection() {
                             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                             exit={{ opacity: 0, y: -18, filter: 'blur(6px)' }}
                             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                            className="pointer-events-auto relative w-full max-w-[40rem] drop-shadow-[0_22px_52px_rgba(0,0,0,0.58)]"
+                            className="pointer-events-auto relative w-full max-w-[36rem] drop-shadow-[0_18px_44px_rgba(0,0,0,0.48)]"
                         >
                             <motion.p
                                 initial={{ opacity: 0, y: 14 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.1, duration: 0.55 }}
-                                className="mb-3 font-sans text-[0.58rem] font-semibold tracking-[0.22em] text-[#D2B276] uppercase sm:mb-4 sm:text-[0.68rem] sm:tracking-[0.28em]"
+                                className="mb-3 font-sans text-[0.56rem] font-medium tracking-[0.2em] text-[#D2B276] uppercase sm:mb-4 sm:text-[0.64rem] sm:tracking-[0.25em]"
                             >
                                 Premium Architectural Lighting
                             </motion.p>
@@ -118,7 +118,7 @@ export function HeroSection() {
                                 initial={{ opacity: 0, y: 18 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.18, duration: 0.65 }}
-                                className="max-w-3xl text-[clamp(2.35rem,10vw,3.8rem)] leading-[1.02] font-medium tracking-normal text-balance text-[#F8F5EC] sm:text-[clamp(3.7rem,7.4vw,5.5rem)] lg:text-[clamp(4.6rem,5.8vw,6.2rem)]"
+                                className="max-w-3xl text-[clamp(2.1rem,8.8vw,3.35rem)] leading-[1.06] font-light tracking-normal text-balance text-[#F8F5EC] sm:text-[clamp(3.25rem,6.6vw,4.85rem)] lg:text-[clamp(4rem,5.1vw,5.35rem)]"
                             >
                                 {activeSlide.title}
                             </motion.h1>
@@ -127,7 +127,7 @@ export function HeroSection() {
                                 initial={{ opacity: 0, y: 18 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.28, duration: 0.65 }}
-                                className="mt-4 max-w-lg font-sans text-sm leading-6 tracking-[0.01em] text-[#E7DFD0] sm:mt-5 sm:text-base sm:leading-8"
+                                className="mt-4 max-w-md font-sans text-sm leading-6 tracking-[0.005em] text-[#E7DFD0] sm:mt-5 sm:text-[0.95rem] sm:leading-8"
                             >
                                 {activeSlide.subtitle}
                             </motion.p>

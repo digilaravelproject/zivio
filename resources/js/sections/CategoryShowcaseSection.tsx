@@ -25,16 +25,16 @@ export function CategoryShowcaseSection() {
                                 Collections
                             </p>
                         </div>
-                        <h2 className="max-w-3xl text-[clamp(2rem,7vw,3rem)] leading-[1.08] font-medium text-balance text-[#F8F5EC] sm:text-[clamp(2.45rem,7vw,3.7rem)] lg:text-[clamp(3.15rem,4vw,4.25rem)]">
+                        <h2 className="max-w-3xl text-[clamp(1.85rem,6.4vw,2.75rem)] leading-[1.12] font-light text-balance text-[#F8F5EC] sm:text-[clamp(2.25rem,6.4vw,3.35rem)] lg:text-[clamp(2.8rem,3.6vw,3.8rem)]">
                             Explore Our Lighting Collections
                         </h2>
                     </div>
 
                     <div className="relative border-l border-[#B8945F]/24 pl-4 sm:pl-5 lg:justify-self-end">
-                        <p className="max-w-md font-sans text-sm leading-6 tracking-[0.02em] text-[#CFCFCB] sm:text-base sm:leading-8">
+                        <p className="max-w-md font-sans text-sm leading-7 tracking-[0.005em] text-[#CFCFCB] sm:text-[0.95rem] sm:leading-8">
                             Designed for modern architecture, crafted for lasting visual impact.
                         </p>
-                        <p className="mt-5 font-sans text-[0.6rem] font-semibold tracking-[0.22em] text-[#B8945F] uppercase">
+                        <p className="mt-5 font-sans text-[0.58rem] font-medium tracking-[0.18em] text-[#B8945F] uppercase">
                             Architectural Lighting
                         </p>
                     </div>

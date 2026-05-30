@@ -42,13 +42,13 @@ export function FeaturedApplicationSection() {
             >
                 <div>
                     <div className="mb-4 flex items-center gap-4 sm:mb-5">
-                            <span className="h-px w-9 bg-[#B8945F]/80" />
-                        <p className="font-sans text-[0.6rem] font-semibold tracking-[0.24em] text-[#8D6B38] uppercase">
+                        <span className="h-px w-9 bg-[#B8945F]/80" />
+                        <p className="font-sans text-[0.58rem] font-medium tracking-[0.2em] text-[#8D6B38] uppercase">
                             {featuredApplicationIntro.label}
                         </p>
                     </div>
 
-                    <h2 className="max-w-lg text-[1.8rem] leading-[1.1] font-medium text-balance text-[#171512] sm:text-4xl lg:text-[2.7rem] xl:text-[3rem]">
+                    <h2 className="max-w-lg text-[1.7rem] leading-[1.14] font-light text-balance text-[#171512] sm:text-[2.15rem] lg:text-[2.45rem] xl:text-[2.7rem]">
                         {featuredApplicationIntro.heading}
                     </h2>
 
@@ -63,15 +63,15 @@ export function FeaturedApplicationSection() {
                                 ease: [0.22, 1, 0.36, 1],
                             }}
                         >
-                            <p className="mt-4 max-w-lg font-sans text-sm leading-7 text-[#665F53] sm:mt-5 sm:text-base sm:leading-8">
+                            <p className="mt-5 max-w-lg font-sans text-sm leading-7 text-[#665F53] sm:mt-6 sm:text-[0.95rem] sm:leading-8">
                                 {activeProduct.description}
                             </p>
 
                             <div className="mt-5 sm:mt-7">
-                                <p className="font-sans text-[0.6rem] font-semibold tracking-[0.22em] text-[#8D6B38] uppercase">
+                                <p className="font-sans text-[0.58rem] font-medium tracking-[0.18em] text-[#8D6B38] uppercase">
                                     {activeProduct.category}
                                 </p>
-                                <h3 className="mt-2 max-w-xl text-[1.35rem] leading-7 font-medium text-[#171512] sm:text-3xl sm:leading-9">
+                                <h3 className="mt-2 max-w-xl text-[1.25rem] leading-7 font-normal text-[#171512] sm:text-[1.65rem] sm:leading-9">
                                     {activeProduct.name}
                                 </h3>
                             </div>
@@ -87,7 +87,7 @@ export function FeaturedApplicationSection() {
                                 ))}
                             </div>
 
-                            <div className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row">
+                            <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row">
                                 <Link
                                     href={activeProduct.href}
                                     className="inline-flex w-full items-center justify-center gap-2 border border-[#8D6B38]/35 bg-[#171512] px-5 py-3 font-sans text-[0.64rem] font-semibold tracking-[0.17em] text-[#F8F5EC] uppercase transition duration-500 hover:border-[#171512] hover:bg-[#F8F4EC] hover:text-[#171512] sm:w-auto"

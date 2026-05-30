@@ -11,13 +11,13 @@ const brandStory = {
 
 export function BrandStorySection() {
     return (
-        <section className="relative overflow-hidden bg-editorial-light px-4 py-16 text-[#171512] sm:px-6 sm:py-24 lg:px-10 lg:py-[8rem]">
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(123,96,58,0.055)_1px,transparent_1px),linear-gradient(180deg,rgba(123,96,58,0.035)_1px,transparent_1px)] bg-[size:24rem_100%,100%_9rem] opacity-[0.42]" />
+        <section className="relative overflow-hidden bg-editorial-light px-4 py-18 text-[#171512] sm:px-6 sm:py-28 lg:px-10 lg:py-[9rem]">
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(123,96,58,0.045)_1px,transparent_1px),linear-gradient(180deg,rgba(123,96,58,0.026)_1px,transparent_1px)] bg-[size:24rem_100%,100%_9rem] opacity-[0.34]" />
             <div className="pointer-events-none absolute right-[-10rem] bottom-[-8rem] hidden h-[30rem] w-[30rem] rounded-full bg-[#B8945F]/14 blur-3xl md:block" />
             <div className="pointer-events-none absolute bottom-0 left-0 h-px w-full bg-warm-divider" />
 
             <Reveal
-                className="relative mx-auto grid max-w-7xl gap-9 sm:gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-20"
+                className="relative mx-auto grid max-w-7xl gap-11 sm:gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-24"
                 threshold={0.2}
             >
                 <div className="relative order-2 lg:order-1">
@@ -37,7 +37,7 @@ export function BrandStorySection() {
                     </div>
                 </div>
 
-                <div className="order-1 max-w-[620px] lg:order-2">
+                <div className="order-1 max-w-[580px] lg:order-2">
                     <div className="mb-5 flex items-center gap-4 sm:mb-6 sm:gap-5">
                         <span className="h-[1px] w-10 bg-[#B8945F] sm:w-12" />
                         <p className="text-luxury-label">
@@ -45,20 +45,20 @@ export function BrandStorySection() {
                         </p>
                     </div>
 
-                    <h2 className="text-editorial-heading-dark max-w-xl">
+                    <h2 className="text-editorial-heading-dark max-w-lg">
                         {brandStory.heading}
                     </h2>
 
-                    <div className="mt-7 grid max-w-sm grid-cols-[auto_1fr] items-center gap-3 text-[#8D6B38] sm:mt-9 sm:gap-4">
-                        <span className="grid size-12 place-items-center border border-[#8D6B38]/24 font-sans text-[0.62rem] font-semibold tracking-[0.18em] uppercase sm:size-14">
+                    <div className="mt-8 grid max-w-sm grid-cols-[auto_1fr] items-center gap-3 text-[#8D6B38] sm:mt-10 sm:gap-4">
+                        <span className="grid size-11 place-items-center border border-[#8D6B38]/18 font-sans text-[0.58rem] font-medium tracking-[0.15em] uppercase sm:size-13">
                             01
                         </span>
-                        <p className="font-sans text-xs font-semibold tracking-[0.18em] uppercase sm:text-sm">
+                        <p className="font-sans text-xs font-medium tracking-[0.15em] uppercase sm:text-[0.82rem]">
                             {brandStory.since}
                         </p>
                     </div>
 
-                    <p className="mt-7 max-w-xl border-l border-[#8D6B38]/24 pl-5 text-editorial-paragraph sm:mt-9 sm:pl-7">
+                    <p className="mt-8 max-w-lg border-l border-[#8D6B38]/16 pl-5 text-editorial-paragraph sm:mt-10 sm:pl-7">
                         {brandStory.paragraph}
                     </p>
                 </div>

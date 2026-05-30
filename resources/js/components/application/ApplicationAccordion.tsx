@@ -39,7 +39,7 @@ export function ApplicationAccordion({
 
                 <figcaption className="absolute inset-x-4 bottom-4 sm:inset-x-7 sm:bottom-7">
                     <span className="mb-3 block h-px w-10 bg-[#B88A2A]/80 sm:mb-4 sm:w-12" />
-                    <h3 className="text-2xl leading-none font-medium text-[#F8F5EC] sm:text-4xl lg:text-[2.85rem]">
+                    <h3 className="text-2xl leading-none font-light text-[#F8F5EC] sm:text-4xl lg:text-[2.7rem]">
                         {application.title}
                     </h3>
                     <p className="mt-2 max-w-sm font-sans text-xs leading-5 text-[#D8D3C8] sm:mt-3 sm:max-w-md sm:text-sm sm:leading-7">

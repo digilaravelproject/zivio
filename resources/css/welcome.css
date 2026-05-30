@@ -64,7 +64,7 @@
     h5,
     h6 {
         font-family: var(--font-sans);
-        font-weight: 600;
+        font-weight: 500;
     }
 
     button,
@@ -119,49 +119,49 @@
 @utility text-luxury-label {
     font-family: var(--font-sans);
     font-size: 0.58rem;
-    font-weight: 600;
-    letter-spacing: 0.24em;
+    font-weight: 500;
+    letter-spacing: 0.22em;
     color: #B8945F;
     text-transform: uppercase;
     @media (min-width: 640px) {
         font-size: 0.62rem;
-        letter-spacing: 0.28em;
+        letter-spacing: 0.26em;
     }
 }
 
 @utility text-luxury-heading {
-    font-size: 2rem;
-    line-height: 1.08;
-    font-weight: 500;
+    font-size: 1.9rem;
+    line-height: 1.12;
+    font-weight: 400;
     text-wrap: balance;
     color: #F8F5EC;
     @media (min-width: 640px) {
-        font-size: 2.65rem;
+        font-size: 2.45rem;
     }
     @media (min-width: 1024px) {
-        font-size: 3.05rem;
+        font-size: 2.8rem;
     }
 }
 
 @utility text-editorial-heading-dark {
-    font-size: 2rem;
-    line-height: 1.08;
-    font-weight: 500;
+    font-size: 1.9rem;
+    line-height: 1.12;
+    font-weight: 400;
     text-wrap: balance;
     color: #171512;
     @media (min-width: 640px) {
-        font-size: 2.65rem;
+        font-size: 2.45rem;
     }
     @media (min-width: 1024px) {
-        font-size: 3.1rem;
+        font-size: 2.85rem;
     }
 }
 
 @utility text-luxury-paragraph {
     font-family: var(--font-sans);
     font-size: 0.875rem;
-    line-height: 1.75rem;
-    letter-spacing: 0.01em;
+    line-height: 1.82rem;
+    letter-spacing: 0.005em;
     color: #CFCFCB;
     @media (min-width: 640px) {
         font-size: 1rem;
@@ -172,7 +172,7 @@
 @utility text-editorial-paragraph {
     font-family: var(--font-sans);
     font-size: 0.9rem;
-    line-height: 1.85rem;
+    line-height: 1.95rem;
     letter-spacing: 0.005em;
     color: #665f53;
     @media (min-width: 640px) {
@@ -203,4 +203,11 @@
     box-shadow:
         0 34px 110px rgba(123, 96, 58, 0.18),
         0 0 70px rgba(184, 148, 95, 0.14);
+}
+
+@utility ambient-light-cinematic {
+    box-shadow:
+        0 36px 120px rgba(0, 0, 0, 0.42),
+        0 0 86px rgba(184, 148, 95, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }

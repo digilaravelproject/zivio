@@ -41,9 +41,16 @@ export function FooterSection() {
                     <div>
                         <Link
                             href="/"
-                            className="text-3xl leading-none font-medium tracking-[0.04em] text-[#F8F5EC]"
+                            className="inline-flex items-center"
+                            aria-label="ZIVIO LIFE home"
                         >
-                            {footerData.logo}
+                            <img
+                                src="/images/zivio-life-logo.svg"
+                                alt="ZIVIO LIFE"
+                                className="h-10 w-auto object-contain sm:h-12"
+                                width={180}
+                                height={44}
+                            />
                         </Link>
                         <p className="mt-5 max-w-sm font-sans text-sm leading-7 text-[#CFCFCB]">
                             {footerData.description}
