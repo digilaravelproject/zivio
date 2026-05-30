@@ -18,7 +18,8 @@ createInertiaApp({
                 name === 'teams' ||
                 name === 'our-brands' ||
                 name === 'products' ||
-                name === 'product-details':
+                name === 'product-details' ||
+                name === 'contact':
                 return null;
             case name.startsWith('auth/'):
                 return AuthLayout;

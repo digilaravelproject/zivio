@@ -6,6 +6,7 @@ Route::inertia('/', 'welcome')->name('home');
 Route::inertia('/about-company', 'about-company')->name('about-company');
 Route::inertia('/teams', 'teams')->name('teams');
 Route::inertia('/our-brands', 'our-brands')->name('our-brands');
+Route::inertia('/contact', 'contact')->name('contact');
 
 Route::inertia('/products', 'products')->name('products');
 Route::get('/products/{slug}', function ($slug) {
