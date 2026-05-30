@@ -17,14 +17,6 @@ type AppProvidersProps = {
 };
 
 export function AppProviders({ children }: AppProvidersProps) {
-    const isPublicWeb =
-        typeof window !== 'undefined' &&
-        ['/', '/about-company'].includes(window.location.pathname);
-
-    if (isPublicWeb) {
-        return children;
-    }
-
     return (
         <Suspense fallback={children}>
             <TooltipProvider delayDuration={0}>
