@@ -1,13 +1,13 @@
 import { Link } from '@inertiajs/react';
 import { ArrowDownToLine, ArrowUpRight } from 'lucide-react';
-import { catalogueCtaData } from '@/data/catalogueCtaData';
+
 import { Reveal } from '@/components/animations/Reveal';
+import { catalogueCtaData } from '@/data/catalogueCtaData';
 
 export function CatalogueCtaSection() {
     return (
-        <section className="relative overflow-hidden bg-[#070707] px-4 py-14 text-[#F5F5F2] sm:px-6 sm:py-20 lg:px-10 lg:py-[7rem]">
-            {/* Optimized background radial and grids */}
-            <div className="pointer-events-none absolute inset-0 bg-luxury-glow-1" />
+        <section className="relative overflow-hidden bg-editorial-dark px-4 py-16 text-[#F5F5F2] sm:px-6 sm:py-24 lg:px-10 lg:py-[8rem]">
+            <div className="pointer-events-none absolute inset-0 bg-editorial-dark" />
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(184,138,42,0.04)_1px,transparent_1px)] bg-[size:22rem_100%] opacity-[0.14]" />
             <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-luxury-divider" />
 
@@ -23,7 +23,7 @@ export function CatalogueCtaSection() {
                         </p>
                     </div>
 
-                    <h2 className="text-luxury-heading">
+                    <h2 className="text-luxury-heading max-w-xl">
                         {catalogueCtaData.heading}
                     </h2>
 
@@ -34,7 +34,7 @@ export function CatalogueCtaSection() {
                     <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                         <a
                             href={catalogueCtaData.downloadHref}
-                            className="inline-flex w-full items-center justify-center gap-2 border border-[#B88A2A]/60 bg-[#B88A2A]/10 px-5 py-3.5 font-sans text-[0.66rem] font-semibold tracking-[0.2em] text-[#F8F5EC] uppercase transition duration-500 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A] sm:w-auto"
+                            className="inline-flex w-full items-center justify-center gap-2 border border-[#B8945F]/60 bg-[#B8945F]/10 px-5 py-3.5 font-sans text-[0.64rem] font-semibold tracking-[0.17em] text-[#F8F5EC] uppercase transition duration-500 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A] sm:w-auto"
                         >
                             {catalogueCtaData.primaryCta}
                             <ArrowDownToLine
@@ -44,7 +44,7 @@ export function CatalogueCtaSection() {
                         </a>
                         <Link
                             href={catalogueCtaData.secondaryHref}
-                            className="inline-flex w-full items-center justify-center gap-2 border border-white/[0.12] px-5 py-3.5 font-sans text-[0.66rem] font-semibold tracking-[0.2em] text-[#F5F5F2] uppercase transition duration-500 hover:border-[#B88A2A]/60 hover:text-[#D2B276] sm:w-auto"
+                            className="inline-flex w-full items-center justify-center gap-2 border border-white/[0.12] px-5 py-3.5 font-sans text-[0.64rem] font-semibold tracking-[0.17em] text-[#F5F5F2] uppercase transition duration-500 hover:border-[#B8945F]/60 hover:text-[#D2B276] sm:w-auto"
                         >
                             {catalogueCtaData.secondaryCta}
                             <ArrowUpRight
@@ -57,10 +57,10 @@ export function CatalogueCtaSection() {
 
                 <div className="relative mx-auto w-full max-w-[25rem] lg:max-w-[30rem] group">
                     {/* Glow blurred background node: hidden on mobile */}
-                    <div className="pointer-events-none absolute inset-8 rounded-full bg-[#B88A2A]/12 blur-3xl hidden md:block" />
+                    <div className="pointer-events-none absolute inset-8 hidden rounded-full bg-[#B8945F]/14 blur-3xl md:block" />
                     
                     {/* CSS tilted GPU-accelerated card replacement for Framer Motion */}
-                    <div className="relative overflow-hidden border border-white/[0.1] bg-[#101010] p-3 shadow-[0_34px_100px_rgba(0,0,0,0.42)] [transform-style:preserve-3d] transition-all duration-[600ms] ease-out group-hover:-translate-y-2 group-hover:[transform:rotateX(2deg)_rotateY(-3deg)] sm:p-4">
+                    <div className="relative overflow-hidden border border-white/[0.1] bg-[#101010] p-3 shadow-[0_34px_100px_rgba(0,0,0,0.42),0_0_60px_rgba(184,148,95,0.08)] [transform-style:preserve-3d] transition-all duration-[600ms] ease-out group-hover:-translate-y-2 group-hover:[transform:rotateX(2deg)_rotateY(-3deg)] sm:p-4">
                         <div className="relative aspect-[3/4] overflow-hidden bg-[#151515]">
                             <img
                                 src={catalogueCtaData.catalogueImage}

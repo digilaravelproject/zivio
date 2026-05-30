@@ -1,13 +1,14 @@
 import { AnimatePresence } from 'framer-motion';
 import { useMemo, useState } from 'react';
+
+import { Reveal } from '@/components/animations/Reveal';
 import { ProductCard } from '@/components/products/ProductCard';
 import { ProductCategoryTabs } from '@/components/products/ProductCategoryTabs';
 import {
     productCategories,
     productsData,
-    type ProductCategory,
 } from '@/data/productsData';
-import { Reveal } from '@/components/animations/Reveal';
+import type { ProductCategory } from '@/data/productsData';
 
 export function ProductsShowcaseSection() {
     const [activeCategory, setActiveCategory] =
@@ -24,34 +25,30 @@ export function ProductsShowcaseSection() {
     }, [activeCategory]);
 
     return (
-        <section className="relative overflow-hidden bg-[#0A0A0A] px-4 py-14 text-[#F5F5F2] sm:px-6 sm:py-20 lg:px-10 lg:py-[7rem]">
-            {/* Adopting clean, single CSS utility for luxury section backgrounds */}
-            <div className="pointer-events-none absolute inset-0 bg-luxury-glow-1" />
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(184,138,42,0.045)_1px,transparent_1px),linear-gradient(180deg,rgba(255,255,255,0.028)_1px,transparent_1px)] bg-[size:18rem_100%,100%_7rem] opacity-[0.16]" />
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-luxury-divider" />
-            
-            {/* Mobile GPU Optimization: Hide large blur on small screens */}
-            <div className="pointer-events-none absolute right-0 bottom-12 h-80 w-80 rounded-full bg-[#B88A2A]/6 blur-3xl hidden md:block" />
+        <section className="relative overflow-hidden bg-editorial-light px-4 py-16 text-[#171512] sm:px-6 sm:py-24 lg:px-10 lg:py-[8rem]">
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(123,96,58,0.045)_1px,transparent_1px),linear-gradient(180deg,rgba(123,96,58,0.03)_1px,transparent_1px)] bg-[size:18rem_100%,100%_8rem] opacity-[0.32]" />
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-warm-divider" />
+            <div className="pointer-events-none absolute right-0 bottom-12 hidden h-80 w-80 rounded-full bg-[#B8945F]/12 blur-3xl md:block" />
 
             <div className="relative mx-auto max-w-7xl">
                 <Reveal
-                    className="mb-6 grid gap-5 border-b border-[#B88A2A]/16 pb-6 sm:mb-9 sm:gap-7 sm:pb-8 lg:mb-11 lg:grid-cols-[0.74fr_0.5fr] lg:items-end lg:justify-between"
+                    className="mb-7 grid gap-5 border-b border-[#8D6B38]/14 pb-7 sm:mb-10 sm:gap-7 sm:pb-9 lg:mb-12 lg:grid-cols-[0.74fr_0.5fr] lg:items-end lg:justify-between"
                     threshold={0.25}
                 >
                     <div>
                         <div className="mb-4 flex items-center gap-4 sm:mb-5">
-                            <span className="h-[1px] w-10 bg-[#B88A2A]" />
+                            <span className="h-[1px] w-10 bg-[#B8945F]" />
                             <p className="text-luxury-label">
                                 Product Collection
                             </p>
                         </div>
-                        <h2 className="text-luxury-heading">
+                        <h2 className="text-editorial-heading-dark">
                             Our Products.
                         </h2>
                     </div>
 
-                    <div className="max-w-md border-l border-[#B88A2A]/28 pl-4 sm:pl-5 lg:justify-self-end">
-                        <p className="max-w-md font-sans text-sm leading-6 tracking-[0.02em] text-[#CFCFCB] sm:text-base sm:leading-8">
+                    <div className="max-w-md border-l border-[#8D6B38]/22 pl-4 sm:pl-5 lg:justify-self-end">
+                        <p className="max-w-md font-sans text-sm leading-6 tracking-[0.02em] text-[#665F53] sm:text-base sm:leading-8">
                             ZIVIO lighting that blends performance, design, and brilliance for every space.
                         </p>
                     </div>
@@ -63,12 +60,12 @@ export function ProductsShowcaseSection() {
                         activeCategory={activeCategory}
                         onCategoryChange={setActiveCategory}
                     />
-                    <p className="font-sans text-[0.62rem] font-semibold tracking-[0.22em] text-[#B88A2A] uppercase sm:text-[0.66rem]">
+                    <p className="font-sans text-[0.6rem] font-semibold tracking-[0.18em] text-[#8D6B38] uppercase sm:text-[0.64rem]">
                         {filteredProducts.length} Products
                     </p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3 [perspective:1200px] max-[360px]:grid-cols-1 sm:grid-cols-2 sm:gap-5 md:grid-cols-3 xl:grid-cols-4">
+                <div className="grid grid-cols-2 gap-4 [perspective:1200px] max-[360px]:grid-cols-1 sm:grid-cols-2 sm:gap-5 md:grid-cols-3 xl:grid-cols-4 xl:gap-6">
                     <AnimatePresence>
                         {filteredProducts.map((product, index) => (
                             <ProductCard

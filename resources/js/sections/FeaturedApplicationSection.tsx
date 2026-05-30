@@ -29,27 +29,26 @@ export function FeaturedApplicationSection() {
     };
 
     return (
-        <section className="relative overflow-hidden bg-[#090909] px-4 pt-12 pb-16 text-[#F5F5F2] sm:px-6 sm:pt-16 sm:pb-[5.5rem] lg:px-10 lg:pt-20 lg:pb-[7.5rem]">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_74%_18%,rgba(184,138,42,0.075),transparent_31%),linear-gradient(145deg,#090909_0%,#101010_48%,#070707_100%)]" />
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(184,138,42,0.035)_1px,transparent_1px)] bg-[size:18rem_100%] opacity-[0.14]" />
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#B88A2A]/18 to-transparent" />
+        <section className="relative overflow-hidden bg-editorial-light px-4 pt-16 pb-18 text-[#171512] sm:px-6 sm:pt-24 sm:pb-[6.5rem] lg:px-10 lg:pt-24 lg:pb-[8rem]">
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(123,96,58,0.045)_1px,transparent_1px)] bg-[size:20rem_100%] opacity-[0.32]" />
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-warm-divider" />
 
             <motion.div
                 initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.25 }}
                 transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1] }}
-                className="relative mx-auto grid max-w-7xl gap-7 sm:gap-9 lg:grid-cols-[0.72fr_1.28fr] lg:items-center lg:gap-16"
+                className="relative mx-auto grid max-w-7xl gap-8 sm:gap-10 lg:grid-cols-[0.62fr_1.38fr] lg:items-center lg:gap-16"
             >
                 <div>
                     <div className="mb-4 flex items-center gap-4 sm:mb-5">
-                        <span className="h-px w-9 bg-[#B88A2A]/80" />
-                        <p className="font-sans text-[0.64rem] font-semibold tracking-[0.34em] text-[#B88A2A] uppercase">
+                            <span className="h-px w-9 bg-[#B8945F]/80" />
+                        <p className="font-sans text-[0.6rem] font-semibold tracking-[0.24em] text-[#8D6B38] uppercase">
                             {featuredApplicationIntro.label}
                         </p>
                     </div>
 
-                    <h2 className="max-w-xl text-[1.8rem] leading-[1.08] font-semibold text-balance text-[#F8F5EC] sm:text-4xl lg:text-[3.15rem] xl:text-[3.55rem]">
+                    <h2 className="max-w-lg text-[1.8rem] leading-[1.1] font-medium text-balance text-[#171512] sm:text-4xl lg:text-[2.7rem] xl:text-[3rem]">
                         {featuredApplicationIntro.heading}
                     </h2>
 
@@ -64,15 +63,15 @@ export function FeaturedApplicationSection() {
                                 ease: [0.22, 1, 0.36, 1],
                             }}
                         >
-                            <p className="mt-4 max-w-lg font-sans text-sm leading-6 text-[#CFCFCB] sm:mt-5 sm:text-base sm:leading-8">
+                            <p className="mt-4 max-w-lg font-sans text-sm leading-7 text-[#665F53] sm:mt-5 sm:text-base sm:leading-8">
                                 {activeProduct.description}
                             </p>
 
                             <div className="mt-5 sm:mt-7">
-                                <p className="font-sans text-[0.64rem] font-semibold tracking-[0.28em] text-[#B88A2A] uppercase">
+                                <p className="font-sans text-[0.6rem] font-semibold tracking-[0.22em] text-[#8D6B38] uppercase">
                                     {activeProduct.category}
                                 </p>
-                                <h3 className="mt-2 max-w-xl text-[1.35rem] leading-7 font-semibold text-[#F8F5EC] sm:text-3xl sm:leading-9">
+                                <h3 className="mt-2 max-w-xl text-[1.35rem] leading-7 font-medium text-[#171512] sm:text-3xl sm:leading-9">
                                     {activeProduct.name}
                                 </h3>
                             </div>
@@ -81,7 +80,7 @@ export function FeaturedApplicationSection() {
                                 {activeProduct.specs.map((spec) => (
                                     <span
                                         key={spec}
-                                        className="rounded-full border border-white/[0.07] bg-white/[0.022] px-3 py-1.5 font-sans text-[0.66rem] tracking-[0.08em] text-[#D8D3C8]"
+                                        className="rounded-full border border-[#8D6B38]/14 bg-[#F8F4EC]/64 px-3 py-1.5 font-sans text-[0.64rem] tracking-[0.06em] text-[#665F53]"
                                     >
                                         {spec}
                                     </span>
@@ -91,7 +90,7 @@ export function FeaturedApplicationSection() {
                             <div className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row">
                                 <Link
                                     href={activeProduct.href}
-                                    className="inline-flex w-full items-center justify-center gap-2 border border-[#B88A2A]/55 px-5 py-3 font-sans text-[0.66rem] font-semibold tracking-[0.2em] text-[#F5F5F2] uppercase transition duration-500 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A] sm:w-auto"
+                                    className="inline-flex w-full items-center justify-center gap-2 border border-[#8D6B38]/35 bg-[#171512] px-5 py-3 font-sans text-[0.64rem] font-semibold tracking-[0.17em] text-[#F8F5EC] uppercase transition duration-500 hover:border-[#171512] hover:bg-[#F8F4EC] hover:text-[#171512] sm:w-auto"
                                 >
                                     Explore Product
                                     <ArrowUpRight
@@ -101,7 +100,7 @@ export function FeaturedApplicationSection() {
                                 </Link>
                                 <Link
                                     href={activeProduct.collectionHref}
-                                    className="inline-flex w-full items-center justify-center gap-2 px-5 py-3 font-sans text-[0.66rem] font-semibold tracking-[0.2em] text-[#CFCFCB] uppercase transition duration-500 hover:text-[#B88A2A] sm:w-auto"
+                                    className="inline-flex w-full items-center justify-center gap-2 px-5 py-3 font-sans text-[0.64rem] font-semibold tracking-[0.17em] text-[#665F53] uppercase transition duration-500 hover:text-[#8D6B38] sm:w-auto"
                                 >
                                     View Collection
                                 </Link>
@@ -109,11 +108,11 @@ export function FeaturedApplicationSection() {
                         </motion.div>
                     </AnimatePresence>
 
-                    <div className="mt-7 flex items-center justify-between gap-4 border-t border-white/[0.07] pt-5 sm:mt-8 sm:gap-5 sm:pt-6 sm:justify-start">
+                    <div className="mt-7 flex items-center justify-between gap-4 border-t border-[#8D6B38]/14 pt-5 sm:mt-8 sm:justify-start sm:gap-5 sm:pt-6">
                         <div className="flex min-w-24 items-center gap-3 font-sans text-sm font-semibold tracking-[0.18em]">
                             <span>{formatCounter(activeProductIndex + 1)}</span>
-                            <span className="h-px w-8 bg-[#B88A2A]/80" />
-                            <span className="text-[#CFCFCB]">
+                            <span className="h-px w-8 bg-[#8D6B38]/50" />
+                            <span className="text-[#665F53]">
                                 {formatCounter(totalProducts)}
                             </span>
                         </div>
@@ -121,7 +120,7 @@ export function FeaturedApplicationSection() {
                             <button
                                 type="button"
                                 onClick={handlePrevious}
-                                className="grid size-12 place-items-center rounded-full border border-white/[0.09] bg-white/[0.022] text-[#F5F5F2] transition duration-500 hover:border-[#B88A2A]/60 hover:bg-[#B88A2A]/8 hover:text-[#D2B276] sm:size-11"
+                                className="grid size-12 place-items-center rounded-full border border-[#8D6B38]/16 bg-[#F8F4EC]/58 text-[#171512] transition duration-500 hover:border-[#8D6B38]/50 hover:bg-[#171512] hover:text-[#F8F5EC] sm:size-11"
                                 aria-label="Previous featured product"
                             >
                                 <ArrowLeft
@@ -132,7 +131,7 @@ export function FeaturedApplicationSection() {
                             <button
                                 type="button"
                                 onClick={handleNext}
-                                className="grid size-12 place-items-center rounded-full border border-white/[0.09] bg-white/[0.022] text-[#F5F5F2] transition duration-500 hover:border-[#B88A2A]/60 hover:bg-[#B88A2A]/8 hover:text-[#D2B276] sm:size-11"
+                                className="grid size-12 place-items-center rounded-full border border-[#8D6B38]/16 bg-[#F8F4EC]/58 text-[#171512] transition duration-500 hover:border-[#8D6B38]/50 hover:bg-[#171512] hover:text-[#F8F5EC] sm:size-11"
                                 aria-label="Next featured product"
                             >
                                 <ArrowRight

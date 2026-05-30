@@ -28,14 +28,14 @@ export function CategoryCard({
             onFocus={() => onActivate(index)}
             onMouseLeave={onClear}
             className={cn(
-                'group relative h-[260px] overflow-hidden border border-white/[0.08] bg-[#101010] shadow-[0_24px_80px_rgba(0,0,0,0.32)] transition-opacity duration-700 sm:h-[370px] md:[transform-style:preserve-3d] lg:h-[450px] 2xl:h-[500px]',
+                'cinematic-image-frame group relative h-[300px] overflow-hidden transition-opacity duration-700 sm:h-[410px] md:[transform-style:preserve-3d] lg:h-[500px] 2xl:h-[540px]',
                 index % 2 === 1 && 'xl:translate-y-8',
                 isDimmed && 'opacity-45',
             )}
             animate={{
-                y: isActive ? -4 : 0,
-                rotateX: isActive ? 0.8 : 0,
-                rotateY: isActive ? (index % 2 === 0 ? -0.9 : 0.9) : 0,
+                y: isActive ? -6 : 0,
+                rotateX: isActive ? 0.5 : 0,
+                rotateY: isActive ? (index % 2 === 0 ? -0.6 : 0.6) : 0,
             }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
@@ -49,8 +49,8 @@ export function CategoryCard({
                 className="pointer-events-none absolute -inset-px z-30 border border-[#B88A2A]/0 transition duration-700 group-hover:border-[#B88A2A]/34"
                 animate={{
                     boxShadow: isActive
-                        ? '0 0 56px rgba(184, 138, 42, 0.14)'
-                        : '0 0 0 rgba(184, 138, 42, 0)',
+                        ? '0 0 58px rgba(184, 148, 95, 0.16)'
+                        : '0 0 0 rgba(184, 148, 95, 0)',
                 }}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             />
@@ -69,9 +69,9 @@ export function CategoryCard({
                 transition={{ duration: 1.45, ease: [0.22, 1, 0.36, 1] }}
             />
 
-            <div className="absolute inset-0 bg-[#0A0A0A]/44 transition duration-700 group-hover:bg-[#0A0A0A]/24" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/95 via-[#0A0A0A]/30 to-[#0A0A0A]/15" />
-            <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#0A0A0A]/50 to-transparent" />
+            <div className="absolute inset-0 bg-[#0A0A0A]/30 transition duration-700 group-hover:bg-[#0A0A0A]/14" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/88 via-[#080808]/22 to-[#080808]/8" />
+            <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#080808]/38 to-transparent" />
             <div className="absolute top-5 right-5 z-40 grid size-10 place-items-center border border-white/[0.12] bg-[#0A0A0A]/22 text-[#F5F5F2] backdrop-blur-sm transition duration-500 group-hover:border-[#B88A2A]/60 group-hover:text-[#D2B276]">
                 <ArrowUpRight className="size-4" strokeWidth={1.5} />
             </div>
@@ -82,10 +82,10 @@ export function CategoryCard({
                     transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
                 >
                     <span className="mb-4 block h-px w-10 bg-[#B88A2A]" />
-                    <p className="mb-3 font-sans text-[0.64rem] font-semibold tracking-[0.28em] text-[#B88A2A] uppercase">
+                    <p className="mb-3 font-sans text-[0.6rem] font-semibold tracking-[0.22em] text-[#D2B276] uppercase">
                         {String(index + 1).padStart(2, '0')}
                     </p>
-                    <h3 className="max-w-[12rem] text-3xl leading-[0.98] font-semibold text-[#F8F5EC] sm:max-w-[13rem] sm:text-5xl xl:text-[3.2rem]">
+                    <h3 className="max-w-[12rem] text-[2rem] leading-[1.02] font-medium text-[#F8F5EC] sm:max-w-[13rem] sm:text-[2.65rem] xl:text-[2.9rem]">
                         {category.title}
                     </h3>
                     <motion.p
@@ -95,7 +95,7 @@ export function CategoryCard({
                             y: isActive ? 0 : 8,
                         }}
                         transition={{ duration: 0.45, ease: 'easeOut' }}
-                        className="mt-4 font-sans text-[0.62rem] font-semibold tracking-[0.2em] text-[#F5F5F2] uppercase sm:mt-5 sm:text-[0.64rem] sm:tracking-[0.22em]"
+                        className="mt-4 font-sans text-[0.58rem] font-semibold tracking-[0.17em] text-[#F5F5F2] uppercase sm:mt-5 sm:text-[0.62rem] sm:tracking-[0.2em]"
                     >
                         Explore Collection
                     </motion.p>

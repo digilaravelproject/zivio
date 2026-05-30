@@ -27,8 +27,8 @@ export function ProjectsShowcaseSection() {
     };
 
     return (
-        <section className="relative overflow-hidden bg-[#080808] text-[#F5F5F2]">
-            <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-px bg-gradient-to-r from-transparent via-[#B88A2A]/24 to-transparent" />
+        <section className="relative overflow-hidden bg-editorial-dark text-[#F5F5F2]">
+            <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-px bg-gradient-to-r from-transparent via-[#B8945F]/24 to-transparent" />
 
             <div className="relative hidden min-h-[680px] overflow-hidden lg:block xl:min-h-[740px]">
                 <AnimatePresence mode="wait">
@@ -55,10 +55,10 @@ export function ProjectsShowcaseSection() {
                     />
                 </AnimatePresence>
 
-                <div className="absolute inset-0 bg-[#050505]/24" />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/96 via-[#050505]/62 to-[#050505]/18" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/92 via-transparent to-[#050505]/48" />
-                <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:24vw_100%] opacity-[0.18]" />
+                <div className="absolute inset-0 bg-[#050505]/16" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/86 via-[#050505]/48 to-[#050505]/10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/88 via-transparent to-[#050505]/34" />
+                <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:24vw_100%] opacity-[0.12]" />
 
                 <div className="relative z-10 mx-auto flex min-h-[680px] max-w-7xl flex-col justify-between px-10 py-24 xl:min-h-[740px]">
                     <div className="max-w-3xl pt-10">
@@ -69,7 +69,7 @@ export function ProjectsShowcaseSection() {
                             </p>
                         </div>
 
-                        <h2 className="max-w-4xl text-[clamp(4.2rem,6.5vw,7.2rem)] leading-[0.9] font-semibold text-balance text-[#F8F5EC]">
+                        <h2 className="max-w-3xl text-[clamp(3.15rem,5.2vw,5.2rem)] leading-[1] font-medium text-balance text-[#F8F5EC]">
                             Built light, at architectural scale.
                         </h2>
                     </div>
@@ -90,7 +90,7 @@ export function ProjectsShowcaseSection() {
                                 <p className="mb-4 inline-flex border border-[#B88A2A]/24 bg-[#050505]/36 px-3 py-1.5 font-sans text-[0.62rem] font-semibold tracking-[0.22em] text-[#D2B276] uppercase backdrop-blur-sm">
                                     {activeProject.category}
                                 </p>
-                                <h3 className="text-4xl leading-[0.96] font-semibold text-[#F8F5EC] xl:text-5xl">
+                                <h3 className="text-4xl leading-[1] font-medium text-[#F8F5EC] xl:text-[2.65rem]">
                                     {activeProject.title}
                                 </h3>
                                 <p className="mt-3 font-sans text-sm font-semibold tracking-[0.18em] text-[#D2B276] uppercase">
@@ -101,7 +101,7 @@ export function ProjectsShowcaseSection() {
                                 </p>
                                 <Link
                                     href={activeProject.href}
-                                    className="mt-7 inline-flex items-center justify-center gap-2 border border-[#B88A2A]/58 px-5 py-3 font-sans text-[0.66rem] font-semibold tracking-[0.2em] text-[#F5F5F2] uppercase backdrop-blur-sm transition duration-500 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A]"
+                                    className="mt-7 inline-flex items-center justify-center gap-2 border border-[#B8945F]/58 px-5 py-3 font-sans text-[0.64rem] font-semibold tracking-[0.17em] text-[#F5F5F2] uppercase backdrop-blur-sm transition duration-500 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A]"
                                 >
                                     Read More
                                 </Link>
@@ -132,10 +132,10 @@ export function ProjectsShowcaseSection() {
                                                 setActiveProjectIndex(index)
                                             }
                                             className={cn(
-                                                'group grid grid-cols-[5.5rem_1fr] items-center gap-4 border p-2 text-left backdrop-blur-md transition duration-500',
+                                                'group grid grid-cols-[5.8rem_1fr] items-center gap-4 border p-2 text-left backdrop-blur-md transition duration-500',
                                                 isActive
-                                                    ? 'border-[#B88A2A]/44 bg-[#050505]/54'
-                                                    : 'border-white/[0.09] bg-[#050505]/28 hover:border-[#B88A2A]/30 hover:bg-[#050505]/44',
+                                                    ? 'border-[#B8945F]/44 bg-[#050505]/46'
+                                                    : 'border-white/[0.08] bg-[#050505]/22 hover:border-[#B8945F]/30 hover:bg-[#050505]/38',
                                             )}
                                         >
                                             <span className="relative block aspect-[4/3] overflow-hidden bg-[#111111]">
@@ -155,7 +155,7 @@ export function ProjectsShowcaseSection() {
                                                     {formatCounter(index + 1)} /{' '}
                                                     {project.category}
                                                 </span>
-                                                <span className="block text-xl leading-6 font-semibold text-[#F8F5EC]">
+                                                <span className="block text-lg leading-6 font-medium text-[#F8F5EC]">
                                                     {project.title}
                                                 </span>
                                             </span>
@@ -194,7 +194,7 @@ export function ProjectsShowcaseSection() {
             </div>
 
             <div className="relative px-4 py-14 sm:px-6 sm:py-16 lg:hidden">
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(184,138,42,0.07),transparent_30%),linear-gradient(145deg,#080808,#101010_52%,#080808)]" />
+                <div className="pointer-events-none absolute inset-0 bg-editorial-dark" />
                 <div className="relative mx-auto max-w-2xl">
                     <div className="mb-5 flex items-center gap-4 sm:mb-7">
                         <span className="h-px w-10 bg-[#B88A2A]/80" />
@@ -203,7 +203,7 @@ export function ProjectsShowcaseSection() {
                         </p>
                     </div>
 
-                    <h2 className="mb-6 text-[2.15rem] leading-[1] font-semibold text-balance text-[#F8F5EC] sm:mb-8 sm:text-5xl">
+                    <h2 className="mb-6 text-[2rem] leading-[1.08] font-medium text-balance text-[#F8F5EC] sm:mb-8 sm:text-[2.8rem]">
                         Built light, at architectural scale.
                     </h2>
 
@@ -217,7 +217,7 @@ export function ProjectsShowcaseSection() {
                                 duration: 0.58,
                                 ease: [0.22, 1, 0.36, 1],
                             }}
-                            className="overflow-hidden border border-white/[0.08] bg-[#101010] shadow-[0_24px_70px_rgba(0,0,0,0.34)]"
+                            className="cinematic-image-frame"
                         >
                             <div className="relative aspect-[4/3] overflow-hidden">
                                 <img
@@ -236,7 +236,7 @@ export function ProjectsShowcaseSection() {
                                 <p className="mb-3 inline-flex border border-[#B88A2A]/22 bg-[#B88A2A]/7 px-3 py-1.5 font-sans text-[0.6rem] font-semibold tracking-[0.2em] text-[#B88A2A] uppercase">
                                     {activeProject.category}
                                 </p>
-                                <h3 className="text-[1.65rem] leading-[1] font-semibold text-[#F8F5EC] sm:text-3xl">
+                                <h3 className="text-[1.55rem] leading-[1.06] font-medium text-[#F8F5EC] sm:text-3xl">
                                     {activeProject.title}
                                 </h3>
                                 <p className="mt-2 font-sans text-xs font-semibold tracking-[0.16em] text-[#B88A2A] uppercase">

@@ -35,6 +35,10 @@
     --color-zivio-warm-white: #f5f5f2;
     --color-zivio-gold: #DA9807;
     --color-zivio-soft-gray: #cfcfcb;
+    --color-zivio-ivory: #f4efe5;
+    --color-zivio-parchment: #ebe2d3;
+    --color-zivio-graphite: #151514;
+    --color-zivio-muted-gold: #b8945f;
 }
 
 @layer base {
@@ -90,34 +94,66 @@
                       linear-gradient(140deg, #080808 0%, #101010 48%, #070707 100%);
 }
 
+@utility bg-editorial-dark {
+    background:
+        radial-gradient(circle at 22% 16%, rgba(184, 148, 95, 0.12), transparent 30%),
+        radial-gradient(circle at 78% 10%, rgba(255, 244, 220, 0.05), transparent 24%),
+        linear-gradient(145deg, #090909 0%, #151514 48%, #070707 100%);
+}
+
+@utility bg-editorial-light {
+    background:
+        radial-gradient(circle at 18% 14%, rgba(255, 255, 255, 0.74), transparent 30%),
+        radial-gradient(circle at 82% 18%, rgba(184, 148, 95, 0.16), transparent 26%),
+        linear-gradient(145deg, #f6f0e6 0%, #ebe2d3 55%, #f1eadf 100%);
+}
+
 @utility bg-luxury-divider {
     background-image: linear-gradient(to right, transparent, rgba(184, 138, 42, 0.22), transparent);
 }
 
+@utility bg-warm-divider {
+    background-image: linear-gradient(to right, transparent, rgba(123, 96, 58, 0.24), transparent);
+}
+
 @utility text-luxury-label {
     font-family: var(--font-sans);
-    font-size: 0.62rem;
+    font-size: 0.58rem;
     font-weight: 600;
-    letter-spacing: 0.3em;
-    color: #B88A2A;
+    letter-spacing: 0.24em;
+    color: #B8945F;
     text-transform: uppercase;
     @media (min-width: 640px) {
-        font-size: 0.64rem;
-        letter-spacing: 0.34em;
+        font-size: 0.62rem;
+        letter-spacing: 0.28em;
     }
 }
 
 @utility text-luxury-heading {
-    font-size: 2.25rem;
-    line-height: 1.02;
-    font-weight: 600;
+    font-size: 2rem;
+    line-height: 1.08;
+    font-weight: 500;
     text-wrap: balance;
     color: #F8F5EC;
     @media (min-width: 640px) {
-        font-size: 3rem;
+        font-size: 2.65rem;
     }
     @media (min-width: 1024px) {
-        font-size: 3.65rem;
+        font-size: 3.05rem;
+    }
+}
+
+@utility text-editorial-heading-dark {
+    font-size: 2rem;
+    line-height: 1.08;
+    font-weight: 500;
+    text-wrap: balance;
+    color: #171512;
+    @media (min-width: 640px) {
+        font-size: 2.65rem;
+    }
+    @media (min-width: 1024px) {
+        font-size: 3.1rem;
     }
 }
 
@@ -131,4 +167,40 @@
         font-size: 1rem;
         line-height: 2rem;
     }
+}
+
+@utility text-editorial-paragraph {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    line-height: 1.85rem;
+    letter-spacing: 0.005em;
+    color: #665f53;
+    @media (min-width: 640px) {
+        font-size: 1rem;
+        line-height: 2rem;
+    }
+}
+
+@utility editorial-image-frame {
+    overflow: hidden;
+    border: 1px solid rgba(123, 96, 58, 0.16);
+    background-color: #ded3c3;
+    box-shadow:
+        0 26px 78px rgba(42, 34, 24, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.42);
+}
+
+@utility cinematic-image-frame {
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background-color: #111111;
+    box-shadow:
+        0 34px 100px rgba(0, 0, 0, 0.36),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+@utility ambient-light-warm {
+    box-shadow:
+        0 34px 110px rgba(123, 96, 58, 0.18),
+        0 0 70px rgba(184, 148, 95, 0.14);
 }

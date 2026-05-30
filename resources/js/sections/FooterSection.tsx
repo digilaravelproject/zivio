@@ -11,7 +11,7 @@ function FooterLinkList({
 }) {
     return (
         <div>
-            <h3 className="mb-4 font-sans text-[0.66rem] font-semibold tracking-[0.24em] text-[#B88A2A] uppercase">
+            <h3 className="mb-4 font-sans text-[0.62rem] font-semibold tracking-[0.2em] text-[#B8945F] uppercase">
                 {title}
             </h3>
             <ul className="grid gap-3 font-sans text-sm text-[#CFCFCB]">
@@ -32,16 +32,16 @@ function FooterLinkList({
 
 export function FooterSection() {
     return (
-        <footer className="relative overflow-hidden bg-[#050505] px-4 pt-14 pb-8 text-[#F5F5F2] sm:px-6 sm:pt-18 lg:px-10">
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#B88A2A]/30 to-transparent" />
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_10%,rgba(184,138,42,0.06),transparent_28%),linear-gradient(180deg,#080808_0%,#050505_100%)]" />
+        <footer className="relative overflow-hidden bg-[#050505] px-4 pt-16 pb-8 text-[#F5F5F2] sm:px-6 sm:pt-20 lg:px-10">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#B8945F]/30 to-transparent" />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_10%,rgba(184,148,95,0.07),transparent_28%),linear-gradient(180deg,#080808_0%,#050505_100%)]" />
 
             <div className="relative mx-auto max-w-7xl">
-                <div className="grid gap-10 border-b border-white/[0.08] pb-10 md:grid-cols-2 lg:grid-cols-[1.05fr_0.65fr_0.75fr_0.95fr] lg:gap-12">
+                <div className="grid gap-10 border-b border-white/[0.08] pb-12 md:grid-cols-2 lg:grid-cols-[1.05fr_0.65fr_0.75fr_0.95fr] lg:gap-14">
                     <div>
                         <Link
                             href="/"
-                            className="text-3xl leading-none font-semibold tracking-[0.04em] text-[#F8F5EC]"
+                            className="text-3xl leading-none font-medium tracking-[0.04em] text-[#F8F5EC]"
                         >
                             {footerData.logo}
                         </Link>
@@ -71,7 +71,7 @@ export function FooterSection() {
                     />
 
                     <div>
-                        <h3 className="mb-4 font-sans text-[0.66rem] font-semibold tracking-[0.24em] text-[#B88A2A] uppercase">
+                        <h3 className="mb-4 font-sans text-[0.62rem] font-semibold tracking-[0.2em] text-[#B8945F] uppercase">
                             Contact
                         </h3>
                         <div className="grid gap-4 font-sans text-sm leading-7 text-[#CFCFCB]">

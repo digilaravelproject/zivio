@@ -1,20 +1,21 @@
 import { useState } from 'react';
+
+import { Reveal } from '@/components/animations/Reveal';
 import { CategoryCard } from '@/components/category/CategoryCard';
 import { categories } from '@/data/categoriesData';
-import { Reveal } from '@/components/animations/Reveal';
 
 export function CategoryShowcaseSection() {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
     return (
-        <section className="relative overflow-hidden bg-[#0A0A0A] px-4 py-12 text-[#F5F5F2] sm:px-6 sm:py-20 sm:pb-28 lg:px-10 lg:pt-[6.5rem] lg:pb-[8.5rem]">
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#080808]/70 to-transparent" />
-            <div className="pointer-events-none absolute top-10 left-1/2 h-80 w-[38rem] -translate-x-1/2 rounded-full bg-[#B88A2A]/6 blur-3xl hidden md:block" />
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_92%_28%,rgba(255,255,255,0.035),transparent_24%)]" />
+        <section className="relative overflow-hidden bg-editorial-dark px-4 py-16 text-[#F5F5F2] sm:px-6 sm:py-24 sm:pb-32 lg:px-10 lg:pt-[7rem] lg:pb-[9rem]">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#090909]/76 to-transparent" />
+            <div className="pointer-events-none absolute top-10 left-1/2 hidden h-80 w-[38rem] -translate-x-1/2 rounded-full bg-[#B8945F]/8 blur-3xl md:block" />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_92%_28%,rgba(255,244,220,0.04),transparent_24%)]" />
             
             <div className="mx-auto max-w-7xl">
                 <Reveal
-                    className="relative mb-7 grid gap-5 border-b border-white/[0.08] pb-7 sm:mb-9 sm:gap-6 sm:pb-8 lg:mb-[3.25rem] lg:grid-cols-[1fr_0.5fr] lg:items-end"
+                    className="relative mb-8 grid gap-5 border-b border-white/[0.07] pb-8 sm:mb-11 sm:gap-6 sm:pb-9 lg:mb-[3.5rem] lg:grid-cols-[1fr_0.46fr] lg:items-end"
                     threshold={0.2}
                 >
                     <div>
@@ -24,16 +25,16 @@ export function CategoryShowcaseSection() {
                                 Collections
                             </p>
                         </div>
-                        <h2 className="max-w-4xl text-[clamp(2.25rem,8vw,3.45rem)] leading-[1] font-semibold text-balance text-[#F8F5EC] sm:text-[clamp(2.7rem,9vw,4.6rem)] lg:text-[clamp(4.2rem,5vw,5.9rem)]">
+                        <h2 className="max-w-3xl text-[clamp(2rem,7vw,3rem)] leading-[1.08] font-medium text-balance text-[#F8F5EC] sm:text-[clamp(2.45rem,7vw,3.7rem)] lg:text-[clamp(3.15rem,4vw,4.25rem)]">
                             Explore Our Lighting Collections
                         </h2>
                     </div>
 
-                    <div className="relative border-l border-[#B88A2A]/28 pl-4 sm:pl-5 lg:justify-self-end">
+                    <div className="relative border-l border-[#B8945F]/24 pl-4 sm:pl-5 lg:justify-self-end">
                         <p className="max-w-md font-sans text-sm leading-6 tracking-[0.02em] text-[#CFCFCB] sm:text-base sm:leading-8">
                             Designed for modern architecture, crafted for lasting visual impact.
                         </p>
-                        <p className="mt-5 font-sans text-[0.62rem] font-semibold tracking-[0.28em] text-[#B88A2A] uppercase">
+                        <p className="mt-5 font-sans text-[0.6rem] font-semibold tracking-[0.22em] text-[#B8945F] uppercase">
                             Architectural Lighting
                         </p>
                     </div>

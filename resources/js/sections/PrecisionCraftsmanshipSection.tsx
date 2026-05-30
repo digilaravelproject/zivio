@@ -1,13 +1,13 @@
 import { Link } from '@inertiajs/react';
 import { ArrowUpRight } from 'lucide-react';
-import { precisionData } from '@/data/precisionData';
+
 import { Reveal } from '@/components/animations/Reveal';
+import { precisionData } from '@/data/precisionData';
 
 export function PrecisionCraftsmanshipSection() {
     return (
-        <section className="relative overflow-hidden bg-[#080808] px-4 py-14 text-[#F5F5F2] sm:px-6 sm:py-20 lg:px-10 lg:py-[7.5rem]">
-            {/* Adopting clean, single CSS utility for luxury section backgrounds */}
-            <div className="pointer-events-none absolute inset-0 bg-luxury-glow-1" />
+        <section className="relative overflow-hidden bg-editorial-dark px-4 py-16 text-[#F5F5F2] sm:px-6 sm:py-24 lg:px-10 lg:py-[8rem]">
+            <div className="pointer-events-none absolute inset-0 bg-editorial-dark" />
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(184,138,42,0.04)_1px,transparent_1px),linear-gradient(180deg,rgba(255,255,255,0.026)_1px,transparent_1px)] bg-[size:20rem_100%,100%_7rem] opacity-[0.16]" />
             <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-luxury-divider" />
 
@@ -16,7 +16,7 @@ export function PrecisionCraftsmanshipSection() {
                 threshold={0.15}
             >
                 <div className="relative order-1 lg:order-none">
-                    <div className="group relative aspect-[4/3] overflow-hidden border border-white/[0.08] bg-[#111111] shadow-[0_30px_90px_rgba(0,0,0,0.34)] sm:aspect-[16/11] lg:aspect-[5/4]">
+                    <div className="cinematic-image-frame group relative aspect-[4/3] sm:aspect-[16/11] lg:aspect-[5/4]">
                         <img
                             src={precisionData.mainImage}
                             alt="Architectural lighting detail"
@@ -77,13 +77,13 @@ export function PrecisionCraftsmanshipSection() {
                         {precisionData.features.map((feature, index) => (
                             <div
                                 key={feature.title}
-                                className="relative border border-white/[0.08] bg-white/[0.025] p-3 sm:p-4"
+                                className="relative border border-white/[0.07] bg-white/[0.022] p-3 sm:p-4"
                             >
                                 <span className="mb-3 block h-px w-8 bg-[#B88A2A]/80" />
                                 <p className="mb-2 font-sans text-[0.58rem] font-semibold tracking-[0.2em] text-[#B88A2A] uppercase">
                                     {String(index + 1).padStart(2, '0')}
                                 </p>
-                                <h3 className="text-lg leading-5 font-semibold text-[#F8F5EC] sm:text-xl sm:leading-6">
+                                <h3 className="text-lg leading-5 font-medium text-[#F8F5EC] sm:text-xl sm:leading-6">
                                     {feature.title}
                                 </h3>
                             </div>

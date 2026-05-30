@@ -24,7 +24,7 @@ export function ProductCard({ product, index }: ProductCardProps) {
                 duration: 0.56,
                 ease: [0.22, 1, 0.36, 1],
             }}
-            className="group relative overflow-hidden rounded-[8px] border border-white/[0.08] bg-white/[0.03] shadow-[0_18px_52px_rgba(0,0,0,0.28)] backdrop-blur-md transition duration-700 hover:-translate-y-1 hover:border-[#B88A2A]/40 sm:shadow-[0_24px_70px_rgba(0,0,0,0.3)] md:hover:-translate-y-2 md:hover:border-[#B88A2A]/45 md:hover:shadow-[0_34px_95px_rgba(0,0,0,0.42),0_0_34px_rgba(184,138,42,0.1)] md:[transform-style:preserve-3d] md:hover:[transform:rotateX(1.4deg)_rotateY(-1.4deg)_translateY(-8px)]"
+            className="group relative overflow-hidden rounded-[8px] border border-[#8D6B38]/14 bg-[#F8F4EC]/62 shadow-[0_18px_52px_rgba(42,34,24,0.12)] backdrop-blur-md transition duration-700 hover:-translate-y-1 hover:border-[#B8945F]/42 sm:shadow-[0_24px_70px_rgba(42,34,24,0.14)] md:hover:-translate-y-2 md:hover:border-[#B8945F]/48 md:hover:shadow-[0_34px_95px_rgba(42,34,24,0.18),0_0_34px_rgba(184,148,95,0.12)] md:[transform-style:preserve-3d] md:hover:[transform:rotateX(1deg)_rotateY(-1deg)_translateY(-8px)]"
         >
             <Link
                 href={product.href}
@@ -32,13 +32,13 @@ export function ProductCard({ product, index }: ProductCardProps) {
                 aria-label={`View ${product.name}`}
             />
 
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.09),transparent_34%),radial-gradient(circle_at_50%_0%,rgba(184,138,42,0.1),transparent_36%)] opacity-60 transition duration-700 group-hover:opacity-100" />
-            <div className="pointer-events-none absolute inset-px rounded-[7px] border border-white/[0.04]" />
-            <div className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.42),transparent_34%),radial-gradient(circle_at_50%_0%,rgba(184,148,95,0.14),transparent_36%)] opacity-70 transition duration-700 group-hover:opacity-100" />
+            <div className="pointer-events-none absolute inset-px rounded-[7px] border border-white/35" />
+            <div className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/70 to-transparent" />
 
-            <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-[#171717] via-[#101010] to-[#080808]">
-                <div className="pointer-events-none absolute inset-5 rounded-full bg-[#B88A2A]/7 blur-2xl transition duration-700 group-hover:bg-[#B88A2A]/11" />
-                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,transparent_0%,rgba(255,255,255,0.09)_48%,transparent_64%)] opacity-0 transition duration-700 group-hover:translate-x-8 group-hover:opacity-70" />
+            <div className="relative aspect-[1/1.08] overflow-hidden bg-gradient-to-br from-[#EFE4D4] via-[#F8F4EC] to-[#D8CCBB]">
+                <div className="pointer-events-none absolute inset-5 rounded-full bg-[#B8945F]/14 blur-2xl transition duration-700 group-hover:bg-[#B8945F]/18" />
+                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,transparent_0%,rgba(255,255,255,0.45)_48%,transparent_64%)] opacity-0 transition duration-700 group-hover:translate-x-8 group-hover:opacity-70" />
 
                 <img
                     src={product.image}
@@ -48,32 +48,32 @@ export function ProductCard({ product, index }: ProductCardProps) {
                     loading="lazy"
                     decoding="async"
                     className={cn(
-                        'relative z-10 h-full w-full p-2.5 transition duration-700 ease-out group-hover:-translate-y-1 group-hover:scale-[1.03] sm:p-5 sm:group-hover:-translate-y-1.5 sm:group-hover:scale-[1.04]',
+                        'relative z-10 h-full w-full p-2.5 transition duration-700 ease-out group-hover:-translate-y-1 group-hover:scale-[1.03] sm:p-4 sm:group-hover:-translate-y-1.5 sm:group-hover:scale-[1.04]',
                         product.imageFit === 'contain'
                             ? 'object-contain'
                             : 'object-cover',
                     )}
                     sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/64 via-transparent to-[#0A0A0A]/16" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#171512]/12 via-transparent to-white/20" />
 
-                <div className="absolute top-3 left-3 z-20 font-sans text-[0.58rem] font-semibold tracking-[0.22em] text-[#B88A2A] sm:top-4 sm:left-4 sm:text-[0.66rem] sm:tracking-[0.24em]">
+                <div className="absolute top-3 left-3 z-20 font-sans text-[0.56rem] font-semibold tracking-[0.18em] text-[#8D6B38] sm:top-4 sm:left-4 sm:text-[0.62rem] sm:tracking-[0.2em]">
                     {productNumber}
                 </div>
-                <p className="absolute right-2 bottom-2 z-20 rounded-full border border-[#B88A2A]/28 bg-[#0A0A0A]/45 px-2 py-1 font-sans text-[0.5rem] font-semibold tracking-[0.12em] text-[#B88A2A] uppercase backdrop-blur-sm sm:right-4 sm:bottom-4 sm:px-3 sm:py-1.5 sm:text-[0.58rem] sm:tracking-[0.18em]">
+                <p className="absolute right-2 bottom-2 z-20 rounded-full border border-[#8D6B38]/20 bg-[#F8F4EC]/72 px-2 py-1 font-sans text-[0.5rem] font-semibold tracking-[0.1em] text-[#8D6B38] uppercase backdrop-blur-sm sm:right-4 sm:bottom-4 sm:px-3 sm:py-1.5 sm:text-[0.56rem] sm:tracking-[0.14em]">
                     {product.categories[0]}
                 </p>
             </div>
 
             <div className="relative p-3 sm:p-6">
-                <span className="mb-3 block h-px w-9 bg-gradient-to-r from-[#B88A2A] to-transparent sm:mb-4 sm:w-12" />
-                <h3 className="text-[1rem] leading-5 font-semibold text-[#F8F5EC] sm:text-[1.45rem] sm:leading-7">
+                <span className="mb-3 block h-px w-9 bg-gradient-to-r from-[#B8945F] to-transparent sm:mb-4 sm:w-12" />
+                <h3 className="text-[1rem] leading-5 font-medium text-[#171512] sm:text-[1.32rem] sm:leading-7">
                     {product.name}
                 </h3>
-                <p className="mt-2 min-h-10 font-sans text-[0.72rem] leading-5 text-[#CFCFCB] sm:mt-3 sm:min-h-12 sm:text-sm sm:leading-6">
+                <p className="mt-2 min-h-10 font-sans text-[0.72rem] leading-5 text-[#665F53] sm:mt-3 sm:min-h-12 sm:text-sm sm:leading-6">
                     {product.subtitle}
                 </p>
-                <div className="mt-3 inline-flex items-center gap-1.5 font-sans text-[0.56rem] font-semibold tracking-[0.16em] text-[#F8F5EC] uppercase opacity-90 transition duration-500 group-hover:translate-x-1 group-hover:text-[#B88A2A] group-hover:opacity-100 sm:mt-5 sm:gap-2 sm:text-[0.66rem] sm:tracking-[0.2em]">
+                <div className="mt-3 inline-flex items-center gap-1.5 font-sans text-[0.56rem] font-semibold tracking-[0.14em] text-[#171512] uppercase opacity-80 transition duration-500 group-hover:translate-x-1 group-hover:text-[#8D6B38] group-hover:opacity-100 sm:mt-5 sm:gap-2 sm:text-[0.62rem] sm:tracking-[0.17em]">
                     Details
                     <ArrowUpRight
                         className="size-3.5 transition duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 sm:size-4"

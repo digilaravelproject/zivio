@@ -69,6 +69,7 @@ export function ProductCategoryTabs({
     useEffect(() => {
         if (isFirstRender.current) {
             isFirstRender.current = false;
+
             return;
         }
 
@@ -102,13 +103,13 @@ export function ProductCategoryTabs({
         <div className="relative">
             <div
                 className={cn(
-                    'pointer-events-none absolute top-0 bottom-3 left-0 z-10 w-10 bg-gradient-to-r from-[#0A0A0A] to-transparent opacity-0 transition duration-300 lg:hidden',
+                    'pointer-events-none absolute top-0 bottom-3 left-0 z-10 w-10 bg-gradient-to-r from-[#F1EADF] to-transparent opacity-0 transition duration-300 lg:hidden',
                     canScrollLeft && 'opacity-100',
                 )}
             />
             <div
                 className={cn(
-                    'pointer-events-none absolute top-0 right-0 bottom-3 z-10 w-10 bg-gradient-to-l from-[#0A0A0A] to-transparent opacity-0 transition duration-300 lg:hidden',
+                    'pointer-events-none absolute top-0 right-0 bottom-3 z-10 w-10 bg-gradient-to-l from-[#F1EADF] to-transparent opacity-0 transition duration-300 lg:hidden',
                     canScrollRight && 'opacity-100',
                 )}
             />
@@ -118,7 +119,7 @@ export function ProductCategoryTabs({
                 onClick={() => scrollTabs('left')}
                 disabled={!canScrollLeft}
                 className={cn(
-                    'absolute top-1/2 left-0 z-20 grid size-8 -translate-y-[calc(50%+0.35rem)] place-items-center rounded-full border border-white/[0.12] bg-[#080808]/78 text-[#F8F5EC] shadow-[0_14px_36px_rgba(0,0,0,0.32)] backdrop-blur-xl transition duration-300 hover:border-[#B88A2A]/70 hover:text-[#D2B276] lg:hidden',
+                    'absolute top-1/2 left-0 z-20 grid size-8 -translate-y-[calc(50%+0.35rem)] place-items-center rounded-full border border-[#8D6B38]/16 bg-[#F8F4EC]/82 text-[#171512] shadow-[0_14px_36px_rgba(42,34,24,0.14)] backdrop-blur-xl transition duration-300 hover:border-[#8D6B38]/50 hover:text-[#8D6B38] lg:hidden',
                     (!hasOverflow || !canScrollLeft) &&
                         'pointer-events-none opacity-0',
                 )}
@@ -132,7 +133,7 @@ export function ProductCategoryTabs({
                 onClick={() => scrollTabs('right')}
                 disabled={!canScrollRight}
                 className={cn(
-                    'absolute top-1/2 right-0 z-20 grid size-8 -translate-y-[calc(50%+0.35rem)] place-items-center rounded-full border border-white/[0.12] bg-[#080808]/78 text-[#F8F5EC] shadow-[0_14px_36px_rgba(0,0,0,0.32)] backdrop-blur-xl transition duration-300 hover:border-[#B88A2A]/70 hover:text-[#D2B276] lg:hidden',
+                    'absolute top-1/2 right-0 z-20 grid size-8 -translate-y-[calc(50%+0.35rem)] place-items-center rounded-full border border-[#8D6B38]/16 bg-[#F8F4EC]/82 text-[#171512] shadow-[0_14px_36px_rgba(42,34,24,0.14)] backdrop-blur-xl transition duration-300 hover:border-[#8D6B38]/50 hover:text-[#8D6B38] lg:hidden',
                     (!hasOverflow || !canScrollRight) &&
                         'pointer-events-none opacity-0',
                 )}
@@ -157,10 +158,10 @@ export function ProductCategoryTabs({
                                 type="button"
                                 onClick={() => onCategoryChange(category)}
                                 className={cn(
-                                    'group relative shrink-0 overflow-hidden rounded-full border px-4 py-2.5 font-sans text-[0.64rem] font-semibold tracking-[0.18em] uppercase transition duration-500 sm:px-5',
+                                    'group relative shrink-0 overflow-hidden rounded-full border px-4 py-2.5 font-sans text-[0.6rem] font-semibold tracking-[0.14em] uppercase transition duration-500 sm:px-5 sm:text-[0.62rem]',
                                     isActive
-                                        ? 'border-[#B88A2A]/70 bg-[#B88A2A]/14 text-[#F8F5EC] shadow-[0_0_28px_rgba(184,138,42,0.12)]'
-                                        : 'border-white/10 bg-white/[0.022] text-[#BDB7AA] hover:border-[#B88A2A]/50 hover:bg-[#B88A2A]/7 hover:text-[#F8F5EC]',
+                                        ? 'border-[#8D6B38]/45 bg-[#171512] text-[#F8F5EC] shadow-[0_16px_38px_rgba(42,34,24,0.12)]'
+                                        : 'border-[#8D6B38]/14 bg-[#F8F4EC]/52 text-[#665F53] hover:border-[#8D6B38]/38 hover:bg-[#F8F4EC] hover:text-[#171512]',
                                 )}
                                 aria-pressed={isActive}
                             >
@@ -169,11 +170,11 @@ export function ProductCategoryTabs({
                                 </span>
                                 <span
                                     className={cn(
-                                        'pointer-events-none absolute inset-x-4 bottom-1 h-px origin-center scale-x-0 bg-[#B88A2A] transition duration-500',
+                                        'pointer-events-none absolute inset-x-4 bottom-1 h-px origin-center scale-x-0 bg-[#B8945F] transition duration-500',
                                         isActive && 'scale-x-100',
                                     )}
                                 />
-                                <span className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-r from-white/[0.07] via-transparent to-[#B88A2A]/8 opacity-0 transition duration-500 group-hover:opacity-100" />
+                                <span className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-r from-white/40 via-transparent to-[#B8945F]/10 opacity-0 transition duration-500 group-hover:opacity-100" />
                             </button>
                         );
                     })}

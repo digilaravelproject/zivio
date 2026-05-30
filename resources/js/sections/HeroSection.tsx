@@ -50,7 +50,7 @@ export function HeroSection() {
                                 className="absolute inset-0 will-change-transform"
                                 style={{
                                     background:
-                                        'radial-gradient(circle at 74% 40%, rgba(184, 138, 42, 0.12), transparent 30%), linear-gradient(120deg, rgba(8, 8, 8, 0.1), rgba(8, 8, 8, 0.26))',
+                                        'radial-gradient(circle at 74% 40%, rgba(184, 148, 95, 0.1), transparent 30%), linear-gradient(120deg, rgba(8, 8, 8, 0.02), rgba(8, 8, 8, 0.16))',
                                 }}
                                 initial={false}
                                 animate={{
@@ -58,7 +58,7 @@ export function HeroSection() {
                                         prefersReducedMotion
                                             ? 1
                                             : activeIndex === index
-                                              ? [1.08, 1.18]
+                                              ? [1.03, 1.1]
                                               : 1,
                                 }}
                                 transition={{
@@ -82,19 +82,19 @@ export function HeroSection() {
                                     sizes="100vw"
                                 />
                             </motion.div>
-                            <div className="absolute inset-0 bg-[#080808]/22" />
-                            <div className="absolute inset-0 bg-gradient-to-r from-[#080808]/92 via-[#080808]/42 to-[#080808]/8" />
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/88 via-[#080808]/8 to-[#080808]/34" />
-                            <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/72 to-transparent" />
+                            <div className="absolute inset-0 bg-[#080808]/12" />
+                            <div className="absolute inset-0 bg-gradient-to-r from-[#080808]/76 via-[#080808]/30 to-[#080808]/4" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/78 via-[#080808]/6 to-[#080808]/22" />
+                            <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#090909] via-[#090909]/56 to-transparent" />
                         </div>
                     </SwiperSlide>
                 ))}
             </Swiper>
 
-            <div className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(90deg,rgba(184,138,42,0.1)_1px,transparent_1px)] bg-[size:28vw_100%] opacity-[0.16]" />
-            <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(circle_at_24%_76%,rgba(255,255,255,0.055),transparent_28%)]" />
+            <div className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(90deg,rgba(184,148,95,0.08)_1px,transparent_1px)] bg-[size:28vw_100%] opacity-[0.1]" />
+            <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(circle_at_26%_78%,rgba(255,239,205,0.07),transparent_28%)]" />
 
-            <div className="pointer-events-none absolute inset-0 z-40 mx-auto flex h-full max-w-7xl items-end px-4 pt-24 pb-24 sm:px-6 sm:pb-32 lg:px-10 lg:pb-36">
+            <div className="pointer-events-none absolute inset-0 z-40 mx-auto flex h-full max-w-7xl items-end px-4 pt-24 pb-28 sm:px-6 sm:pb-34 lg:px-10 lg:pb-36">
                 <AnimatePresence mode="wait">
                     {shouldShowText && (
                         <motion.div
@@ -103,13 +103,13 @@ export function HeroSection() {
                             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                             exit={{ opacity: 0, y: -18, filter: 'blur(6px)' }}
                             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                            className="pointer-events-auto relative w-full max-w-[48rem] drop-shadow-[0_24px_60px_rgba(0,0,0,0.65)]"
+                            className="pointer-events-auto relative w-full max-w-[40rem] drop-shadow-[0_22px_52px_rgba(0,0,0,0.58)]"
                         >
                             <motion.p
                                 initial={{ opacity: 0, y: 14 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.1, duration: 0.55 }}
-                                className="mb-3 font-sans text-[0.6rem] font-semibold tracking-[0.24em] text-[#D2B276] uppercase sm:mb-5 sm:text-xs sm:tracking-[0.36em]"
+                                className="mb-3 font-sans text-[0.58rem] font-semibold tracking-[0.22em] text-[#D2B276] uppercase sm:mb-4 sm:text-[0.68rem] sm:tracking-[0.28em]"
                             >
                                 Premium Architectural Lighting
                             </motion.p>
@@ -118,7 +118,7 @@ export function HeroSection() {
                                 initial={{ opacity: 0, y: 18 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.18, duration: 0.65 }}
-                                className="max-w-4xl text-[clamp(2.55rem,12vw,4.35rem)] leading-[0.94] font-semibold tracking-normal text-balance text-[#F8F5EC] sm:text-[clamp(4.6rem,10vw,7.2rem)] lg:text-[clamp(6.3rem,7.8vw,8.4rem)]"
+                                className="max-w-3xl text-[clamp(2.35rem,10vw,3.8rem)] leading-[1.02] font-medium tracking-normal text-balance text-[#F8F5EC] sm:text-[clamp(3.7rem,7.4vw,5.5rem)] lg:text-[clamp(4.6rem,5.8vw,6.2rem)]"
                             >
                                 {activeSlide.title}
                             </motion.h1>
@@ -127,7 +127,7 @@ export function HeroSection() {
                                 initial={{ opacity: 0, y: 18 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.28, duration: 0.65 }}
-                                className="mt-4 max-w-xl font-sans text-sm leading-6 tracking-[0.01em] text-[#E0DBCF] sm:mt-6 sm:text-lg sm:leading-8"
+                                className="mt-4 max-w-lg font-sans text-sm leading-6 tracking-[0.01em] text-[#E7DFD0] sm:mt-5 sm:text-base sm:leading-8"
                             >
                                 {activeSlide.subtitle}
                             </motion.p>
@@ -136,7 +136,7 @@ export function HeroSection() {
                                 initial={{ opacity: 0, y: 18 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.38, duration: 0.65 }}
-                                className="mt-6 sm:mt-9"
+                                className="mt-6 sm:mt-8"
                             >
                                 <SiteButton href={activeSlide.buttonHref}>
                                     {activeSlide.buttonText}

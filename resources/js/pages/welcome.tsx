@@ -75,9 +75,7 @@ export default function Welcome() {
         };
     }, []);
 
-    const sectionFallback = (
-        <div className="min-h-32 bg-gradient-to-b from-[#0A0A0A] to-[#080808]" />
-    );
+    const sectionFallback = <div className="min-h-32 bg-[#F1EADF]" />;
 
     return (
         <>
@@ -94,7 +92,7 @@ export default function Welcome() {
                 />
             </Head>
 
-            <main className="min-h-screen bg-[#0A0A0A] text-[#F5F5F2]">
+            <main className="min-h-screen bg-[#F1EADF] text-[#171512]">
                 <Navbar />
                 <HeroSection />
                 <LazySection minHeight="min-h-40">
