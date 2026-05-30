@@ -41,13 +41,13 @@ export function FooterSection() {
                     <div>
                         <Link
                             href="/"
-                            className="inline-flex items-center"
+                            className="inline-flex w-fit items-center"
                             aria-label="ZIVIO LIFE home"
                         >
                             <img
                                 src="/images/zivio-life-logo.svg"
                                 alt="ZIVIO LIFE"
-                                className="h-10 w-auto object-contain sm:h-12"
+                                className="block h-auto w-[9.5rem] object-contain drop-shadow-[0_12px_34px_rgba(218,152,7,0.16)] sm:w-[11rem]"
                                 width={180}
                                 height={44}
                             />

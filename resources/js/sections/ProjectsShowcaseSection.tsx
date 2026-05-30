@@ -30,7 +30,7 @@ export function ProjectsShowcaseSection() {
         <section className="relative overflow-hidden bg-editorial-dark text-[#F5F5F2]">
             <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-px bg-gradient-to-r from-transparent via-[#B8945F]/24 to-transparent" />
 
-            <div className="relative hidden min-h-[680px] overflow-hidden lg:block xl:min-h-[740px]">
+            <div className="relative hidden min-h-[610px] overflow-hidden lg:block xl:min-h-[660px]">
                 <AnimatePresence mode="wait">
                     <motion.img
                         key={activeProject.id}
@@ -58,38 +58,49 @@ export function ProjectsShowcaseSection() {
                     />
                 </AnimatePresence>
 
-                <div className="absolute inset-0 bg-[#050505]/16" />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/86 via-[#050505]/48 to-[#050505]/10" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/88 via-transparent to-[#050505]/34" />
-                <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:24vw_100%] opacity-[0.12]" />
+                <div className="absolute inset-0 bg-[#050505]/8" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/68 via-[#050505]/34 to-[#050505]/6" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/66 via-transparent to-[#050505]/18" />
+                <motion.div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-y-0 left-[-30%] w-[42%] bg-[linear-gradient(105deg,transparent_0%,rgba(255,233,190,0.11)_46%,transparent_68%)] blur-sm"
+                    animate={{
+                        x: prefersReducedMotion ? '0%' : ['0%', '320%'],
+                        opacity: prefersReducedMotion ? 0.18 : [0, 0.55, 0],
+                    }}
+                    transition={{
+                        duration: 8.5,
+                        ease: [0.22, 1, 0.36, 1],
+                        repeat: Infinity,
+                        repeatDelay: 2.2,
+                    }}
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.026)_1px,transparent_1px)] bg-[size:24vw_100%] opacity-[0.08]" />
 
-                <div className="relative z-10 mx-auto flex min-h-[680px] max-w-7xl flex-col justify-between px-10 py-24 xl:min-h-[740px]">
-                    <div className="max-w-3xl pt-10">
-                        <div className="mb-6 flex items-center gap-4">
-                            <span className="h-px w-12 bg-[#B88A2A]/85" />
-                            <p className="font-sans text-[0.58rem] font-medium tracking-[0.24em] text-[#D2B276] uppercase">
-                                Project Showcase
-                            </p>
-                        </div>
-                    </div>
-
+                <div className="relative z-10 mx-auto flex min-h-[610px] max-w-7xl flex-col justify-end px-10 py-18 xl:min-h-[660px] xl:py-20">
                     <div className="grid items-end gap-10 xl:grid-cols-[0.92fr_0.78fr]">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={activeProject.id}
-                                initial={{ opacity: 0, y: 24 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -16 }}
+                                initial={{ opacity: 0, y: 26, filter: 'blur(8px)' }}
+                                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                                exit={{ opacity: 0, y: -14, filter: 'blur(5px)' }}
                                 transition={{
-                                    duration: 0.62,
+                                    duration: 0.72,
                                     ease: [0.22, 1, 0.36, 1],
                                 }}
                                 className="max-w-xl"
                             >
-                                <p className="mb-4 inline-flex border border-[#B88A2A]/20 bg-[#050505]/28 px-3 py-1.5 font-sans text-[0.58rem] font-medium tracking-[0.18em] text-[#D2B276] uppercase backdrop-blur-sm">
+                                <div className="mb-5 flex items-center gap-4">
+                                    <span className="h-px w-12 bg-[#D2B276]/75" />
+                                    <p className="font-sans text-[0.58rem] font-medium tracking-[0.22em] text-[#D2B276] uppercase">
+                                        Project Showcase
+                                    </p>
+                                </div>
+                                <p className="mb-4 inline-flex border border-[#D2B276]/20 bg-[#050505]/20 px-3 py-1.5 font-sans text-[0.56rem] font-medium tracking-[0.16em] text-[#D2B276] uppercase backdrop-blur-sm">
                                     {activeProject.category}
                                 </p>
-                                <h3 className="text-3xl leading-[1.06] font-light text-[#F8F5EC] xl:text-[2.35rem]">
+                                <h3 className="text-3xl leading-[1.08] font-light text-[#F8F5EC] xl:text-[2.45rem]">
                                     {activeProject.title}
                                 </h3>
                                 <p className="mt-3 font-sans text-xs font-medium tracking-[0.16em] text-[#D2B276] uppercase">
@@ -97,7 +108,7 @@ export function ProjectsShowcaseSection() {
                                 </p>
                                 <Link
                                     href={activeProject.href}
-                                    className="mt-7 inline-flex items-center justify-center gap-2 border border-[#B8945F]/50 px-5 py-3 font-sans text-[0.62rem] font-medium tracking-[0.15em] text-[#F5F5F2] uppercase backdrop-blur-sm transition duration-500 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A]"
+                                    className="mt-6 inline-flex items-center justify-center gap-2 border border-[#B8945F]/50 bg-[#050505]/14 px-5 py-3 font-sans text-[0.62rem] font-medium tracking-[0.15em] text-[#F5F5F2] uppercase backdrop-blur-sm transition duration-500 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A]"
                                 >
                                     Read More
                                 </Link>
@@ -130,8 +141,8 @@ export function ProjectsShowcaseSection() {
                                             className={cn(
                                                 'group grid grid-cols-[5.8rem_1fr] items-center gap-4 border p-2 text-left backdrop-blur-md transition duration-500',
                                                 isActive
-                                                    ? 'border-[#B8945F]/44 bg-[#050505]/46'
-                                                    : 'border-white/[0.08] bg-[#050505]/22 hover:border-[#B8945F]/30 hover:bg-[#050505]/38',
+                                                    ? 'border-[#D2B276]/48 bg-[#050505]/34 shadow-[0_0_34px_rgba(184,148,95,0.12)]'
+                                                    : 'border-white/[0.08] bg-[#050505]/14 hover:border-[#B8945F]/30 hover:bg-[#050505]/26',
                                             )}
                                         >
                                             <span className="relative block aspect-[4/3] overflow-hidden bg-[#111111]">
@@ -191,6 +202,20 @@ export function ProjectsShowcaseSection() {
 
             <div className="relative px-4 py-14 sm:px-6 sm:py-16 lg:hidden">
                 <div className="pointer-events-none absolute inset-0 bg-editorial-dark" />
+                <motion.div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-y-0 left-[-40%] w-[60%] bg-[linear-gradient(105deg,transparent_0%,rgba(255,233,190,0.09)_46%,transparent_68%)] blur-sm"
+                    animate={{
+                        x: prefersReducedMotion ? '0%' : ['0%', '250%'],
+                        opacity: prefersReducedMotion ? 0.14 : [0, 0.42, 0],
+                    }}
+                    transition={{
+                        duration: 8,
+                        ease: [0.22, 1, 0.36, 1],
+                        repeat: Infinity,
+                        repeatDelay: 2,
+                    }}
+                />
                 <div className="relative mx-auto max-w-2xl">
                     <div className="mb-5 flex items-center gap-4 sm:mb-7">
                         <span className="h-px w-10 bg-[#B88A2A]/80" />
@@ -222,7 +247,7 @@ export function ProjectsShowcaseSection() {
                                     className="h-full w-full object-cover transition duration-[1200ms] ease-out group-hover:scale-[1.035]"
                                     sizes="100vw"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/66 via-transparent to-transparent" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/48 via-transparent to-transparent" />
                             </div>
                             <figcaption className="p-4 sm:p-6">
                                 <p className="mb-3 inline-flex border border-[#B88A2A]/20 bg-[#B88A2A]/7 px-3 py-1.5 font-sans text-[0.56rem] font-medium tracking-[0.16em] text-[#B88A2A] uppercase">

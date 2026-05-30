@@ -374,7 +374,7 @@
     "name": "wayfinder"
   },
   "resources/css/app.css": {
-    "file": "assets/app-D6VQQkVd.css",
+    "file": "assets/app-BdWMPjKr.css",
     "name": "app",
     "names": [
       "app.css"
@@ -383,7 +383,7 @@
     "isEntry": true
   },
   "resources/css/welcome.css": {
-    "file": "assets/welcome-Bu1IqoX3.css",
+    "file": "assets/welcome-A7i0dJdf.css",
     "name": "welcome",
     "names": [
       "welcome.css"
@@ -392,7 +392,7 @@
     "isEntry": true
   },
   "resources/js/app.tsx": {
-    "file": "assets/app-d13dlYOz.js",
+    "file": "assets/app-BZE7DcFH.js",
     "name": "app",
     "src": "resources/js/app.tsx",
     "isEntry": true,
@@ -430,7 +430,7 @@
     ]
   },
   "resources/js/components/ui/sonner.tsx": {
-    "file": "assets/sonner-DACHhUKN.js",
+    "file": "assets/sonner-DEPq9bLu.js",
     "name": "sonner",
     "src": "resources/js/components/ui/sonner.tsx",
     "isDynamicEntry": true,
@@ -499,7 +499,7 @@
     ]
   },
   "resources/js/pages/about-company.tsx": {
-    "file": "assets/about-company-CRhCz7fj.js",
+    "file": "assets/about-company-D-oXfm2G.js",
     "name": "about-company",
     "src": "resources/js/pages/about-company.tsx",
     "isDynamicEntry": true,
@@ -658,7 +658,7 @@
     ]
   },
   "resources/js/pages/contact.tsx": {
-    "file": "assets/contact-BaORuGoV.js",
+    "file": "assets/contact-BULzjRGB.js",
     "name": "contact",
     "src": "resources/js/pages/contact.tsx",
     "isDynamicEntry": true,
@@ -690,7 +690,7 @@
     ]
   },
   "resources/js/pages/light-preview.tsx": {
-    "file": "assets/light-preview-5LQyj0x5.js",
+    "file": "assets/light-preview-D7wiQXnP.js",
     "name": "light-preview",
     "src": "resources/js/pages/light-preview.tsx",
     "isDynamicEntry": true,
@@ -716,7 +716,7 @@
     ]
   },
   "resources/js/pages/our-brands.tsx": {
-    "file": "assets/our-brands-DLM0_a0i.js",
+    "file": "assets/our-brands-BagRYza0.js",
     "name": "our-brands",
     "src": "resources/js/pages/our-brands.tsx",
     "isDynamicEntry": true,
@@ -736,7 +736,7 @@
     ]
   },
   "resources/js/pages/product-details.tsx": {
-    "file": "assets/product-details-CvZ9LElt.js",
+    "file": "assets/product-details-Be07XdTZ.js",
     "name": "product-details",
     "src": "resources/js/pages/product-details.tsx",
     "isDynamicEntry": true,
@@ -755,7 +755,7 @@
     ]
   },
   "resources/js/pages/products.tsx": {
-    "file": "assets/products-BAkEqGU4.js",
+    "file": "assets/products-CormMleb.js",
     "name": "products",
     "src": "resources/js/pages/products.tsx",
     "isDynamicEntry": true,
@@ -774,7 +774,7 @@
     ]
   },
   "resources/js/pages/settings/appearance.tsx": {
-    "file": "assets/appearance-CoCUKJqP.js",
+    "file": "assets/appearance-Cb_mT-LF.js",
     "name": "appearance",
     "src": "resources/js/pages/settings/appearance.tsx",
     "isDynamicEntry": true,
@@ -812,7 +812,7 @@
     ]
   },
   "resources/js/pages/settings/security.tsx": {
-    "file": "assets/security-BmZn_WV5.js",
+    "file": "assets/security-D_o7yDpS.js",
     "name": "security",
     "src": "resources/js/pages/settings/security.tsx",
     "isDynamicEntry": true,
@@ -839,7 +839,7 @@
     ]
   },
   "resources/js/pages/teams.tsx": {
-    "file": "assets/teams-CmZy3alM.js",
+    "file": "assets/teams-rZkbx1tp.js",
     "name": "teams",
     "src": "resources/js/pages/teams.tsx",
     "isDynamicEntry": true,
@@ -859,7 +859,7 @@
     ]
   },
   "resources/js/pages/welcome.tsx": {
-    "file": "assets/welcome-St3zVgzD.js",
+    "file": "assets/welcome-DD3iQZmg.js",
     "name": "welcome",
     "src": "resources/js/pages/welcome.tsx",
     "isDynamicEntry": true,
@@ -953,7 +953,7 @@
     ]
   },
   "resources/js/sections/FooterSection.tsx": {
-    "file": "assets/FooterSection-Ibx5LESF.js",
+    "file": "assets/FooterSection-Cnakl5Sm.js",
     "name": "FooterSection",
     "src": "resources/js/sections/FooterSection.tsx",
     "isDynamicEntry": true,
@@ -992,7 +992,7 @@
     ]
   },
   "resources/js/sections/ProjectsShowcaseSection.tsx": {
-    "file": "assets/ProjectsShowcaseSection-vajHjCU5.js",
+    "file": "assets/ProjectsShowcaseSection-CvrvAQJg.js",
     "name": "ProjectsShowcaseSection",
     "src": "resources/js/sections/ProjectsShowcaseSection.tsx",
     "isDynamicEntry": true,
