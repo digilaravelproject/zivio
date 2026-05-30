@@ -23,6 +23,9 @@ export const navigationLinks: NavigationLink[] = [
             { label: 'Indoor', href: '/products/indoor' },
             { label: 'Outdoor', href: '/products/outdoor' },
             { label: 'Solar', href: '/products/solar' },
+            { label: 'Poles', href: '/products/poles' },
+            { label: 'Decorative', href: '/products/decorative' },
+            { label: 'Highmast', href: '/products/highmast' },
             { label: 'All Products', href: '/products' },
         ]
     },
