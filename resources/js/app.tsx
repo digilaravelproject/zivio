@@ -14,6 +14,7 @@ createInertiaApp({
     layout: (name) => {
         switch (true) {
             case name === 'welcome' ||
+                name === 'light-preview' ||
                 name === 'about-company' ||
                 name === 'teams' ||
                 name === 'our-brands' ||
