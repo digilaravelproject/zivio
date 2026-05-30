@@ -1,9 +1,9 @@
 import { Link } from '@inertiajs/react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Menu, Search, X } from 'lucide-react';
+import { ChevronDown, Menu, Search, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
-import { navigationLinks } from '@/data/navigationData';
+import { NavigationLink, navigationLinks } from '@/data/navigationData';
 import { cn } from '@/lib/utils';
 
 export function Navbar() {
@@ -52,16 +52,42 @@ export function Navbar() {
                 </Link>
 
                 <div className="hidden items-center gap-6 xl:gap-9 lg:flex">
-                    {navigationLinks.map((link) => (
-                        <Link
-                            key={link.label}
-                            href={link.href}
-                            className="group relative whitespace-nowrap font-sans text-[0.66rem] font-semibold tracking-[0.2em] text-[#D8D3C8] uppercase transition duration-500 hover:text-[#F5F5F2] xl:tracking-[0.22em]"
-                        >
-                            {link.label}
-                            <span className="absolute -bottom-2 left-0 h-px w-0 bg-[#B88A2A] transition-all duration-500 group-hover:w-full" />
-                        </Link>
-                    ))}
+                    {navigationLinks.map((link) =>
+                        link.children ? (
+                            <div key={link.label} className="group relative py-6">
+                                <button className="flex items-center gap-1.5 whitespace-nowrap font-sans text-[0.75rem] font-semibold tracking-[0.15em] text-[#D8D3C8] uppercase transition duration-500 hover:text-[#F5F5F2] xl:tracking-[0.18em]">
+                                    {link.label}
+                                    <ChevronDown className="size-3.5 transition-transform duration-300 group-hover:rotate-180" strokeWidth={2} />
+                                    <span className="absolute bottom-4 left-0 h-px w-0 bg-[#B88A2A] transition-all duration-500 group-hover:w-full" />
+                                </button>
+
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                                    <div className="flex flex-col min-w-[220px] border border-white/[0.08] bg-[#0A0A0A]/95 backdrop-blur-xl shadow-[0_24px_80px_rgba(0,0,0,0.5)] p-2 rounded-md relative overflow-hidden">
+                                        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#B88A2A]/40 to-transparent" />
+                                        
+                                        {link.children.map((child) => (
+                                            <Link
+                                                key={child.label}
+                                                href={child.href}
+                                                className="px-4 py-3 font-sans text-sm tracking-[0.1em] text-[#D8D3C8] transition-all duration-300 hover:text-[#DA9807] hover:bg-white/[0.04] hover:pl-5 rounded-sm flex items-center"
+                                            >
+                                                {child.label}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        ) : (
+                            <Link
+                                key={link.label}
+                                href={link.href!}
+                                className="group relative whitespace-nowrap font-sans text-[0.75rem] font-semibold tracking-[0.15em] text-[#D8D3C8] uppercase transition duration-500 hover:text-[#F5F5F2] xl:tracking-[0.18em] py-6"
+                            >
+                                {link.label}
+                                <span className="absolute bottom-4 left-0 h-px w-0 bg-[#B88A2A] transition-all duration-500 group-hover:w-full" />
+                            </Link>
+                        ),
+                    )}
                 </div>
 
                 <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
@@ -75,7 +101,7 @@ export function Navbar() {
 
                     <Link
                         href="/contact"
-                        className="hidden whitespace-nowrap border border-[#B88A2A]/60 bg-[#0A0A0A]/20 px-4 py-2.5 font-sans text-[0.66rem] font-semibold tracking-[0.18em] text-[#F5F5F2] uppercase backdrop-blur-sm transition duration-500 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A] md:inline-flex xl:px-5 xl:py-3 xl:tracking-[0.2em]"
+                        className="hidden whitespace-nowrap border border-[#B88A2A]/60 bg-[#0A0A0A]/20 px-4 py-2.5 font-sans text-[0.75rem] font-semibold tracking-[0.15em] text-[#F5F5F2] uppercase backdrop-blur-sm transition duration-500 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A] md:inline-flex xl:px-5 xl:py-3 xl:tracking-[0.18em]"
                     >
                         Start a Project
                     </Link>
@@ -107,29 +133,18 @@ export function Navbar() {
                     >
                         <div className="mx-auto flex max-w-7xl flex-col pt-5">
                             {navigationLinks.map((link, index) => (
-                                <motion.div
-                                    key={link.label}
-                                    initial={{ opacity: 0, x: -12 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{
-                                        delay: index * 0.04,
-                                        duration: 0.25,
-                                    }}
-                                >
-                                    <Link
-                                        href={link.href}
-                                        onClick={() => setIsMenuOpen(false)}
-                                        className="flex border-b border-white/[0.08] py-4 font-sans text-xs font-semibold tracking-[0.22em] text-[#F5F5F2] uppercase transition duration-300 hover:text-[#B88A2A] sm:py-5 sm:tracking-[0.24em]"
-                                    >
-                                        {link.label}
-                                    </Link>
-                                </motion.div>
+                                <MobileNavLink 
+                                    key={link.label} 
+                                    link={link} 
+                                    index={index} 
+                                    setIsMenuOpen={setIsMenuOpen} 
+                                />
                             ))}
 
                             <Link
                                 href="/contact"
                                 onClick={() => setIsMenuOpen(false)}
-                                className="mt-7 inline-flex max-w-full justify-center border border-[#B88A2A]/65 px-4 py-4 text-center font-sans text-xs font-semibold tracking-[0.18em] text-[#F5F5F2] uppercase transition duration-300 hover:bg-[#F5F5F2] hover:text-[#0A0A0A] sm:px-5 sm:tracking-[0.22em]"
+                                className="mt-7 inline-flex max-w-full justify-center border border-[#B88A2A]/65 px-4 py-4 text-center font-sans text-sm font-semibold tracking-[0.15em] text-[#F5F5F2] uppercase transition duration-300 hover:bg-[#F5F5F2] hover:text-[#0A0A0A] sm:px-5 sm:tracking-[0.18em]"
                             >
                                 Start a Project
                             </Link>
@@ -138,5 +153,75 @@ export function Navbar() {
                 )}
             </AnimatePresence>
         </header>
+    );
+}
+
+function MobileNavLink({ 
+    link, 
+    index, 
+    setIsMenuOpen 
+}: { 
+    link: NavigationLink; 
+    index: number; 
+    setIsMenuOpen: (val: boolean) => void 
+}) {
+    const [isOpen, setIsOpen] = useState(false);
+
+    if (link.children) {
+        return (
+            <motion.div
+                initial={{ opacity: 0, x: -12 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.04, duration: 0.25 }}
+                className="border-b border-white/[0.08]"
+            >
+                <button
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="flex w-full items-center justify-between py-4 font-sans text-sm font-semibold tracking-[0.18em] text-[#F5F5F2] uppercase transition duration-300 hover:text-[#B88A2A] sm:py-5 sm:tracking-[0.2em]"
+                >
+                    {link.label}
+                    <ChevronDown className={cn("size-4 transition-transform duration-300", isOpen && "rotate-180")} />
+                </button>
+                <AnimatePresence>
+                    {isOpen && (
+                        <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            className="overflow-hidden"
+                        >
+                            <div className="flex flex-col pb-4 pl-4 space-y-4">
+                                {link.children.map((child) => (
+                                    <Link
+                                        key={child.label}
+                                        href={child.href}
+                                        onClick={() => setIsMenuOpen(false)}
+                                        className="font-sans text-xs tracking-[0.15em] text-[#D8D3C8] transition-colors hover:text-[#DA9807]"
+                                    >
+                                        {child.label}
+                                    </Link>
+                                ))}
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </motion.div>
+        );
+    }
+
+    return (
+        <motion.div
+            initial={{ opacity: 0, x: -12 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: index * 0.04, duration: 0.25 }}
+        >
+            <Link
+                href={link.href!}
+                onClick={() => setIsMenuOpen(false)}
+                className="flex border-b border-white/[0.08] py-4 font-sans text-sm font-semibold tracking-[0.18em] text-[#F5F5F2] uppercase transition duration-300 hover:text-[#B88A2A] sm:py-5 sm:tracking-[0.2em]"
+            >
+                {link.label}
+            </Link>
+        </motion.div>
     );
 }

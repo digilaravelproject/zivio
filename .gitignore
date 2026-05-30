@@ -27,3 +27,22 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+# Added by code-review-graph
+.code-review-graph/
+
+.mcp.json
+.opencode.json
+.windsurfrules
+AGENTS.md
+.claude
+.windsurf
+claude.md 
+GEMINI.md
+.gemini
+.kiro
+.QODER
+.github
+OPENCODE.md
+QODER.md
+.cursorrules
+.cursor/
