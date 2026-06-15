@@ -36,7 +36,7 @@ export function ProductCard({ product, index }: ProductCardProps) {
             <div className="pointer-events-none absolute inset-px rounded-[7px] border border-white/35" />
             <div className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/70 to-transparent" />
 
-            <div className="relative aspect-[1/1.08] overflow-hidden bg-gradient-to-br from-[#EFE4D4] via-[#F8F4EC] to-[#D8CCBB]">
+            <div className="relative aspect-[1/1.08] overflow-hidden bg-white">
                 <div className="pointer-events-none absolute inset-5 rounded-full bg-[#BDA18A]/14 blur-2xl transition duration-700 group-hover:bg-[#BDA18A]/18" />
                 <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,transparent_0%,rgba(255,255,255,0.45)_48%,transparent_64%)] opacity-0 transition duration-700 group-hover:translate-x-8 group-hover:opacity-70" />
 
