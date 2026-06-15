@@ -58,9 +58,9 @@ export function ProjectsShowcaseSection() {
                     />
                 </AnimatePresence>
 
-                <div className="absolute inset-0 bg-white/5" />
-                <div className="absolute inset-0 bg-gradient-to-r from-white/30 via-white/12 to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-t from-white/18 via-transparent to-white/8" />
+                <div className="absolute inset-0 bg-[#050505]/4" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/38 via-[#050505]/18 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/30 via-transparent to-[#050505]/10" />
                 <motion.div
                     aria-hidden="true"
                     className="pointer-events-none absolute inset-y-0 left-[-30%] w-[42%] bg-[linear-gradient(105deg,transparent_0%,rgba(255,233,190,0.11)_46%,transparent_68%)] blur-sm"
@@ -247,7 +247,7 @@ export function ProjectsShowcaseSection() {
                                     className="h-full w-full object-cover transition duration-[1200ms] ease-out group-hover:scale-[1.035]"
                                     sizes="100vw"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/20 via-transparent to-transparent" />
                             </div>
                             <figcaption className="p-4 sm:p-6">
                                 <p className="mb-3 inline-flex border border-[#BDA18A]/20 bg-[#BDA18A]/7 px-3 py-1.5 font-sans text-[0.56rem] font-medium tracking-[0.16em] text-[#BDA18A] uppercase">

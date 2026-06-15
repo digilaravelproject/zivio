@@ -85,15 +85,6 @@ export function CatalogueCtaSection() {
                             <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-[#BDA18A]/20 to-transparent" />
                         </div>
 
-                        {/* <div className="absolute inset-x-6 bottom-7">
-                            <span className="mb-3 block h-px w-12 bg-[#BDA18A]/80" />
-                            <p className="font-sans text-[0.56rem] font-medium tracking-[0.18em] text-[#BDA18A] uppercase">
-                                ZIVIO LIFE
-                            </p>
-                            <h3 className="mt-2 font-montserrat text-xl leading-6 font-semibold text-[#171512] sm:text-2xl">
-                                Lighting Catalogue
-                            </h3>
-                        </div> */}
                     </div>
                 </div>
             </Reveal>
