@@ -25,7 +25,7 @@ export function BrandStorySection() {
                 <div className="relative order-2 lg:order-1">
                     <div className="editorial-image-frame ambient-light-warm group relative aspect-[4/5] sm:aspect-[16/11] lg:aspect-[5/6]">
                         <img
-                            src={heroSlides[3].image}
+                            src="/images/brand-story/brand-story.jpeg"
                             alt="Warm architectural interior lighting"
                             width={1600}
                             height={1900}
