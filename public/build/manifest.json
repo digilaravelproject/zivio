@@ -193,8 +193,8 @@
       "_utils-DAswONbY.js"
     ]
   },
-  "_productsCatalogData-Bh9356lZ.js": {
-    "file": "assets/productsCatalogData-Bh9356lZ.js",
+  "_productsCatalogData-DcK4iz8P.js": {
+    "file": "assets/productsCatalogData-DcK4iz8P.js",
     "name": "productsCatalogData",
     "imports": [
       "_inertia-BqzFoydG.js",
@@ -379,7 +379,7 @@
     "isEntry": true
   },
   "resources/js/app.tsx": {
-    "file": "assets/app-C-CPtfA9.js",
+    "file": "assets/app-8wKS5B9P.js",
     "name": "app",
     "src": "resources/js/app.tsx",
     "isEntry": true,
@@ -416,7 +416,7 @@
     ]
   },
   "resources/js/components/ui/sonner.tsx": {
-    "file": "assets/sonner-Dum70orZ.js",
+    "file": "assets/sonner-Q0m1Dbm0.js",
     "name": "sonner",
     "src": "resources/js/components/ui/sonner.tsx",
     "isDynamicEntry": true,
@@ -696,7 +696,7 @@
     ]
   },
   "resources/js/pages/product-details.tsx": {
-    "file": "assets/product-details-D44JwLgp.js",
+    "file": "assets/product-details-DhENXp1X.js",
     "name": "product-details",
     "src": "resources/js/pages/product-details.tsx",
     "isDynamicEntry": true,
@@ -707,7 +707,7 @@
       "_react-Bn_NlQuA.js",
       "_Reveal-J6TPLTSw.js",
       "_Navbar-SG2ywysG.js",
-      "_productsCatalogData-Bh9356lZ.js",
+      "_productsCatalogData-DcK4iz8P.js",
       "_utils-DAswONbY.js"
     ],
     "dynamicImports": [
@@ -715,7 +715,7 @@
     ]
   },
   "resources/js/pages/products.tsx": {
-    "file": "assets/products-Br2llen4.js",
+    "file": "assets/products-CYDMkJ_q.js",
     "name": "products",
     "src": "resources/js/pages/products.tsx",
     "isDynamicEntry": true,
@@ -726,7 +726,7 @@
       "_react-Bn_NlQuA.js",
       "_Reveal-J6TPLTSw.js",
       "_Navbar-SG2ywysG.js",
-      "_productsCatalogData-Bh9356lZ.js",
+      "_productsCatalogData-DcK4iz8P.js",
       "_utils-DAswONbY.js"
     ],
     "dynamicImports": [
@@ -734,7 +734,7 @@
     ]
   },
   "resources/js/pages/settings/appearance.tsx": {
-    "file": "assets/appearance-D6KUbItH.js",
+    "file": "assets/appearance-LfXzPr_F.js",
     "name": "appearance",
     "src": "resources/js/pages/settings/appearance.tsx",
     "isDynamicEntry": true,
@@ -772,7 +772,7 @@
     ]
   },
   "resources/js/pages/settings/security.tsx": {
-    "file": "assets/security-BVNSotP1.js",
+    "file": "assets/security-Czsvpe7C.js",
     "name": "security",
     "src": "resources/js/pages/settings/security.tsx",
     "isDynamicEntry": true,
