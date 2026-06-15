@@ -48,7 +48,7 @@ export function ProductCard({ product, index }: ProductCardProps) {
                     loading="lazy"
                     decoding="async"
                     className={cn(
-                        'relative z-10 h-full w-full p-2.5 transition duration-700 ease-out group-hover:-translate-y-1 group-hover:scale-[1.03] sm:p-4 sm:group-hover:-translate-y-1.5 sm:group-hover:scale-[1.04]',
+                        'relative z-10 h-full w-full p-2.5 mix-blend-multiply transition duration-700 ease-out group-hover:-translate-y-1 group-hover:scale-[1.03] sm:p-4 sm:group-hover:-translate-y-1.5 sm:group-hover:scale-[1.04]',
                         product.imageFit === 'contain'
                             ? 'object-contain'
                             : 'object-cover',
@@ -67,7 +67,7 @@ export function ProductCard({ product, index }: ProductCardProps) {
 
             <div className="relative p-3 sm:p-6">
                 <span className="mb-3 block h-px w-9 bg-gradient-to-r from-[#BDA18A] to-transparent sm:mb-4 sm:w-12" />
-                <h3 className="text-[1rem] leading-5 font-medium text-[#171512] sm:text-[1.32rem] sm:leading-7">
+                <h3 className="text-[1rem] leading-5 font-medium text-[#171512] uppercase tracking-wider sm:text-[1.32rem] sm:leading-7">
                     {product.name}
                 </h3>
                 <p className="mt-2 min-h-10 font-sans text-[0.72rem] leading-5 text-[#665F53] sm:mt-3 sm:min-h-12 sm:text-sm sm:leading-6">
