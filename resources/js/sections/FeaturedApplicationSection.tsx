@@ -44,8 +44,8 @@ export function FeaturedApplicationSection() {
             >
                 <div>
                     <div className="mb-4 flex items-center gap-4 sm:mb-5">
-                        <span className="h-px w-9 bg-[#B8945F]/80" />
-                        <p className="font-sans text-[0.58rem] font-medium tracking-[0.2em] text-[#8D6B38] uppercase">
+                        <span className="h-px w-9 bg-[#BDA18A]/80" />
+                        <p className="font-sans text-[0.58rem] font-medium tracking-[0.2em] text-[#BDA18A] uppercase">
                             {featuredApplicationIntro.label}
                         </p>
                     </div>
@@ -70,7 +70,7 @@ export function FeaturedApplicationSection() {
                             </p>
 
                             <div className="mt-5 sm:mt-7">
-                                <p className="font-sans text-[0.58rem] font-medium tracking-[0.18em] text-[#8D6B38] uppercase">
+                                <p className="font-sans text-[0.58rem] font-medium tracking-[0.18em] text-[#BDA18A] uppercase">
                                     {activeProduct.category}
                                 </p>
                                 <h3 className="mt-2 max-w-xl text-[1.25rem] leading-7 font-normal text-[#171512] sm:text-[1.65rem] sm:leading-9">
@@ -82,7 +82,7 @@ export function FeaturedApplicationSection() {
                                 {activeProduct.specs.map((spec) => (
                                     <span
                                         key={spec}
-                                        className="rounded-full border border-[#8D6B38]/14 bg-[#F8F4EC]/64 px-3 py-1.5 font-sans text-[0.64rem] tracking-[0.06em] text-[#665F53]"
+                                        className="rounded-full border border-[#BDA18A]/14 bg-[#F8F4EC]/64 px-3 py-1.5 font-sans text-[0.64rem] tracking-[0.06em] text-[#665F53]"
                                     >
                                         {spec}
                                     </span>
@@ -92,7 +92,7 @@ export function FeaturedApplicationSection() {
                             <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row">
                                 <Link
                                     href={activeProduct.href}
-                                    className="inline-flex w-full items-center justify-center gap-2 border border-[#8D6B38]/35 bg-[#171512] px-5 py-3 font-sans text-[0.64rem] font-semibold tracking-[0.17em] text-[#F8F5EC] uppercase transition duration-500 hover:border-[#171512] hover:bg-[#F8F4EC] hover:text-[#171512] sm:w-auto"
+                                    className="inline-flex w-full items-center justify-center gap-2 border border-[#BDA18A]/35 bg-[#171512] px-5 py-3 font-sans text-[0.64rem] font-semibold tracking-[0.17em] text-[#F8F5EC] uppercase transition duration-500 hover:border-[#171512] hover:bg-[#F8F4EC] hover:text-[#171512] sm:w-auto"
                                 >
                                     Explore Product
                                     <ArrowUpRight
@@ -102,7 +102,7 @@ export function FeaturedApplicationSection() {
                                 </Link>
                                 <Link
                                     href={activeProduct.collectionHref}
-                                    className="inline-flex w-full items-center justify-center gap-2 px-5 py-3 font-sans text-[0.64rem] font-semibold tracking-[0.17em] text-[#665F53] uppercase transition duration-500 hover:text-[#8D6B38] sm:w-auto"
+                                    className="inline-flex w-full items-center justify-center gap-2 px-5 py-3 font-sans text-[0.64rem] font-semibold tracking-[0.17em] text-[#665F53] uppercase transition duration-500 hover:text-[#BDA18A] sm:w-auto"
                                 >
                                     View Collection
                                 </Link>
@@ -110,10 +110,10 @@ export function FeaturedApplicationSection() {
                         </motion.div>
                     </AnimatePresence>
 
-                    <div className="mt-7 flex items-center justify-between gap-4 border-t border-[#8D6B38]/14 pt-5 sm:mt-8 sm:justify-start sm:gap-5 sm:pt-6">
+                    <div className="mt-7 flex items-center justify-between gap-4 border-t border-[#BDA18A]/14 pt-5 sm:mt-8 sm:justify-start sm:gap-5 sm:pt-6">
                         <div className="flex min-w-24 items-center gap-3 font-sans text-sm font-semibold tracking-[0.18em]">
                             <span>{formatCounter(activeProductIndex + 1)}</span>
-                            <span className="h-px w-8 bg-[#8D6B38]/50" />
+                            <span className="h-px w-8 bg-[#BDA18A]/50" />
                             <span className="text-[#665F53]">
                                 {formatCounter(totalProducts)}
                             </span>
@@ -122,7 +122,7 @@ export function FeaturedApplicationSection() {
                             <button
                                 type="button"
                                 onClick={handlePrevious}
-                                className="grid size-12 place-items-center rounded-full border border-[#8D6B38]/16 bg-[#F8F4EC]/58 text-[#171512] transition duration-500 hover:border-[#8D6B38]/50 hover:bg-[#171512] hover:text-[#F8F5EC] sm:size-11"
+                                className="grid size-12 place-items-center rounded-full border border-[#BDA18A]/16 bg-[#F8F4EC]/58 text-[#171512] transition duration-500 hover:border-[#BDA18A]/50 hover:bg-[#171512] hover:text-[#F8F5EC] sm:size-11"
                                 aria-label="Previous featured product"
                             >
                                 <ArrowLeft
@@ -133,7 +133,7 @@ export function FeaturedApplicationSection() {
                             <button
                                 type="button"
                                 onClick={handleNext}
-                                className="grid size-12 place-items-center rounded-full border border-[#8D6B38]/16 bg-[#F8F4EC]/58 text-[#171512] transition duration-500 hover:border-[#8D6B38]/50 hover:bg-[#171512] hover:text-[#F8F5EC] sm:size-11"
+                                className="grid size-12 place-items-center rounded-full border border-[#BDA18A]/16 bg-[#F8F4EC]/58 text-[#171512] transition duration-500 hover:border-[#BDA18A]/50 hover:bg-[#171512] hover:text-[#F8F5EC] sm:size-11"
                                 aria-label="Next featured product"
                             >
                                 <ArrowRight

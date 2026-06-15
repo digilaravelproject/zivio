@@ -11,7 +11,7 @@ function FooterLinkList({
 }) {
     return (
         <div>
-            <h3 className="mb-4 font-sans text-[0.62rem] font-semibold tracking-[0.2em] text-[#B8945F] uppercase">
+            <h3 className="mb-4 font-sans text-[0.62rem] font-semibold tracking-[0.2em] text-[#BDA18A] uppercase">
                 {title}
             </h3>
             <ul className="grid gap-3 font-sans text-sm text-[#CFCFCB]">
@@ -19,7 +19,7 @@ function FooterLinkList({
                     <li key={link.label}>
                         <Link
                             href={link.href}
-                            className="transition duration-300 hover:text-[#D2B276]"
+                            className="transition duration-300 hover:text-[#BDA18A]"
                         >
                             {link.label}
                         </Link>
@@ -33,7 +33,7 @@ function FooterLinkList({
 export function FooterSection() {
     return (
         <footer className="relative overflow-hidden bg-[#080808]/85 px-4 pt-16 pb-8 text-[#F5F5F2] sm:px-6 sm:pt-20 lg:px-10">
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#B8945F]/30 to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#BDA18A]/30 to-transparent" />
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_10%,rgba(184,148,95,0.07),transparent_28%),linear-gradient(180deg,rgba(8,8,8,0.25)_0%,#080808_100%)]" />
 
             <div className="relative mx-auto max-w-7xl">
@@ -60,7 +60,7 @@ export function FooterSection() {
                                 <a
                                     key={link.label}
                                     href={link.href}
-                                    className="border border-white/[0.09] px-3 py-2 font-sans text-[0.62rem] font-semibold tracking-[0.18em] text-[#F5F5F2] uppercase transition duration-300 hover:border-[#BDA18A]/60 hover:text-[#D2B276]"
+                                    className="border border-white/[0.09] px-3 py-2 font-sans text-[0.62rem] font-semibold tracking-[0.18em] text-[#F5F5F2] uppercase transition duration-300 hover:border-[#BDA18A]/60 hover:text-[#BDA18A]"
                                 >
                                     {link.label}
                                 </a>
@@ -78,7 +78,7 @@ export function FooterSection() {
                     />
 
                     <div>
-                        <h3 className="mb-4 font-sans text-[0.62rem] font-semibold tracking-[0.2em] text-[#B8945F] uppercase">
+                        <h3 className="mb-4 font-sans text-[0.62rem] font-semibold tracking-[0.2em] text-[#BDA18A] uppercase">
                             Contact
                         </h3>
                         <div className="grid gap-4 font-sans text-sm leading-7 text-[#CFCFCB]">
@@ -94,7 +94,7 @@ export function FooterSection() {
                                     <a
                                         key={phone}
                                         href={`tel:${phone.replace(/[^+\d]/g, '')}`}
-                                        className="block transition duration-300 hover:text-[#D2B276]"
+                                        className="block transition duration-300 hover:text-[#BDA18A]"
                                     >
                                         {phone}
                                     </a>
@@ -102,7 +102,7 @@ export function FooterSection() {
                             </p>
                             <a
                                 href={`mailto:${footerData.email}`}
-                                className="transition duration-300 hover:text-[#D2B276]"
+                                className="transition duration-300 hover:text-[#BDA18A]"
                             >
                                 {footerData.email}
                             </a>

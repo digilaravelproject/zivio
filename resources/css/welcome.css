@@ -41,7 +41,7 @@
     --color-zivio-ivory: #f4efe5;
     --color-zivio-parchment: #ebe2d3;
     --color-zivio-graphite: #151514;
-    --color-zivio-muted-gold: #b8945f;
+    --color-zivio-muted-gold: #BDA18A;
 }
 
 @layer base {
@@ -126,7 +126,7 @@
     font-size: 0.58rem;
     font-weight: 500;
     letter-spacing: 0.22em;
-    color: #B8945F;
+    color: #BDA18A;
     text-transform: uppercase;
     @media (min-width: 640px) {
         font-size: 0.62rem;

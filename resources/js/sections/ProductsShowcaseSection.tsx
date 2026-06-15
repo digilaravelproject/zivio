@@ -30,16 +30,16 @@ export function ProductsShowcaseSection() {
             {/* Smooth blend fades at top and bottom */}
             <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#FFFFFF] via-[#FFFFFF]/30 to-transparent z-10" />
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#FAFAFD] via-[#FAFAFD]/30 to-transparent z-10" />
-            <div className="pointer-events-none absolute right-0 bottom-12 hidden h-80 w-80 rounded-full bg-[#B8945F]/12 blur-3xl md:block" />
+            <div className="pointer-events-none absolute right-0 bottom-12 hidden h-80 w-80 rounded-full bg-[#BDA18A]/12 blur-3xl md:block" />
 
             <div className="relative mx-auto max-w-7xl">
                 <Reveal
-                    className="mb-7 grid gap-5 border-b border-[#8D6B38]/14 pb-7 sm:mb-10 sm:gap-7 sm:pb-9 lg:mb-12 lg:grid-cols-[0.74fr_0.5fr] lg:items-end lg:justify-between"
+                    className="mb-7 grid gap-5 border-b border-[#BDA18A]/14 pb-7 sm:mb-10 sm:gap-7 sm:pb-9 lg:mb-12 lg:grid-cols-[0.74fr_0.5fr] lg:items-end lg:justify-between"
                     threshold={0.25}
                 >
                     <div>
                         <div className="mb-4 flex items-center gap-4 sm:mb-5">
-                            <span className="h-[1px] w-10 bg-[#B8945F]" />
+                            <span className="h-[1px] w-10 bg-[#BDA18A]" />
                             <p className="text-luxury-label">
                                 Product Collection
                             </p>
@@ -49,7 +49,7 @@ export function ProductsShowcaseSection() {
                         </h2>
                     </div>
 
-                    <div className="max-w-md border-l border-[#8D6B38]/22 pl-4 sm:pl-5 lg:justify-self-end">
+                    <div className="max-w-md border-l border-[#BDA18A]/22 pl-4 sm:pl-5 lg:justify-self-end">
                         <p className="max-w-md font-sans text-sm leading-6 tracking-[0.02em] text-[#665F53] sm:text-base sm:leading-8">
                             ZIVIO lighting that blends performance, design, and brilliance for every space.
                         </p>
@@ -62,7 +62,7 @@ export function ProductsShowcaseSection() {
                         activeCategory={activeCategory}
                         onCategoryChange={setActiveCategory}
                     />
-                    <p className="font-sans text-[0.6rem] font-semibold tracking-[0.18em] text-[#8D6B38] uppercase sm:text-[0.64rem]">
+                    <p className="font-sans text-[0.6rem] font-semibold tracking-[0.18em] text-[#BDA18A] uppercase sm:text-[0.64rem]">
                         {filteredProducts.length} Products
                     </p>
                 </div>

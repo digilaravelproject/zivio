@@ -197,8 +197,8 @@
       "_utils-DAswONbY.js"
     ]
   },
-  "_productsCatalogData-DERf_Lje.js": {
-    "file": "assets/productsCatalogData-DERf_Lje.js",
+  "_productsCatalogData-Bh9356lZ.js": {
+    "file": "assets/productsCatalogData-Bh9356lZ.js",
     "name": "productsCatalogData",
     "imports": [
       "_inertia-BqzFoydG.js",
@@ -365,7 +365,7 @@
     "name": "wayfinder"
   },
   "resources/css/app.css": {
-    "file": "assets/app-DapxFd4G.css",
+    "file": "assets/app-CNAUhsub.css",
     "name": "app",
     "names": [
       "app.css"
@@ -374,7 +374,7 @@
     "isEntry": true
   },
   "resources/css/welcome.css": {
-    "file": "assets/welcome-Bj8n4Knp.css",
+    "file": "assets/welcome-3FMVBVjR.css",
     "name": "welcome",
     "names": [
       "welcome.css"
@@ -383,7 +383,7 @@
     "isEntry": true
   },
   "resources/js/app.tsx": {
-    "file": "assets/app-DcFSg2z3.js",
+    "file": "assets/app-BvRIQXP3.js",
     "name": "app",
     "src": "resources/js/app.tsx",
     "isEntry": true,
@@ -420,7 +420,7 @@
     ]
   },
   "resources/js/components/ui/sonner.tsx": {
-    "file": "assets/sonner-Dgh-0MJM.js",
+    "file": "assets/sonner-DGnIs8za.js",
     "name": "sonner",
     "src": "resources/js/components/ui/sonner.tsx",
     "isDynamicEntry": true,
@@ -489,7 +489,7 @@
     ]
   },
   "resources/js/pages/about-company.tsx": {
-    "file": "assets/about-company-BzRc8I58.js",
+    "file": "assets/about-company-e9VHcjCy.js",
     "name": "about-company",
     "src": "resources/js/pages/about-company.tsx",
     "isDynamicEntry": true,
@@ -648,7 +648,7 @@
     ]
   },
   "resources/js/pages/contact.tsx": {
-    "file": "assets/contact-CgjaOSJg.js",
+    "file": "assets/contact-BUdMer33.js",
     "name": "contact",
     "src": "resources/js/pages/contact.tsx",
     "isDynamicEntry": true,
@@ -680,7 +680,7 @@
     ]
   },
   "resources/js/pages/our-brands.tsx": {
-    "file": "assets/our-brands-CFQZsExH.js",
+    "file": "assets/our-brands-8UQ8rk_t.js",
     "name": "our-brands",
     "src": "resources/js/pages/our-brands.tsx",
     "isDynamicEntry": true,
@@ -700,7 +700,7 @@
     ]
   },
   "resources/js/pages/product-details.tsx": {
-    "file": "assets/product-details-D1vmr9JW.js",
+    "file": "assets/product-details-BGC2NOhR.js",
     "name": "product-details",
     "src": "resources/js/pages/product-details.tsx",
     "isDynamicEntry": true,
@@ -711,7 +711,7 @@
       "_react-Bn_NlQuA.js",
       "_Reveal-J6TPLTSw.js",
       "_Navbar-SG2ywysG.js",
-      "_productsCatalogData-DERf_Lje.js",
+      "_productsCatalogData-Bh9356lZ.js",
       "_utils-DAswONbY.js"
     ],
     "dynamicImports": [
@@ -719,7 +719,7 @@
     ]
   },
   "resources/js/pages/products.tsx": {
-    "file": "assets/products-JfZDEZWM.js",
+    "file": "assets/products-CHJmtPSO.js",
     "name": "products",
     "src": "resources/js/pages/products.tsx",
     "isDynamicEntry": true,
@@ -730,7 +730,7 @@
       "_react-Bn_NlQuA.js",
       "_Reveal-J6TPLTSw.js",
       "_Navbar-SG2ywysG.js",
-      "_productsCatalogData-DERf_Lje.js",
+      "_productsCatalogData-Bh9356lZ.js",
       "_utils-DAswONbY.js"
     ],
     "dynamicImports": [
@@ -738,7 +738,7 @@
     ]
   },
   "resources/js/pages/settings/appearance.tsx": {
-    "file": "assets/appearance-BzPGqaqF.js",
+    "file": "assets/appearance-DSB6derd.js",
     "name": "appearance",
     "src": "resources/js/pages/settings/appearance.tsx",
     "isDynamicEntry": true,
@@ -776,7 +776,7 @@
     ]
   },
   "resources/js/pages/settings/security.tsx": {
-    "file": "assets/security-C2Gufojl.js",
+    "file": "assets/security-CAD5ZDaX.js",
     "name": "security",
     "src": "resources/js/pages/settings/security.tsx",
     "isDynamicEntry": true,
@@ -803,7 +803,7 @@
     ]
   },
   "resources/js/pages/teams.tsx": {
-    "file": "assets/teams-NvznzF-W.js",
+    "file": "assets/teams-rhLgbhhw.js",
     "name": "teams",
     "src": "resources/js/pages/teams.tsx",
     "isDynamicEntry": true,
@@ -823,7 +823,7 @@
     ]
   },
   "resources/js/pages/welcome.tsx": {
-    "file": "assets/welcome-De5BoJkX.js",
+    "file": "assets/welcome-DqzrfCKZ.js",
     "name": "welcome",
     "src": "resources/js/pages/welcome.tsx",
     "isDynamicEntry": true,
@@ -852,7 +852,7 @@
     ]
   },
   "resources/js/sections/BrandStorySection.tsx": {
-    "file": "assets/BrandStorySection-DlR0tENg.js",
+    "file": "assets/BrandStorySection-C1ATBzxY.js",
     "name": "BrandStorySection",
     "src": "resources/js/sections/BrandStorySection.tsx",
     "isDynamicEntry": true,
@@ -864,7 +864,7 @@
     ]
   },
   "resources/js/sections/CatalogueCtaSection.tsx": {
-    "file": "assets/CatalogueCtaSection-dhVMkR7I.js",
+    "file": "assets/CatalogueCtaSection-CwJ_4sYK.js",
     "name": "CatalogueCtaSection",
     "src": "resources/js/sections/CatalogueCtaSection.tsx",
     "isDynamicEntry": true,
@@ -877,7 +877,7 @@
     ]
   },
   "resources/js/sections/CategoryShowcaseSection.tsx": {
-    "file": "assets/CategoryShowcaseSection-BTJwyllS.js",
+    "file": "assets/CategoryShowcaseSection-DVR9aBjQ.js",
     "name": "CategoryShowcaseSection",
     "src": "resources/js/sections/CategoryShowcaseSection.tsx",
     "isDynamicEntry": true,
@@ -892,7 +892,7 @@
     ]
   },
   "resources/js/sections/ContactSection.tsx": {
-    "file": "assets/ContactSection-LXbxT4Dj.js",
+    "file": "assets/ContactSection-BpeaySQL.js",
     "name": "ContactSection",
     "src": "resources/js/sections/ContactSection.tsx",
     "isDynamicEntry": true,
@@ -906,7 +906,7 @@
     ]
   },
   "resources/js/sections/FeaturedApplicationSection.tsx": {
-    "file": "assets/FeaturedApplicationSection-WDGiBisi.js",
+    "file": "assets/FeaturedApplicationSection-B8HJ8E0C.js",
     "name": "FeaturedApplicationSection",
     "src": "resources/js/sections/FeaturedApplicationSection.tsx",
     "isDynamicEntry": true,
@@ -920,7 +920,7 @@
     ]
   },
   "resources/js/sections/FooterSection.tsx": {
-    "file": "assets/FooterSection-BvRA_HBL.js",
+    "file": "assets/FooterSection-CNVoBqLZ.js",
     "name": "FooterSection",
     "src": "resources/js/sections/FooterSection.tsx",
     "isDynamicEntry": true,
@@ -931,7 +931,7 @@
     ]
   },
   "resources/js/sections/PrecisionCraftsmanshipSection.tsx": {
-    "file": "assets/PrecisionCraftsmanshipSection-Bmd-71-J.js",
+    "file": "assets/PrecisionCraftsmanshipSection-BsPBPo-R.js",
     "name": "PrecisionCraftsmanshipSection",
     "src": "resources/js/sections/PrecisionCraftsmanshipSection.tsx",
     "isDynamicEntry": true,
@@ -944,7 +944,7 @@
     ]
   },
   "resources/js/sections/ProductsShowcaseSection.tsx": {
-    "file": "assets/ProductsShowcaseSection-Qdw9BRwC.js",
+    "file": "assets/ProductsShowcaseSection-42J3vi7q.js",
     "name": "ProductsShowcaseSection",
     "src": "resources/js/sections/ProductsShowcaseSection.tsx",
     "isDynamicEntry": true,
@@ -959,7 +959,7 @@
     ]
   },
   "resources/js/sections/ProjectsShowcaseSection.tsx": {
-    "file": "assets/ProjectsShowcaseSection-DkrkzBTh.js",
+    "file": "assets/ProjectsShowcaseSection-C3Wabh8f.js",
     "name": "ProjectsShowcaseSection",
     "src": "resources/js/sections/ProjectsShowcaseSection.tsx",
     "isDynamicEntry": true,
@@ -1009,7 +1009,7 @@
     ]
   },
   "resources/js/sections/about/AboutTeamSection.tsx": {
-    "file": "assets/AboutTeamSection-B7QwZ4RG.js",
+    "file": "assets/AboutTeamSection-BTVyU8eo.js",
     "name": "AboutTeamSection",
     "src": "resources/js/sections/about/AboutTeamSection.tsx",
     "isDynamicEntry": true,
@@ -1045,7 +1045,7 @@
     ]
   },
   "resources/js/sections/company/BrandsGridSection.tsx": {
-    "file": "assets/BrandsGridSection-D52UKAkZ.js",
+    "file": "assets/BrandsGridSection-CN9DkA1u.js",
     "name": "BrandsGridSection",
     "src": "resources/js/sections/company/BrandsGridSection.tsx",
     "isDynamicEntry": true,
@@ -1059,7 +1059,7 @@
     ]
   },
   "resources/js/sections/company/TeamGridSection.tsx": {
-    "file": "assets/TeamGridSection-BDtltYHa.js",
+    "file": "assets/TeamGridSection-aDLeqHaM.js",
     "name": "TeamGridSection",
     "src": "resources/js/sections/company/TeamGridSection.tsx",
     "isDynamicEntry": true,

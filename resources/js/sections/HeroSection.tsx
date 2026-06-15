@@ -62,7 +62,7 @@ export function HeroSection() {
 
                 <div className="pointer-events-none absolute inset-0 z-40 mx-auto flex h-full max-w-7xl items-end px-4 pt-24 pb-28 sm:px-6 sm:pb-34 lg:px-10 lg:pb-36">
                     <div className="pointer-events-auto relative w-full max-w-[36rem] drop-shadow-[0_18px_44px_rgba(0,0,0,0.48)]">
-                        <p className="mb-3 font-sans text-[0.56rem] font-medium tracking-[0.2em] text-[#D2B276] uppercase sm:mb-4 sm:text-[0.64rem] sm:tracking-[0.25em]">
+                        <p className="mb-3 font-sans text-[0.56rem] font-medium tracking-[0.2em] text-[#BDA18A] uppercase sm:mb-4 sm:text-[0.64rem] sm:tracking-[0.25em]">
                             Premium Architectural Lighting
                         </p>
                         <h1 className="max-w-3xl text-[clamp(2.1rem,8.8vw,3.35rem)] leading-[1.06] font-light tracking-normal text-balance text-[#F8F5EC] sm:text-[clamp(3.25rem,6.6vw,4.85rem)] lg:text-[clamp(4rem,5.1vw,5.35rem)]">
@@ -166,7 +166,7 @@ export function HeroSection() {
                                 initial={{ opacity: 0, y: 14 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.1, duration: 0.55 }}
-                                className="mb-3 font-sans text-[0.56rem] font-medium tracking-[0.2em] text-[#D2B276] uppercase sm:mb-4 sm:text-[0.64rem] sm:tracking-[0.25em]"
+                                className="mb-3 font-sans text-[0.56rem] font-medium tracking-[0.2em] text-[#BDA18A] uppercase sm:mb-4 sm:text-[0.64rem] sm:tracking-[0.25em]"
                             >
                                 Premium Architectural Lighting
                             </motion.p>

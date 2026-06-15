@@ -38,7 +38,7 @@ export function BrandsGridSection() {
                                 {/* Gold Decorative Divider */}
                                 <div className="h-[1.5px] w-10 bg-[#BDA18A] mb-4 transition-all duration-500 group-hover:w-20" />
                                 
-                                <h3 className="text-2xl font-semibold tracking-wide text-[#F8F5EC] sm:text-3xl lg:text-4xl transition-colors duration-300 group-hover:text-[#D2B276]">
+                                <h3 className="text-2xl font-semibold tracking-wide text-[#F8F5EC] sm:text-3xl lg:text-4xl transition-colors duration-300 group-hover:text-[#BDA18A]">
                                     {brand.name}
                                 </h3>
                                 <p className="mt-2.5 font-sans text-sm tracking-wide text-[#D8D3C8] max-w-sm">

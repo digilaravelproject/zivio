@@ -20,7 +20,7 @@ export function CatalogueCtaSection() {
             >
                 <div className="max-w-2xl">
                     <div className="mb-5 flex items-center gap-4">
-                        <span className="h-[1px] w-10 bg-[#B8945F]" />
+                        <span className="h-[1px] w-10 bg-[#BDA18A]" />
                         <p className="text-luxury-label">
                             {catalogueCtaData.label}
                         </p>
@@ -37,7 +37,7 @@ export function CatalogueCtaSection() {
                     <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                         <a
                             href={catalogueCtaData.downloadHref}
-                            className="inline-flex w-full items-center justify-center gap-2 border border-[#8D6B38]/56 bg-[#8D6B38]/10 px-5 py-3.5 font-sans text-[0.62rem] font-medium tracking-[0.15em] text-[#171512] uppercase transition duration-500 hover:border-[#171512] hover:bg-[#171512] hover:text-[#FAF7F1] sm:w-auto"
+                            className="inline-flex w-full items-center justify-center gap-2 border border-[#BDA18A]/56 bg-[#BDA18A]/10 px-5 py-3.5 font-sans text-[0.62rem] font-medium tracking-[0.15em] text-[#171512] uppercase transition duration-500 hover:border-[#171512] hover:bg-[#171512] hover:text-[#FAF7F1] sm:w-auto"
                         >
                             {catalogueCtaData.primaryCta}
                             <ArrowDownToLine
@@ -47,7 +47,7 @@ export function CatalogueCtaSection() {
                         </a>
                         <Link
                             href={catalogueCtaData.secondaryHref}
-                            className="inline-flex w-full items-center justify-center gap-2 border border-[#8D6B38]/20 px-5 py-3.5 font-sans text-[0.62rem] font-medium tracking-[0.15em] text-[#171512] uppercase transition duration-500 hover:border-[#171512]/60 hover:text-[#8D6B38] sm:w-auto"
+                            className="inline-flex w-full items-center justify-center gap-2 border border-[#BDA18A]/20 px-5 py-3.5 font-sans text-[0.62rem] font-medium tracking-[0.15em] text-[#171512] uppercase transition duration-500 hover:border-[#171512]/60 hover:text-[#BDA18A] sm:w-auto"
                         >
                             {catalogueCtaData.secondaryCta}
                             <ArrowUpRight
@@ -60,12 +60,12 @@ export function CatalogueCtaSection() {
 
                 <div className="relative mx-auto w-full max-w-[25rem] lg:max-w-[30rem] group">
                     {/* Glow blurred background node: hidden on mobile */}
-                    <div className="pointer-events-none absolute inset-8 hidden rounded-full bg-[#B8945F]/10 blur-3xl md:block" />
+                    <div className="pointer-events-none absolute inset-8 hidden rounded-full bg-[#BDA18A]/10 blur-3xl md:block" />
                     <div className="pointer-events-none absolute -right-8 top-8 hidden h-72 w-20 rotate-6 bg-[#FAF7F1]/20 blur-2xl lg:block" />
                     
                     {/* CSS tilted GPU-accelerated card replacement for Framer Motion */}
-                    <div className="ambient-light-warm relative overflow-hidden border border-[#8D6B38]/16 bg-white/[0.4] p-3 [transform-style:preserve-3d] transition-all duration-[700ms] ease-out group-hover:-translate-y-2 group-hover:[transform:rotateX(2deg)_rotateY(-3deg)] sm:p-4">
-                        <div className="pointer-events-none absolute top-6 bottom-6 left-3 z-20 w-px bg-gradient-to-b from-transparent via-[#8D6B38]/12 to-transparent" />
+                    <div className="ambient-light-warm relative overflow-hidden border border-[#BDA18A]/16 bg-white/[0.4] p-3 [transform-style:preserve-3d] transition-all duration-[700ms] ease-out group-hover:-translate-y-2 group-hover:[transform:rotateX(2deg)_rotateY(-3deg)] sm:p-4">
+                        <div className="pointer-events-none absolute top-6 bottom-6 left-3 z-20 w-px bg-gradient-to-b from-transparent via-[#BDA18A]/12 to-transparent" />
                         <div className="pointer-events-none absolute top-5 right-2 bottom-5 z-20 w-4 bg-gradient-to-l from-[#FAF7F1]/30 to-transparent" />
                         <div className="relative aspect-[3/4] overflow-hidden bg-[#E2DACD]">
                             <img
@@ -80,12 +80,12 @@ export function CatalogueCtaSection() {
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-[#FAF7F1]/62 via-transparent to-transparent" />
                             <div className="absolute inset-0 bg-[radial-gradient(circle_at_62%_18%,rgba(184,148,95,0.06),transparent_28%)]" />
-                            <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-[#8D6B38]/20 to-transparent" />
+                            <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-[#BDA18A]/20 to-transparent" />
                         </div>
 
                         <div className="absolute inset-x-6 bottom-7">
                             <span className="mb-3 block h-px w-12 bg-[#BDA18A]/80" />
-                            <p className="font-sans text-[0.56rem] font-medium tracking-[0.18em] text-[#8D6B38] uppercase">
+                            <p className="font-sans text-[0.56rem] font-medium tracking-[0.18em] text-[#BDA18A] uppercase">
                                 ZIVIO LIFE
                             </p>
                             <h3 className="mt-2 text-xl leading-6 font-light text-[#171512] sm:text-2xl">

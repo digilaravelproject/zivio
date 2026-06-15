@@ -13,7 +13,7 @@ export function BrandStorySection() {
     return (
         <section className="relative overflow-hidden bg-editorial-light px-4 py-8 text-[#171512] sm:px-6 sm:py-14 lg:px-10 lg:py-16">
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(123,96,58,0.045)_1px,transparent_1px),linear-gradient(180deg,rgba(123,96,58,0.026)_1px,transparent_1px)] bg-[size:24rem_100%,100%_9rem] opacity-[0.34]" />
-            <div className="pointer-events-none absolute right-[-10rem] bottom-[-8rem] hidden h-[30rem] w-[30rem] rounded-full bg-[#B8945F]/14 blur-3xl md:block" />
+            <div className="pointer-events-none absolute right-[-10rem] bottom-[-8rem] hidden h-[30rem] w-[30rem] rounded-full bg-[#BDA18A]/14 blur-3xl md:block" />
             {/* Smooth blend fades at top and bottom */}
             <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#FFFFFF] via-[#FFFFFF]/30 to-transparent z-10" />
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#FAFAFD] via-[#FAFAFD]/30 to-transparent z-10" />
@@ -41,7 +41,7 @@ export function BrandStorySection() {
 
                 <div className="order-1 max-w-[580px] lg:order-2">
                     <div className="mb-5 flex items-center gap-4 sm:mb-6 sm:gap-5">
-                        <span className="h-[1px] w-10 bg-[#B8945F] sm:w-12" />
+                        <span className="h-[1px] w-10 bg-[#BDA18A] sm:w-12" />
                         <p className="text-luxury-label">
                             {brandStory.label}
                         </p>
@@ -51,8 +51,8 @@ export function BrandStorySection() {
                         {brandStory.heading}
                     </h2>
 
-                    <div className="mt-8 grid max-w-sm grid-cols-[auto_1fr] items-center gap-3 text-[#8D6B38] sm:mt-10 sm:gap-4">
-                        <span className="grid size-11 place-items-center border border-[#8D6B38]/18 font-sans text-[0.58rem] font-medium tracking-[0.15em] uppercase sm:size-13">
+                    <div className="mt-8 grid max-w-sm grid-cols-[auto_1fr] items-center gap-3 text-[#BDA18A] sm:mt-10 sm:gap-4">
+                        <span className="grid size-11 place-items-center border border-[#BDA18A]/18 font-sans text-[0.58rem] font-medium tracking-[0.15em] uppercase sm:size-13">
                             01
                         </span>
                         <p className="font-sans text-xs font-medium tracking-[0.15em] uppercase sm:text-[0.82rem]">
@@ -60,7 +60,7 @@ export function BrandStorySection() {
                         </p>
                     </div>
 
-                    <p className="mt-8 max-w-lg border-l border-[#8D6B38]/16 pl-5 text-editorial-paragraph sm:mt-10 sm:pl-7">
+                    <p className="mt-8 max-w-lg border-l border-[#BDA18A]/16 pl-5 text-editorial-paragraph sm:mt-10 sm:pl-7">
                         {brandStory.paragraph}
                     </p>
                 </div>

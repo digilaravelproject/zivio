@@ -45,7 +45,7 @@ export function ContactSection() {
             >
                 <div className="max-w-2xl">
                     <div className="mb-5 flex items-center gap-4">
-                        <span className="h-[1px] w-10 bg-[#B8945F]" />
+                        <span className="h-[1px] w-10 bg-[#BDA18A]" />
                         <p className="text-luxury-label">
                             {contactData.label}
                         </p>
@@ -59,9 +59,9 @@ export function ContactSection() {
                         {contactData.paragraph}
                     </p>
 
-                    <div className="mt-8 grid gap-5 border-l border-[#8D6B38]/22 pl-5 font-sans text-sm leading-7 text-[#665F53]">
+                    <div className="mt-8 grid gap-5 border-l border-[#BDA18A]/22 pl-5 font-sans text-sm leading-7 text-[#665F53]">
                         <div className="flex gap-4">
-                            <MapPin className="mt-1 size-4 shrink-0 text-[#8D6B38]" />
+                            <MapPin className="mt-1 size-4 shrink-0 text-[#BDA18A]" />
                             <p>
                                 {contactData.address.map((line) => (
                                     <span key={line} className="block">
@@ -71,13 +71,13 @@ export function ContactSection() {
                             </p>
                         </div>
                         <div className="flex gap-4">
-                            <Phone className="mt-1 size-4 shrink-0 text-[#8D6B38]" />
+                            <Phone className="mt-1 size-4 shrink-0 text-[#BDA18A]" />
                             <p>
                                 {contactData.phones.map((phone) => (
                                     <a
                                         key={phone}
                                         href={`tel:${phone.replace(/[^+\d]/g, '')}`}
-                                        className="block transition duration-300 hover:text-[#D2B276]"
+                                        className="block transition duration-300 hover:text-[#BDA18A]"
                                     >
                                         {phone}
                                     </a>
@@ -85,10 +85,10 @@ export function ContactSection() {
                             </p>
                         </div>
                         <div className="flex gap-4">
-                            <Mail className="mt-1 size-4 shrink-0 text-[#8D6B38]" />
+                            <Mail className="mt-1 size-4 shrink-0 text-[#BDA18A]" />
                             <a
                                 href={`mailto:${contactData.email}`}
-                                className="transition duration-300 hover:text-[#D2B276]"
+                                className="transition duration-300 hover:text-[#BDA18A]"
                             >
                                 {contactData.email}
                             </a>
@@ -98,12 +98,12 @@ export function ContactSection() {
 
                 <form
                     onSubmit={handleSubmit}
-                    className="relative overflow-hidden border border-[#8D6B38]/14 bg-[#F8F4EC]/68 p-5 shadow-[0_34px_100px_rgba(42,34,24,0.14)] backdrop-blur-xl sm:p-7 lg:p-8"
+                    className="relative overflow-hidden border border-[#BDA18A]/14 bg-[#F8F4EC]/68 p-5 shadow-[0_34px_100px_rgba(42,34,24,0.14)] backdrop-blur-xl sm:p-7 lg:p-8"
                 >
-                    <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#B8945F]/55 to-transparent" />
+                    <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#BDA18A]/55 to-transparent" />
 
                     <div className="grid gap-4">
-                        <label className="grid gap-2 font-sans text-[0.6rem] font-semibold tracking-[0.16em] text-[#8D6B38] uppercase">
+                        <label className="grid gap-2 font-sans text-[0.6rem] font-semibold tracking-[0.16em] text-[#BDA18A] uppercase">
                             Name
                             <input
                                 id="contact-name"
@@ -113,13 +113,13 @@ export function ContactSection() {
                                     updateField('name', event.target.value)
                                 }
                                 required
-                                className="border border-[#8D6B38]/14 bg-[#F7F1E8]/82 px-4 py-3.5 font-sans text-sm tracking-normal text-[#171512] outline-none transition duration-300 placeholder:text-[#8F877A] focus:border-[#8D6B38]/50 focus:shadow-[0_0_0_1px_rgba(141,107,56,0.14)]"
+                                className="border border-[#BDA18A]/14 bg-[#F7F1E8]/82 px-4 py-3.5 font-sans text-sm tracking-normal text-[#171512] outline-none transition duration-300 placeholder:text-[#8F877A] focus:border-[#BDA18A]/50 focus:shadow-[0_0_0_1px_rgba(141,107,56,0.14)]"
                                 placeholder="Your name"
                             />
                         </label>
 
                         <div className="grid gap-4 sm:grid-cols-2">
-                            <label className="grid gap-2 font-sans text-[0.6rem] font-semibold tracking-[0.16em] text-[#8D6B38] uppercase">
+                            <label className="grid gap-2 font-sans text-[0.6rem] font-semibold tracking-[0.16em] text-[#BDA18A] uppercase">
                                 Email
                                 <input
                                     id="contact-email"
@@ -130,12 +130,12 @@ export function ContactSection() {
                                         updateField('email', event.target.value)
                                     }
                                     required
-                                    className="border border-[#8D6B38]/14 bg-[#F7F1E8]/82 px-4 py-3.5 font-sans text-sm tracking-normal text-[#171512] outline-none transition duration-300 placeholder:text-[#8F877A] focus:border-[#8D6B38]/50 focus:shadow-[0_0_0_1px_rgba(141,107,56,0.14)]"
+                                    className="border border-[#BDA18A]/14 bg-[#F7F1E8]/82 px-4 py-3.5 font-sans text-sm tracking-normal text-[#171512] outline-none transition duration-300 placeholder:text-[#8F877A] focus:border-[#BDA18A]/50 focus:shadow-[0_0_0_1px_rgba(141,107,56,0.14)]"
                                     placeholder="you@example.com"
                                 />
                             </label>
 
-                            <label className="grid gap-2 font-sans text-[0.6rem] font-semibold tracking-[0.16em] text-[#8D6B38] uppercase">
+                            <label className="grid gap-2 font-sans text-[0.6rem] font-semibold tracking-[0.16em] text-[#BDA18A] uppercase">
                                 Phone
                                 <input
                                     id="contact-phone"
@@ -144,13 +144,13 @@ export function ContactSection() {
                                     onChange={(event) =>
                                         updateField('phone', event.target.value)
                                     }
-                                    className="border border-[#8D6B38]/14 bg-[#F7F1E8]/82 px-4 py-3.5 font-sans text-sm tracking-normal text-[#171512] outline-none transition duration-300 placeholder:text-[#8F877A] focus:border-[#8D6B38]/50 focus:shadow-[0_0_0_1px_rgba(141,107,56,0.14)]"
+                                    className="border border-[#BDA18A]/14 bg-[#F7F1E8]/82 px-4 py-3.5 font-sans text-sm tracking-normal text-[#171512] outline-none transition duration-300 placeholder:text-[#8F877A] focus:border-[#BDA18A]/50 focus:shadow-[0_0_0_1px_rgba(141,107,56,0.14)]"
                                     placeholder="+91..."
                                 />
                             </label>
                         </div>
 
-                        <label className="grid gap-2 font-sans text-[0.6rem] font-semibold tracking-[0.16em] text-[#8D6B38] uppercase">
+                        <label className="grid gap-2 font-sans text-[0.6rem] font-semibold tracking-[0.16em] text-[#BDA18A] uppercase">
                             Project Type
                             <select
                                 id="contact-project-type"
@@ -162,7 +162,7 @@ export function ContactSection() {
                                         event.target.value,
                                     )
                                 }
-                                className="border border-[#8D6B38]/14 bg-[#F7F1E8]/82 px-4 py-3.5 font-sans text-sm tracking-normal text-[#171512] outline-none transition duration-300 focus:border-[#8D6B38]/50 focus:shadow-[0_0_0_1px_rgba(141,107,56,0.14)]"
+                                className="border border-[#BDA18A]/14 bg-[#F7F1E8]/82 px-4 py-3.5 font-sans text-sm tracking-normal text-[#171512] outline-none transition duration-300 focus:border-[#BDA18A]/50 focus:shadow-[0_0_0_1px_rgba(141,107,56,0.14)]"
                             >
                                 {contactData.projectTypes.map((projectType) => (
                                     <option key={projectType} value={projectType}>
@@ -172,7 +172,7 @@ export function ContactSection() {
                             </select>
                         </label>
 
-                        <label className="grid gap-2 font-sans text-[0.6rem] font-semibold tracking-[0.16em] text-[#8D6B38] uppercase">
+                        <label className="grid gap-2 font-sans text-[0.6rem] font-semibold tracking-[0.16em] text-[#BDA18A] uppercase">
                             Message
                             <textarea
                                 id="contact-message"
@@ -183,7 +183,7 @@ export function ContactSection() {
                                 }
                                 required
                                 rows={5}
-                                className="resize-none border border-[#8D6B38]/14 bg-[#F7F1E8]/82 px-4 py-3.5 font-sans text-sm tracking-normal text-[#171512] outline-none transition duration-300 placeholder:text-[#8F877A] focus:border-[#8D6B38]/50 focus:shadow-[0_0_0_1px_rgba(141,107,56,0.14)]"
+                                className="resize-none border border-[#BDA18A]/14 bg-[#F7F1E8]/82 px-4 py-3.5 font-sans text-sm tracking-normal text-[#171512] outline-none transition duration-300 placeholder:text-[#8F877A] focus:border-[#BDA18A]/50 focus:shadow-[0_0_0_1px_rgba(141,107,56,0.14)]"
                                 placeholder="Tell us about your space, lighting goals, and timeline."
                             />
                         </label>
@@ -191,14 +191,14 @@ export function ContactSection() {
 
                     <button
                         type="submit"
-                        className="mt-6 inline-flex w-full items-center justify-center gap-2 border border-[#171512] bg-[#171512] px-5 py-3.5 font-sans text-[0.64rem] font-semibold tracking-[0.17em] text-[#F8F5EC] uppercase transition duration-500 hover:border-[#8D6B38]/45 hover:bg-[#F8F4EC] hover:text-[#171512]"
+                        className="mt-6 inline-flex w-full items-center justify-center gap-2 border border-[#171512] bg-[#171512] px-5 py-3.5 font-sans text-[0.64rem] font-semibold tracking-[0.17em] text-[#F8F5EC] uppercase transition duration-500 hover:border-[#BDA18A]/45 hover:bg-[#F8F4EC] hover:text-[#171512]"
                     >
                         {contactData.submitLabel}
                         <ArrowUpRight className="size-4" strokeWidth={1.5} />
                     </button>
 
                     {isSubmitted && (
-                        <p className="mt-4 border border-[#8D6B38]/20 bg-[#F7F1E8]/72 px-4 py-3 font-sans text-sm leading-6 text-[#665F53]">
+                        <p className="mt-4 border border-[#BDA18A]/20 bg-[#F7F1E8]/72 px-4 py-3 font-sans text-sm leading-6 text-[#665F53]">
                             {contactData.successMessage}
                         </p>
                     )}

@@ -307,7 +307,7 @@
 }
 
 .home-light-preview [class*="text-[#BDA18A]"],
-.home-light-preview [class*="text-[#D2B276]"],
+.home-light-preview [class*="text-[#BDA18A]"],
 .home-light-preview [class*="text-[#BDA18A]"],
 .home-light-preview .text-luxury-label {
     color: var(--light-preview-gold) !important;
@@ -437,7 +437,7 @@
 
 .home-light-preview article[class*="h-[260px]"] [class*="text-[#BDA18A]"],
 .home-light-preview figure figcaption [class*="text-[#BDA18A]"] {
-    color: #D2B276 !important;
+    color: #BDA18A !important;
 }
 
 .home-light-preview input,

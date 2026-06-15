@@ -119,7 +119,7 @@ export function ProductCategoryTabs({
                 onClick={() => scrollTabs('left')}
                 disabled={!canScrollLeft}
                 className={cn(
-                    'absolute top-1/2 left-0 z-20 grid size-8 -translate-y-[calc(50%+0.35rem)] place-items-center rounded-full border border-[#8D6B38]/16 bg-[#F8F4EC]/82 text-[#171512] shadow-[0_14px_36px_rgba(42,34,24,0.14)] backdrop-blur-xl transition duration-300 hover:border-[#8D6B38]/50 hover:text-[#8D6B38] lg:hidden',
+                    'absolute top-1/2 left-0 z-20 grid size-8 -translate-y-[calc(50%+0.35rem)] place-items-center rounded-full border border-[#BDA18A]/16 bg-[#F8F4EC]/82 text-[#171512] shadow-[0_14px_36px_rgba(42,34,24,0.14)] backdrop-blur-xl transition duration-300 hover:border-[#BDA18A]/50 hover:text-[#BDA18A] lg:hidden',
                     (!hasOverflow || !canScrollLeft) &&
                         'pointer-events-none opacity-0',
                 )}
@@ -133,7 +133,7 @@ export function ProductCategoryTabs({
                 onClick={() => scrollTabs('right')}
                 disabled={!canScrollRight}
                 className={cn(
-                    'absolute top-1/2 right-0 z-20 grid size-8 -translate-y-[calc(50%+0.35rem)] place-items-center rounded-full border border-[#8D6B38]/16 bg-[#F8F4EC]/82 text-[#171512] shadow-[0_14px_36px_rgba(42,34,24,0.14)] backdrop-blur-xl transition duration-300 hover:border-[#8D6B38]/50 hover:text-[#8D6B38] lg:hidden',
+                    'absolute top-1/2 right-0 z-20 grid size-8 -translate-y-[calc(50%+0.35rem)] place-items-center rounded-full border border-[#BDA18A]/16 bg-[#F8F4EC]/82 text-[#171512] shadow-[0_14px_36px_rgba(42,34,24,0.14)] backdrop-blur-xl transition duration-300 hover:border-[#BDA18A]/50 hover:text-[#BDA18A] lg:hidden',
                     (!hasOverflow || !canScrollRight) &&
                         'pointer-events-none opacity-0',
                 )}
@@ -160,8 +160,8 @@ export function ProductCategoryTabs({
                                 className={cn(
                                     'group relative shrink-0 overflow-hidden rounded-full border px-4 py-2.5 font-sans text-[0.6rem] font-semibold tracking-[0.14em] uppercase transition duration-500 sm:px-5 sm:text-[0.62rem]',
                                     isActive
-                                        ? 'border-[#8D6B38]/45 bg-[#171512] text-[#F8F5EC] shadow-[0_16px_38px_rgba(42,34,24,0.12)]'
-                                        : 'border-[#8D6B38]/14 bg-[#F8F4EC]/52 text-[#665F53] hover:border-[#8D6B38]/38 hover:bg-[#F8F4EC] hover:text-[#171512]',
+                                        ? 'border-[#BDA18A]/45 bg-[#171512] text-[#F8F5EC] shadow-[0_16px_38px_rgba(42,34,24,0.12)]'
+                                        : 'border-[#BDA18A]/14 bg-[#F8F4EC]/52 text-[#665F53] hover:border-[#BDA18A]/38 hover:bg-[#F8F4EC] hover:text-[#171512]',
                                 )}
                                 aria-pressed={isActive}
                             >
@@ -170,11 +170,11 @@ export function ProductCategoryTabs({
                                 </span>
                                 <span
                                     className={cn(
-                                        'pointer-events-none absolute inset-x-4 bottom-1 h-px origin-center scale-x-0 bg-[#B8945F] transition duration-500',
+                                        'pointer-events-none absolute inset-x-4 bottom-1 h-px origin-center scale-x-0 bg-[#BDA18A] transition duration-500',
                                         isActive && 'scale-x-100',
                                     )}
                                 />
-                                <span className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-r from-white/40 via-transparent to-[#B8945F]/10 opacity-0 transition duration-500 group-hover:opacity-100" />
+                                <span className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-r from-white/40 via-transparent to-[#BDA18A]/10 opacity-0 transition duration-500 group-hover:opacity-100" />
                             </button>
                         );
                     })}

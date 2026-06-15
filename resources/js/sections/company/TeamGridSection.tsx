@@ -36,7 +36,7 @@ export function TeamGridSection() {
 
                             {/* Bio details */}
                             <div className="flex flex-col pl-1 pb-1">
-                                <h3 className="text-lg font-semibold text-[#F8F5EC] transition-colors duration-300 group-hover:text-[#D2B276]">
+                                <h3 className="text-lg font-semibold text-[#F8F5EC] transition-colors duration-300 group-hover:text-[#BDA18A]">
                                     {member.name}
                                 </h3>
                                 <p className="mt-1.5 font-sans text-xs font-semibold tracking-[0.1em] text-[#A6A6A2] uppercase sm:tracking-[0.14em]">

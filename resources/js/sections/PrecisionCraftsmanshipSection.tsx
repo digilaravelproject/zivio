@@ -34,13 +34,13 @@ export function PrecisionCraftsmanshipSection() {
                         <div className="absolute inset-0 bg-gradient-to-t from-[#FAFAFD]/45 via-transparent to-transparent" />
                         <div className="absolute inset-0 shadow-[inset_0_0_120px_rgba(184,148,95,0.06)]" />
                         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_68%_24%,rgba(184,148,95,0.04),transparent_28%)]" />
-                        <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-[#8D6B38]/20 to-transparent" />
+                        <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-[#BDA18A]/20 to-transparent" />
                     </div>
 
                     <Reveal
                         delay={120}
                         duration={780}
-                        className="relative z-10 mx-4 -mt-12 max-w-[18rem] overflow-hidden border border-[#8D6B38]/16 bg-[#FAF7F1]/88 p-3 shadow-[0_28px_86px_rgba(40,32,20,0.12),0_0_40px_rgba(184,148,95,0.05)] backdrop-blur-xl sm:mx-8 sm:-mt-16 sm:max-w-[20rem] sm:p-4 lg:absolute lg:right-8 lg:bottom-8 lg:mx-0 lg:mt-0"
+                        className="relative z-10 mx-4 -mt-12 max-w-[18rem] overflow-hidden border border-[#BDA18A]/16 bg-[#FAF7F1]/88 p-3 shadow-[0_28px_86px_rgba(40,32,20,0.12),0_0_40px_rgba(184,148,95,0.05)] backdrop-blur-xl sm:mx-8 sm:-mt-16 sm:max-w-[20rem] sm:p-4 lg:absolute lg:right-8 lg:bottom-8 lg:mx-0 lg:mt-0"
                     >
                         <div className="relative aspect-[5/3] overflow-hidden bg-[#E2DACD]">
                             <img
@@ -55,7 +55,7 @@ export function PrecisionCraftsmanshipSection() {
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-[#FAFAFD]/30 to-transparent" />
                         </div>
-                        <p className="mt-3 text-luxury-label sm:text-[0.62rem] text-[#8D6B38]">
+                        <p className="mt-3 text-luxury-label sm:text-[0.62rem] text-[#BDA18A]">
                             Premium Finish
                         </p>
                     </Reveal>
@@ -63,7 +63,7 @@ export function PrecisionCraftsmanshipSection() {
 
                 <div className="relative order-2">
                     <div className="mb-5 flex items-center gap-4">
-                        <span className="h-[1px] w-10 bg-[#B8945F]" />
+                        <span className="h-[1px] w-10 bg-[#BDA18A]" />
                         <p className="text-luxury-label">
                             {precisionData.label}
                         </p>
@@ -81,10 +81,10 @@ export function PrecisionCraftsmanshipSection() {
                         {precisionData.features.map((feature, index) => (
                             <div
                                 key={feature.title}
-                                className="relative border border-[#8D6B38]/18 bg-white/[0.4] p-3 sm:p-4"
+                                className="relative border border-[#BDA18A]/18 bg-white/[0.4] p-3 sm:p-4"
                             >
                                 <span className="mb-3 block h-px w-8 bg-[#BDA18A]/80" />
-                                <p className="mb-2 font-sans text-[0.56rem] font-medium tracking-[0.16em] text-[#B8945F] uppercase">
+                                <p className="mb-2 font-sans text-[0.56rem] font-medium tracking-[0.16em] text-[#BDA18A] uppercase">
                                     {String(index + 1).padStart(2, '0')}
                                 </p>
                                 <h3 className="text-base leading-5 font-normal text-[#171512] sm:text-lg sm:leading-6">
@@ -96,7 +96,7 @@ export function PrecisionCraftsmanshipSection() {
 
                     <Link
                         href={precisionData.ctaHref}
-                        className="mt-8 inline-flex w-full items-center justify-center gap-2 border border-[#8D6B38]/50 px-5 py-3.5 font-sans text-[0.62rem] font-medium tracking-[0.16em] text-[#171512] uppercase transition duration-500 hover:border-[#171512] hover:bg-[#171512] hover:text-[#FAF7F1] sm:w-auto"
+                        className="mt-8 inline-flex w-full items-center justify-center gap-2 border border-[#BDA18A]/50 px-5 py-3.5 font-sans text-[0.62rem] font-medium tracking-[0.16em] text-[#171512] uppercase transition duration-500 hover:border-[#171512] hover:bg-[#171512] hover:text-[#FAF7F1] sm:w-auto"
                     >
                         {precisionData.ctaLabel}
                         <ArrowUpRight className="size-4" strokeWidth={1.5} />

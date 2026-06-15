@@ -45,7 +45,7 @@ export function AboutTeamSection() {
 
                             {/* Bio details */}
                             <div className="pt-5 pl-1 flex flex-col">
-                                <h3 className="text-lg font-semibold text-[#F8F5EC] transition-colors duration-300 group-hover:text-[#D2B276]">
+                                <h3 className="text-lg font-semibold text-[#F8F5EC] transition-colors duration-300 group-hover:text-[#BDA18A]">
                                     {member.name}
                                 </h3>
                                 <p className="mt-1 font-sans text-xs font-medium tracking-[0.08em] text-[#A6A6A2] uppercase">

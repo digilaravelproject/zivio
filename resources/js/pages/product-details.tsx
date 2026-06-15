@@ -151,7 +151,7 @@ export default function ProductDetailsPage({ slug }: ProductDetailsPageProps) {
                                         {product.specs.map((spec) => (
                                             <span
                                                 key={spec}
-                                                className="rounded-full border border-[#BDA18A]/40 bg-[#BDA18A]/6 px-3 py-1 font-sans text-xs font-semibold tracking-wide text-[#D2B276]"
+                                                className="rounded-full border border-[#BDA18A]/40 bg-[#BDA18A]/6 px-3 py-1 font-sans text-xs font-semibold tracking-wide text-[#BDA18A]"
                                             >
                                                 {spec}
                                             </span>

@@ -45,7 +45,7 @@ export function ProductListingCard({ product, index }: ProductListingCardProps) 
             </div>
 
             {/* Product Title */}
-            <h3 className="text-xl font-bold text-[#F8F5EC] pl-0.5 transition-colors duration-300 group-hover:text-[#D2B276]">
+            <h3 className="text-xl font-bold text-[#F8F5EC] pl-0.5 transition-colors duration-300 group-hover:text-[#BDA18A]">
                 {product.name}
             </h3>
 
