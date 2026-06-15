@@ -64,7 +64,7 @@ export function CatalogueCtaSection() {
                     {/* Glow blurred background node: hidden on mobile */}
                     <div className="pointer-events-none absolute inset-8 hidden rounded-full bg-[#BDA18A]/10 blur-3xl md:block" />
                     <div className="pointer-events-none absolute -right-8 top-8 hidden h-72 w-20 rotate-6 bg-[#FAF7F1]/20 blur-2xl lg:block" />
-                    
+
                     {/* CSS tilted GPU-accelerated card replacement for Framer Motion */}
                     <div className="ambient-light-warm relative overflow-hidden border border-[#BDA18A]/16 bg-white/[0.4] p-3 [transform-style:preserve-3d] transition-all duration-[700ms] ease-out group-hover:-translate-y-2 group-hover:[transform:rotateX(2deg)_rotateY(-3deg)] sm:p-4">
                         <div className="pointer-events-none absolute top-6 bottom-6 left-3 z-20 w-px bg-gradient-to-b from-transparent via-[#BDA18A]/12 to-transparent" />
@@ -77,7 +77,7 @@ export function CatalogueCtaSection() {
                                 height={1467}
                                 loading="lazy"
                                 decoding="async"
-                                className="h-full w-full object-cover transition duration-[1200ms] ease-out group-hover:scale-[1.035]"
+                                className="h-full w-full object-contain mix-blend-multiply transition duration-[1200ms] ease-out group-hover:scale-[1.035]"
                                 sizes="(min-width: 1024px) 30rem, 90vw"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-[#FAF7F1]/62 via-transparent to-transparent" />
@@ -85,7 +85,7 @@ export function CatalogueCtaSection() {
                             <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-[#BDA18A]/20 to-transparent" />
                         </div>
 
-                        <div className="absolute inset-x-6 bottom-7">
+                        {/* <div className="absolute inset-x-6 bottom-7">
                             <span className="mb-3 block h-px w-12 bg-[#BDA18A]/80" />
                             <p className="font-sans text-[0.56rem] font-medium tracking-[0.18em] text-[#BDA18A] uppercase">
                                 ZIVIO LIFE
@@ -93,7 +93,7 @@ export function CatalogueCtaSection() {
                             <h3 className="mt-2 font-montserrat text-xl leading-6 font-semibold text-[#171512] sm:text-2xl">
                                 Lighting Catalogue
                             </h3>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </Reveal>

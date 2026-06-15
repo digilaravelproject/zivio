@@ -14,8 +14,7 @@ export const catalogueCtaData: CatalogueCtaData = {
     heading: 'Explore The Complete ZIVIO LIFE Lighting Collection.',
     paragraph:
         'Discover architectural, indoor, outdoor, pole, and solar lighting solutions crafted for modern spaces.',
-    catalogueImage:
-        'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=1100&q=85',
+    catalogueImage: '/images/catalouge/catalogue.png',
     downloadHref: '/images/catalouge/downlight-spotlight-catalogue.pdf',
     secondaryHref: '/products',
     primaryCta: 'View Catalogue',
