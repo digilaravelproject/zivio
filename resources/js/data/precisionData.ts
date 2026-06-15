@@ -14,20 +14,18 @@ export type PrecisionData = {
 };
 
 export const precisionData: PrecisionData = {
-    label: 'Precision In Every Detail',
-    heading: 'Crafted For Architectural Excellence.',
+    label: 'Archis Wall Luminaire',
+    heading: 'Designed For Exterior Facade Brilliance.',
     paragraph:
-        'Every fixture is engineered to balance performance, longevity, and visual elegance - delivering lighting solutions that elevate modern residential, commercial, and architectural spaces.',
-    ctaLabel: 'Explore Our Expertise',
-    ctaHref: '/about',
-    mainImage:
-        'https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1600&q=85',
-    detailImage:
-        'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=900&q=85',
+        'Archis is a high-performance architectural wall luminaire engineered to accentuate facades, columns, and architectural boundaries with exceptional bi-directional lighting control.',
+    ctaLabel: 'Explore Archis Luminaire',
+    ctaHref: '/products/archis',
+    mainImage: '/images/products-uses-images/archis/archis-use-1.jpg',
+    detailImage: '/images/products-uses-images/archis/archis-use-2.jpg',
     features: [
-        { title: 'Precision Beam Control' },
-        { title: 'Premium Materials' },
-        { title: 'Long Lifecycle' },
-        { title: 'Technical Lighting Layouts' },
+        { title: 'Bi-Directional Up & Down Light Distribution' },
+        { title: 'Facade Accenting & Pathway Wash Lighting' },
+        { title: 'IP65 Weatherproof & Corrosion Resistance' },
+        { title: 'Glare-Free Precision Optical Beam Control' },
     ],
 };
