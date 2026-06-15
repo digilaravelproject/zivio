@@ -361,7 +361,7 @@
     "name": "wayfinder"
   },
   "resources/css/app.css": {
-    "file": "assets/app-D9PIneOa.css",
+    "file": "assets/app-DHCRPPRT.css",
     "name": "app",
     "names": [
       "app.css"
@@ -370,7 +370,7 @@
     "isEntry": true
   },
   "resources/css/welcome.css": {
-    "file": "assets/welcome-C6RHaQ6b.css",
+    "file": "assets/welcome-CIBgz1M9.css",
     "name": "welcome",
     "names": [
       "welcome.css"
@@ -379,7 +379,7 @@
     "isEntry": true
   },
   "resources/js/app.tsx": {
-    "file": "assets/app-G3OEHmuD.js",
+    "file": "assets/app-DsmD9kVv.js",
     "name": "app",
     "src": "resources/js/app.tsx",
     "isEntry": true,
@@ -416,7 +416,7 @@
     ]
   },
   "resources/js/components/ui/sonner.tsx": {
-    "file": "assets/sonner-DRbRWONy.js",
+    "file": "assets/sonner-uCyctSqR.js",
     "name": "sonner",
     "src": "resources/js/components/ui/sonner.tsx",
     "isDynamicEntry": true,
@@ -734,7 +734,7 @@
     ]
   },
   "resources/js/pages/settings/appearance.tsx": {
-    "file": "assets/appearance-B7rPQi2x.js",
+    "file": "assets/appearance-LPLKd8LY.js",
     "name": "appearance",
     "src": "resources/js/pages/settings/appearance.tsx",
     "isDynamicEntry": true,
@@ -772,7 +772,7 @@
     ]
   },
   "resources/js/pages/settings/security.tsx": {
-    "file": "assets/security-DXPBECHq.js",
+    "file": "assets/security-BLThgpnC.js",
     "name": "security",
     "src": "resources/js/pages/settings/security.tsx",
     "isDynamicEntry": true,
@@ -819,7 +819,7 @@
     ]
   },
   "resources/js/pages/welcome.tsx": {
-    "file": "assets/welcome-CTCd_Fsj.js",
+    "file": "assets/welcome-CXa_cNvr.js",
     "name": "welcome",
     "src": "resources/js/pages/welcome.tsx",
     "isDynamicEntry": true,
@@ -858,7 +858,7 @@
     ]
   },
   "resources/js/sections/CatalogueCtaSection.tsx": {
-    "file": "assets/CatalogueCtaSection-qqGg8OCl.js",
+    "file": "assets/CatalogueCtaSection-svb1BwIE.js",
     "name": "CatalogueCtaSection",
     "src": "resources/js/sections/CatalogueCtaSection.tsx",
     "isDynamicEntry": true,

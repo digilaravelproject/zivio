@@ -66,7 +66,7 @@ export function CatalogueCtaSection() {
                     <div className="pointer-events-none absolute -right-8 top-8 hidden h-72 w-20 rotate-6 bg-[#FAF7F1]/20 blur-2xl lg:block" />
 
                     {/* CSS tilted GPU-accelerated card replacement for Framer Motion */}
-                    <div className="ambient-light-warm relative overflow-hidden border border-[#BDA18A]/16 bg-white/[0.4] p-3 [transform-style:preserve-3d] transition-all duration-[700ms] ease-out group-hover:-translate-y-2 group-hover:[transform:rotateX(2deg)_rotateY(-3deg)] sm:p-4">
+                    <div className="ambient-light-warm relative overflow-hidden bg-white/[0.4] p-3 [transform-style:preserve-3d] transition-all duration-[700ms] ease-out group-hover:-translate-y-2 group-hover:[transform:rotateX(2deg)_rotateY(-3deg)] sm:p-4">
                         <div className="pointer-events-none absolute top-6 bottom-6 left-3 z-20 w-px bg-gradient-to-b from-transparent via-[#BDA18A]/12 to-transparent" />
                         <div className="pointer-events-none absolute top-5 right-2 bottom-5 z-20 w-4 bg-gradient-to-l from-[#FAF7F1]/30 to-transparent" />
                         <div className="relative aspect-[3/4] overflow-hidden bg-white">
