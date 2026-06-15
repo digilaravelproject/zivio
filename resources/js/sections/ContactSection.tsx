@@ -45,7 +45,7 @@ export function ContactSection() {
             >
                 <div className="max-w-2xl">
                     <div className="mb-5 flex items-center gap-4">
-                        <span className="h-[1px] w-10 bg-[#BDA18A]" />
+                        <span className="h-[1px] w-10 bg-[#8E755F]" />
                         <p className="text-luxury-label">
                             {contactData.label}
                         </p>

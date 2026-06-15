@@ -41,7 +41,7 @@ export function BrandStorySection() {
 
                 <div className="order-1 max-w-[580px] lg:order-2">
                     <div className="mb-5 flex items-center gap-4 sm:mb-6 sm:gap-5">
-                        <span className="h-[1px] w-10 bg-[#BDA18A] sm:w-12" />
+                        <span className="h-[1px] w-10 bg-[#8E755F] sm:w-12" />
                         <p className="text-luxury-label">
                             {brandStory.label}
                         </p>
@@ -51,11 +51,11 @@ export function BrandStorySection() {
                         {brandStory.heading}
                     </h2>
 
-                    <div className="mt-8 grid max-w-sm grid-cols-[auto_1fr] items-center gap-3 text-[#BDA18A] sm:mt-10 sm:gap-4">
-                        <span className="grid size-11 place-items-center border border-[#BDA18A]/18 font-sans text-[0.58rem] font-medium tracking-[0.15em] uppercase sm:size-13">
+                    <div className="mt-8 grid max-w-sm grid-cols-[auto_1fr] items-center gap-3 text-[#8E755F] sm:mt-10 sm:gap-4">
+                        <span className="grid size-11 place-items-center border border-[#8E755F]/20 font-sans text-[0.58rem] font-semibold tracking-[0.15em] uppercase sm:size-13">
                             01
                         </span>
-                        <p className="font-sans text-xs font-medium tracking-[0.15em] uppercase sm:text-[0.82rem]">
+                        <p className="font-sans text-xs font-semibold tracking-[0.15em] uppercase sm:text-[0.82rem]">
                             {brandStory.since}
                         </p>
                     </div>

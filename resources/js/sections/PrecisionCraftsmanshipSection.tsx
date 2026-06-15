@@ -55,7 +55,7 @@ export function PrecisionCraftsmanshipSection() {
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-[#FAFAFD]/30 to-transparent" />
                         </div>
-                        <p className="mt-3 text-luxury-label sm:text-[0.62rem] text-[#BDA18A]">
+                        <p className="mt-3 text-luxury-label">
                             Premium Finish
                         </p>
                     </Reveal>
@@ -63,7 +63,7 @@ export function PrecisionCraftsmanshipSection() {
 
                 <div className="relative order-2">
                     <div className="mb-5 flex items-center gap-4">
-                        <span className="h-[1px] w-10 bg-[#BDA18A]" />
+                        <span className="h-[1px] w-10 bg-[#8E755F]" />
                         <p className="text-luxury-label">
                             {precisionData.label}
                         </p>

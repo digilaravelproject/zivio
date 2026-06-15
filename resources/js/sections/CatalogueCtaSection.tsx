@@ -20,7 +20,7 @@ export function CatalogueCtaSection() {
             >
                 <div className="max-w-2xl">
                     <div className="mb-5 flex items-center gap-4">
-                        <span className="h-[1px] w-10 bg-[#BDA18A]" />
+                        <span className="h-[1px] w-10 bg-[#8E755F]" />
                         <p className="text-luxury-label">
                             {catalogueCtaData.label}
                         </p>
@@ -66,10 +66,8 @@ export function CatalogueCtaSection() {
                     <div className="pointer-events-none absolute -right-8 top-8 hidden h-72 w-20 rotate-6 bg-[#FAF7F1]/20 blur-2xl lg:block" />
 
                     {/* CSS tilted GPU-accelerated card replacement for Framer Motion */}
-                    <div className="ambient-light-warm relative overflow-hidden bg-white/[0.4] p-3 [transform-style:preserve-3d] transition-all duration-[700ms] ease-out group-hover:-translate-y-2 group-hover:[transform:rotateX(2deg)_rotateY(-3deg)] sm:p-4">
-                        <div className="pointer-events-none absolute top-6 bottom-6 left-3 z-20 w-px bg-gradient-to-b from-transparent via-[#BDA18A]/12 to-transparent" />
-                        <div className="pointer-events-none absolute top-5 right-2 bottom-5 z-20 w-4 bg-gradient-to-l from-[#FAF7F1]/30 to-transparent" />
-                        <div className="relative aspect-[3/4] overflow-hidden bg-white">
+                    <div className="relative overflow-hidden border-2 border-black bg-white [transform-style:preserve-3d] transition-all duration-[700ms] ease-out group-hover:-translate-y-2 group-hover:[transform:rotateX(2deg)_rotateY(-3deg)]">
+                        <div className="relative aspect-[3/4] overflow-hidden">
                             <img
                                 src={catalogueCtaData.catalogueImage}
                                 alt="ZIVIO LIFE lighting catalogue preview"
@@ -80,11 +78,7 @@ export function CatalogueCtaSection() {
                                 className="h-full w-full object-contain mix-blend-multiply transition duration-[1200ms] ease-out group-hover:scale-[1.035]"
                                 sizes="(min-width: 1024px) 30rem, 90vw"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#FAF7F1]/62 via-transparent to-transparent" />
-                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_62%_18%,rgba(184,148,95,0.06),transparent_28%)]" />
-                            <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-[#BDA18A]/20 to-transparent" />
                         </div>
-
                     </div>
                 </div>
             </Reveal>

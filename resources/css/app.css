@@ -209,13 +209,13 @@
 
 @utility text-luxury-label {
     font-family: var(--font-sans);
-    font-size: 0.62rem;
-    font-weight: 600;
+    font-size: 0.68rem;
+    font-weight: 700;
     letter-spacing: 0.3em;
-    color: #BDA18A;
+    color: #8E755F;
     text-transform: uppercase;
     @media (min-width: 640px) {
-        font-size: 0.64rem;
+        font-size: 0.72rem;
         letter-spacing: 0.34em;
     }
 }
@@ -252,7 +252,7 @@
     --light-preview-soft-surface: #EFE7DA;
     --light-preview-text: #141414;
     --light-preview-muted: #6F6A62;
-    --light-preview-gold: #B89B72;
+    --light-preview-gold: #8E755F;
     --light-preview-border: rgba(20, 20, 20, 0.12);
     background: var(--light-preview-bg);
     color: var(--light-preview-text);

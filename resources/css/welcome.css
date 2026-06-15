@@ -123,13 +123,13 @@
 
 @utility text-luxury-label {
     font-family: var(--font-sans);
-    font-size: 0.58rem;
-    font-weight: 500;
+    font-size: 0.68rem;
+    font-weight: 600;
     letter-spacing: 0.22em;
-    color: #BDA18A;
+    color: #8E755F;
     text-transform: uppercase;
     @media (min-width: 640px) {
-        font-size: 0.62rem;
+        font-size: 0.72rem;
         letter-spacing: 0.26em;
     }
 }

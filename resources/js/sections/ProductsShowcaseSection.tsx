@@ -29,16 +29,16 @@ export function ProductsShowcaseSection() {
             {/* Smooth blend fades at top and bottom */}
             <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#FFFFFF] via-[#FFFFFF]/30 to-transparent z-10" />
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#FAFAFD] via-[#FAFAFD]/30 to-transparent z-10" />
-            <div className="pointer-events-none absolute right-0 bottom-12 hidden h-80 w-80 rounded-full bg-[#BDA18A]/12 blur-3xl md:block" />
+            <div className="pointer-events-none absolute right-0 bottom-12 hidden h-80 w-80 rounded-full bg-[#8E755F]/12 blur-3xl md:block" />
 
             <div className="relative mx-auto max-w-7xl">
                 <Reveal
-                    className="mb-7 grid gap-5 border-b border-[#BDA18A]/14 pb-7 sm:mb-10 sm:gap-7 sm:pb-9 lg:mb-12 lg:grid-cols-[0.74fr_0.5fr] lg:items-end lg:justify-between"
+                    className="mb-7 grid gap-5 border-b border-[#8E755F]/14 pb-7 sm:mb-10 sm:gap-7 sm:pb-9 lg:mb-12 lg:grid-cols-[0.74fr_0.5fr] lg:items-end lg:justify-between"
                     threshold={0.25}
                 >
                     <div>
                         <div className="mb-4 flex items-center gap-4 sm:mb-5">
-                            <span className="h-[1px] w-10 bg-[#BDA18A]" />
+                            <span className="h-[1px] w-10 bg-[#8E755F]" />
                             <p className="text-luxury-label">
                                 Product Collection
                             </p>

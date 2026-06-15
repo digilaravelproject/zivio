@@ -16,12 +16,12 @@ export function CategoryShowcaseSection() {
             
             <div className="mx-auto max-w-7xl">
                 <Reveal
-                    className="relative mb-8 grid gap-5 border-b border-[#BDA18A]/16 pb-8 sm:mb-11 sm:gap-6 sm:pb-9 lg:mb-[3.5rem] lg:grid-cols-[1fr_0.46fr] lg:items-end"
+                    className="relative mb-8 grid gap-5 border-b border-[#8E755F]/20 pb-8 sm:mb-11 sm:gap-6 sm:pb-9 lg:mb-[3.5rem] lg:grid-cols-[1fr_0.46fr] lg:items-end"
                     threshold={0.2}
                 >
                     <div>
                         <div className="mb-5 flex items-center gap-4">
-                            <span className="h-[1px] w-10 bg-[#BDA18A]" />
+                            <span className="h-[1px] w-10 bg-[#8E755F]" />
                             <p className="text-luxury-label">
                                 Collections
                             </p>
@@ -31,7 +31,7 @@ export function CategoryShowcaseSection() {
                         </h2>
                     </div>
 
-                    <div className="relative border-l border-[#BDA18A]/34 pl-4 sm:pl-5 lg:justify-self-end">
+                    <div className="relative border-l border-[#8E755F]/34 pl-4 sm:pl-5 lg:justify-self-end">
                         <p className="max-w-md font-sans text-sm leading-7 tracking-[0.005em] text-[#4E483D] sm:text-[0.95rem] sm:leading-8">
                             Designed for modern architecture, crafted for lasting visual impact.
                         </p>

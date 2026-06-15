@@ -44,8 +44,8 @@ export function FeaturedApplicationSection() {
             >
                 <div>
                     <div className="mb-4 flex items-center gap-4 sm:mb-5">
-                        <span className="h-px w-9 bg-[#BDA18A]/80" />
-                        <p className="font-sans text-[0.58rem] font-medium tracking-[0.2em] text-[#BDA18A] uppercase">
+                        <span className="h-px w-9 bg-[#8E755F]" />
+                        <p className="text-luxury-label">
                             {featuredApplicationIntro.label}
                         </p>
                     </div>
@@ -70,7 +70,7 @@ export function FeaturedApplicationSection() {
                             </p>
 
                             <div className="mt-5 sm:mt-7">
-                                <p className="font-sans text-[0.58rem] font-medium tracking-[0.18em] text-[#BDA18A] uppercase">
+                                <p className="text-luxury-label">
                                     {activeProduct.category}
                                 </p>
                                 <h3 className="mt-2 max-w-xl font-montserrat text-[1.25rem] leading-7 font-semibold text-[#171512] sm:text-[1.65rem] sm:leading-9">
