@@ -60,21 +60,21 @@ export function Navbar() {
                     {navigationLinks.map((link) =>
                         link.children ? (
                             <div key={link.label} className="group relative py-6">
-                                <button className="flex items-center gap-1.5 whitespace-nowrap font-montserrat text-[16px] leading-[20px] font-bold text-neutral-800 uppercase transition duration-500 hover:text-[#B88A2A]">
+                                <button className="flex items-center gap-1.5 whitespace-nowrap font-montserrat text-[16px] leading-[20px] font-bold text-neutral-800 uppercase transition duration-500 hover:text-[#BDA18A]">
                                     {link.label}
                                     <ChevronDown className="size-3.5 transition-transform duration-300 group-hover:rotate-180" strokeWidth={2} />
-                                    <span className="absolute bottom-4 left-0 h-px w-0 bg-[#B88A2A] transition-all duration-500 group-hover:w-full" />
+                                    <span className="absolute bottom-4 left-0 h-px w-0 bg-[#BDA18A] transition-all duration-500 group-hover:w-full" />
                                 </button>
 
                                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                                     <div className="flex flex-col min-w-[220px] border border-black/[0.06] bg-white/95 backdrop-blur-xl shadow-[0_24px_80px_rgba(0,0,0,0.12)] p-2 rounded-md relative overflow-hidden">
-                                        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#B88A2A]/40 to-transparent" />
+                                        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#BDA18A]/40 to-transparent" />
 
                                         {link.children.map((child) => (
                                             <Link
                                                 key={child.label}
                                                 href={child.href}
-                                                className="px-4 py-3 font-montserrat text-[16px] leading-[20px] font-bold text-neutral-700 transition-all duration-300 hover:text-[#B88A2A] hover:bg-black/[0.03] hover:pl-5 rounded-sm flex items-center"
+                                                className="px-4 py-3 font-montserrat text-[16px] leading-[20px] font-bold text-neutral-700 transition-all duration-300 hover:text-[#BDA18A] hover:bg-black/[0.03] hover:pl-5 rounded-sm flex items-center"
                                             >
                                                 {child.label}
                                             </Link>
@@ -87,10 +87,10 @@ export function Navbar() {
                                 key={link.label}
                                 href={link.href!}
                                 onClick={link.href === '/' ? handleHomeClick : undefined}
-                                className="group relative whitespace-nowrap font-montserrat text-[16px] leading-[20px] font-bold text-neutral-800 uppercase transition duration-500 hover:text-[#B88A2A] py-6"
+                                className="group relative whitespace-nowrap font-montserrat text-[16px] leading-[20px] font-bold text-neutral-800 uppercase transition duration-500 hover:text-[#BDA18A] py-6"
                             >
                                 {link.label}
-                                <span className="absolute bottom-4 left-0 h-px w-0 bg-[#B88A2A] transition-all duration-500 group-hover:w-full" />
+                                <span className="absolute bottom-4 left-0 h-px w-0 bg-[#BDA18A] transition-all duration-500 group-hover:w-full" />
                             </Link>
                         ),
                     )}
@@ -99,7 +99,7 @@ export function Navbar() {
                 <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
                     <button
                         type="button"
-                        className="hidden size-9 place-items-center text-neutral-800 transition hover:text-[#B88A2A] sm:size-10"
+                        className="hidden size-9 place-items-center text-neutral-800 transition hover:text-[#BDA18A] sm:size-10"
                         aria-label="Search"
                     >
                         <Search className="size-4.5 sm:size-5" strokeWidth={1.6} />
@@ -107,7 +107,7 @@ export function Navbar() {
 
                     <button
                         type="button"
-                        className="grid size-9 place-items-center text-neutral-800 transition hover:text-[#B88A2A] sm:size-10 lg:hidden"
+                        className="grid size-9 place-items-center text-neutral-800 transition hover:text-[#BDA18A] sm:size-10 lg:hidden"
                         onClick={() => setIsMenuOpen((current) => !current)}
                         aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
                         aria-expanded={isMenuOpen}
@@ -168,7 +168,7 @@ function MobileNavLink({
             >
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="flex w-full items-center justify-between py-4 font-montserrat text-[16px] leading-[20px] font-bold text-neutral-800 uppercase transition duration-300 hover:text-[#B88A2A] sm:py-5"
+                    className="flex w-full items-center justify-between py-4 font-montserrat text-[16px] leading-[20px] font-bold text-neutral-800 uppercase transition duration-300 hover:text-[#BDA18A] sm:py-5"
                 >
                     {link.label}
                     <ChevronDown className={cn("size-4 transition-transform duration-300", isOpen && "rotate-180")} />
@@ -187,7 +187,7 @@ function MobileNavLink({
                                         key={child.label}
                                         href={child.href}
                                         onClick={() => setIsMenuOpen(false)}
-                                        className="font-montserrat text-[14px] leading-[18px] font-bold text-neutral-600 transition-colors hover:text-[#B88A2A]"
+                                        className="font-montserrat text-[14px] leading-[18px] font-bold text-neutral-600 transition-colors hover:text-[#BDA18A]"
                                     >
                                         {child.label}
                                     </Link>
@@ -215,7 +215,7 @@ function MobileNavLink({
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                     }
                 }}
-                className="flex border-b border-black/[0.06] py-4 font-montserrat text-[16px] leading-[20px] font-bold text-neutral-800 uppercase transition duration-300 hover:text-[#B88A2A] sm:py-5"
+                className="flex border-b border-black/[0.06] py-4 font-montserrat text-[16px] leading-[20px] font-bold text-neutral-800 uppercase transition duration-300 hover:text-[#BDA18A] sm:py-5"
             >
                 {link.label}
             </Link>
