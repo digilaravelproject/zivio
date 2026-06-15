@@ -110,8 +110,8 @@
       "_react-Bn_NlQuA.js"
     ]
   },
-  "_heroSlides-CVnD-WM3.js": {
-    "file": "assets/heroSlides-CVnD-WM3.js",
+  "_heroSlides-C8Hx5Y5y.js": {
+    "file": "assets/heroSlides-C8Hx5Y5y.js",
     "name": "heroSlides"
   },
   "_inertia-BqzFoydG.js": {
@@ -383,7 +383,7 @@
     "isEntry": true
   },
   "resources/js/app.tsx": {
-    "file": "assets/app-Dp51oNsV.js",
+    "file": "assets/app-HPqCf7cn.js",
     "name": "app",
     "src": "resources/js/app.tsx",
     "isEntry": true,
@@ -420,7 +420,7 @@
     ]
   },
   "resources/js/components/ui/sonner.tsx": {
-    "file": "assets/sonner-CmbdpFhD.js",
+    "file": "assets/sonner-Br4L8L6E.js",
     "name": "sonner",
     "src": "resources/js/components/ui/sonner.tsx",
     "isDynamicEntry": true,
@@ -738,7 +738,7 @@
     ]
   },
   "resources/js/pages/settings/appearance.tsx": {
-    "file": "assets/appearance-B3cCPeld.js",
+    "file": "assets/appearance-CLKhkaWX.js",
     "name": "appearance",
     "src": "resources/js/pages/settings/appearance.tsx",
     "isDynamicEntry": true,
@@ -776,7 +776,7 @@
     ]
   },
   "resources/js/pages/settings/security.tsx": {
-    "file": "assets/security-DkvZRNV7.js",
+    "file": "assets/security-BYncRUO1.js",
     "name": "security",
     "src": "resources/js/pages/settings/security.tsx",
     "isDynamicEntry": true,
@@ -823,7 +823,7 @@
     ]
   },
   "resources/js/pages/welcome.tsx": {
-    "file": "assets/welcome-C_o86dPD.js",
+    "file": "assets/welcome-DkUE1m4J.js",
     "name": "welcome",
     "src": "resources/js/pages/welcome.tsx",
     "isDynamicEntry": true,
@@ -837,7 +837,7 @@
       "_Navbar-SG2ywysG.js",
       "_LazySection-D9JWJ0ka.js",
       "_SiteButton-C6FXEmW8.js",
-      "_heroSlides-CVnD-WM3.js"
+      "_heroSlides-C8Hx5Y5y.js"
     ],
     "dynamicImports": [
       "resources/js/sections/BrandStorySection.tsx",
@@ -852,7 +852,7 @@
     ]
   },
   "resources/js/sections/BrandStorySection.tsx": {
-    "file": "assets/BrandStorySection-C1ATBzxY.js",
+    "file": "assets/BrandStorySection-CRNDWDly.js",
     "name": "BrandStorySection",
     "src": "resources/js/sections/BrandStorySection.tsx",
     "isDynamicEntry": true,
@@ -860,7 +860,7 @@
       "_motion-D3nLgHot.js",
       "_react-Bn_NlQuA.js",
       "_Reveal-J6TPLTSw.js",
-      "_heroSlides-CVnD-WM3.js"
+      "_heroSlides-C8Hx5Y5y.js"
     ]
   },
   "resources/js/sections/CatalogueCtaSection.tsx": {
