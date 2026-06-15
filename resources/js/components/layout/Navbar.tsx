@@ -60,7 +60,7 @@ export function Navbar() {
                     {navigationLinks.map((link) =>
                         link.children ? (
                             <div key={link.label} className="group relative py-6">
-                                <button className="flex items-center gap-1.5 whitespace-nowrap font-sans text-[0.75rem] font-semibold tracking-[0.15em] text-neutral-800 uppercase transition duration-500 hover:text-[#B88A2A] xl:tracking-[0.18em]">
+                                <button className="flex items-center gap-1.5 whitespace-nowrap font-montserrat text-[16px] leading-[20px] font-bold text-neutral-800 uppercase transition duration-500 hover:text-[#B88A2A]">
                                     {link.label}
                                     <ChevronDown className="size-3.5 transition-transform duration-300 group-hover:rotate-180" strokeWidth={2} />
                                     <span className="absolute bottom-4 left-0 h-px w-0 bg-[#B88A2A] transition-all duration-500 group-hover:w-full" />
@@ -74,7 +74,7 @@ export function Navbar() {
                                             <Link
                                                 key={child.label}
                                                 href={child.href}
-                                                className="px-4 py-3 font-sans text-sm tracking-[0.1em] text-neutral-700 transition-all duration-300 hover:text-[#B88A2A] hover:bg-black/[0.03] hover:pl-5 rounded-sm flex items-center"
+                                                className="px-4 py-3 font-montserrat text-[16px] leading-[20px] font-bold text-neutral-700 transition-all duration-300 hover:text-[#B88A2A] hover:bg-black/[0.03] hover:pl-5 rounded-sm flex items-center"
                                             >
                                                 {child.label}
                                             </Link>
@@ -87,7 +87,7 @@ export function Navbar() {
                                 key={link.label}
                                 href={link.href!}
                                 onClick={link.href === '/' ? handleHomeClick : undefined}
-                                className="group relative whitespace-nowrap font-sans text-[0.75rem] font-semibold tracking-[0.15em] text-neutral-800 uppercase transition duration-500 hover:text-[#B88A2A] xl:tracking-[0.18em] py-6"
+                                className="group relative whitespace-nowrap font-montserrat text-[16px] leading-[20px] font-bold text-neutral-800 uppercase transition duration-500 hover:text-[#B88A2A] py-6"
                             >
                                 {link.label}
                                 <span className="absolute bottom-4 left-0 h-px w-0 bg-[#B88A2A] transition-all duration-500 group-hover:w-full" />
@@ -168,7 +168,7 @@ function MobileNavLink({
             >
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="flex w-full items-center justify-between py-4 font-sans text-sm font-semibold tracking-[0.18em] text-neutral-800 uppercase transition duration-300 hover:text-[#B88A2A] sm:py-5 sm:tracking-[0.2em]"
+                    className="flex w-full items-center justify-between py-4 font-montserrat text-[16px] leading-[20px] font-bold text-neutral-800 uppercase transition duration-300 hover:text-[#B88A2A] sm:py-5"
                 >
                     {link.label}
                     <ChevronDown className={cn("size-4 transition-transform duration-300", isOpen && "rotate-180")} />
@@ -187,7 +187,7 @@ function MobileNavLink({
                                         key={child.label}
                                         href={child.href}
                                         onClick={() => setIsMenuOpen(false)}
-                                        className="font-sans text-xs tracking-[0.15em] text-neutral-600 transition-colors hover:text-[#B88A2A]"
+                                        className="font-montserrat text-[14px] leading-[18px] font-bold text-neutral-600 transition-colors hover:text-[#B88A2A]"
                                     >
                                         {child.label}
                                     </Link>
@@ -215,7 +215,7 @@ function MobileNavLink({
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                     }
                 }}
-                className="flex border-b border-black/[0.06] py-4 font-sans text-sm font-semibold tracking-[0.18em] text-neutral-800 uppercase transition duration-300 hover:text-[#B88A2A] sm:py-5 sm:tracking-[0.2em]"
+                className="flex border-b border-black/[0.06] py-4 font-montserrat text-[16px] leading-[20px] font-bold text-neutral-800 uppercase transition duration-300 hover:text-[#B88A2A] sm:py-5"
             >
                 {link.label}
             </Link>
