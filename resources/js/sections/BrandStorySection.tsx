@@ -4,7 +4,7 @@ import { heroSlides } from '@/data/heroSlides';
 const brandStory = {
     label: 'Brand Philosophy',
     since: 'Since 2018',
-    heading: 'Where light transforms spaces into experiences.',
+    heading: 'Where Light Transforms Spaces Into Experiences.',
     paragraph:
         'ZIVIO LIFE creates architectural lighting that blends innovation, sustainability, and timeless design. We believe lighting is more than illumination - it is an art that shapes ambience, emotion, and human connection. Every solution is crafted to enhance residential and commercial spaces with elegance, efficiency, and lasting impact.',
 };

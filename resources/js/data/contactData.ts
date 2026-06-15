@@ -19,7 +19,7 @@ export type ContactData = {
 
 export const contactData: ContactData = {
     label: 'Contact Us',
-    heading: "Let’s illuminate your next space.",
+    heading: "Let’s Illuminate Your Next Space.",
     paragraph:
         'Share your project details and our team will connect with you for lighting consultation, product selection, and design support.',
     address: [

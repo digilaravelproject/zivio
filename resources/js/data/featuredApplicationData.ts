@@ -18,7 +18,7 @@ export type FeaturedProduct = {
 
 export const featuredApplicationIntro = {
     label: 'Featured Application',
-    heading: 'See how light transforms outdoor spaces.',
+    heading: 'See How Light Transforms Outdoor Spaces.',
     secondaryCta: {
         label: 'View Outdoor Collection',
         href: '/products/outdoor-lighting',

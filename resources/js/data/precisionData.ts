@@ -15,7 +15,7 @@ export type PrecisionData = {
 
 export const precisionData: PrecisionData = {
     label: 'Precision In Every Detail',
-    heading: 'Crafted for architectural excellence.',
+    heading: 'Crafted For Architectural Excellence.',
     paragraph:
         'Every fixture is engineered to balance performance, longevity, and visual elegance - delivering lighting solutions that elevate modern residential, commercial, and architectural spaces.',
     ctaLabel: 'Explore Our Expertise',

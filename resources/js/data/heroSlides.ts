@@ -21,7 +21,7 @@ export const heroSlides: HeroSlide[] = [
     {
         id: 2,
         image: '/images/hero-sections/hero-slide-2.jpeg',
-        title: 'Future of Lighting',
+        title: 'Future Of Lighting',
         subtitle:
             'Architectural lighting solutions designed to transform modern spaces.',
         buttonText: 'Explore Collection',
@@ -41,7 +41,7 @@ export const heroSlides: HeroSlide[] = [
     {
         id: 4,
         image: '/images/hero-sections/hero-slide-4.jpeg',
-        title: 'Designed for Architecture',
+        title: 'Designed For Architecture',
         subtitle: 'Where technology, design, and functionality meet.',
         buttonText: 'Start a Project',
         buttonHref: '/contact',

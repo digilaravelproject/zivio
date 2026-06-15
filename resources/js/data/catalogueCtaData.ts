@@ -11,7 +11,7 @@ export type CatalogueCtaData = {
 
 export const catalogueCtaData: CatalogueCtaData = {
     label: 'Catalogue',
-    heading: 'Explore the complete ZIVIO LIFE lighting collection.',
+    heading: 'Explore The Complete ZIVIO LIFE Lighting Collection.',
     paragraph:
         'Discover architectural, indoor, outdoor, pole, and solar lighting solutions crafted for modern spaces.',
     catalogueImage:
