@@ -48,7 +48,7 @@ export function Navbar() {
                     aria-label="ZIVIO LIFE home"
                 >
                     <img
-                        src="/images/zivio-life-logo.svg"
+                        src="/images/zivio-life-logo.png"
                         alt="ZIVIO LIFE"
                         className="h-8 w-auto object-contain sm:h-9 lg:h-11"
                         width={180}
@@ -56,7 +56,7 @@ export function Navbar() {
                     />
                 </Link>
 
-                <div className="hidden items-center gap-6 xl:gap-9 lg:flex">
+                <div className="hidden items-center gap-6 xl:gap-9 lg:flex ml-auto mr-4">
                     {navigationLinks.map((link) =>
                         link.children ? (
                             <div key={link.label} className="group relative py-6">
@@ -99,18 +99,11 @@ export function Navbar() {
                 <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
                     <button
                         type="button"
-                        className="grid size-9 place-items-center text-[#F5F5F2] transition hover:text-[#DA9807] sm:size-10"
+                        className="hidden size-9 place-items-center text-[#F5F5F2] transition hover:text-[#DA9807] sm:size-10"
                         aria-label="Search"
                     >
                         <Search className="size-4.5 sm:size-5" strokeWidth={1.6} />
                     </button>
-
-                    <Link
-                        href="/contact"
-                        className="hidden whitespace-nowrap border border-[#B88A2A]/60 bg-[#0A0A0A]/20 px-4 py-2.5 font-sans text-[0.75rem] font-semibold tracking-[0.15em] text-[#F5F5F2] uppercase backdrop-blur-sm transition duration-500 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A] md:inline-flex xl:px-5 xl:py-3 xl:tracking-[0.18em]"
-                    >
-                        Start a Project
-                    </Link>
 
                     <button
                         type="button"
@@ -146,14 +139,6 @@ export function Navbar() {
                                     setIsMenuOpen={setIsMenuOpen}
                                 />
                             ))}
-
-                            <Link
-                                href="/contact"
-                                onClick={() => setIsMenuOpen(false)}
-                                className="mt-7 inline-flex max-w-full justify-center border border-[#B88A2A]/65 px-4 py-4 text-center font-sans text-sm font-semibold tracking-[0.15em] text-[#F5F5F2] uppercase transition duration-300 hover:bg-[#F5F5F2] hover:text-[#0A0A0A] sm:px-5 sm:tracking-[0.18em]"
-                            >
-                                Start a Project
-                            </Link>
                         </div>
                     </motion.div>
                 )}
