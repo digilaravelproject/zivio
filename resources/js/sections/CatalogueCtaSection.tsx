@@ -39,7 +39,7 @@ export function CatalogueCtaSection() {
                             href={catalogueCtaData.downloadHref}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex w-full items-center justify-center gap-2 border border-[#BDA18A]/56 bg-[#BDA18A]/10 px-5 py-3.5 font-sans text-[0.62rem] font-medium tracking-[0.15em] text-[#171512] uppercase transition duration-500 hover:border-[#171512] hover:bg-[#171512] hover:text-[#FAF7F1] sm:w-auto"
+                            className="inline-flex w-full items-center justify-center gap-2 border border-black bg-transparent px-5 py-3.5 font-sans text-[0.72rem] font-bold tracking-[0.15em] text-[#171512] uppercase transition duration-500 hover:bg-black hover:text-white sm:w-auto"
                         >
                             {catalogueCtaData.primaryCta}
                             <ArrowUpRight
@@ -49,7 +49,7 @@ export function CatalogueCtaSection() {
                         </a>
                         <Link
                             href={catalogueCtaData.secondaryHref}
-                            className="inline-flex w-full items-center justify-center gap-2 border border-[#BDA18A]/20 px-5 py-3.5 font-sans text-[0.62rem] font-medium tracking-[0.15em] text-[#171512] uppercase transition duration-500 hover:border-[#171512]/60 hover:text-[#BDA18A] sm:w-auto"
+                            className="inline-flex w-full items-center justify-center gap-2 border border-black bg-transparent px-5 py-3.5 font-sans text-[0.72rem] font-bold tracking-[0.15em] text-[#171512] uppercase transition duration-500 hover:bg-black hover:text-white sm:w-auto"
                         >
                             {catalogueCtaData.secondaryCta}
                             <ArrowUpRight
@@ -69,7 +69,7 @@ export function CatalogueCtaSection() {
                     <div className="ambient-light-warm relative overflow-hidden border border-[#BDA18A]/16 bg-white/[0.4] p-3 [transform-style:preserve-3d] transition-all duration-[700ms] ease-out group-hover:-translate-y-2 group-hover:[transform:rotateX(2deg)_rotateY(-3deg)] sm:p-4">
                         <div className="pointer-events-none absolute top-6 bottom-6 left-3 z-20 w-px bg-gradient-to-b from-transparent via-[#BDA18A]/12 to-transparent" />
                         <div className="pointer-events-none absolute top-5 right-2 bottom-5 z-20 w-4 bg-gradient-to-l from-[#FAF7F1]/30 to-transparent" />
-                        <div className="relative aspect-[3/4] overflow-hidden bg-[#E2DACD]">
+                        <div className="relative aspect-[3/4] overflow-hidden bg-white">
                             <img
                                 src={catalogueCtaData.catalogueImage}
                                 alt="ZIVIO LIFE lighting catalogue preview"
