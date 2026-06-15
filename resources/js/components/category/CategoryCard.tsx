@@ -90,7 +90,7 @@ export function CategoryCard({
                     <p className="mb-3 font-sans text-[0.58rem] font-medium tracking-[0.18em] text-[#BDA18A] uppercase">
                         {String(index + 1).padStart(2, '0')}
                     </p>
-                    <h3 className="max-w-[12rem] text-[1.85rem] leading-[1.08] font-light text-[#F8F5EC] sm:max-w-[13rem] sm:text-[2.35rem] xl:text-[2.55rem]">
+                    <h3 className="max-w-[12rem] font-montserrat text-[1.85rem] leading-[1.08] font-bold text-[#F8F5EC] sm:max-w-[13rem] sm:text-[2.35rem] xl:text-[2.55rem]">
                         {category.title}
                     </h3>
                     <motion.p
