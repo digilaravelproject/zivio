@@ -37,10 +37,12 @@ export function CatalogueCtaSection() {
                     <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                         <a
                             href={catalogueCtaData.downloadHref}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="inline-flex w-full items-center justify-center gap-2 border border-[#BDA18A]/56 bg-[#BDA18A]/10 px-5 py-3.5 font-sans text-[0.62rem] font-medium tracking-[0.15em] text-[#171512] uppercase transition duration-500 hover:border-[#171512] hover:bg-[#171512] hover:text-[#FAF7F1] sm:w-auto"
                         >
                             {catalogueCtaData.primaryCta}
-                            <ArrowDownToLine
+                            <ArrowUpRight
                                 className="size-4"
                                 strokeWidth={1.5}
                             />

@@ -16,8 +16,8 @@ export const catalogueCtaData: CatalogueCtaData = {
         'Discover architectural, indoor, outdoor, pole, and solar lighting solutions crafted for modern spaces.',
     catalogueImage:
         'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=1100&q=85',
-    downloadHref: '/catalogue/zivio-life-catalogue.pdf',
+    downloadHref: '/images/catalouge/downlight-spotlight-catalogue.pdf',
     secondaryHref: '/products',
-    primaryCta: 'Download Catalogue',
+    primaryCta: 'View Catalogue',
     secondaryCta: 'View Products',
 };
