@@ -379,7 +379,7 @@
     "isEntry": true
   },
   "resources/js/app.tsx": {
-    "file": "assets/app-CLwoqIlZ.js",
+    "file": "assets/app-Ctd0rQAJ.js",
     "name": "app",
     "src": "resources/js/app.tsx",
     "isEntry": true,
@@ -416,7 +416,7 @@
     ]
   },
   "resources/js/components/ui/sonner.tsx": {
-    "file": "assets/sonner-D08m7aXC.js",
+    "file": "assets/sonner-XEtEyHmZ.js",
     "name": "sonner",
     "src": "resources/js/components/ui/sonner.tsx",
     "isDynamicEntry": true,
@@ -734,7 +734,7 @@
     ]
   },
   "resources/js/pages/settings/appearance.tsx": {
-    "file": "assets/appearance-CGYjWq13.js",
+    "file": "assets/appearance-S4RsZvXu.js",
     "name": "appearance",
     "src": "resources/js/pages/settings/appearance.tsx",
     "isDynamicEntry": true,
@@ -772,7 +772,7 @@
     ]
   },
   "resources/js/pages/settings/security.tsx": {
-    "file": "assets/security-BclXYF5e.js",
+    "file": "assets/security-DAgdkkcu.js",
     "name": "security",
     "src": "resources/js/pages/settings/security.tsx",
     "isDynamicEntry": true,
@@ -819,7 +819,7 @@
     ]
   },
   "resources/js/pages/welcome.tsx": {
-    "file": "assets/welcome-BJeh0CMN.js",
+    "file": "assets/welcome-DV7Cvjnu.js",
     "name": "welcome",
     "src": "resources/js/pages/welcome.tsx",
     "isDynamicEntry": true,
@@ -953,7 +953,7 @@
     ]
   },
   "resources/js/sections/ProjectsShowcaseSection.tsx": {
-    "file": "assets/ProjectsShowcaseSection-CQIFNl4N.js",
+    "file": "assets/ProjectsShowcaseSection-gd7JNnwl.js",
     "name": "ProjectsShowcaseSection",
     "src": "resources/js/sections/ProjectsShowcaseSection.tsx",
     "isDynamicEntry": true,
