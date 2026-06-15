@@ -28,7 +28,7 @@ export function CategoryCard({
             onFocus={() => onActivate(index)}
             onMouseLeave={onClear}
             className={cn(
-                'cinematic-image-frame group relative h-[300px] overflow-hidden transition-opacity duration-700 sm:h-[410px] md:[transform-style:preserve-3d] lg:h-[500px] 2xl:h-[540px]',
+                'cinematic-image-frame group relative h-[280px] overflow-hidden transition-opacity duration-700 sm:h-[350px] md:[transform-style:preserve-3d] lg:h-[380px] 2xl:h-[400px]',
                 index % 2 === 1 && 'xl:translate-y-8',
                 isDimmed && 'opacity-45',
             )}
@@ -90,7 +90,7 @@ export function CategoryCard({
                     <p className="mb-3 font-sans text-[0.58rem] font-medium tracking-[0.18em] text-[#BDA18A] uppercase">
                         {String(index + 1).padStart(2, '0')}
                     </p>
-                    <h3 className="max-w-[12rem] font-montserrat text-[1.85rem] leading-[1.08] font-bold text-[#F8F5EC] sm:max-w-[13rem] sm:text-[2.35rem] xl:text-[2.55rem]">
+                    <h3 className="max-w-[14rem] font-montserrat text-[1.35rem] leading-[1.08] font-bold text-[#F8F5EC] sm:max-w-[16rem] sm:text-[1.85rem] xl:text-[2.05rem]">
                         {category.title}
                     </h3>
                     <motion.p
