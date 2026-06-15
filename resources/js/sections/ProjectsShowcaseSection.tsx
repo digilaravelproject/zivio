@@ -100,7 +100,7 @@ export function ProjectsShowcaseSection() {
                                 <p className="mb-4 inline-flex border border-[#BDA18A]/20 bg-[#050505]/20 px-3 py-1.5 font-sans text-[0.56rem] font-medium tracking-[0.16em] text-[#BDA18A] uppercase backdrop-blur-sm">
                                     {activeProject.category}
                                 </p>
-                                <h3 className="text-3xl leading-[1.08] font-light text-[#F8F5EC] xl:text-[2.45rem]">
+                                <h3 className="font-montserrat text-3xl leading-[1.08] font-bold text-[#F8F5EC] xl:text-[2.45rem]">
                                     {activeProject.title}
                                 </h3>
                                 <p className="mt-3 font-sans text-xs font-medium tracking-[0.16em] text-[#BDA18A] uppercase">
@@ -162,7 +162,7 @@ export function ProjectsShowcaseSection() {
                                                     {formatCounter(index + 1)} /{' '}
                                                     {project.category}
                                                 </span>
-                                                <span className="block text-base leading-6 font-normal text-[#F8F5EC]">
+                                                <span className="block font-montserrat text-base leading-6 font-semibold text-[#F8F5EC]">
                                                     {project.title}
                                                 </span>
                                             </span>
@@ -253,7 +253,7 @@ export function ProjectsShowcaseSection() {
                                 <p className="mb-3 inline-flex border border-[#BDA18A]/20 bg-[#BDA18A]/7 px-3 py-1.5 font-sans text-[0.56rem] font-medium tracking-[0.16em] text-[#BDA18A] uppercase">
                                     {activeProject.category}
                                 </p>
-                                <h3 className="text-[1.45rem] leading-[1.08] font-light text-[#F8F5EC] sm:text-[2.35rem]">
+                                <h3 className="font-montserrat text-[1.45rem] leading-[1.08] font-bold text-[#F8F5EC] sm:text-[2.35rem]">
                                     {activeProject.title}
                                 </h3>
                                 <p className="mt-2 font-sans text-xs font-medium tracking-[0.14em] text-[#BDA18A] uppercase">

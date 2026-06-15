@@ -149,9 +149,10 @@
 }
 
 @utility text-editorial-heading-dark {
+    font-family: var(--font-montserrat);
     font-size: 1.9rem;
     line-height: 1.12;
-    font-weight: 400;
+    font-weight: 700;
     text-wrap: balance;
     color: #171512;
     @media (min-width: 640px) {

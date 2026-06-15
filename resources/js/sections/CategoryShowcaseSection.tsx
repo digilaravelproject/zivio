@@ -26,7 +26,7 @@ export function CategoryShowcaseSection() {
                                 Collections
                             </p>
                         </div>
-                        <h2 className="max-w-3xl text-[clamp(1.85rem,6.4vw,2.75rem)] leading-[1.12] font-light text-balance text-[#171512] sm:text-[clamp(2.25rem,6.4vw,3.35rem)] lg:text-[clamp(2.8rem,3.6vw,3.8rem)]">
+                        <h2 className="max-w-3xl font-montserrat text-[clamp(1.85rem,6.4vw,2.75rem)] leading-[1.12] font-bold text-balance text-[#171512] sm:text-[clamp(2.25rem,6.4vw,3.35rem)] lg:text-[clamp(2.8rem,3.6vw,3.8rem)]">
                             Explore Our Lighting Collections
                         </h2>
                     </div>

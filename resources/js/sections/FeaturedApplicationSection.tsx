@@ -50,7 +50,7 @@ export function FeaturedApplicationSection() {
                         </p>
                     </div>
 
-                    <h2 className="max-w-lg text-[1.7rem] leading-[1.14] font-light text-balance text-[#171512] sm:text-[2.15rem] lg:text-[2.45rem] xl:text-[2.7rem]">
+                    <h2 className="max-w-lg font-montserrat text-[1.7rem] leading-[1.14] font-bold text-balance text-[#171512] sm:text-[2.15rem] lg:text-[2.45rem] xl:text-[2.7rem]">
                         {featuredApplicationIntro.heading}
                     </h2>
 
@@ -73,7 +73,7 @@ export function FeaturedApplicationSection() {
                                 <p className="font-sans text-[0.58rem] font-medium tracking-[0.18em] text-[#BDA18A] uppercase">
                                     {activeProduct.category}
                                 </p>
-                                <h3 className="mt-2 max-w-xl text-[1.25rem] leading-7 font-normal text-[#171512] sm:text-[1.65rem] sm:leading-9">
+                                <h3 className="mt-2 max-w-xl font-montserrat text-[1.25rem] leading-7 font-semibold text-[#171512] sm:text-[1.65rem] sm:leading-9">
                                     {activeProduct.name}
                                 </h3>
                             </div>

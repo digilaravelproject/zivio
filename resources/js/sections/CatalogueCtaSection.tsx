@@ -88,7 +88,7 @@ export function CatalogueCtaSection() {
                             <p className="font-sans text-[0.56rem] font-medium tracking-[0.18em] text-[#BDA18A] uppercase">
                                 ZIVIO LIFE
                             </p>
-                            <h3 className="mt-2 text-xl leading-6 font-light text-[#171512] sm:text-2xl">
+                            <h3 className="mt-2 font-montserrat text-xl leading-6 font-semibold text-[#171512] sm:text-2xl">
                                 Lighting Catalogue
                             </h3>
                         </div>

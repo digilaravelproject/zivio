@@ -65,7 +65,7 @@ export function HeroSection() {
                         <p className="mb-3 font-sans text-[0.56rem] font-medium tracking-[0.2em] text-[#BDA18A] uppercase sm:mb-4 sm:text-[0.64rem] sm:tracking-[0.25em]">
                             Premium Architectural Lighting
                         </p>
-                        <h1 className="max-w-3xl text-[clamp(2.1rem,8.8vw,3.35rem)] leading-[1.06] font-light tracking-normal text-balance text-[#F8F5EC] sm:text-[clamp(3.25rem,6.6vw,4.85rem)] lg:text-[clamp(4rem,5.1vw,5.35rem)]">
+                        <h1 className="max-w-3xl font-montserrat text-[clamp(2.1rem,8.8vw,3.35rem)] leading-[1.06] font-bold tracking-normal text-balance text-[#F8F5EC] sm:text-[clamp(3.25rem,6.6vw,4.85rem)] lg:text-[clamp(4rem,5.1vw,5.35rem)]">
                             {slide.title}
                         </h1>
                         <p className="mt-4 max-w-md font-sans text-sm leading-6 tracking-[0.005em] text-[#E7DFD0] sm:mt-5 sm:text-[0.95rem] sm:leading-8">
@@ -175,7 +175,7 @@ export function HeroSection() {
                                 initial={{ opacity: 0, y: 18 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.18, duration: 0.65 }}
-                                className="max-w-3xl text-[clamp(2.1rem,8.8vw,3.35rem)] leading-[1.06] font-light tracking-normal text-balance text-[#F8F5EC] sm:text-[clamp(3.25rem,6.6vw,4.85rem)] lg:text-[clamp(4rem,5.1vw,5.35rem)]"
+                                className="max-w-3xl font-montserrat text-[clamp(2.1rem,8.8vw,3.35rem)] leading-[1.06] font-bold tracking-normal text-balance text-[#F8F5EC] sm:text-[clamp(3.25rem,6.6vw,4.85rem)] lg:text-[clamp(4rem,5.1vw,5.35rem)]"
                             >
                                 {activeSlide.title}
                             </motion.h1>

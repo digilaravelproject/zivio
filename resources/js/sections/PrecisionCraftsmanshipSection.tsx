@@ -87,7 +87,7 @@ export function PrecisionCraftsmanshipSection() {
                                 <p className="mb-2 font-sans text-[0.56rem] font-medium tracking-[0.16em] text-[#BDA18A] uppercase">
                                     {String(index + 1).padStart(2, '0')}
                                 </p>
-                                <h3 className="text-base leading-5 font-normal text-[#171512] sm:text-lg sm:leading-6">
+                                <h3 className="font-montserrat text-base leading-5 font-semibold text-[#171512] sm:text-lg sm:leading-6">
                                     {feature.title}
                                 </h3>
                             </div>
