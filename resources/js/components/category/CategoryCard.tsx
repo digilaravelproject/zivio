@@ -100,7 +100,7 @@ export function CategoryCard({
                             y: isActive ? 0 : 8,
                         }}
                         transition={{ duration: 0.45, ease: 'easeOut' }}
-                        className="mt-4 font-sans text-[0.56rem] font-medium tracking-[0.15em] text-[#F5F5F2] uppercase sm:mt-5 sm:text-[0.6rem] sm:tracking-[0.17em]"
+                        className="mt-4 font-sans text-[0.56rem] font-medium tracking-[0.15em] text-[#F5F5F2] uppercase sm:mt-5 sm:text-[0.6rem] sm:tracking-[0.17em] group-hover:underline underline-offset-4 decoration-[#BDA18A]"
                     >
                         Explore Collection
                     </motion.p>

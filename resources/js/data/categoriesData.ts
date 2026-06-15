@@ -12,7 +12,7 @@ export const categories: Category[] = [
     },
     {
         title: 'Outdoor Lighting',
-        image: '/images/category/outdoor.jpeg',
+        image: '/images/category/outdoor.png',
         href: '/products/outdoor-lighting',
     },
     {
@@ -22,7 +22,7 @@ export const categories: Category[] = [
     },
     {
         title: 'Solar Lighting',
-        image: '/images/category/solar.jpg',
+        image: '/images/category/solar.png',
         href: '/products/solar-lighting',
     },
 ];
