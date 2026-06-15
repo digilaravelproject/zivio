@@ -37,10 +37,7 @@ export function Navbar() {
     return (
         <header
             className={cn(
-                'fixed top-0 right-0 left-0 z-50 transition-all duration-700',
-                isScrolled
-                    ? 'border-b border-white/[0.08] bg-[#080808]/78 shadow-[0_18px_60px_rgba(0,0,0,0.28)] backdrop-blur-2xl'
-                    : 'border-b border-white/0 bg-transparent',
+                'sticky top-0 z-50 transition-all duration-500 w-full border-b border-white/[0.08] bg-[#080808]/85 shadow-[0_18px_60px_rgba(0,0,0,0.28)] backdrop-blur-2xl',
             )}
         >
             <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 sm:h-20 sm:px-6 lg:px-10">
@@ -72,7 +69,7 @@ export function Navbar() {
                                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                                     <div className="flex flex-col min-w-[220px] border border-white/[0.08] bg-[#0A0A0A]/95 backdrop-blur-xl shadow-[0_24px_80px_rgba(0,0,0,0.5)] p-2 rounded-md relative overflow-hidden">
                                         <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#B88A2A]/40 to-transparent" />
-                                        
+
                                         {link.children.map((child) => (
                                             <Link
                                                 key={child.label}
@@ -142,11 +139,11 @@ export function Navbar() {
                     >
                         <div className="mx-auto flex max-w-7xl flex-col pt-5">
                             {navigationLinks.map((link, index) => (
-                                <MobileNavLink 
-                                    key={link.label} 
-                                    link={link} 
-                                    index={index} 
-                                    setIsMenuOpen={setIsMenuOpen} 
+                                <MobileNavLink
+                                    key={link.label}
+                                    link={link}
+                                    index={index}
+                                    setIsMenuOpen={setIsMenuOpen}
                                 />
                             ))}
 
@@ -165,14 +162,14 @@ export function Navbar() {
     );
 }
 
-function MobileNavLink({ 
-    link, 
-    index, 
-    setIsMenuOpen 
-}: { 
-    link: NavigationLink; 
-    index: number; 
-    setIsMenuOpen: (val: boolean) => void 
+function MobileNavLink({
+    link,
+    index,
+    setIsMenuOpen
+}: {
+    link: NavigationLink;
+    index: number;
+    setIsMenuOpen: (val: boolean) => void
 }) {
     const [isOpen, setIsOpen] = useState(false);
 

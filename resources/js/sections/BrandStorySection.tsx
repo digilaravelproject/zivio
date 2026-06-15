@@ -11,10 +11,12 @@ const brandStory = {
 
 export function BrandStorySection() {
     return (
-        <section className="relative overflow-hidden bg-editorial-light px-4 py-18 text-[#171512] sm:px-6 sm:py-28 lg:px-10 lg:py-[9rem]">
+        <section className="relative overflow-hidden bg-editorial-light px-4 py-8 text-[#171512] sm:px-6 sm:py-14 lg:px-10 lg:py-16">
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(123,96,58,0.045)_1px,transparent_1px),linear-gradient(180deg,rgba(123,96,58,0.026)_1px,transparent_1px)] bg-[size:24rem_100%,100%_9rem] opacity-[0.34]" />
             <div className="pointer-events-none absolute right-[-10rem] bottom-[-8rem] hidden h-[30rem] w-[30rem] rounded-full bg-[#B8945F]/14 blur-3xl md:block" />
-            <div className="pointer-events-none absolute bottom-0 left-0 h-px w-full bg-warm-divider" />
+            {/* Smooth blend fades at top and bottom */}
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#FFFFFF] via-[#FFFFFF]/30 to-transparent z-10" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#FAFAFD] via-[#FAFAFD]/30 to-transparent z-10" />
 
             <Reveal
                 className="relative mx-auto grid max-w-7xl gap-11 sm:gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-24"

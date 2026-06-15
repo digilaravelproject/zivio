@@ -25,9 +25,11 @@ export function ProductsShowcaseSection() {
     }, [activeCategory]);
 
     return (
-        <section className="relative overflow-hidden bg-editorial-light px-4 py-16 text-[#171512] sm:px-6 sm:py-24 lg:px-10 lg:py-[8rem]">
+        <section className="relative overflow-hidden bg-editorial-light px-4 py-10 text-[#171512] sm:px-6 sm:py-16 lg:px-10 lg:py-[5.5rem]">
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(123,96,58,0.045)_1px,transparent_1px),linear-gradient(180deg,rgba(123,96,58,0.03)_1px,transparent_1px)] bg-[size:18rem_100%,100%_8rem] opacity-[0.32]" />
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-warm-divider" />
+            {/* Smooth blend fades at top and bottom */}
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#FFFFFF] via-[#FFFFFF]/30 to-transparent z-10" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#FAFAFD] via-[#FAFAFD]/30 to-transparent z-10" />
             <div className="pointer-events-none absolute right-0 bottom-12 hidden h-80 w-80 rounded-full bg-[#B8945F]/12 blur-3xl md:block" />
 
             <div className="relative mx-auto max-w-7xl">

@@ -103,9 +103,9 @@
 
 @utility bg-editorial-light {
     background:
-        radial-gradient(circle at 18% 14%, rgba(255, 255, 255, 0.74), transparent 30%),
-        radial-gradient(circle at 82% 18%, rgba(184, 148, 95, 0.16), transparent 26%),
-        linear-gradient(145deg, #f6f0e6 0%, #ebe2d3 55%, #f1eadf 100%);
+        radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.95), transparent 35%),
+        radial-gradient(circle at 85% 25%, rgba(230, 242, 255, 0.55), transparent 30%),
+        linear-gradient(145deg, #FFFFFF 0%, #F3F5F8 55%, #FAFAFD 100%);
 }
 
 @utility bg-luxury-divider {

@@ -29,9 +29,11 @@ export function FeaturedApplicationSection() {
     };
 
     return (
-        <section className="relative overflow-hidden bg-editorial-light px-4 pt-16 pb-18 text-[#171512] sm:px-6 sm:pt-24 sm:pb-[6.5rem] lg:px-10 lg:pt-24 lg:pb-[8rem]">
+        <section className="relative overflow-hidden bg-editorial-light px-4 pt-10 pb-12 text-[#171512] sm:px-6 sm:pt-16 sm:pb-[4.5rem] lg:px-10 lg:pt-[4.5rem] lg:pb-[5.5rem]">
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(123,96,58,0.045)_1px,transparent_1px)] bg-[size:20rem_100%] opacity-[0.32]" />
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-warm-divider" />
+            {/* Smooth blend fades at top and bottom */}
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#FFFFFF] via-[#FFFFFF]/30 to-transparent z-10" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#FAFAFD] via-[#FAFAFD]/30 to-transparent z-10" />
 
             <motion.div
                 initial={{ opacity: 0, y: 32 }}

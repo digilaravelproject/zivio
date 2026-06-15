@@ -1,6 +1,6 @@
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { Swiper as SwiperType } from 'swiper';
 import { Autoplay, EffectFade } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -17,12 +17,73 @@ export function HeroSection() {
     const [activeIndex, setActiveIndex] = useState(0);
     const [autoplayProgress, setAutoplayProgress] = useState(0);
     const [swiper, setSwiper] = useState<SwiperType | null>(null);
+    const [isMounted, setIsMounted] = useState(false);
     const prefersReducedMotion = useReducedMotion();
     const activeSlide = heroSlides[activeIndex] ?? heroSlides[0];
     const shouldShowText = activeSlide.showText !== false;
 
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    if (!isMounted) {
+        const slide = heroSlides[0];
+        return (
+            <section className="relative h-[85svh] min-h-[500px] overflow-hidden bg-[#080808] text-[#F5F5F2] sm:min-h-[600px]">
+                <div className="absolute inset-0 z-0 h-full w-full">
+                    <div className="relative h-full w-full overflow-hidden bg-[#0A0A0A]">
+                        <div
+                            aria-label={slide.title}
+                            role="img"
+                            className="absolute inset-0 overflow-hidden"
+                            style={{
+                                background:
+                                    'radial-gradient(circle at 74% 40%, rgba(184, 148, 95, 0.1), transparent 30%), linear-gradient(120deg, rgba(8, 8, 8, 0.02), rgba(8, 8, 8, 0.16))',
+                            }}
+                        >
+                            <img
+                                src={slide.image}
+                                alt={slide.title}
+                                width={2200}
+                                height={1400}
+                                className="h-full w-full object-cover scale-[1.0]"
+                                sizes="100vw"
+                            />
+                        </div>
+                        <div className="absolute inset-0 bg-[#080808]/4" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#080808]/40 via-[#080808]/15 to-[#080808]/2" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/45 via-[#080808]/3 to-[#080808]/10" />
+                        <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#090909]/75 via-[#090909]/25 to-transparent" />
+                    </div>
+                </div>
+
+                <div className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(90deg,rgba(184,148,95,0.06)_1px,transparent_1px)] bg-[size:28vw_100%] opacity-[0.08]" />
+                <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(circle_at_26%_78%,rgba(255,239,205,0.055),transparent_28%)]" />
+
+                <div className="pointer-events-none absolute inset-0 z-40 mx-auto flex h-full max-w-7xl items-end px-4 pt-24 pb-28 sm:px-6 sm:pb-34 lg:px-10 lg:pb-36">
+                    <div className="pointer-events-auto relative w-full max-w-[36rem] drop-shadow-[0_18px_44px_rgba(0,0,0,0.48)]">
+                        <p className="mb-3 font-sans text-[0.56rem] font-medium tracking-[0.2em] text-[#D2B276] uppercase sm:mb-4 sm:text-[0.64rem] sm:tracking-[0.25em]">
+                            Premium Architectural Lighting
+                        </p>
+                        <h1 className="max-w-3xl text-[clamp(2.1rem,8.8vw,3.35rem)] leading-[1.06] font-light tracking-normal text-balance text-[#F8F5EC] sm:text-[clamp(3.25rem,6.6vw,4.85rem)] lg:text-[clamp(4rem,5.1vw,5.35rem)]">
+                            {slide.title}
+                        </h1>
+                        <p className="mt-4 max-w-md font-sans text-sm leading-6 tracking-[0.005em] text-[#E7DFD0] sm:mt-5 sm:text-[0.95rem] sm:leading-8">
+                            {slide.subtitle}
+                        </p>
+                        <div className="mt-6 sm:mt-8">
+                            <SiteButton href={slide.buttonHref}>
+                                {slide.buttonText}
+                            </SiteButton>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
     return (
-        <section className="relative h-[100svh] min-h-[560px] overflow-hidden bg-[#080808] text-[#F5F5F2] sm:min-h-[680px]">
+        <section className="relative h-[85svh] min-h-[500px] overflow-hidden bg-[#080808] text-[#F5F5F2] sm:min-h-[600px]">
             <Swiper
                 modules={[Autoplay, EffectFade]}
                 effect="fade"
@@ -44,30 +105,16 @@ export function HeroSection() {
                 {heroSlides.map((slide, index) => (
                     <SwiperSlide key={slide.id} className="h-full">
                         <div className="relative h-full w-full overflow-hidden bg-[#0A0A0A]">
-                            <motion.div
+                            <div
                                 aria-label={slide.title}
                                 role="img"
-                                className="absolute inset-0 will-change-transform"
+                                className="absolute inset-0 overflow-hidden"
                                 style={{
                                     background:
                                         'radial-gradient(circle at 74% 40%, rgba(184, 148, 95, 0.1), transparent 30%), linear-gradient(120deg, rgba(8, 8, 8, 0.02), rgba(8, 8, 8, 0.16))',
                                 }}
-                                initial={false}
-                                animate={{
-                                    scale:
-                                        prefersReducedMotion
-                                            ? 1
-                                            : activeIndex === index
-                                              ? [1.03, 1.1]
-                                              : 1,
-                                }}
-                                transition={{
-                                    duration:
-                                        activeIndex === index ? 7.5 : 1.4,
-                                    ease: [0.22, 1, 0.36, 1],
-                                }}
                             >
-                                <img
+                                <motion.img
                                     src={slide.image}
                                     alt={slide.title}
                                     width={2200}
@@ -78,14 +125,24 @@ export function HeroSection() {
                                     }
                                     decoding={index === 0 ? 'sync' : 'async'}
                                     draggable={false}
-                                    className="h-full w-full object-cover"
+                                    className="h-full w-full object-cover origin-center will-change-transform"
                                     sizes="100vw"
+                                    initial={{ scale: 1.0 }}
+                                    animate={
+                                        activeIndex === index
+                                            ? { scale: 1.16 }
+                                            : { scale: 1.0 }
+                                    }
+                                    transition={{
+                                        duration: activeIndex === index ? 6.8 : 0.8,
+                                        ease: 'linear',
+                                    }}
                                 />
-                            </motion.div>
-                            <div className="absolute inset-0 bg-[#080808]/8" />
-                            <div className="absolute inset-0 bg-gradient-to-r from-[#080808]/66 via-[#080808]/24 to-[#080808]/3" />
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/68 via-[#080808]/4 to-[#080808]/16" />
-                            <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#090909]/92 via-[#090909]/42 to-transparent" />
+                            </div>
+                            <div className="absolute inset-0 bg-[#080808]/4" />
+                            <div className="absolute inset-0 bg-gradient-to-r from-[#080808]/40 via-[#080808]/15 to-[#080808]/2" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/45 via-[#080808]/3 to-[#080808]/10" />
+                            <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#090909]/75 via-[#090909]/25 to-transparent" />
                         </div>
                     </SwiperSlide>
                 ))}
@@ -147,7 +204,7 @@ export function HeroSection() {
                 </AnimatePresence>
             </div>
 
-            <div className="absolute right-4 bottom-5 left-4 z-50 mx-auto flex max-w-7xl items-center justify-between gap-3 sm:right-6 sm:bottom-8 sm:left-6 sm:gap-6 lg:right-10 lg:left-10">
+            <div className="absolute right-4 bottom-5 left-4 z-30 mx-auto flex max-w-7xl items-center justify-between gap-3 sm:right-6 sm:bottom-8 sm:left-6 sm:gap-6 lg:right-10 lg:left-10">
                 <div className="flex min-w-20 items-center gap-2 font-sans text-xs font-semibold tracking-[0.18em] text-[#F5F5F2] sm:min-w-28 sm:gap-3 sm:text-sm sm:tracking-[0.22em]">
                     <span>{formatSlideNumber(activeIndex + 1)}</span>
                     <span className="h-px w-6 bg-[#B88A2A] sm:w-10" />
