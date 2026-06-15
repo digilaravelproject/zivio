@@ -19,7 +19,7 @@ export const heroSlides: HeroSlide[] = [
         showText: true,
     },
     {
-        id: 5,
+        id: 2,
         image: '/images/hero-sections/hero-slide-5.webp',
         title: 'Elegance In Every Corner',
         subtitle: 'Premium indoor lighting designed for luxury living',
@@ -28,7 +28,7 @@ export const heroSlides: HeroSlide[] = [
         showText: true,
     },
     {
-        id: 2,
+        id: 3,
         image: '/images/hero-sections/hero-slide-2.jpeg',
         title: 'Future Of Lighting',
         subtitle:
@@ -38,7 +38,7 @@ export const heroSlides: HeroSlide[] = [
         showText: true,
     },
     {
-        id: 6,
+        id: 4,
         image: '/images/hero-sections/hero-slide-6.webp',
         title: 'A Touch Of Brilliance',
         subtitle: 'Sleek architectural indoor fixtures for modern spaces',
@@ -47,7 +47,7 @@ export const heroSlides: HeroSlide[] = [
         showText: true,
     },
     {
-        id: 3,
+        id: 5,
         image: '/images/hero-sections/hero-slide-3.jpeg',
         title: 'Light That Shapes Emotion',
         subtitle:
@@ -57,7 +57,7 @@ export const heroSlides: HeroSlide[] = [
         showText: true,
     },
     {
-        id: 4,
+        id: 6,
         image: '/images/hero-sections/hero-slide-4.jpeg',
         title: 'Designed For Architecture',
         subtitle: 'Where technology, design, and functionality meet.',
