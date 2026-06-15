@@ -42,7 +42,7 @@ export function CategoryShowcaseSection() {
                 </Reveal>
 
                 <div
-                    className="relative grid gap-4 [perspective:1400px] sm:grid-cols-2 lg:grid-cols-3 sm:gap-5 xl:grid-cols-5 xl:items-end"
+                    className="relative grid gap-4 [perspective:1400px] sm:grid-cols-2 sm:gap-5 xl:grid-cols-4 xl:items-end"
                     onMouseLeave={() => setActiveIndex(null)}
                 >
                     {categories.map((category, index) => (

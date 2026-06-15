@@ -25,9 +25,4 @@ export const categories: Category[] = [
         image: '/images/category/solar.jpg',
         href: '/products/solar-lighting',
     },
-    {
-        title: 'Facade Lighting',
-        image: '/images/category/facade.jpeg',
-        href: '/products/facade-lighting',
-    },
 ];
