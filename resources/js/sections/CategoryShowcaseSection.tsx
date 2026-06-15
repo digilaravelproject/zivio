@@ -21,7 +21,7 @@ export function CategoryShowcaseSection() {
                 >
                     <div>
                         <div className="mb-5 flex items-center gap-4">
-                            <span className="h-[1px] w-10 bg-[#B88A2A]" />
+                            <span className="h-[1px] w-10 bg-[#BDA18A]" />
                             <p className="text-luxury-label">
                                 Collections
                             </p>

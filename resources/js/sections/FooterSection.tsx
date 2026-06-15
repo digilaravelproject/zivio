@@ -60,7 +60,7 @@ export function FooterSection() {
                                 <a
                                     key={link.label}
                                     href={link.href}
-                                    className="border border-white/[0.09] px-3 py-2 font-sans text-[0.62rem] font-semibold tracking-[0.18em] text-[#F5F5F2] uppercase transition duration-300 hover:border-[#B88A2A]/60 hover:text-[#D2B276]"
+                                    className="border border-white/[0.09] px-3 py-2 font-sans text-[0.62rem] font-semibold tracking-[0.18em] text-[#F5F5F2] uppercase transition duration-300 hover:border-[#BDA18A]/60 hover:text-[#D2B276]"
                                 >
                                     {link.label}
                                 </a>

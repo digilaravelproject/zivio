@@ -12,7 +12,7 @@ export function TeamGridSection() {
                     {teamsPageData.members.map((member, index) => (
                         <Reveal
                             key={member.id}
-                            className="group flex flex-col border border-white/[0.04] bg-[#111111]/40 backdrop-blur-md p-4 transition-all duration-500 hover:border-[#B88A2A]/40 hover:bg-[#111111]/80 hover:shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
+                            className="group flex flex-col border border-white/[0.04] bg-[#111111]/40 backdrop-blur-md p-4 transition-all duration-500 hover:border-[#BDA18A]/40 hover:bg-[#111111]/80 hover:shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
                             threshold={0.1}
                             y={24}
                             delay={index * 50}
@@ -30,8 +30,8 @@ export function TeamGridSection() {
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/40 to-transparent" />
                                 
                                 {/* Corner decorative luxury gold line */}
-                                <div className="absolute top-0 right-0 h-[1.5px] w-0 bg-[#B88A2A] transition-all duration-500 group-hover:w-1/3" />
-                                <div className="absolute top-0 right-0 h-0 w-[1.5px] bg-[#B88A2A] transition-all duration-500 group-hover:h-1/3" />
+                                <div className="absolute top-0 right-0 h-[1.5px] w-0 bg-[#BDA18A] transition-all duration-500 group-hover:w-1/3" />
+                                <div className="absolute top-0 right-0 h-0 w-[1.5px] bg-[#BDA18A] transition-all duration-500 group-hover:h-1/3" />
                             </div>
 
                             {/* Bio details */}
@@ -53,8 +53,8 @@ export function TeamGridSection() {
                         <div className="lg:col-span-5">
                             <Reveal threshold={0.15}>
                                 <div className="flex items-center gap-3 mb-4">
-                                    <span className="h-[1px] w-6 bg-[#B88A2A]" />
-                                    <span className="text-[0.66rem] font-semibold tracking-[0.2em] text-[#B88A2A] uppercase">
+                                    <span className="h-[1px] w-6 bg-[#BDA18A]" />
+                                    <span className="text-[0.66rem] font-semibold tracking-[0.2em] text-[#BDA18A] uppercase">
                                         OUR PHILOSOPHY
                                     </span>
                                 </div>

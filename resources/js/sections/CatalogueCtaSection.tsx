@@ -84,7 +84,7 @@ export function CatalogueCtaSection() {
                         </div>
 
                         <div className="absolute inset-x-6 bottom-7">
-                            <span className="mb-3 block h-px w-12 bg-[#B88A2A]/80" />
+                            <span className="mb-3 block h-px w-12 bg-[#BDA18A]/80" />
                             <p className="font-sans text-[0.56rem] font-medium tracking-[0.18em] text-[#8D6B38] uppercase">
                                 ZIVIO LIFE
                             </p>

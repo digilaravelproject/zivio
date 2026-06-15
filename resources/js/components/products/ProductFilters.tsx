@@ -28,15 +28,15 @@ export function ProductFilters({
                             className={cn(
                                 'group relative overflow-hidden rounded-full border px-4.5 py-2 font-sans text-[0.7rem] font-bold tracking-[0.18em] uppercase transition duration-500 sm:px-5.5 sm:py-2.5 sm:text-[0.74rem]',
                                 isActive
-                                    ? 'border-[#B88A2A]/80 bg-[#B88A2A]/14 text-[#F8F5EC] shadow-[0_0_24px_rgba(184,138,42,0.12)]'
-                                    : 'border-white/10 bg-white/[0.022] text-[#CFCFCB] hover:border-[#B88A2A]/50 hover:bg-[#B88A2A]/8 hover:text-[#F8F5EC]',
+                                    ? 'border-[#BDA18A]/80 bg-[#BDA18A]/14 text-[#F8F5EC] shadow-[0_0_24px_rgba(184,138,42,0.12)]'
+                                    : 'border-white/10 bg-white/[0.022] text-[#CFCFCB] hover:border-[#BDA18A]/50 hover:bg-[#BDA18A]/8 hover:text-[#F8F5EC]',
                             )}
                             aria-pressed={isActive}
                         >
                             <span className="relative z-10">{cat}</span>
                             <span
                                 className={cn(
-                                    'pointer-events-none absolute inset-x-4 bottom-1 h-px origin-center scale-x-0 bg-[#B88A2A] transition duration-500',
+                                    'pointer-events-none absolute inset-x-4 bottom-1 h-px origin-center scale-x-0 bg-[#BDA18A] transition duration-500',
                                     isActive && 'scale-x-100',
                                 )}
                             />

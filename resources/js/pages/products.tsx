@@ -97,11 +97,11 @@ export default function ProductsPage({ initialCategory }: ProductsPageProps) {
                     <div className="relative z-10 mx-auto max-w-7xl text-center">
                         <Reveal threshold={0.1}>
                             <div className="flex items-center justify-center gap-3 mb-4">
-                                <span className="h-[1px] w-6 bg-[#B88A2A]" />
-                                <span className="text-[0.66rem] font-semibold tracking-[0.2em] text-[#B88A2A] uppercase">
+                                <span className="h-[1px] w-6 bg-[#BDA18A]" />
+                                <span className="text-[0.66rem] font-semibold tracking-[0.2em] text-[#BDA18A] uppercase">
                                     PRODUCT COLLECTION
                                 </span>
-                                <span className="h-[1px] w-6 bg-[#B88A2A]" />
+                                <span className="h-[1px] w-6 bg-[#BDA18A]" />
                             </div>
                             
                             <h1 className="text-luxury-heading max-w-3xl mx-auto mb-6 leading-tight">
@@ -150,7 +150,7 @@ export default function ProductsPage({ initialCategory }: ProductsPageProps) {
                                 </div>
                             ) : (
                                 <div className="border border-white/[0.04] bg-[#111111]/20 p-20 text-center flex flex-col items-center justify-center rounded-sm">
-                                    <div className="h-[1px] w-12 bg-[#B88A2A] mb-4" />
+                                    <div className="h-[1px] w-12 bg-[#BDA18A] mb-4" />
                                     <span className="font-sans text-sm tracking-wide text-[#A6A6A2]">
                                         No architectural systems found under this configuration.
                                     </span>

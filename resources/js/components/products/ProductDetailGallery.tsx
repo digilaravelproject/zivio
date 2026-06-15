@@ -35,8 +35,8 @@ export function ProductDetailGallery({ images, name }: ProductDetailGalleryProps
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/40 to-transparent" />
                 
                 {/* Gold corner styling */}
-                <div className="absolute top-0 right-0 h-[1.5px] w-24 bg-[#B88A2A]" />
-                <div className="absolute top-0 right-0 h-24 w-[1.5px] bg-[#B88A2A]" />
+                <div className="absolute top-0 right-0 h-[1.5px] w-24 bg-[#BDA18A]" />
+                <div className="absolute top-0 right-0 h-24 w-[1.5px] bg-[#BDA18A]" />
             </div>
 
             {/* Gallery Thumbnails */}
@@ -53,7 +53,7 @@ export function ProductDetailGallery({ images, name }: ProductDetailGalleryProps
                                 className={cn(
                                     'relative aspect-square overflow-hidden border bg-[#0E0E0E] transition-all duration-300',
                                     isActive
-                                        ? 'border-[#B88A2A] shadow-[0_0_12px_rgba(184,138,42,0.2)]'
+                                        ? 'border-[#BDA18A] shadow-[0_0_12px_rgba(184,138,42,0.2)]'
                                         : 'border-white/10 hover:border-white/30',
                                 )}
                                 aria-label={`View image ${idx + 1}`}
@@ -66,7 +66,7 @@ export function ProductDetailGallery({ images, name }: ProductDetailGalleryProps
                                     decoding="async"
                                 />
                                 {isActive && (
-                                    <div className="absolute inset-0 bg-[#B88A2A]/8 border-[1.5px] border-[#B88A2A]" />
+                                    <div className="absolute inset-0 bg-[#BDA18A]/8 border-[1.5px] border-[#BDA18A]" />
                                 )}
                             </button>
                         );

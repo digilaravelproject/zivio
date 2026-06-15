@@ -31,7 +31,7 @@ export function AboutIntroSection() {
                     delay={100}
                 >
                     {/* Gold Divider Line */}
-                    <div className="mb-6 h-[1px] w-14 bg-gradient-to-r from-[#B88A2A] to-transparent" />
+                    <div className="mb-6 h-[1px] w-14 bg-gradient-to-r from-[#BDA18A] to-transparent" />
 
                     <h2 className="text-3xl leading-[1.08] font-semibold text-[#F8F5EC] sm:text-4xl md:text-5xl">
                         {introData.heading}

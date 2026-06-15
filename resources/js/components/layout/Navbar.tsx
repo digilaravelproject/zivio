@@ -40,7 +40,7 @@ export function Navbar() {
                 'sticky top-0 z-50 transition-all duration-500 w-full border-b border-black/[0.06] bg-white/90 shadow-[0_12px_40px_rgba(0,0,0,0.06)] backdrop-blur-2xl',
             )}
         >
-            <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 sm:h-20 sm:px-6 lg:px-10">
+            <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 sm:h-20 sm:px-6 lg:px-0">
                 <Link
                     href="/"
                     onClick={handleHomeClick}

@@ -46,7 +46,7 @@ export function CategoryCard({
             />
 
             <motion.div
-                className="pointer-events-none absolute -inset-px z-30 border border-[#B88A2A]/0 transition duration-700 group-hover:border-[#B88A2A]/34"
+                className="pointer-events-none absolute -inset-px z-30 border border-[#BDA18A]/0 transition duration-700 group-hover:border-[#BDA18A]/34"
                 animate={{
                     boxShadow: isActive
                         ? '0 0 70px rgba(184, 148, 95, 0.18)'
@@ -77,7 +77,7 @@ export function CategoryCard({
             <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#080808]/38 to-transparent" />
             <div className="pointer-events-none absolute inset-0 z-20 -translate-x-full bg-[linear-gradient(105deg,transparent_0%,rgba(255,239,205,0.16)_46%,transparent_62%)] opacity-0 transition duration-[1400ms] ease-out group-hover:translate-x-full group-hover:opacity-100" />
             <div className="pointer-events-none absolute inset-0 z-20 bg-[radial-gradient(circle_at_50%_18%,rgba(255,223,176,0.08),transparent_34%)] opacity-0 transition duration-700 group-hover:opacity-100" />
-            <div className="absolute top-5 right-5 z-40 grid size-10 place-items-center border border-white/[0.12] bg-[#0A0A0A]/22 text-[#F5F5F2] backdrop-blur-sm transition duration-500 group-hover:border-[#B88A2A]/60 group-hover:text-[#D2B276]">
+            <div className="absolute top-5 right-5 z-40 grid size-10 place-items-center border border-white/[0.12] bg-[#0A0A0A]/22 text-[#F5F5F2] backdrop-blur-sm transition duration-500 group-hover:border-[#BDA18A]/60 group-hover:text-[#D2B276]">
                 <ArrowUpRight className="size-4" strokeWidth={1.5} />
             </div>
 
@@ -86,7 +86,7 @@ export function CategoryCard({
                     animate={{ y: isActive ? -8 : 0 }}
                     transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
                 >
-                    <span className="mb-4 block h-px w-10 bg-[#B88A2A]" />
+                    <span className="mb-4 block h-px w-10 bg-[#BDA18A]" />
                     <p className="mb-3 font-sans text-[0.58rem] font-medium tracking-[0.18em] text-[#D2B276] uppercase">
                         {String(index + 1).padStart(2, '0')}
                     </p>

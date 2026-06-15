@@ -14,7 +14,7 @@ export function BrandsGridSection() {
                     {brandsPageData.brands.map((brand, index) => (
                         <Reveal
                             key={brand.id}
-                            className="group relative overflow-hidden border border-white/[0.06] bg-[#111111]/30 aspect-[16/10] sm:aspect-[4/3] md:aspect-[16/10] flex flex-col justify-end p-6 sm:p-8 lg:p-10 shadow-[0_12px_40px_rgba(0,0,0,0.3)] transition-all duration-700 hover:border-[#B88A2A]/40 hover:shadow-[0_24px_60px_rgba(184,138,42,0.06)]"
+                            className="group relative overflow-hidden border border-white/[0.06] bg-[#111111]/30 aspect-[16/10] sm:aspect-[4/3] md:aspect-[16/10] flex flex-col justify-end p-6 sm:p-8 lg:p-10 shadow-[0_12px_40px_rgba(0,0,0,0.3)] transition-all duration-700 hover:border-[#BDA18A]/40 hover:shadow-[0_24px_60px_rgba(184,138,42,0.06)]"
                             threshold={0.1}
                             y={32}
                             delay={index * 80}
@@ -36,7 +36,7 @@ export function BrandsGridSection() {
                             {/* Brand Details */}
                             <div className="relative z-10 flex flex-col items-start">
                                 {/* Gold Decorative Divider */}
-                                <div className="h-[1.5px] w-10 bg-[#B88A2A] mb-4 transition-all duration-500 group-hover:w-20" />
+                                <div className="h-[1.5px] w-10 bg-[#BDA18A] mb-4 transition-all duration-500 group-hover:w-20" />
                                 
                                 <h3 className="text-2xl font-semibold tracking-wide text-[#F8F5EC] sm:text-3xl lg:text-4xl transition-colors duration-300 group-hover:text-[#D2B276]">
                                     {brand.name}
@@ -53,11 +53,11 @@ export function BrandsGridSection() {
                 <div className="mt-24 border-t border-white/[0.06] pt-20 text-center sm:mt-32 sm:pt-28">
                     <Reveal threshold={0.15}>
                         <div className="flex items-center justify-center gap-3 mb-4">
-                            <span className="h-[1px] w-6 bg-[#B88A2A]" />
-                            <span className="text-[0.66rem] font-semibold tracking-[0.2em] text-[#B88A2A] uppercase">
+                            <span className="h-[1px] w-6 bg-[#BDA18A]" />
+                            <span className="text-[0.66rem] font-semibold tracking-[0.2em] text-[#BDA18A] uppercase">
                                 COLLECTION ACCESS
                             </span>
-                            <span className="h-[1px] w-6 bg-[#B88A2A]" />
+                            <span className="h-[1px] w-6 bg-[#BDA18A]" />
                         </div>
                         <h2 className="text-3xl leading-[1.15] font-semibold text-[#F8F5EC] sm:text-4xl md:text-5xl max-w-2xl mx-auto text-balance">
                             {brandsPageData.cta.heading}
@@ -70,7 +70,7 @@ export function BrandsGridSection() {
                         </SiteButton>
                         <Link
                             href="/contact"
-                            className="w-full sm:w-auto inline-flex items-center justify-center border border-white/10 bg-white/[0.018] px-5 py-3 sm:px-7 sm:py-3.5 text-center text-[0.68rem] sm:text-xs font-semibold tracking-[0.18em] sm:tracking-[0.24em] text-[#F5F5F2] uppercase transition duration-300 hover:border-[#DA9807] hover:bg-[#DA9807]/5 hover:text-[#DA9807]"
+                            className="w-full sm:w-auto inline-flex items-center justify-center border border-white/10 bg-white/[0.018] px-5 py-3 sm:px-7 sm:py-3.5 text-center text-[0.68rem] sm:text-xs font-semibold tracking-[0.18em] sm:tracking-[0.24em] text-[#F5F5F2] uppercase transition duration-300 hover:border-[#BDA18A] hover:bg-[#BDA18A]/5 hover:text-[#BDA18A]"
                         >
                             Contact Us
                         </Link>

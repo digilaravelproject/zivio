@@ -33,11 +33,11 @@ export function AboutHeroSection() {
                         transform: isMounted ? 'translateY(0)' : 'translateY(-10px)',
                     }}
                 >
-                    <Link href="/" className="transition hover:text-[#B88A2A]">
+                    <Link href="/" className="transition hover:text-[#BDA18A]">
                         Home
                     </Link>
                     <span className="text-white/20">/</span>
-                    <span className="text-[#B88A2A]">About Company</span>
+                    <span className="text-[#BDA18A]">About Company</span>
                 </div>
 
                 {/* Subtitle label */}
@@ -48,7 +48,7 @@ export function AboutHeroSection() {
                         transform: isMounted ? 'translateY(0)' : 'translateY(15px)',
                     }}
                 >
-                    <span className="h-[1px] w-8 bg-[#B88A2A]" />
+                    <span className="h-[1px] w-8 bg-[#BDA18A]" />
                     <p className="text-luxury-label">
                         {heroData.label}
                     </p>

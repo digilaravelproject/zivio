@@ -29,11 +29,11 @@ export function AboutTestimonialsSection() {
                             delay={index * 40}
                         >
                             {/* Decorative Gold Accent line top */}
-                            <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-[#B88A2A]/40 via-transparent to-transparent group-hover:via-[#B88A2A]/20 transition-all duration-700" />
+                            <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-[#BDA18A]/40 via-transparent to-transparent group-hover:via-[#BDA18A]/20 transition-all duration-700" />
 
                             <div>
                                 {/* Double quote aesthetic */}
-                                <span className="font-serif text-[4.8rem] leading-[0.1] font-bold text-[#B88A2A]/22 select-none pointer-events-none">
+                                <span className="font-serif text-[4.8rem] leading-[0.1] font-bold text-[#BDA18A]/22 select-none pointer-events-none">
                                     “
                                 </span>
                                 

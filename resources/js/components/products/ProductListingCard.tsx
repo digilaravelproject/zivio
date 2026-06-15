@@ -10,7 +10,7 @@ type ProductListingCardProps = {
 export function ProductListingCard({ product, index }: ProductListingCardProps) {
     return (
         <Reveal
-            className="group flex flex-col border border-white/[0.05] bg-[#111111]/30 backdrop-blur-md p-4 transition-all duration-500 hover:border-[#B88A2A]/40 hover:bg-[#111111]/70 hover:shadow-[0_24px_60px_rgba(0,0,0,0.5)]"
+            className="group flex flex-col border border-white/[0.05] bg-[#111111]/30 backdrop-blur-md p-4 transition-all duration-500 hover:border-[#BDA18A]/40 hover:bg-[#111111]/70 hover:shadow-[0_24px_60px_rgba(0,0,0,0.5)]"
             threshold={0.08}
             y={28}
             delay={index * 50}
@@ -29,13 +29,13 @@ export function ProductListingCard({ product, index }: ProductListingCardProps) 
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/40 to-transparent" />
                 
                 {/* Corner decorative luxury gold line */}
-                <div className="absolute top-0 right-0 h-[1.5px] w-0 bg-[#B88A2A] transition-all duration-500 group-hover:w-1/3" />
-                <div className="absolute top-0 right-0 h-0 w-[1.5px] bg-[#B88A2A] transition-all duration-500 group-hover:h-1/3" />
+                <div className="absolute top-0 right-0 h-[1.5px] w-0 bg-[#BDA18A] transition-all duration-500 group-hover:w-1/3" />
+                <div className="absolute top-0 right-0 h-0 w-[1.5px] bg-[#BDA18A] transition-all duration-500 group-hover:h-1/3" />
             </div>
 
             {/* Category / Subcategory Tag */}
             <div className="flex items-center gap-2 mb-2 pl-0.5">
-                <span className="font-sans text-[0.64rem] font-bold tracking-[0.16em] text-[#DA9807] uppercase">
+                <span className="font-sans text-[0.64rem] font-bold tracking-[0.16em] text-[#BDA18A] uppercase">
                     {product.category}
                 </span>
                 <span className="text-white/20 text-xs">•</span>
@@ -70,7 +70,7 @@ export function ProductListingCard({ product, index }: ProductListingCardProps) 
             <div className="mt-6 pt-4 border-t border-white/[0.05] flex items-center justify-between pl-0.5">
                 <Link
                     href={`/products/${product.slug}`}
-                    className="inline-flex items-center gap-1.5 text-[0.74rem] font-bold tracking-[0.2em] text-[#F8F5EC] uppercase transition-all duration-300 group-hover:text-[#DA9807] group-hover:pl-1.5"
+                    className="inline-flex items-center gap-1.5 text-[0.74rem] font-bold tracking-[0.2em] text-[#F8F5EC] uppercase transition-all duration-300 group-hover:text-[#BDA18A] group-hover:pl-1.5"
                 >
                     View Details
                     <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>

@@ -30,7 +30,7 @@ export function ProductTypeFilters({
                         className={cn(
                             'rounded-full border px-4 py-1.8 font-sans text-[0.66rem] font-bold tracking-[0.12em] uppercase transition duration-300',
                             isActive
-                                ? 'border-[#B88A2A]/50 bg-[#B88A2A]/8 text-[#DA9807]'
+                                ? 'border-[#BDA18A]/50 bg-[#BDA18A]/8 text-[#BDA18A]'
                                 : 'border-white/[0.08] bg-white/[0.015] text-[#CFCFCB] hover:border-white/20 hover:text-[#F8F5EC]',
                         )}
                         aria-pressed={isActive}

@@ -33,7 +33,7 @@ export function AboutPhilosophySection() {
                         y={40}
                         delay={100}
                     >
-                        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#B88A2A]/40 to-transparent" />
+                        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#BDA18A]/40 to-transparent" />
                         <span className="text-luxury-label">
                             01 / CONVICTION
                         </span>
@@ -69,7 +69,7 @@ export function AboutPhilosophySection() {
                         y={40}
                         delay={100}
                     >
-                        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#B88A2A]/40 to-transparent" />
+                        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#BDA18A]/40 to-transparent" />
                         <span className="text-luxury-label">
                             02 / STEWARDSHIP
                         </span>

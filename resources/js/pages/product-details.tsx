@@ -49,14 +49,14 @@ export default function ProductDetailsPage({ slug }: ProductDetailsPageProps) {
                 <main className="min-h-screen bg-[#0A0A0A] text-[#F5F5F2] flex flex-col justify-between antialiased">
                     <Navbar />
                     <div className="flex-1 flex flex-col items-center justify-center py-40 px-4 text-center">
-                        <div className="h-[1.5px] w-16 bg-[#B88A2A] mb-6" />
+                        <div className="h-[1.5px] w-16 bg-[#BDA18A] mb-6" />
                         <h1 className="text-3xl font-semibold mb-4 text-[#F8F5EC]">Product Not Found</h1>
                         <p className="font-sans text-sm text-[#A6A6A2] max-w-md mb-8">
                             The architectural lighting system you are looking for has been relocated or is currently catalogued under a different identifier.
                         </p>
                         <Link
                             href="/products"
-                            className="border border-[#B88A2A] bg-[#B88A2A]/10 px-6 py-3 font-sans text-xs font-bold tracking-[0.2em] text-[#F8F5EC] uppercase transition-all duration-300 hover:bg-[#B88A2A] hover:text-[#0A0A0A]"
+                            className="border border-[#BDA18A] bg-[#BDA18A]/10 px-6 py-3 font-sans text-xs font-bold tracking-[0.2em] text-[#F8F5EC] uppercase transition-all duration-300 hover:bg-[#BDA18A] hover:text-[#0A0A0A]"
                         >
                             Return to Collection
                         </Link>
@@ -87,13 +87,13 @@ export default function ProductDetailsPage({ slug }: ProductDetailsPageProps) {
                     <div className="mx-auto max-w-7xl">
                         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/[0.05] pb-4">
                             <div className="flex items-center gap-2 font-sans text-[0.72rem] font-bold tracking-[0.22em] text-[#D8D3C8] uppercase">
-                                <Link href="/" className="transition hover:text-[#B88A2A]">Home</Link>
+                                <Link href="/" className="transition hover:text-[#BDA18A]">Home</Link>
                                 <span className="text-white/25">/</span>
-                                <Link href="/products" className="transition hover:text-[#B88A2A]">Collection</Link>
+                                <Link href="/products" className="transition hover:text-[#BDA18A]">Collection</Link>
                                 <span className="text-white/25">/</span>
-                                <Link href={`/products/${product.category.toLowerCase()}`} className="transition hover:text-[#B88A2A]">{product.category}</Link>
+                                <Link href={`/products/${product.category.toLowerCase()}`} className="transition hover:text-[#BDA18A]">{product.category}</Link>
                                 <span className="text-white/25">/</span>
-                                <span className="text-[#DA9807]">{product.name}</span>
+                                <span className="text-[#BDA18A]">{product.name}</span>
                             </div>
 
                             <Link
@@ -151,7 +151,7 @@ export default function ProductDetailsPage({ slug }: ProductDetailsPageProps) {
                                         {product.specs.map((spec) => (
                                             <span
                                                 key={spec}
-                                                className="rounded-full border border-[#B88A2A]/40 bg-[#B88A2A]/6 px-3 py-1 font-sans text-xs font-semibold tracking-wide text-[#D2B276]"
+                                                className="rounded-full border border-[#BDA18A]/40 bg-[#BDA18A]/6 px-3 py-1 font-sans text-xs font-semibold tracking-wide text-[#D2B276]"
                                             >
                                                 {spec}
                                             </span>
@@ -160,7 +160,7 @@ export default function ProductDetailsPage({ slug }: ProductDetailsPageProps) {
 
                                     {/* CTA Box */}
                                     <div className="border border-white/[0.08] bg-[#111111]/40 backdrop-blur-md p-6 sm:p-8 rounded-sm relative overflow-hidden mb-10">
-                                        <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#B88A2A]/40 to-transparent" />
+                                        <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#BDA18A]/40 to-transparent" />
                                         <h3 className="text-lg font-semibold text-[#F8F5EC] mb-2">Request Specification Sheet</h3>
                                         <p className="font-sans text-xs leading-5 text-[#A6A6A2] mb-5">
                                             Contact our lighting consultants to receive detailed technical drawings, photometric files (.IES/.LDT), and customized pricing models for your project scope.
@@ -168,13 +168,13 @@ export default function ProductDetailsPage({ slug }: ProductDetailsPageProps) {
                                         <div className="flex flex-col sm:flex-row gap-4">
                                             <Link
                                                 href={`/contact?product=${encodeURIComponent(product.name)}`}
-                                                className="flex-1 inline-flex items-center justify-center border border-[#DA9807]/70 bg-[#DA9807]/10 px-5 py-3 text-center text-xs font-semibold tracking-[0.18em] text-[#F5F5F2] uppercase backdrop-blur-sm transition duration-300 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A]"
+                                                className="flex-1 inline-flex items-center justify-center border border-[#BDA18A]/70 bg-[#BDA18A]/10 px-5 py-3 text-center text-xs font-semibold tracking-[0.18em] text-[#F5F5F2] uppercase backdrop-blur-sm transition duration-300 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A]"
                                             >
                                                 Send Inquiry
                                             </Link>
                                             <Link
                                                 href="/contact"
-                                                className="flex-1 inline-flex items-center justify-center border border-white/10 bg-white/[0.015] px-5 py-3 text-center text-xs font-semibold tracking-[0.18em] text-[#F5F5F2] uppercase transition duration-300 hover:border-[#DA9807] hover:bg-[#DA9807]/5 hover:text-[#DA9807]"
+                                                className="flex-1 inline-flex items-center justify-center border border-white/10 bg-white/[0.015] px-5 py-3 text-center text-xs font-semibold tracking-[0.18em] text-[#F5F5F2] uppercase transition duration-300 hover:border-[#BDA18A] hover:bg-[#BDA18A]/5 hover:text-[#BDA18A]"
                                             >
                                                 View Similar Systems
                                             </Link>
@@ -190,8 +190,8 @@ export default function ProductDetailsPage({ slug }: ProductDetailsPageProps) {
                                 <div className="lg:col-span-4">
                                     <Reveal threshold={0.15}>
                                         <div className="flex items-center gap-3 mb-4">
-                                            <span className="h-[1px] w-6 bg-[#B88A2A]" />
-                                            <span className="text-[0.66rem] font-semibold tracking-[0.2em] text-[#B88A2A] uppercase">
+                                            <span className="h-[1px] w-6 bg-[#BDA18A]" />
+                                            <span className="text-[0.66rem] font-semibold tracking-[0.2em] text-[#BDA18A] uppercase">
                                                 DETAILS
                                             </span>
                                         </div>
@@ -235,8 +235,8 @@ export default function ProductDetailsPage({ slug }: ProductDetailsPageProps) {
                                 <div className="lg:col-span-4">
                                     <Reveal threshold={0.15}>
                                         <div className="flex items-center gap-3 mb-4">
-                                            <span className="h-[1px] w-6 bg-[#B88A2A]" />
-                                            <span className="text-[0.66rem] font-semibold tracking-[0.2em] text-[#B88A2A] uppercase">
+                                            <span className="h-[1px] w-6 bg-[#BDA18A]" />
+                                            <span className="text-[0.66rem] font-semibold tracking-[0.2em] text-[#BDA18A] uppercase">
                                                 SPATIAL PLANNING
                                             </span>
                                         </div>
@@ -254,9 +254,9 @@ export default function ProductDetailsPage({ slug }: ProductDetailsPageProps) {
                                             {product.applications.map((app) => (
                                                 <div
                                                     key={app}
-                                                    className="flex items-center gap-3.5 border border-white/[0.05] bg-[#111111]/30 p-5 rounded-sm transition-all duration-300 hover:border-[#B88A2A]/40"
+                                                    className="flex items-center gap-3.5 border border-white/[0.05] bg-[#111111]/30 p-5 rounded-sm transition-all duration-300 hover:border-[#BDA18A]/40"
                                                 >
-                                                    <span className="size-1.5 rounded-full bg-[#B88A2A]" />
+                                                    <span className="size-1.5 rounded-full bg-[#BDA18A]" />
                                                     <span className="font-sans text-sm font-bold text-[#F8F5EC]">
                                                         {app}
                                                     </span>
@@ -274,8 +274,8 @@ export default function ProductDetailsPage({ slug }: ProductDetailsPageProps) {
                                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
                                     <div>
                                         <div className="flex items-center gap-3 mb-3">
-                                            <span className="h-[1px] w-6 bg-[#B88A2A]" />
-                                            <span className="text-[0.66rem] font-semibold tracking-[0.2em] text-[#B88A2A] uppercase">
+                                            <span className="h-[1px] w-6 bg-[#BDA18A]" />
+                                            <span className="text-[0.66rem] font-semibold tracking-[0.2em] text-[#BDA18A] uppercase">
                                                 SHOWCASE
                                             </span>
                                         </div>
@@ -285,7 +285,7 @@ export default function ProductDetailsPage({ slug }: ProductDetailsPageProps) {
                                     </div>
                                     <Link
                                         href="/products"
-                                        className="font-sans text-[0.74rem] font-bold tracking-[0.14em] text-[#DA9807] uppercase transition hover:text-[#F8F5EC]"
+                                        className="font-sans text-[0.74rem] font-bold tracking-[0.14em] text-[#BDA18A] uppercase transition hover:text-[#F8F5EC]"
                                     >
                                         View Full Collection →
                                     </Link>

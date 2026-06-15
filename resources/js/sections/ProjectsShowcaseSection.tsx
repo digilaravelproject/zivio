@@ -120,7 +120,7 @@ export function ProjectsShowcaseSection() {
                                 <span>
                                     {formatCounter(activeProjectIndex + 1)}
                                 </span>
-                                <span className="h-px w-10 bg-[#B88A2A]/80" />
+                                <span className="h-px w-10 bg-[#BDA18A]/80" />
                                 <span className="text-[#CFCFCB]">
                                     {formatCounter(totalProjects)}
                                 </span>
@@ -175,7 +175,7 @@ export function ProjectsShowcaseSection() {
                                 <button
                                     type="button"
                                     onClick={handlePrevious}
-                                    className="grid size-11 place-items-center rounded-full border border-white/[0.12] bg-[#050505]/32 text-[#F5F5F2] backdrop-blur-sm transition duration-500 hover:border-[#B88A2A]/60 hover:bg-[#B88A2A]/8 hover:text-[#D2B276]"
+                                    className="grid size-11 place-items-center rounded-full border border-white/[0.12] bg-[#050505]/32 text-[#F5F5F2] backdrop-blur-sm transition duration-500 hover:border-[#BDA18A]/60 hover:bg-[#BDA18A]/8 hover:text-[#D2B276]"
                                     aria-label="Previous project"
                                 >
                                     <ArrowLeft
@@ -186,7 +186,7 @@ export function ProjectsShowcaseSection() {
                                 <button
                                     type="button"
                                     onClick={handleNext}
-                                    className="grid size-11 place-items-center rounded-full border border-white/[0.12] bg-[#050505]/32 text-[#F5F5F2] backdrop-blur-sm transition duration-500 hover:border-[#B88A2A]/60 hover:bg-[#B88A2A]/8 hover:text-[#D2B276]"
+                                    className="grid size-11 place-items-center rounded-full border border-white/[0.12] bg-[#050505]/32 text-[#F5F5F2] backdrop-blur-sm transition duration-500 hover:border-[#BDA18A]/60 hover:bg-[#BDA18A]/8 hover:text-[#D2B276]"
                                     aria-label="Next project"
                                 >
                                     <ArrowRight
@@ -218,7 +218,7 @@ export function ProjectsShowcaseSection() {
                 />
                 <div className="relative mx-auto max-w-2xl">
                     <div className="mb-5 flex items-center gap-4 sm:mb-7">
-                        <span className="h-px w-10 bg-[#B88A2A]/80" />
+                        <span className="h-px w-10 bg-[#BDA18A]/80" />
                         <p className="font-sans text-[0.58rem] font-medium tracking-[0.24em] text-[#D2B276] uppercase">
                             Project Showcase
                         </p>
@@ -250,18 +250,18 @@ export function ProjectsShowcaseSection() {
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/48 via-transparent to-transparent" />
                             </div>
                             <figcaption className="p-4 sm:p-6">
-                                <p className="mb-3 inline-flex border border-[#B88A2A]/20 bg-[#B88A2A]/7 px-3 py-1.5 font-sans text-[0.56rem] font-medium tracking-[0.16em] text-[#B88A2A] uppercase">
+                                <p className="mb-3 inline-flex border border-[#BDA18A]/20 bg-[#BDA18A]/7 px-3 py-1.5 font-sans text-[0.56rem] font-medium tracking-[0.16em] text-[#BDA18A] uppercase">
                                     {activeProject.category}
                                 </p>
                                 <h3 className="text-[1.45rem] leading-[1.08] font-light text-[#F8F5EC] sm:text-[2.35rem]">
                                     {activeProject.title}
                                 </h3>
-                                <p className="mt-2 font-sans text-xs font-medium tracking-[0.14em] text-[#B88A2A] uppercase">
+                                <p className="mt-2 font-sans text-xs font-medium tracking-[0.14em] text-[#BDA18A] uppercase">
                                     {activeProject.location}
                                 </p>
                                 <Link
                                     href={activeProject.href}
-                                    className="mt-6 inline-flex w-full items-center justify-center border border-[#B88A2A]/55 px-5 py-3 font-sans text-[0.62rem] font-medium tracking-[0.16em] text-[#F5F5F2] uppercase transition duration-500 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A] sm:w-auto"
+                                    className="mt-6 inline-flex w-full items-center justify-center border border-[#BDA18A]/55 px-5 py-3 font-sans text-[0.62rem] font-medium tracking-[0.16em] text-[#F5F5F2] uppercase transition duration-500 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A] sm:w-auto"
                                 >
                                     Read More
                                 </Link>
@@ -272,7 +272,7 @@ export function ProjectsShowcaseSection() {
                     <div className="mt-5 flex items-center justify-between gap-4 sm:mt-6">
                         <div className="flex items-center gap-3 font-sans text-sm font-semibold tracking-[0.18em]">
                             <span>{formatCounter(activeProjectIndex + 1)}</span>
-                            <span className="h-px w-8 bg-[#B88A2A]/80" />
+                            <span className="h-px w-8 bg-[#BDA18A]/80" />
                             <span className="text-[#CFCFCB]">
                                 {formatCounter(totalProjects)}
                             </span>
@@ -282,7 +282,7 @@ export function ProjectsShowcaseSection() {
                             <button
                                 type="button"
                                 onClick={handlePrevious}
-                                className="grid size-12 place-items-center rounded-full border border-white/[0.09] bg-white/[0.022] text-[#F5F5F2] transition duration-500 hover:border-[#B88A2A]/60 hover:bg-[#B88A2A]/8 hover:text-[#D2B276]"
+                                className="grid size-12 place-items-center rounded-full border border-white/[0.09] bg-white/[0.022] text-[#F5F5F2] transition duration-500 hover:border-[#BDA18A]/60 hover:bg-[#BDA18A]/8 hover:text-[#D2B276]"
                                 aria-label="Previous project"
                             >
                                 <ArrowLeft
@@ -293,7 +293,7 @@ export function ProjectsShowcaseSection() {
                             <button
                                 type="button"
                                 onClick={handleNext}
-                                className="grid size-12 place-items-center rounded-full border border-white/[0.09] bg-white/[0.022] text-[#F5F5F2] transition duration-500 hover:border-[#B88A2A]/60 hover:bg-[#B88A2A]/8 hover:text-[#D2B276]"
+                                className="grid size-12 place-items-center rounded-full border border-white/[0.09] bg-white/[0.022] text-[#F5F5F2] transition duration-500 hover:border-[#BDA18A]/60 hover:bg-[#BDA18A]/8 hover:text-[#D2B276]"
                                 aria-label="Next project"
                             >
                                 <ArrowRight
@@ -313,7 +313,7 @@ export function ProjectsShowcaseSection() {
                                 className={cn(
                                     'shrink-0 border px-3 py-2.5 font-sans text-[0.58rem] font-semibold tracking-[0.16em] uppercase transition duration-300 sm:px-4 sm:text-[0.62rem] sm:tracking-[0.18em]',
                                     activeProjectIndex === index
-                                        ? 'border-[#B88A2A]/60 bg-[#B88A2A]/12 text-[#F8F5EC]'
+                                        ? 'border-[#BDA18A]/60 bg-[#BDA18A]/12 text-[#F8F5EC]'
                                         : 'border-white/[0.09] bg-white/[0.022] text-[#CFCFCB]',
                                 )}
                             >

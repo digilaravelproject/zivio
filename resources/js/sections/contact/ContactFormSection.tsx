@@ -61,8 +61,8 @@ export function ContactFormSection() {
                     <div className="flex flex-col justify-start">
                         <Reveal threshold={0.15}>
                             <div className="flex items-center gap-3 mb-4">
-                                <span className="h-[1px] w-6 bg-[#B88A2A]" />
-                                <span className="text-[0.66rem] font-semibold tracking-[0.2em] text-[#B88A2A] uppercase">
+                                <span className="h-[1px] w-6 bg-[#BDA18A]" />
+                                <span className="text-[0.66rem] font-semibold tracking-[0.2em] text-[#BDA18A] uppercase">
                                     INQUIRY CHANNELS
                                 </span>
                             </div>
@@ -78,7 +78,7 @@ export function ContactFormSection() {
                         <div className="mt-10 grid gap-6">
                             {/* Address Card */}
                             <Reveal threshold={0.15} delay={50} className="flex gap-4 border border-white/[0.04] bg-[#111111]/20 p-5 transition hover:border-white/[0.08]">
-                                <div className="grid size-10 place-items-center bg-[#B88A2A]/8 text-[#B88A2A] border border-[#B88A2A]/18 rounded-sm shrink-0">
+                                <div className="grid size-10 place-items-center bg-[#BDA18A]/8 text-[#BDA18A] border border-[#BDA18A]/18 rounded-sm shrink-0">
                                     <MapPin className="size-5" />
                                 </div>
                                 <div className="flex flex-col">
@@ -97,7 +97,7 @@ export function ContactFormSection() {
 
                             {/* Phone Card */}
                             <Reveal threshold={0.15} delay={100} className="flex gap-4 border border-white/[0.04] bg-[#111111]/20 p-5 transition hover:border-white/[0.08]">
-                                <div className="grid size-10 place-items-center bg-[#B88A2A]/8 text-[#B88A2A] border border-[#B88A2A]/18 rounded-sm shrink-0">
+                                <div className="grid size-10 place-items-center bg-[#BDA18A]/8 text-[#BDA18A] border border-[#BDA18A]/18 rounded-sm shrink-0">
                                     <Phone className="size-5" />
                                 </div>
                                 <div className="flex flex-col">
@@ -109,7 +109,7 @@ export function ContactFormSection() {
                                             <a
                                                 key={phone}
                                                 href={`tel:${phone.replace(/[^+\d]/g, '')}`}
-                                                className="block transition duration-300 hover:text-[#DA9807]"
+                                                className="block transition duration-300 hover:text-[#BDA18A]"
                                             >
                                                 {phone}
                                             </a>
@@ -120,7 +120,7 @@ export function ContactFormSection() {
 
                             {/* Email Card */}
                             <Reveal threshold={0.15} delay={150} className="flex gap-4 border border-white/[0.04] bg-[#111111]/20 p-5 transition hover:border-white/[0.08]">
-                                <div className="grid size-10 place-items-center bg-[#B88A2A]/8 text-[#B88A2A] border border-[#B88A2A]/18 rounded-sm shrink-0">
+                                <div className="grid size-10 place-items-center bg-[#BDA18A]/8 text-[#BDA18A] border border-[#BDA18A]/18 rounded-sm shrink-0">
                                     <Mail className="size-5" />
                                 </div>
                                 <div className="flex flex-col">
@@ -129,7 +129,7 @@ export function ContactFormSection() {
                                     </span>
                                     <a
                                         href={`mailto:${contactPageData.details.email}`}
-                                        className="font-sans text-sm text-[#F8F5EC] transition duration-300 hover:text-[#DA9807]"
+                                        className="font-sans text-sm text-[#F8F5EC] transition duration-300 hover:text-[#BDA18A]"
                                     >
                                         {contactPageData.details.email}
                                     </a>
@@ -144,11 +144,11 @@ export function ContactFormSection() {
                             onSubmit={handleSubmit}
                             className="relative overflow-hidden border border-white/[0.06] bg-[#111111]/30 p-6 shadow-[0_34px_100px_rgba(0,0,0,0.5)] backdrop-blur-xl sm:p-8 rounded-sm"
                         >
-                            <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#B88A2A]/50 to-transparent" />
+                            <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#BDA18A]/50 to-transparent" />
 
                             {isSubmitted ? (
                                 <div className="py-12 px-4 text-center flex flex-col items-center justify-center">
-                                    <div className="grid size-16 place-items-center bg-[#B88A2A]/10 text-[#DA9807] border border-[#B88A2A]/30 rounded-full mb-6 shadow-[0_0_24px_rgba(184,138,42,0.14)]">
+                                    <div className="grid size-16 place-items-center bg-[#BDA18A]/10 text-[#BDA18A] border border-[#BDA18A]/30 rounded-full mb-6 shadow-[0_0_24px_rgba(184,138,42,0.14)]">
                                         <Check className="size-8" strokeWidth={2.4} />
                                     </div>
                                     <h3 className="text-2xl font-semibold text-[#F8F5EC] mb-3">Inquiry Sent Successfully</h3>
@@ -158,7 +158,7 @@ export function ContactFormSection() {
                                     <button
                                         type="button"
                                         onClick={() => setIsSubmitted(false)}
-                                        className="border border-white/10 bg-white/[0.015] px-6 py-3 font-sans text-xs font-semibold tracking-[0.2em] text-[#F8F5EC] uppercase transition duration-300 hover:border-[#DA9807] hover:text-[#DA9807]"
+                                        className="border border-white/10 bg-white/[0.015] px-6 py-3 font-sans text-xs font-semibold tracking-[0.2em] text-[#F8F5EC] uppercase transition duration-300 hover:border-[#BDA18A] hover:text-[#BDA18A]"
                                     >
                                         Send Another Inquiry
                                     </button>
@@ -166,40 +166,40 @@ export function ContactFormSection() {
                             ) : (
                                 <div className="grid gap-5">
                                     {/* Name */}
-                                    <label className="grid gap-2 font-sans text-[0.66rem] font-bold tracking-[0.16em] text-[#DA9807] uppercase">
+                                    <label className="grid gap-2 font-sans text-[0.66rem] font-bold tracking-[0.16em] text-[#BDA18A] uppercase">
                                         Full Name
                                         <input
                                             type="text"
                                             value={formData.name}
                                             onChange={(e) => updateField('name', e.target.value)}
                                             required
-                                            className="border border-white/[0.08] bg-[#0A0A0A]/80 px-4 py-3.5 font-sans text-sm tracking-normal text-[#F8F5EC] outline-none transition duration-300 placeholder:text-[#666] focus:border-[#B88A2A]/60 focus:shadow-[0_0_0_1px_rgba(184,138,42,0.15)]"
+                                            className="border border-white/[0.08] bg-[#0A0A0A]/80 px-4 py-3.5 font-sans text-sm tracking-normal text-[#F8F5EC] outline-none transition duration-300 placeholder:text-[#666] focus:border-[#BDA18A]/60 focus:shadow-[0_0_0_1px_rgba(184,138,42,0.15)]"
                                             placeholder="John Doe"
                                         />
                                     </label>
 
                                     {/* Email & Phone grid */}
                                     <div className="grid gap-5 sm:grid-cols-2">
-                                        <label className="grid gap-2 font-sans text-[0.66rem] font-bold tracking-[0.16em] text-[#DA9807] uppercase">
+                                        <label className="grid gap-2 font-sans text-[0.66rem] font-bold tracking-[0.16em] text-[#BDA18A] uppercase">
                                             Email Address
                                             <input
                                                 type="email"
                                                 value={formData.email}
                                                 onChange={(e) => updateField('email', e.target.value)}
                                                 required
-                                                className="border border-white/[0.08] bg-[#0A0A0A]/80 px-4 py-3.5 font-sans text-sm tracking-normal text-[#F8F5EC] outline-none transition duration-300 placeholder:text-[#666] focus:border-[#B88A2A]/60 focus:shadow-[0_0_0_1px_rgba(184,138,42,0.15)]"
+                                                className="border border-white/[0.08] bg-[#0A0A0A]/80 px-4 py-3.5 font-sans text-sm tracking-normal text-[#F8F5EC] outline-none transition duration-300 placeholder:text-[#666] focus:border-[#BDA18A]/60 focus:shadow-[0_0_0_1px_rgba(184,138,42,0.15)]"
                                                 placeholder="you@example.com"
                                             />
                                         </label>
 
-                                        <label className="grid gap-2 font-sans text-[0.66rem] font-bold tracking-[0.16em] text-[#DA9807] uppercase">
+                                        <label className="grid gap-2 font-sans text-[0.66rem] font-bold tracking-[0.16em] text-[#BDA18A] uppercase">
                                             Phone Number
                                             <input
                                                 type="tel"
                                                 value={formData.phone}
                                                 onChange={(e) => updateField('phone', e.target.value)}
                                                 required
-                                                className="border border-white/[0.08] bg-[#0A0A0A]/80 px-4 py-3.5 font-sans text-sm tracking-normal text-[#F8F5EC] outline-none transition duration-300 placeholder:text-[#666] focus:border-[#B88A2A]/60 focus:shadow-[0_0_0_1px_rgba(184,138,42,0.15)]"
+                                                className="border border-white/[0.08] bg-[#0A0A0A]/80 px-4 py-3.5 font-sans text-sm tracking-normal text-[#F8F5EC] outline-none transition duration-300 placeholder:text-[#666] focus:border-[#BDA18A]/60 focus:shadow-[0_0_0_1px_rgba(184,138,42,0.15)]"
                                                 placeholder="+91-0000000000"
                                             />
                                         </label>
@@ -207,23 +207,23 @@ export function ContactFormSection() {
 
                                     {/* Company & Project Type grid */}
                                     <div className="grid gap-5 sm:grid-cols-2">
-                                        <label className="grid gap-2 font-sans text-[0.66rem] font-bold tracking-[0.16em] text-[#DA9807] uppercase">
+                                        <label className="grid gap-2 font-sans text-[0.66rem] font-bold tracking-[0.16em] text-[#BDA18A] uppercase">
                                             Company / Org
                                             <input
                                                 type="text"
                                                 value={formData.company}
                                                 onChange={(e) => updateField('company', e.target.value)}
-                                                className="border border-white/[0.08] bg-[#0A0A0A]/80 px-4 py-3.5 font-sans text-sm tracking-normal text-[#F8F5EC] outline-none transition duration-300 placeholder:text-[#666] focus:border-[#B88A2A]/60 focus:shadow-[0_0_0_1px_rgba(184,138,42,0.15)]"
+                                                className="border border-white/[0.08] bg-[#0A0A0A]/80 px-4 py-3.5 font-sans text-sm tracking-normal text-[#F8F5EC] outline-none transition duration-300 placeholder:text-[#666] focus:border-[#BDA18A]/60 focus:shadow-[0_0_0_1px_rgba(184,138,42,0.15)]"
                                                 placeholder="Architects Inc."
                                             />
                                         </label>
 
-                                        <label className="grid gap-2 font-sans text-[0.66rem] font-bold tracking-[0.16em] text-[#DA9807] uppercase">
+                                        <label className="grid gap-2 font-sans text-[0.66rem] font-bold tracking-[0.16em] text-[#BDA18A] uppercase">
                                             Project Type
                                             <select
                                                 value={formData.projectType}
                                                 onChange={(e) => updateField('projectType', e.target.value)}
-                                                className="border border-white/[0.08] bg-[#0A0A0A]/80 px-4 py-3.5 font-sans text-sm tracking-normal text-[#F8F5EC] outline-none transition duration-300 focus:border-[#B88A2A]/60 focus:shadow-[0_0_0_1px_rgba(184,138,42,0.15)]"
+                                                className="border border-white/[0.08] bg-[#0A0A0A]/80 px-4 py-3.5 font-sans text-sm tracking-normal text-[#F8F5EC] outline-none transition duration-300 focus:border-[#BDA18A]/60 focus:shadow-[0_0_0_1px_rgba(184,138,42,0.15)]"
                                             >
                                                 {contactPageData.form.projectTypes.map((t) => (
                                                     <option key={t} value={t} className="bg-[#0A0A0A]">
@@ -235,21 +235,21 @@ export function ContactFormSection() {
                                     </div>
 
                                     {/* Message */}
-                                    <label className="grid gap-2 font-sans text-[0.66rem] font-bold tracking-[0.16em] text-[#DA9807] uppercase">
+                                    <label className="grid gap-2 font-sans text-[0.66rem] font-bold tracking-[0.16em] text-[#BDA18A] uppercase">
                                         Project Message
                                         <textarea
                                             value={formData.message}
                                             onChange={(e) => updateField('message', e.target.value)}
                                             required
                                             rows={5}
-                                            className="resize-none border border-white/[0.08] bg-[#0A0A0A]/80 px-4 py-3.5 font-sans text-sm tracking-normal text-[#F8F5EC] outline-none transition duration-300 placeholder:text-[#666] focus:border-[#B88A2A]/60 focus:shadow-[0_0_0_1px_rgba(184,138,42,0.15)]"
+                                            className="resize-none border border-white/[0.08] bg-[#0A0A0A]/80 px-4 py-3.5 font-sans text-sm tracking-normal text-[#F8F5EC] outline-none transition duration-300 placeholder:text-[#666] focus:border-[#BDA18A]/60 focus:shadow-[0_0_0_1px_rgba(184,138,42,0.15)]"
                                             placeholder="Describe your spatial scope, lighting requirements, and estimated timeline."
                                         />
                                     </label>
 
                                     <button
                                         type="submit"
-                                        className="mt-4 inline-flex w-full items-center justify-center gap-2 border border-[#B88A2A]/60 bg-[#B88A2A]/10 px-5 py-3.5 font-sans text-[0.74rem] font-bold tracking-[0.2em] text-[#F8F5EC] uppercase transition duration-500 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A]"
+                                        className="mt-4 inline-flex w-full items-center justify-center gap-2 border border-[#BDA18A]/60 bg-[#BDA18A]/10 px-5 py-3.5 font-sans text-[0.74rem] font-bold tracking-[0.2em] text-[#F8F5EC] uppercase transition duration-500 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A]"
                                     >
                                         {contactPageData.form.submitLabel}
                                         <ArrowUpRight className="size-4" strokeWidth={1.5} />
@@ -266,8 +266,8 @@ export function ContactFormSection() {
                         <div className="lg:col-span-4 flex flex-col justify-start">
                             <Reveal threshold={0.15}>
                                 <div className="flex items-center gap-3 mb-4">
-                                    <span className="h-[1px] w-6 bg-[#B88A2A]" />
-                                    <span className="text-[0.66rem] font-semibold tracking-[0.2em] text-[#B88A2A] uppercase">
+                                    <span className="h-[1px] w-6 bg-[#BDA18A]" />
+                                    <span className="text-[0.66rem] font-semibold tracking-[0.2em] text-[#BDA18A] uppercase">
                                         STUDIO LOCATION
                                     </span>
                                 </div>
@@ -282,7 +282,7 @@ export function ContactFormSection() {
                                         href={contactPageData.details.mapLink}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-1.5 border border-[#B88A2A]/60 bg-[#B88A2A]/8 px-5 py-3 font-sans text-xs font-bold tracking-[0.16em] text-[#F8F5EC] uppercase transition duration-300 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A]"
+                                        className="inline-flex items-center gap-1.5 border border-[#BDA18A]/60 bg-[#BDA18A]/8 px-5 py-3 font-sans text-xs font-bold tracking-[0.16em] text-[#F8F5EC] uppercase transition duration-300 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A]"
                                     >
                                         Open in Google Maps
                                         <ArrowUpRight className="size-4" strokeWidth={1.5} />

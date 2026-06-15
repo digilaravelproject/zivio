@@ -83,7 +83,7 @@ export function PrecisionCraftsmanshipSection() {
                                 key={feature.title}
                                 className="relative border border-[#8D6B38]/18 bg-white/[0.4] p-3 sm:p-4"
                             >
-                                <span className="mb-3 block h-px w-8 bg-[#B88A2A]/80" />
+                                <span className="mb-3 block h-px w-8 bg-[#BDA18A]/80" />
                                 <p className="mb-2 font-sans text-[0.56rem] font-medium tracking-[0.16em] text-[#B8945F] uppercase">
                                     {String(index + 1).padStart(2, '0')}
                                 </p>

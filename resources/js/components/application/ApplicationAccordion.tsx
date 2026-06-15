@@ -38,7 +38,7 @@ export function ApplicationAccordion({
                 <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/28 to-transparent" />
 
                 <figcaption className="absolute inset-x-4 bottom-4 sm:inset-x-7 sm:bottom-7">
-                    <span className="mb-3 block h-px w-10 bg-[#B88A2A]/80 sm:mb-4 sm:w-12" />
+                    <span className="mb-3 block h-px w-10 bg-[#BDA18A]/80 sm:mb-4 sm:w-12" />
                     <h3 className="text-2xl leading-none font-light text-[#F8F5EC] sm:text-4xl lg:text-[2.7rem]">
                         {application.title}
                     </h3>

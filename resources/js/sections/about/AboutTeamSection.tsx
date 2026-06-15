@@ -39,8 +39,8 @@ export function AboutTeamSection() {
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/40 to-transparent" />
                                 
                                 {/* Corner decorative luxury gold line */}
-                                <div className="absolute top-0 right-0 h-[1.5px] w-0 bg-[#B88A2A] transition-all duration-500 group-hover:w-1/3" />
-                                <div className="absolute top-0 right-0 h-0 w-[1.5px] bg-[#B88A2A] transition-all duration-500 group-hover:h-1/3" />
+                                <div className="absolute top-0 right-0 h-[1.5px] w-0 bg-[#BDA18A] transition-all duration-500 group-hover:w-1/3" />
+                                <div className="absolute top-0 right-0 h-0 w-[1.5px] bg-[#BDA18A] transition-all duration-500 group-hover:h-1/3" />
                             </div>
 
                             {/* Bio details */}

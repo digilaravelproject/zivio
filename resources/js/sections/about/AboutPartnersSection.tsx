@@ -28,7 +28,7 @@ export function AboutPartnersSection() {
                             delay={index * 40}
                         >
                             {/* Stylish text-based representation mimicking luxury logos */}
-                            <span className="font-sans text-xs font-bold tracking-[0.25em] text-[#A6A6A2] uppercase transition-all duration-500 group-hover:text-[#B88A2A] group-hover:scale-105">
+                            <span className="font-sans text-xs font-bold tracking-[0.25em] text-[#A6A6A2] uppercase transition-all duration-500 group-hover:text-[#BDA18A] group-hover:scale-105">
                                 {partner.logoPlaceholder}
                             </span>
                             

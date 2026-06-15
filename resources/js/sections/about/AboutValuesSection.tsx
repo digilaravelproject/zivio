@@ -16,7 +16,7 @@ export function AboutValuesSection() {
                     y={28}
                 >
                     {/* Architectural glow border overlay */}
-                    <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#B88A2A]/50 to-transparent" />
+                    <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#BDA18A]/50 to-transparent" />
                     
                     <div className="max-w-3xl">
                         <span className="text-luxury-label">
@@ -34,7 +34,7 @@ export function AboutValuesSection() {
                 {/* 5. Values Section (Heading & Premium Image Cards) */}
                 <div className="mt-24 sm:mt-36">
                     <div className="mb-12 md:mb-16">
-                        <span className="h-[1px] w-12 bg-[#B88A2A] block mb-4" />
+                        <span className="h-[1px] w-12 bg-[#BDA18A] block mb-4" />
                         <h2 className="text-3xl leading-[1.1] font-semibold text-[#F8F5EC] sm:text-4xl md:text-5xl max-w-2xl">
                             What defines the way we light the future.
                         </h2>
@@ -65,7 +65,7 @@ export function AboutValuesSection() {
                                 {/* Content Layer */}
                                 <div className="relative z-10 w-full">
                                     {/* Gold line transition */}
-                                    <div className="h-[1px] w-0 bg-[#B88A2A] mb-4 transition-all duration-700 group-hover:w-full" />
+                                    <div className="h-[1px] w-0 bg-[#BDA18A] mb-4 transition-all duration-700 group-hover:w-full" />
                                     
                                     <h3 className="text-xl font-semibold text-[#F8F5EC]">
                                         {value.title}

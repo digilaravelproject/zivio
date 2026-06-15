@@ -33,7 +33,7 @@ export function ProjectAccordion({
                             duration: 0.7,
                             ease: [0.22, 1, 0.36, 1],
                         }}
-                        className="group relative min-w-0 overflow-hidden border border-white/[0.07] bg-[#101010] text-left shadow-[0_30px_90px_rgba(0,0,0,0.34)] outline-none transition duration-500 focus-visible:border-[#B88A2A]/70"
+                        className="group relative min-w-0 overflow-hidden border border-white/[0.07] bg-[#101010] text-left shadow-[0_30px_90px_rgba(0,0,0,0.34)] outline-none transition duration-500 focus-visible:border-[#BDA18A]/70"
                         aria-label={`View ${project.title}`}
                     >
                         <img
@@ -66,8 +66,8 @@ export function ProjectAccordion({
                                     : 'translate-y-3 opacity-0'
                                 }`}
                         >
-                            <span className="mb-4 block h-px w-12 bg-[#B88A2A]/80" />
-                            <p className="mb-3 font-sans text-[0.68rem] font-semibold tracking-[0.24em] text-[#B88A2A] uppercase">
+                            <span className="mb-4 block h-px w-12 bg-[#BDA18A]/80" />
+                            <p className="mb-3 font-sans text-[0.68rem] font-semibold tracking-[0.24em] text-[#BDA18A] uppercase">
                                 {formatCounter(index + 1)} /{' '}
                                 {project.category}
                             </p>
@@ -85,7 +85,7 @@ export function ProjectAccordion({
                                     : 'opacity-100 group-hover:opacity-70'
                                 }`}
                         >
-                            <span className="h-10 w-px bg-[#B88A2A]/55" />
+                            <span className="h-10 w-px bg-[#BDA18A]/55" />
                             <span className="[writing-mode:vertical-rl] font-sans text-[0.68rem] font-semibold tracking-[0.24em] text-[#F5F5F2] uppercase">
                                 {project.title}
                             </span>
