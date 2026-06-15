@@ -42,7 +42,7 @@ export function PrecisionCraftsmanshipSection() {
                         duration={780}
                         className="relative z-10 mx-4 -mt-12 max-w-[18rem] overflow-hidden border border-[#BDA18A]/16 bg-[#FAF7F1]/88 p-3 shadow-[0_28px_86px_rgba(40,32,20,0.12),0_0_40px_rgba(184,148,95,0.05)] backdrop-blur-xl sm:mx-8 sm:-mt-16 sm:max-w-[20rem] sm:p-4 lg:absolute lg:right-8 lg:bottom-8 lg:mx-0 lg:mt-0"
                     >
-                        <div className="relative aspect-[5/3] overflow-hidden bg-[#E2DACD]">
+                        <div className="relative aspect-[5/3] overflow-hidden bg-white">
                             <img
                                 src={precisionData.detailImage}
                                 alt="Premium lighting finish close up"
@@ -50,7 +50,7 @@ export function PrecisionCraftsmanshipSection() {
                                 height={540}
                                 loading="lazy"
                                 decoding="async"
-                                className="h-full w-full object-cover"
+                                className="h-full w-full object-contain mix-blend-multiply"
                                 sizes="(min-width: 1024px) 20rem, 18rem"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-[#FAFAFD]/30 to-transparent" />
