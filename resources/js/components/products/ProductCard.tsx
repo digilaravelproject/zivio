@@ -60,7 +60,7 @@ export function ProductCard({ product, index }: ProductCardProps) {
                 <div className="absolute top-3 left-3 z-20 font-sans text-[0.56rem] font-semibold tracking-[0.18em] text-[#BDA18A] sm:top-4 sm:left-4 sm:text-[0.62rem] sm:tracking-[0.2em]">
                     {productNumber}
                 </div>
-                <p className="absolute right-2 bottom-2 z-20 rounded-full border border-[#BDA18A]/20 bg-[#F8F4EC]/72 px-2 py-1 font-sans text-[0.5rem] font-semibold tracking-[0.1em] text-[#BDA18A] uppercase backdrop-blur-sm sm:right-4 sm:bottom-4 sm:px-3 sm:py-1.5 sm:text-[0.56rem] sm:tracking-[0.14em]">
+                <p className="absolute right-2 bottom-2 z-20 rounded-full border border-[#BDA18A]/20 bg-[#F8F4EC]/72 px-2 py-1 font-sans text-[0.5rem] font-semibold tracking-[0.1em] text-[#BDA18A] backdrop-blur-sm sm:right-4 sm:bottom-4 sm:px-3 sm:py-1.5 sm:text-[0.56rem] sm:tracking-[0.14em]">
                     {product.categories[0]}
                 </p>
             </div>
@@ -73,7 +73,7 @@ export function ProductCard({ product, index }: ProductCardProps) {
                 <p className="mt-2 min-h-10 font-sans text-[0.72rem] leading-5 text-[#665F53] sm:mt-3 sm:min-h-12 sm:text-sm sm:leading-6">
                     {product.subtitle}
                 </p>
-                <div className="mt-3 inline-flex items-center gap-1.5 font-sans text-[0.56rem] font-semibold tracking-[0.14em] text-[#171512] uppercase opacity-80 transition duration-500 group-hover:translate-x-1 group-hover:text-[#BDA18A] group-hover:opacity-100 sm:mt-5 sm:gap-2 sm:text-[0.62rem] sm:tracking-[0.17em]">
+                <div className="mt-3 inline-flex items-center gap-1.5 font-sans text-[0.56rem] font-semibold tracking-[0.14em] text-[#171512] uppercase opacity-80 transition duration-500 group-hover:translate-x-1 group-hover:text-[#BDA18A] group-hover:opacity-100 group-hover:underline underline-offset-4 decoration-[#BDA18A] sm:mt-5 sm:gap-2 sm:text-[0.62rem] sm:tracking-[0.17em]">
                     Details
                     <ArrowUpRight
                         className="size-3.5 transition duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 sm:size-4"
