@@ -8,15 +8,6 @@ export type NavigationLink = {
 };
 
 export const navigationLinks: NavigationLink[] = [
-    { label: 'Home', href: '/' },
-    { 
-        label: 'Company', 
-        children: [
-            { label: 'About Company', href: '/about-company' },
-            { label: 'Teams', href: '/teams' },
-            { label: 'Our Brands', href: '/our-brands' },
-        ]
-    },
     { 
         label: 'Products', 
         children: [
@@ -30,5 +21,6 @@ export const navigationLinks: NavigationLink[] = [
         ]
     },
     { label: 'Projects', href: '/projects' },
-    { label: 'Contact', href: '/contact' },
+    { label: 'Downloads', href: '#downloads' },
+    { label: 'Contact Us', href: '/contact' },
 ];
