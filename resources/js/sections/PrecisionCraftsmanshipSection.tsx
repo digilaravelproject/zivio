@@ -6,7 +6,7 @@ import { precisionData } from '@/data/precisionData';
 
 export function PrecisionCraftsmanshipSection() {
     return (
-        <section className="relative overflow-hidden bg-editorial-light px-4 py-10 text-[#171512] sm:px-6 sm:py-16 lg:px-10 lg:py-[5.5rem]">
+        <section className="relative overflow-hidden bg-editorial-light px-4 sm:px-8 lg:px-12 py-10 text-[#171512] sm:py-16 lg:py-[5.5rem]">
             <div className="pointer-events-none absolute inset-0 bg-editorial-light" />
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_22%_42%,rgba(184,148,95,0.06),transparent_28%),radial-gradient(circle_at_74%_22%,rgba(184,148,95,0.08),transparent_24%)]" />
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(123,96,58,0.035)_1px,transparent_1px),linear-gradient(180deg,rgba(123,96,58,0.022)_1px,transparent_1px)] bg-[size:20rem_100%,100%_7rem] opacity-[0.34]" />
@@ -15,7 +15,7 @@ export function PrecisionCraftsmanshipSection() {
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#FAFAFD] via-[#FAFAFD]/30 to-transparent z-10" />
 
             <Reveal
-                className="relative mx-auto grid max-w-7xl gap-9 lg:grid-cols-[1.02fr_0.78fr] lg:items-center lg:gap-16"
+                className="relative mx-auto grid max-w-[1440px] gap-9 lg:grid-cols-[1.02fr_0.78fr] lg:items-center lg:gap-16"
                 threshold={0.15}
             >
                 <div className="relative order-1 lg:order-none">

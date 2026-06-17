@@ -8,13 +8,13 @@ export function CategoryShowcaseSection() {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
     return (
-        <section className="relative overflow-hidden bg-editorial-light px-4 py-10 text-[#171512] sm:px-6 sm:py-16 sm:pb-20 lg:px-10 lg:pt-[4.5rem] lg:pb-[5.5rem]">
+        <section className="relative overflow-hidden bg-white px-4 sm:px-8 lg:px-12 py-10 text-[#171512] sm:py-16 sm:pb-20 lg:pt-[4.5rem] lg:pb-[5.5rem]">
             <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#FFFFFF] via-[#FFFFFF]/30 to-transparent z-10" />
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#FAFAFD] via-[#FAFAFD]/30 to-transparent z-10" />
             <div className="pointer-events-none absolute top-10 left-1/2 hidden h-80 w-[38rem] -translate-x-1/2 rounded-full bg-[#BDA18A]/4 blur-3xl md:block" />
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_92%_28%,rgba(184,138,42,0.03),transparent_24%)]" />
             
-            <div className="mx-auto max-w-7xl">
+            <div className="mx-auto max-w-[1440px]">
                 <Reveal
                     className="relative mb-8 grid gap-5 border-b border-[#8E755F]/20 pb-8 sm:mb-11 sm:gap-6 sm:pb-9 lg:mb-[3.5rem] lg:grid-cols-[1fr_0.46fr] lg:items-end"
                     threshold={0.2}
@@ -42,7 +42,7 @@ export function CategoryShowcaseSection() {
                 </Reveal>
 
                 <div
-                    className="relative grid gap-4 [perspective:1400px] sm:grid-cols-2 sm:gap-5 xl:grid-cols-4 xl:items-end"
+                    className="relative grid gap-4 [perspective:1400px] sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 xl:items-end"
                     onMouseLeave={() => setActiveIndex(null)}
                 >
                     {categories.map((category, index) => (

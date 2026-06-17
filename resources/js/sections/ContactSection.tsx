@@ -33,14 +33,14 @@ export function ContactSection() {
     };
 
     return (
-        <section className="relative overflow-hidden bg-editorial-light px-4 py-10 text-[#171512] sm:px-6 sm:py-16 lg:px-10 lg:py-[5.5rem]">
+        <section className="relative overflow-hidden bg-editorial-light px-4 sm:px-8 lg:px-12 py-10 text-[#171512] sm:py-16 lg:py-[5.5rem]">
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(123,96,58,0.045)_1px,transparent_1px),linear-gradient(180deg,rgba(123,96,58,0.03)_1px,transparent_1px)] bg-[size:20rem_100%,100%_8rem] opacity-[0.32]" />
             {/* Smooth blend fades at top and bottom */}
             <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#FFFFFF] via-[#FFFFFF]/30 to-transparent z-10" />
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#FAFAFD] via-[#FAFAFD]/30 to-transparent z-10" />
 
             <Reveal
-                className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.82fr_0.78fr] lg:items-start lg:gap-16"
+                className="relative mx-auto grid max-w-[1440px] gap-10 lg:grid-cols-[0.82fr_0.78fr] lg:items-start lg:gap-16"
                 threshold={0.15}
             >
                 <div className="max-w-2xl">

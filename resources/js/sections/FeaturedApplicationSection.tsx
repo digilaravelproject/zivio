@@ -29,7 +29,7 @@ export function FeaturedApplicationSection() {
     };
 
     return (
-        <section className="relative overflow-hidden bg-editorial-light px-4 pt-10 pb-12 text-[#171512] sm:px-6 sm:pt-16 sm:pb-[4.5rem] lg:px-10 lg:pt-[4.5rem] lg:pb-[5.5rem]">
+        <section className="relative overflow-hidden bg-editorial-light px-4 sm:px-8 lg:px-12 pt-10 pb-12 text-[#171512] sm:pt-16 sm:pb-[4.5rem] lg:pt-[4.5rem] lg:pb-[5.5rem]">
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(123,96,58,0.045)_1px,transparent_1px)] bg-[size:20rem_100%] opacity-[0.32]" />
             {/* Smooth blend fades at top and bottom */}
             <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#FFFFFF] via-[#FFFFFF]/30 to-transparent z-10" />
@@ -40,7 +40,7 @@ export function FeaturedApplicationSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.25 }}
                 transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1] }}
-                className="relative mx-auto grid max-w-7xl gap-8 sm:gap-10 lg:grid-cols-[0.62fr_1.38fr] lg:items-center lg:gap-16"
+                className="relative mx-auto grid max-w-[1440px] gap-8 sm:gap-10 lg:grid-cols-[0.62fr_1.38fr] lg:items-center lg:gap-16"
             >
                 <div>
                     <div className="mb-4 flex items-center gap-4 sm:mb-5">

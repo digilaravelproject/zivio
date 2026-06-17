@@ -32,30 +32,37 @@ export function ProjectsShowcaseSection() {
 
             <div className="relative hidden min-h-[610px] overflow-hidden lg:block xl:min-h-[660px]">
                 <AnimatePresence mode="wait">
-                    <motion.img
+                    <motion.div
                         key={activeProject.id}
-                        src={activeProject.image}
-                        alt={activeProject.title}
-                        width={1800}
-                        height={1200}
-                        loading="lazy"
-                        decoding="async"
-                        initial={{ opacity: 0, scale: 1.04 }}
-                        animate={{
-                            opacity: 1,
-                            scale: prefersReducedMotion ? 1 : 1.09,
-                        }}
-                        whileHover={{
-                            scale: prefersReducedMotion ? 1 : 1.105,
-                        }}
-                        exit={{ opacity: 0, scale: 1.02 }}
-                        transition={{
-                            duration: 1.05,
-                            ease: [0.22, 1, 0.36, 1],
-                        }}
-                        className="absolute inset-0 h-full w-full object-cover"
-                        sizes="100vw"
-                    />
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="absolute inset-0 h-full w-full"
+                    >
+                        <motion.img
+                            src={activeProject.image}
+                            alt={activeProject.title}
+                            width={1800}
+                            height={1200}
+                            loading="lazy"
+                            decoding="async"
+                            initial={{ scale: 1.02 }}
+                            animate={{
+                                scale: prefersReducedMotion ? 1 : 1.15,
+                            }}
+                            transition={{
+                                scale: {
+                                    duration: 12,
+                                    ease: 'linear',
+                                    repeat: Infinity,
+                                    repeatType: 'reverse',
+                                },
+                            }}
+                            className="h-full w-full object-cover"
+                            sizes="100vw"
+                        />
+                    </motion.div>
                 </AnimatePresence>
 
                 <div className="absolute inset-0 bg-[#050505]/4" />
@@ -77,7 +84,7 @@ export function ProjectsShowcaseSection() {
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.026)_1px,transparent_1px)] bg-[size:24vw_100%] opacity-[0.08]" />
 
-                <div className="relative z-10 mx-auto flex min-h-[610px] max-w-7xl flex-col justify-end px-10 py-18 xl:min-h-[660px] xl:py-20">
+                <div className="relative z-10 mx-auto flex min-h-[610px] max-w-[1440px] flex-col justify-end px-4 sm:px-8 lg:px-12 py-18 xl:min-h-[660px] xl:py-20">
                     <div className="grid items-end gap-10 xl:grid-cols-[0.92fr_0.78fr]">
                         <AnimatePresence mode="wait">
                             <motion.div
@@ -200,7 +207,7 @@ export function ProjectsShowcaseSection() {
                 </div>
             </div>
 
-            <div className="relative px-4 py-14 sm:px-6 sm:py-16 lg:hidden">
+            <div className="relative px-4 sm:px-8 lg:px-12 py-14 sm:py-16 lg:hidden">
                 <div className="pointer-events-none absolute inset-0 bg-editorial-dark" />
                 <motion.div
                     aria-hidden="true"

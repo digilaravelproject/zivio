@@ -6,7 +6,7 @@ import { catalogueCtaData } from '@/data/catalogueCtaData';
 
 export function CatalogueCtaSection() {
     return (
-        <section className="relative overflow-hidden bg-editorial-light px-4 py-10 text-[#171512] sm:px-6 sm:py-16 lg:px-10 lg:py-[5.5rem]">
+        <section className="relative overflow-hidden bg-editorial-light px-4 sm:px-8 lg:px-12 py-10 text-[#171512] sm:py-16 lg:py-[5.5rem]">
             <div className="pointer-events-none absolute inset-0 bg-editorial-light" />
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_22%_38%,rgba(184,148,95,0.06),transparent_27%),radial-gradient(circle_at_72%_46%,rgba(184,148,95,0.1),transparent_30%)]" />
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(123,96,58,0.035)_1px,transparent_1px)] bg-[size:22rem_100%] opacity-[0.28]" />
@@ -15,7 +15,7 @@ export function CatalogueCtaSection() {
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#FAFAFD] via-[#FAFAFD]/30 to-transparent z-10" />
 
             <Reveal
-                className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.82fr_0.78fr] lg:items-center lg:gap-16"
+                className="relative mx-auto grid max-w-[1440px] gap-10 lg:grid-cols-[0.82fr_0.78fr] lg:items-center lg:gap-16"
                 threshold={0.2}
             >
                 <div className="max-w-2xl">

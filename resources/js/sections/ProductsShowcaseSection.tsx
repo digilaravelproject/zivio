@@ -25,13 +25,13 @@ export function ProductsShowcaseSection() {
     }, [activeCategory]);
 
     return (
-        <section className="relative overflow-hidden bg-editorial-light px-4 py-10 text-[#171512] sm:px-6 sm:py-16 lg:px-10 lg:py-[5.5rem]">
+        <section className="relative overflow-hidden bg-editorial-light px-4 sm:px-8 lg:px-12 py-10 text-[#171512] sm:py-16 lg:py-[5.5rem]">
             {/* Smooth blend fades at top and bottom */}
             <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#FFFFFF] via-[#FFFFFF]/30 to-transparent z-10" />
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#FAFAFD] via-[#FAFAFD]/30 to-transparent z-10" />
             <div className="pointer-events-none absolute right-0 bottom-12 hidden h-80 w-80 rounded-full bg-[#8E755F]/12 blur-3xl md:block" />
 
-            <div className="relative mx-auto max-w-7xl">
+            <div className="relative mx-auto max-w-[1440px]">
                 <Reveal
                     className="mb-7 grid gap-5 border-b border-[#8E755F]/14 pb-7 sm:mb-10 sm:gap-7 sm:pb-9 lg:mb-12 lg:grid-cols-[0.74fr_0.5fr] lg:items-end lg:justify-between"
                     threshold={0.25}

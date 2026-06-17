@@ -60,7 +60,7 @@ export function HeroSection() {
                 <div className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(90deg,rgba(184,148,95,0.06)_1px,transparent_1px)] bg-[size:28vw_100%] opacity-[0.08]" />
                 <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(circle_at_26%_78%,rgba(255,239,205,0.055),transparent_28%)]" />
 
-                <div className="pointer-events-none absolute inset-0 z-40 mx-auto flex h-full max-w-7xl items-end px-4 pt-24 pb-28 sm:px-6 sm:pb-34 lg:px-10 lg:pb-36">
+                <div className="pointer-events-none absolute inset-0 z-40 mx-auto flex h-full max-w-[1440px] items-end px-4 pt-24 pb-28 sm:px-8 sm:pb-34 lg:px-12 lg:pb-36">
                     <div className="pointer-events-auto relative w-full max-w-[36rem] drop-shadow-[0_18px_44px_rgba(0,0,0,0.48)]">
                         <p className="mb-3 font-sans text-[0.56rem] font-medium tracking-[0.2em] text-[#BDA18A] uppercase sm:mb-4 sm:text-[0.64rem] sm:tracking-[0.25em]">
                             Premium Architectural Lighting
@@ -151,7 +151,7 @@ export function HeroSection() {
             <div className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(90deg,rgba(184,148,95,0.06)_1px,transparent_1px)] bg-[size:28vw_100%] opacity-[0.08]" />
             <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(circle_at_26%_78%,rgba(255,239,205,0.055),transparent_28%)]" />
 
-            <div className="pointer-events-none absolute inset-0 z-40 mx-auto flex h-full max-w-7xl items-end px-4 pt-24 pb-28 sm:px-6 sm:pb-34 lg:px-10 lg:pb-36">
+            <div className="pointer-events-none absolute inset-0 z-40 mx-auto flex h-full max-w-[1440px] items-end px-4 pt-24 pb-28 sm:px-8 sm:pb-34 lg:px-12 lg:pb-36">
                 <AnimatePresence mode="wait">
                     {shouldShowText && (
                         <motion.div
@@ -204,7 +204,7 @@ export function HeroSection() {
                 </AnimatePresence>
             </div>
 
-            <div className="absolute right-4 bottom-5 left-4 z-30 mx-auto flex max-w-7xl items-center justify-between gap-3 sm:right-6 sm:bottom-8 sm:left-6 sm:gap-6 lg:right-10 lg:left-10">
+            <div className="absolute right-4 bottom-5 left-4 z-30 mx-auto flex max-w-[1440px] items-center justify-between gap-3 sm:right-8 sm:bottom-8 sm:left-8 sm:gap-6 lg:right-12 lg:left-12">
                 <div className="flex min-w-20 items-center gap-2 font-sans text-xs font-semibold tracking-[0.18em] text-[#F5F5F2] sm:min-w-28 sm:gap-3 sm:text-sm sm:tracking-[0.22em]">
                     <span>{formatSlideNumber(activeIndex + 1)}</span>
                     <span className="h-px w-6 bg-[#BDA18A] sm:w-10" />

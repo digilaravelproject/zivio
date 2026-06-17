@@ -32,11 +32,11 @@ function FooterLinkList({
 
 export function FooterSection() {
     return (
-        <footer className="relative overflow-hidden bg-[#080808]/85 px-4 pt-16 pb-8 text-[#F5F5F2] sm:px-6 sm:pt-20 lg:px-10">
+        <footer className="relative overflow-hidden bg-[#080808]/85 px-4 sm:px-8 lg:px-12 pt-16 pb-8 text-[#F5F5F2] sm:pt-20">
             <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#BDA18A]/30 to-transparent" />
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_10%,rgba(184,148,95,0.07),transparent_28%),linear-gradient(180deg,rgba(8,8,8,0.25)_0%,#080808_100%)]" />
 
-            <div className="relative mx-auto max-w-7xl">
+            <div className="relative mx-auto max-w-[1440px]">
                 <div className="grid gap-10 border-b border-white/[0.08] pb-12 md:grid-cols-2 lg:grid-cols-[1.05fr_0.65fr_0.75fr_0.95fr] lg:gap-14">
                     <div>
                         <Link

@@ -28,8 +28,7 @@ export function CategoryCard({
             onFocus={() => onActivate(index)}
             onMouseLeave={onClear}
             className={cn(
-                'cinematic-image-frame group relative h-[280px] overflow-hidden transition-opacity duration-700 sm:h-[350px] md:[transform-style:preserve-3d] lg:h-[380px] 2xl:h-[400px]',
-                index % 2 === 1 && 'xl:translate-y-8',
+                'cinematic-image-frame group relative h-[220px] overflow-hidden bg-white transition-opacity duration-700 sm:h-[260px] md:[transform-style:preserve-3d] lg:h-[280px] 2xl:h-[300px]',
                 isDimmed && 'opacity-45',
             )}
             animate={{
@@ -46,7 +45,7 @@ export function CategoryCard({
             />
 
             <motion.div
-                className="pointer-events-none absolute -inset-px z-30 border border-[#BDA18A]/0 transition duration-700 group-hover:border-[#BDA18A]/34"
+                className="pointer-events-none absolute -inset-px z-30 border border-[#BDA18A]/0 transition duration-700 group-hover:border-[#BDA18A]/50"
                 animate={{
                     boxShadow: isActive
                         ? '0 0 70px rgba(184, 148, 95, 0.18)'
@@ -54,6 +53,27 @@ export function CategoryCard({
                 }}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             />
+
+            <div className={cn(
+                "absolute inset-0 transition duration-700 z-10",
+                isActive ? "bg-black/88" : "bg-transparent"
+            )} />
+
+            {/* Spotlight Radial Glow behind the product image */}
+            <div className={cn(
+                "absolute inset-0 transition-opacity duration-700 z-[15] pointer-events-none",
+                isActive ? "opacity-100" : "opacity-0"
+            )}
+            style={{
+                background: 'radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.12) 40%, transparent 68%)'
+            }} />
+
+            <div className={cn(
+                "absolute inset-0 bg-gradient-to-t transition-opacity duration-700 z-20 pointer-events-none",
+                isActive ? "from-black/65 via-transparent to-transparent opacity-100" : "from-black/10 via-transparent to-transparent opacity-40"
+            )} />
+            <div className="pointer-events-none absolute inset-0 z-[22] -translate-x-full bg-[linear-gradient(105deg,transparent_0%,rgba(255,239,205,0.1)_46%,transparent_62%)] opacity-0 transition duration-[1400ms] ease-out group-hover:translate-x-full group-hover:opacity-100" />
+            <div className="pointer-events-none absolute inset-0 z-[22] bg-[radial-gradient(circle_at_50%_18%,rgba(255,223,176,0.04),transparent_34%)] opacity-0 transition duration-700 group-hover:opacity-100" />
 
             <motion.img
                 src={category.image}
@@ -63,34 +83,45 @@ export function CategoryCard({
                 loading="lazy"
                 decoding="async"
                 draggable={false}
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-contain p-4 z-[25]"
                 sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw"
                 animate={{
-                    scale: isActive ? 1.095 : 1.02,
+                    scale: isActive ? [1.02, 1.12] : 1.02,
                     y: isActive ? -8 : 0,
                 }}
-                transition={{ duration: 1.45, ease: [0.22, 1, 0.36, 1] }}
+                transition={{
+                    scale: isActive
+                        ? { duration: 8.5, ease: 'linear', repeat: Infinity, repeatType: 'reverse' }
+                        : { duration: 1.45, ease: [0.22, 1, 0.36, 1] },
+                    y: { duration: 1.45, ease: [0.22, 1, 0.36, 1] }
+                }}
             />
 
-            <div className="absolute inset-0 bg-[#0A0A0A]/30 transition duration-700 group-hover:bg-[#0A0A0A]/14" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/88 via-[#080808]/22 to-[#080808]/8" />
-            <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#080808]/38 to-transparent" />
-            <div className="pointer-events-none absolute inset-0 z-20 -translate-x-full bg-[linear-gradient(105deg,transparent_0%,rgba(255,239,205,0.16)_46%,transparent_62%)] opacity-0 transition duration-[1400ms] ease-out group-hover:translate-x-full group-hover:opacity-100" />
-            <div className="pointer-events-none absolute inset-0 z-20 bg-[radial-gradient(circle_at_50%_18%,rgba(255,223,176,0.08),transparent_34%)] opacity-0 transition duration-700 group-hover:opacity-100" />
-            <div className="absolute top-5 right-5 z-40 grid size-10 place-items-center border border-white/[0.12] bg-[#0A0A0A]/22 text-[#F5F5F2] backdrop-blur-sm transition duration-500 group-hover:border-[#BDA18A]/60 group-hover:text-[#BDA18A]">
-                <ArrowUpRight className="size-4" strokeWidth={1.5} />
+            <div className={cn(
+                "absolute top-4 right-4 z-40 grid size-9 place-items-center border backdrop-blur-sm transition-all duration-500",
+                isActive
+                    ? "border-white bg-white text-black"
+                    : "border-black/12 bg-black/5 text-[#0A0A0A]"
+            )}>
+                <ArrowUpRight className="size-3.5 transition-transform duration-500 group-hover:rotate-45" strokeWidth={1.8} />
             </div>
 
-            <div className="pointer-events-none absolute inset-x-5 bottom-6 z-40 sm:inset-x-6 sm:bottom-7">
+            <div className="pointer-events-none absolute inset-x-4 bottom-4 z-40 sm:inset-x-5 sm:bottom-5">
                 <motion.div
                     animate={{ y: isActive ? -8 : 0 }}
                     transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
                 >
-                    <span className="mb-4 block h-px w-10 bg-[#BDA18A]" />
-                    <p className="mb-3 font-sans text-[0.58rem] font-medium tracking-[0.18em] text-[#BDA18A] uppercase">
+                    <span className="mb-3 block h-px w-8 bg-[#BDA18A]" />
+                    <p className={cn(
+                        "mb-2 font-sans text-[0.58rem] font-medium tracking-[0.18em] uppercase transition-colors duration-500",
+                        isActive ? "text-[#BDA18A]" : "text-[#BDA18A]/80"
+                    )}>
                         {String(index + 1).padStart(2, '0')}
                     </p>
-                    <h3 className="max-w-[14rem] font-montserrat text-[1.35rem] leading-[1.08] font-bold text-[#F8F5EC] sm:max-w-[16rem] sm:text-[1.85rem] xl:text-[2.05rem]">
+                    <h3 className={cn(
+                        "max-w-[12rem] font-montserrat text-[1.15rem] leading-[1.12] font-bold sm:max-w-[14rem] sm:text-[1.45rem] xl:text-[1.65rem] transition-colors duration-500",
+                        isActive ? "text-[#F8F5EC]" : "text-[#0A0A0A]"
+                    )}>
                         {category.title}
                     </h3>
                     <motion.p
@@ -100,7 +131,10 @@ export function CategoryCard({
                             y: isActive ? 0 : 8,
                         }}
                         transition={{ duration: 0.45, ease: 'easeOut' }}
-                        className="mt-4 font-sans text-[0.56rem] font-medium tracking-[0.15em] text-[#F5F5F2] uppercase sm:mt-5 sm:text-[0.6rem] sm:tracking-[0.17em] group-hover:underline underline-offset-4 decoration-[#BDA18A]"
+                        className={cn(
+                            "mt-3 font-sans text-[0.54rem] font-medium tracking-[0.14em] uppercase sm:mt-4 group-hover:underline underline-offset-4 decoration-[#BDA18A] transition-colors duration-500",
+                            isActive ? "text-[#F5F5F2]" : "text-[#555555]"
+                        )}
                     >
                         Explore Collection
                     </motion.p>
