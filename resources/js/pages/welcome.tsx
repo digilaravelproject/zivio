@@ -40,6 +40,12 @@ const ProductsShowcaseSection = lazy(() =>
     })),
 );
 
+const WhyChooseUsSection = lazy(() =>
+    import('@/sections/WhyChooseUsSection').then((module) => ({
+        default: module.WhyChooseUsSection,
+    })),
+);
+
 const PrecisionCraftsmanshipSection = lazy(() =>
     import('@/sections/PrecisionCraftsmanshipSection').then((module) => ({
         default: module.PrecisionCraftsmanshipSection,
@@ -151,6 +157,16 @@ export default function Welcome() {
                 <HeroSection />
                 <LazySection minHeight="min-h-40">
                     <Suspense fallback={sectionFallback}>
+                        <WhyChooseUsSection />
+                    </Suspense>
+                </LazySection>
+                <LazySection minHeight="min-h-40">
+                    <Suspense fallback={sectionFallback}>
+                        <ProductsShowcaseSection />
+                    </Suspense>
+                </LazySection>
+                <LazySection minHeight="min-h-40">
+                    <Suspense fallback={sectionFallback}>
                         <BrandStorySection />
                     </Suspense>
                 </LazySection>
@@ -167,11 +183,6 @@ export default function Welcome() {
                 <LazySection minHeight="min-h-40">
                     <Suspense fallback={sectionFallback}>
                         <ProjectsShowcaseSection />
-                    </Suspense>
-                </LazySection>
-                <LazySection minHeight="min-h-40">
-                    <Suspense fallback={sectionFallback}>
-                        <ProductsShowcaseSection />
                     </Suspense>
                 </LazySection>
                 <LazySection minHeight="min-h-40">
