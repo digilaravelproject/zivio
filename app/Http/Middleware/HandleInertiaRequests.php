@@ -42,6 +42,13 @@ class HandleInertiaRequests extends Middleware
                 'user' => $request->user(),
             ],
             'sidebarOpen' => ! $request->hasCookie('sidebar_state') || $request->cookie('sidebar_state') === 'true',
+            'inquiryNotifications' => $request->user() ? [
+                'unread_count' => \App\Models\ContactInquiry::where('status', 'new')->count(),
+                'recent' => \App\Models\ContactInquiry::where('status', 'new')
+                    ->latest()
+                    ->take(5)
+                    ->get(['id', 'name', 'company', 'project_type', 'status', 'created_at']),
+            ] : null,
         ];
     }
 }

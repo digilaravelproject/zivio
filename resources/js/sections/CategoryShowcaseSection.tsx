@@ -4,8 +4,23 @@ import { Reveal } from '@/components/animations/Reveal';
 import { CategoryCard } from '@/components/category/CategoryCard';
 import { categories } from '@/data/categoriesData';
 
-export function CategoryShowcaseSection() {
+type CategoryShowcaseSectionProps = {
+    environments?: any[];
+};
+
+export function CategoryShowcaseSection({ environments = [] }: CategoryShowcaseSectionProps) {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+    const categoriesList = useMemo(() => {
+        if (environments && environments.length > 0) {
+            return environments.map((env) => ({
+                title: `${env.name} Lighting`,
+                image: env.image || `/images/category/${env.slug}.png` || '/images/category/outdoor.png',
+                href: `/products/${env.slug}`,
+            }));
+        }
+        return categories;
+    }, [environments]);
 
     return (
         <section className="relative overflow-hidden bg-white px-4 sm:px-8 lg:px-12 py-10 text-[#171512] sm:py-16 sm:pb-20 lg:pt-[4.5rem] lg:pb-[5.5rem]">
@@ -59,6 +74,32 @@ export function CategoryShowcaseSection() {
                         />
                     ))}
                 </div>
+
+                {/* Subtle Accent Banner for Smart Connect */}
+                <Reveal className="mt-12 sm:mt-16" threshold={0.15}>
+                    <div className="relative overflow-hidden rounded bg-gradient-to-r from-[#171512] to-[#2E2820] p-8 text-[#FAFAFD] sm:p-10 lg:p-12">
+                        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_120%,rgba(189,161,138,0.18),transparent_50%)]" />
+                        <div className="relative z-10 flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+                            <div>
+                                <p className="font-sans text-[0.65rem] font-semibold tracking-[0.2em] text-[#BDA18A] uppercase mb-2">
+                                    Next-Gen IoT Systems
+                                </p>
+                                <h3 className="font-montserrat text-xl sm:text-2xl font-bold tracking-tight text-white mb-2">
+                                    ZIVIO Smart Connect
+                                </h3>
+                                <p className="max-w-2xl font-sans text-xs sm:text-sm text-[#BDA18A]/80 leading-relaxed">
+                                    Control your architectural ambiance effortlessly. Motion-sensor activation, remote precision, and Wi-Fi-controlled intelligent lighting setups.
+                                </p>
+                            </div>
+                            <a
+                                href="/products/smart-connect"
+                                className="inline-flex items-center gap-2 border border-[#BDA18A]/40 bg-transparent px-5 py-3 text-xs font-semibold tracking-[0.14em] uppercase text-white transition-all hover:bg-[#FAFAFD] hover:text-[#171512] hover:border-white"
+                            >
+                                Explore Smart Connect &rarr;
+                            </a>
+                        </div>
+                    </div>
+                </Reveal>
             </div>
         </section>
     );

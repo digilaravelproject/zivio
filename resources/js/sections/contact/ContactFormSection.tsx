@@ -1,5 +1,6 @@
 import { ArrowUpRight, Check, Mail, MapPin, Phone } from 'lucide-react';
 import { type FormEvent, useState, useEffect } from 'react';
+import { router } from '@inertiajs/react';
 import { contactPageData } from '@/data/contactPageData';
 import { Reveal } from '@/components/animations/Reveal';
 
@@ -24,6 +25,7 @@ const initialFormState: ContactFormState = {
 export function ContactFormSection() {
     const [formData, setFormData] = useState<ContactFormState>(initialFormState);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     // Dynamic pre-filling of form based on URL queries (e.g. ?product=Halocore-ARCL13)
     useEffect(() => {
@@ -47,8 +49,26 @@ export function ContactFormSection() {
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        setIsSubmitted(true);
-        setFormData(initialFormState);
+        setIsSubmitting(true);
+
+        router.post('/inquiry', {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            company: formData.company,
+            project_type: formData.projectType,
+            message: formData.message,
+        }, {
+            preserveScroll: true,
+            onSuccess: () => {
+                setIsSubmitting(false);
+                setIsSubmitted(true);
+                setFormData(initialFormState);
+            },
+            onError: () => {
+                setIsSubmitting(false);
+            },
+        });
     };
 
     return (
@@ -249,9 +269,10 @@ export function ContactFormSection() {
 
                                     <button
                                         type="submit"
-                                        className="mt-4 inline-flex w-full items-center justify-center gap-2 border border-[#BDA18A]/60 bg-[#BDA18A]/10 px-5 py-3.5 font-sans text-[0.74rem] font-bold tracking-[0.2em] text-[#F8F5EC] uppercase transition duration-500 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A]"
+                                        disabled={isSubmitting}
+                                        className="mt-4 inline-flex w-full items-center justify-center gap-2 border border-[#BDA18A]/60 bg-[#BDA18A]/10 px-5 py-3.5 font-sans text-[0.74rem] font-bold tracking-[0.2em] text-[#F8F5EC] uppercase transition duration-500 hover:border-[#F5F5F2] hover:bg-[#F5F5F2] hover:text-[#0A0A0A] disabled:opacity-50"
                                     >
-                                        {contactPageData.form.submitLabel}
+                                        {isSubmitting ? 'Submitting...' : contactPageData.form.submitLabel}
                                         <ArrowUpRight className="size-4" strokeWidth={1.5} />
                                     </button>
                                 </div>

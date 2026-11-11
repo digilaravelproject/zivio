@@ -1,16 +1,11 @@
-import AppLogoIcon from '@/components/app-logo-icon';
-
 export default function AppLogo() {
     return (
-        <>
-            <div className="flex aspect-square size-8 items-center justify-center rounded-md bg-sidebar-primary text-sidebar-primary-foreground">
-                <AppLogoIcon className="size-5 fill-current text-white dark:text-black" />
-            </div>
-            <div className="ml-1 grid flex-1 text-left text-sm">
-                <span className="mb-0.5 truncate leading-tight font-semibold">
-                    Zivio
-                </span>
-            </div>
-        </>
+        <div className="flex items-center gap-2 px-1 py-1">
+            <img
+                src="/images/zivio-life-logo.png"
+                alt="Zivio"
+                className="h-7 max-w-[140px] w-auto object-contain"
+            />
+        </div>
     );
 }

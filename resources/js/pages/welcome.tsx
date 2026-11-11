@@ -70,7 +70,12 @@ const FooterSection = lazy(() =>
     })),
 );
 
-export default function Welcome() {
+interface WelcomeProps {
+    featuredProducts?: any[];
+    environments?: any[];
+}
+
+export default function Welcome({ featuredProducts = [], environments = [] }: WelcomeProps) {
     useEffect(() => {
         const originalScrollRestoration = window.history.scrollRestoration;
         window.history.scrollRestoration = 'manual';
@@ -162,7 +167,7 @@ export default function Welcome() {
                 </LazySection>
                 <LazySection minHeight="min-h-40">
                     <Suspense fallback={sectionFallback}>
-                        <ProductsShowcaseSection />
+                        <ProductsShowcaseSection dbProducts={featuredProducts} />
                     </Suspense>
                 </LazySection>
                 <LazySection minHeight="min-h-40">
@@ -172,7 +177,7 @@ export default function Welcome() {
                 </LazySection>
                 <LazySection minHeight="min-h-40">
                     <Suspense fallback={sectionFallback}>
-                        <CategoryShowcaseSection />
+                        <CategoryShowcaseSection environments={environments} />
                     </Suspense>
                 </LazySection>
                 <LazySection minHeight="min-h-40">

@@ -10,19 +10,41 @@ import {
 } from '@/data/productsData';
 import type { ProductCategory } from '@/data/productsData';
 
-export function ProductsShowcaseSection() {
+type ProductsShowcaseSectionProps = {
+    dbProducts?: any[];
+};
+
+export function ProductsShowcaseSection({ dbProducts = [] }: ProductsShowcaseSectionProps) {
     const [activeCategory, setActiveCategory] =
         useState<ProductCategory>('All');
 
+    const productsList = useMemo(() => {
+        if (dbProducts && dbProducts.length > 0) {
+            return dbProducts.map((p) => ({
+                id: String(p.id),
+                name: p.name,
+                categories: [
+                    (p.category?.environment?.name || 'Outdoor') as any,
+                    ...(p.is_featured ? (['New Product'] as any) : []),
+                ],
+                image: p.image || '/images/products-uses-images/archis/archis-product.jpg',
+                imageFit: 'contain' as const,
+                href: `/products/${p.slug}`,
+                subtitle: p.short_description || p.category?.name || 'Architectural Luminaire',
+            }));
+        }
+        return productsData;
+    }, [dbProducts]);
+
     const filteredProducts = useMemo(() => {
         if (activeCategory === 'All') {
-            return productsData;
+            return productsList;
         }
 
-        return productsData.filter((product) =>
+        return productsList.filter((product) =>
             product.categories.includes(activeCategory),
         );
-    }, [activeCategory]);
+    }, [activeCategory, productsList]);
 
     return (
         <section className="relative overflow-hidden bg-editorial-light px-4 sm:px-8 lg:px-12 py-10 text-[#171512] sm:py-16 lg:py-[5.5rem]">

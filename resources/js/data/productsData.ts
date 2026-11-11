@@ -3,7 +3,8 @@ export type ProductCategory =
     | 'New Product'
     | 'Outdoor'
     | 'Indoor'
-    | 'Poles';
+    | 'Poles'
+    | 'Smart Connect';
 
 export type Product = {
     id: string;
@@ -21,6 +22,7 @@ export const productCategories: ProductCategory[] = [
     'Outdoor',
     'Indoor',
     'Poles',
+    'Smart Connect',
 ];
 
 export const productsData: Product[] = [
@@ -79,5 +81,29 @@ export const productsData: Product[] = [
         image: '/images/products-uses-images/zuvi/zuvi-product.jpg',
         href: '/products/zuvi',
         subtitle: 'Adjustable Landscape Spike Light',
+    },
+    {
+        id: 'aura-smart',
+        name: 'Aura Smart',
+        categories: ['Smart Connect', 'New Product'],
+        image: '/images/products-uses-images/canva/canva-product.jpg', // reusable asset
+        href: '/products/aura-smart',
+        subtitle: 'Wi-Fi-Controlled Smart Ceiling Downlight',
+    },
+    {
+        id: 'motion-path',
+        name: 'MotionPath',
+        categories: ['Smart Connect'],
+        image: '/images/products-uses-images/zuvi/zuvi-product.jpg', // reusable asset
+        href: '/products/motion-path',
+        subtitle: 'Smart In-Ground Motion Sensor Light',
+    },
+    {
+        id: 'lumax-air',
+        name: 'Lumax Air',
+        categories: ['Smart Connect'],
+        image: '/images/products-uses-images/archis/archis-product.jpg', // reusable asset
+        href: '/products/lumax-air',
+        subtitle: 'Remote-Controlled Architectural Uplight',
     },
 ];

@@ -7,7 +7,7 @@ export interface CatalogProduct {
     id: string;
     slug: string;
     name: string;
-    category: 'Indoor' | 'Outdoor' | 'Solar' | 'Poles' | 'Decorative' | 'Highmast';
+    category: 'Indoor' | 'Outdoor' | 'Solar' | 'Poles' | 'Decorative' | 'Highmast' | 'Smart-Connect';
     type: string; // subcategory
     image: string;
     gallery: string[];
@@ -25,6 +25,7 @@ export const catalogCategories = [
     'Poles',
     'Decorative',
     'Highmast',
+    'Smart-Connect',
 ] as const;
 
 export type CatalogCategory = (typeof catalogCategories)[number];
@@ -36,6 +37,7 @@ export const categorySubcategories: Record<CatalogCategory, string[]> = {
     Solar: ['Solar Garden Lights', 'Solar Street Lights', 'Solar Bollards'],
     Decorative: ['Chandeliers', 'Pendant Lights', 'Wall Sconces'],
     Highmast: ['Stadium Lighting', 'Airport Lighting', 'High Mast Poles'],
+    'Smart-Connect': ['Wi-Fi Enabled', 'Motion Sensor', 'Remote Control'],
 };
 
 export const productsCatalogData: CatalogProduct[] = [
@@ -216,5 +218,77 @@ export const productsCatalogData: CatalogProduct[] = [
             { label: 'Housing Material', value: 'Heavy Duty Anodized Aluminum' },
         ],
         applications: ['Tree Uplighting', 'Garden Pathways', 'Lawn Perimeters', 'Bespoke Landscape Planning'],
+    },
+    {
+        id: 'aura-smart',
+        slug: 'aura-smart',
+        name: 'Aura Smart',
+        category: 'Smart-Connect',
+        type: 'Wi-Fi Enabled',
+        image: '/images/products-uses-images/canva/canva-product.jpg',
+        gallery: [
+            '/images/products-uses-images/canva/canva-product.jpg',
+            '/images/products-uses-images/canva/canva-use-1.jpg',
+        ],
+        shortDescription: 'Premium Wi-Fi-controlled smart downlight with dynamic CCT adjustment.',
+        description: 'Aura Smart integrates seamlessly into smart home ecosystems, providing absolute control over color temperature, dimming schedules, and group scenes directly via iOS/Android app or voice commands.',
+        specs: ['Wi-Fi / Zigbee Enabled', 'Tunable White (2700K-6500K)', 'App & Voice Control'],
+        technicalSpecs: [
+            { label: 'Input Voltage', value: '220-240V AC' },
+            { label: 'Color Rendering Index (CRI)', value: '>90 Ra' },
+            { label: 'Luminous Flux', value: '950 Lumens' },
+            { label: 'Smart Protocol', value: 'Tuya Wi-Fi / Zigbee 3.0' },
+            { label: 'Power Consumption', value: '12 Watts' },
+            { label: 'Beam Angle', value: '38° Medium Spot' },
+        ],
+        applications: ['Smart Homes', 'Executive Boardrooms', 'High-End Retail', 'Modern Hospitality'],
+    },
+    {
+        id: 'motion-path',
+        slug: 'motion-path',
+        name: 'MotionPath',
+        category: 'Smart-Connect',
+        type: 'Motion Sensor',
+        image: '/images/products-uses-images/zuvi/zuvi-product.jpg',
+        gallery: [
+            '/images/products-uses-images/zuvi/zuvi-product.jpg',
+            '/images/products-uses-images/zuvi/zuvi-use-1.jpg',
+        ],
+        shortDescription: 'Intelligent in-ground pathway light with integrated microwave motion sensor.',
+        description: 'Designed to illuminate only when needed, MotionPath detects presence up to 8 meters away, ramping up brightness smoothly from 10% standby mode to 100% full illumination.',
+        specs: ['PIR/Microwave Motion Sensor', 'IP67 Weatherproof', '10% to 100% Auto-Dimming'],
+        technicalSpecs: [
+            { label: 'Input Voltage', value: '24V DC Low Voltage' },
+            { label: 'Detection Angle', value: '120 degrees' },
+            { label: 'Standby Power', value: '0.8 Watts' },
+            { label: 'Active Power', value: '8 Watts' },
+            { label: 'Delay Time', value: '30 seconds after last motion' },
+            { label: 'Material', value: 'Stainless Steel Faceplate' },
+        ],
+        applications: ['Driveways & Walkways', 'Commercial Courtyards', 'Residential Perimeters', 'Eco-friendly Parks'],
+    },
+    {
+        id: 'lumax-air',
+        slug: 'lumax-air',
+        name: 'Lumax Air',
+        category: 'Smart-Connect',
+        type: 'Remote Control',
+        image: '/images/products-uses-images/archis/archis-product.jpg',
+        gallery: [
+            '/images/products-uses-images/archis/archis-product.jpg',
+            '/images/products-uses-images/archis/archis-use-1.jpg',
+        ],
+        shortDescription: 'High-power remote-controlled exterior flood light.',
+        description: 'Lumax Air offers dedicated RF remote control with preset configurations, timing programs, and brightness controls. Ideal for high-reaching architectural accentuation without requiring smartphone setup.',
+        specs: ['RF Remote Included', 'Long-Range Receiver', 'RGB+CCT Tuning'],
+        technicalSpecs: [
+            { label: 'Input Voltage', value: '100-240V AC' },
+            { label: 'RF Range', value: 'Up to 30 meters line-of-sight' },
+            { label: 'Luminous Flux', value: '2800 Lumens' },
+            { label: 'Power Consumption', value: '35 Watts' },
+            { label: 'Ingress Protection', value: 'IP66 Rated' },
+            { label: 'Shell Material', value: 'Die-cast Aluminum' },
+        ],
+        applications: ['Bridges & Facades', 'Statue Illuminations', 'Public Squares', 'Event Backdrops'],
     },
 ];

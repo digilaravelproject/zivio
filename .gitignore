@@ -7,6 +7,9 @@
 /public/storage
 /storage/*.key
 /storage/pail
+/bootstrap/cache/*.php
+!/bootstrap/cache/.gitignore
+/public/uploads/temp
 /resources/js/actions
 /resources/js/routes
 /resources/js/wayfinder
@@ -47,3 +50,4 @@ QODER.md
 .cursorrules
 .cursor/
 .github/
+/.agent

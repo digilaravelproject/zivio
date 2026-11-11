@@ -24,6 +24,18 @@ export default function Login({ status, canResetPassword }: Props) {
 
             <PasskeyVerify />
 
+            {/* Quick Admin Credentials Badge */}
+            <div className="bg-primary/10 border border-primary/20 rounded-lg p-3 text-xs text-foreground space-y-1">
+                <div className="flex items-center justify-between font-bold text-primary">
+                    <span>Admin Credentials:</span>
+                    <span className="text-[10px] uppercase bg-primary/20 px-1.5 py-0.5 rounded">Default</span>
+                </div>
+                <div className="font-mono text-[11px] text-muted-foreground flex justify-between">
+                    <span>admin@admin.com</span>
+                    <span>12345678</span>
+                </div>
+            </div>
+
             <Form
                 {...store.form()}
                 resetOnSuccess={['password']}

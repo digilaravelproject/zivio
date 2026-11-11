@@ -1,5 +1,15 @@
 import { Link } from '@inertiajs/react';
-import { BookOpen, FolderGit2, LayoutGrid } from 'lucide-react';
+import {
+    BookOpen,
+    FolderGit2,
+    LayoutGrid,
+    Globe2,
+    Layers,
+    Sliders,
+    Lightbulb,
+    Mail,
+    ExternalLink,
+} from 'lucide-react';
 import AppLogo from '@/components/app-logo';
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
@@ -22,29 +32,49 @@ const mainNavItems: NavItem[] = [
         href: dashboard(),
         icon: LayoutGrid,
     },
+    {
+        title: 'Environments',
+        href: '/admin/environments',
+        icon: Globe2,
+    },
+    {
+        title: 'Categories',
+        href: '/admin/categories',
+        icon: Layers,
+    },
+    {
+        title: 'Attributes & Values',
+        href: '/admin/attributes',
+        icon: Sliders,
+    },
+    {
+        title: 'Products & Variants',
+        href: '/admin/products',
+        icon: Lightbulb,
+    },
+    {
+        title: 'Inquiries & Leads',
+        href: '/admin/inquiries',
+        icon: Mail,
+    },
 ];
 
 const footerNavItems: NavItem[] = [
     {
-        title: 'Repository',
-        href: 'https://github.com/laravel/react-starter-kit',
-        icon: FolderGit2,
-    },
-    {
-        title: 'Documentation',
-        href: 'https://laravel.com/docs/starter-kits#react',
-        icon: BookOpen,
+        title: 'View Showroom',
+        href: '/products',
+        icon: ExternalLink,
     },
 ];
 
 export function AppSidebar() {
     return (
         <Sidebar collapsible="icon" variant="inset">
-            <SidebarHeader>
+            <SidebarHeader className="border-b border-black/[0.06] py-2 px-3">
                 <SidebarMenu>
                     <SidebarMenuItem>
-                        <SidebarMenuButton size="lg" asChild>
-                            <Link href={dashboard()} prefetch>
+                        <SidebarMenuButton size="lg" asChild className="hover:bg-transparent h-auto py-1">
+                            <Link href={dashboard()} prefetch className="flex items-center">
                                 <AppLogo />
                             </Link>
                         </SidebarMenuButton>

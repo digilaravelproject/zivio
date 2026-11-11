@@ -1,11 +1,9 @@
 import { createInertiaApp } from '@inertiajs/react';
-import { lazy } from 'react';
+import AppLayout from '@/layouts/app-layout';
+import AuthLayout from '@/layouts/auth-layout';
+import SettingsLayout from '@/layouts/settings/layout';
 import { AppProviders } from '@/components/app-providers';
 import { initializeTheme } from '@/hooks/use-appearance';
-
-const AppLayout = lazy(() => import('@/layouts/app-layout'));
-const AuthLayout = lazy(() => import('@/layouts/auth-layout'));
-const SettingsLayout = lazy(() => import('@/layouts/settings/layout'));
 
 const appName = import.meta.env.VITE_APP_NAME || 'zivio';
 
