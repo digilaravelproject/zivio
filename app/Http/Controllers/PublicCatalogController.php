@@ -12,6 +12,7 @@ use App\Models\Product;
 use App\Models\Project;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -39,7 +40,30 @@ class PublicCatalogController extends Controller
 
         $currentCategory = null;
         if ($currentEnvironment && $categorySlug) {
-            $currentCategory = $currentEnvironment->categories->firstWhere('slug', strtolower($categorySlug));
+            $catSlugLower = strtolower($categorySlug);
+            $currentCategory = $currentEnvironment->categories->firstWhere('slug', $catSlugLower);
+            
+            if (!$currentCategory) {
+                // Try loose match against existing categories in this environment
+                $currentCategory = $currentEnvironment->categories->first(function ($c) use ($catSlugLower) {
+                    $cSlug = strtolower($c->slug);
+                    $cName = strtolower(str_replace(' ', '-', $c->name));
+                    return str_contains($catSlugLower, $cSlug) || str_contains($cSlug, $catSlugLower)
+                        || str_contains($catSlugLower, $cName) || str_contains($cName, $catSlugLower);
+                });
+            }
+
+            // If still no category record exists in DB, create virtual category object so showroom header and breadcrumb render gracefully
+            if (!$currentCategory) {
+                $categoryTitle = ucwords(str_replace(['-', 'and', 'proj'], [' ', '&', 'Projectors'], $categorySlug));
+                $currentCategory = (object) [
+                    'id' => 0,
+                    'name' => $categoryTitle,
+                    'slug' => $categorySlug,
+                    'environment_id' => $currentEnvironment->id,
+                    'environment' => $currentEnvironment,
+                ];
+            }
         } elseif (!$currentEnvironment && $environmentSlug) {
             // Check if $environmentSlug is actually a category slug
             $currentCategory = Category::where('slug', strtolower($environmentSlug))
@@ -72,8 +96,24 @@ class PublicCatalogController extends Controller
                 'variants.attributeValues.attribute',
             ]);
 
-        if ($currentCategory) {
+        if ($currentCategory && !empty($currentCategory->id)) {
             $query->where('category_id', $currentCategory->id);
+        } elseif ($currentCategory && empty($currentCategory->id) && $currentEnvironment) {
+            // Virtual category: search in environment for matching keywords (e.g. bollards, downlights)
+            $keywords = explode('-', $categorySlug);
+            $query->whereIn('category_id', $currentEnvironment->categories->pluck('id'))
+                  ->where(function ($q) use ($keywords, $categorySlug) {
+                      $clean = str_replace('-', ' ', $categorySlug);
+                      $q->where('name', 'like', "%{$clean}%")
+                        ->orWhere('short_description', 'like', "%{$clean}%")
+                        ->orWhere('description', 'like', "%{$clean}%");
+                      foreach ($keywords as $kw) {
+                          if (strlen($kw) > 3) {
+                              $q->orWhere('name', 'like', "%{$kw}%")
+                                ->orWhere('short_description', 'like', "%{$kw}%");
+                          }
+                      }
+                  });
         } elseif ($currentEnvironment) {
             $categoryIds = $currentEnvironment->categories->pluck('id');
             $query->whereIn('category_id', $categoryIds);
@@ -104,6 +144,16 @@ class PublicCatalogController extends Controller
         $products = $query->orderBy('sort_order')
             ->orderBy('id', 'desc')
             ->get();
+
+        // If a specific virtual subcategory was queried but returned 0 results, fall back to environment products
+        if ($products->isEmpty() && $currentCategory && empty($currentCategory->id) && $currentEnvironment) {
+            $products = Product::where('is_active', true)
+                ->whereIn('category_id', $currentEnvironment->categories->pluck('id'))
+                ->with(['category.environment', 'variants.attributeValues.attribute'])
+                ->orderBy('sort_order')
+                ->orderBy('id', 'desc')
+                ->get();
+        }
 
         return Inertia::render('products', [
             'environments' => $environments,

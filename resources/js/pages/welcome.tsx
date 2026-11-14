@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react'
-import { Head, router } from '@inertiajs/react'
+import { Head, Link, router } from '@inertiajs/react'
 import shreeJirapurePhoto from './imports/shree_jirapure.jpeg'
 import priyaJirapurePhoto from './imports/priya_jirapure.jpeg'
 import anjaliBunkarPhoto from './imports/anjali_bunkar.jpeg'
@@ -26,7 +26,7 @@ import globeBg2 from './imports/WhatsApp_Image_2026-08-03_at_2.12.26_PM__1_.jpeg
 // Hero atmospheric slides — named by scene
 import heroLuxuryTerrace from './imports/3c6b2e14a19517ce443bab64f61bad94.jpg'
 import heroLuxuryInterior from './imports/c12c7970491d4d3db92ebe22ee8a35d8.jpg'
-import heroStreetLantern  from './imports/E1.jpg'
+import heroStreetLantern from './imports/E1.jpg'
 import helixPostProduct from './imports/PT1.PNG'
 import globePostProduct2 from './imports/PT2.PNG'
 import helixPostAlt from './imports/PT1-1.PNG'
@@ -43,31 +43,31 @@ import {
 // ─── Palette — Brief spec: Warm Off-White · Rich Charcoal · Matte Gold ────────
 const C = {
   // Grounds
-  ink:       '#FAF9F6',   // primary bg (warm off-white)
-  inkMid:    '#F5F4F0',   // alternate section bg (soft ivory)
-  inkCard:   '#FFFFFF',   // card / panel surface (pure white)
+  ink: '#FAF9F6',   // primary bg (warm off-white)
+  inkMid: '#F5F4F0',   // alternate section bg (soft ivory)
+  inkCard: '#FFFFFF',   // card / panel surface (pure white)
   inkBorder: '#E6E6E6',   // hairline border
-  inkMuted:  '#EEEDE9',   // muted divider
+  inkMuted: '#EEEDE9',   // muted divider
 
-  dust:      '#E8E6E0',
-  dustMid:   '#D8D4CC',
-  dustCard:  '#C4BFB5',
+  dust: '#E8E6E0',
+  dustMid: '#D8D4CC',
+  dustCard: '#C4BFB5',
 
   // Typography
-  bodyDark:  '#111111',   // primary headings (rich charcoal)
-  bodyMid:   '#444444',   // body text (dark gray)
+  bodyDark: '#111111',   // primary headings (rich charcoal)
+  bodyMid: '#444444',   // body text (dark gray)
   bodyLight: '#6B7280',   // secondary / captions
 
   // Footer — near-black
-  navyDark:  '#0F1115',
-  navyMid:   '#181C22',
-  navyBorder:'rgba(255,255,255,0.08)',
-  navyText:  'rgba(255,255,255,0.38)',
+  navyDark: '#0F1115',
+  navyMid: '#181C22',
+  navyBorder: 'rgba(255,255,255,0.08)',
+  navyText: 'rgba(255,255,255,0.38)',
 
   // Matte Gold accent
-  amber:     '#B68D40',
-  amberLt:   '#CBA754',
-  amberDk:   '#8A6A28',
+  amber: '#B68D40',
+  amberLt: '#CBA754',
+  amberDk: '#8A6A28',
 }
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
@@ -76,45 +76,57 @@ const HERO_SLIDES: Array<{
   id: number; label: string; headline: string[]; sub: string; location: string;
   type: 'image' | 'video'; image?: string; localImg?: string; video?: string; poster?: string;
 }> = [
-  // ── 01: Natural Light — ambient architectural video
-  { id: 0, type: 'video',
-    video: 'https://videos.pexels.com/video-files/3971832/3971832-hd_1920_1080_30fps.mp4',
-    poster: '1470252329-01cb79fc2caf',
-    label: '01 · Natural Light',
-    headline: ['Born from', 'Natural Light.'],
-    sub: 'Architectural luminaires inspired by the quality of daylight — warm, dimensioned, alive. Crafted for 15+ countries across four continents.',
-    location: 'Natural · Precision · 15 Countries' },
-  // ── 02: Bollard — atmospheric garden bollard at night
-  { id: 1, type: 'image', image: '1785162413090-475d4368ebe9',
-    label: '02 · Bollard Lighting',
-    headline: ['Paths', 'Illuminated.'],
-    sub: 'Cast-iron and stainless bollard luminaires defining walkways, driveways and public plazas with precise cutoff optics.',
-    location: 'Bollard Series · IP67 · IK10 · 3000K–4000K' },
-  // ── 03: Facade — dramatic lit concrete building
-  { id: 2, type: 'image', image: '1601785491008-d1153dfadd57',
-    label: '03 · Facade Lighting',
-    headline: ['Buildings', 'That Glow.'],
-    sub: 'IP66-rated facade wash and grazing systems that sculpt architecture with controlled, glare-free beams of light.',
-    location: 'Facade Systems · IP66 · DALI-2 · RGBW' },
-  // ── 04: Post Top — ornamental lamp post close-up amber
-  { id: 3, type: 'image', image: '1560692659-467e4f0f3deb',
-    label: '04 · Post Top Lanterns',
-    headline: ['Elegance', 'Overhead.'],
-    sub: 'Heritage and contemporary post-top lanterns for boulevards, promenades, residential avenues and civic squares.',
-    location: 'Post Top · Heritage Series · IP65 · 15W–60W' },
-  // ── 05: Landscape — park trees street light night
-  { id: 4, type: 'image', image: '1668575648926-7a372cf8206a',
-    label: '05 · Landscape Lighting',
-    headline: ['Gardens', 'Come Alive.'],
-    sub: 'Inground uplights, tree spotlights and low-glare pathway fittings for luxury villas, resorts and urban green spaces.',
-    location: 'Landscape · Inground · CRI >92 · IP68' },
-  // ── 06: R&D — cleanroom manufacturing photometric lab
-  { id: 5, type: 'image', image: '1748000970909-845f4aa144d2',
-    label: '06 · R&D · Innovation',
-    headline: ['Innovation,', 'Engineered.'],
-    sub: 'Dedicated photometric labs and thermal testing facilities driving next-generation luminaire design and IEC-certified performance.',
-    location: 'R&D · Photometric Lab · IEC 60598 · LM-80' },
-]
+    // ── 01: Natural Light — ambient architectural video
+    {
+      id: 0, type: 'video',
+      video: 'https://videos.pexels.com/video-files/3971832/3971832-hd_1920_1080_30fps.mp4',
+      poster: '1470252329-01cb79fc2caf',
+      label: '01 · Natural Light',
+      headline: ['Born from', 'Natural Light.'],
+      sub: 'Architectural luminaires inspired by the quality of daylight — warm, dimensioned, alive. Crafted for 15+ countries across four continents.',
+      location: 'Natural · Precision · 15 Countries'
+    },
+    // ── 02: Bollard — atmospheric garden bollard at night
+    {
+      id: 1, type: 'image', image: '1785162413090-475d4368ebe9',
+      label: '02 · Bollard Lighting',
+      headline: ['Paths', 'Illuminated.'],
+      sub: 'Cast-iron and stainless bollard luminaires defining walkways, driveways and public plazas with precise cutoff optics.',
+      location: 'Bollard Series · IP67 · IK10 · 3000K–4000K'
+    },
+    // ── 03: Facade — dramatic lit concrete building
+    {
+      id: 2, type: 'image', image: '1601785491008-d1153dfadd57',
+      label: '03 · Facade Lighting',
+      headline: ['Buildings', 'That Glow.'],
+      sub: 'IP66-rated facade wash and grazing systems that sculpt architecture with controlled, glare-free beams of light.',
+      location: 'Facade Systems · IP66 · DALI-2 · RGBW'
+    },
+    // ── 04: Post Top — ornamental lamp post close-up amber
+    {
+      id: 3, type: 'image', image: '1560692659-467e4f0f3deb',
+      label: '04 · Post Top Lanterns',
+      headline: ['Elegance', 'Overhead.'],
+      sub: 'Heritage and contemporary post-top lanterns for boulevards, promenades, residential avenues and civic squares.',
+      location: 'Post Top · Heritage Series · IP65 · 15W–60W'
+    },
+    // ── 05: Landscape — park trees street light night
+    {
+      id: 4, type: 'image', image: '1668575648926-7a372cf8206a',
+      label: '05 · Landscape Lighting',
+      headline: ['Gardens', 'Come Alive.'],
+      sub: 'Inground uplights, tree spotlights and low-glare pathway fittings for luxury villas, resorts and urban green spaces.',
+      location: 'Landscape · Inground · CRI >92 · IP68'
+    },
+    // ── 06: R&D — cleanroom manufacturing photometric lab
+    {
+      id: 5, type: 'image', image: '1748000970909-845f4aa144d2',
+      label: '06 · R&D · Innovation',
+      headline: ['Innovation,', 'Engineered.'],
+      sub: 'Dedicated photometric labs and thermal testing facilities driving next-generation luminaire design and IEC-certified performance.',
+      location: 'R&D · Photometric Lab · IEC 60598 · LM-80'
+    },
+  ]
 
 const PRODUCT_CATEGORIES = [
   {
@@ -124,19 +136,19 @@ const PRODUCT_CATEGORIES = [
     image: '1565199975350-a723a63c053f',
     desc: 'Bollards, post-top luminaires, in-ground uplighters and street luminaires rated IP65–IP68 for every outdoor environment.',
     sub: [
-      { name: 'Bollards',                    count: 28, image: '1767680148642-ac49a46543d3', spec: 'IP67 · 6–18W · Tunable White' },
-      { name: 'Tree Uplighters',             count: 20, image: '1776528881610-6e0483144d54', spec: 'IP65 · 8–30W · Narrow Beam' },
-      { name: 'Projectors & Column Proj.',   count: 18, image: '1779036440565-9e776cfce061', spec: 'IP66 · 20–150W · RGBW' },
-      { name: 'Post Top Luminaires',         count: 22, image: '1560692659-467e4f0f3deb', spec: 'IP66 · 30–150W · DALI-2' },
-      { name: 'Up & Down Wall Lights',       count: 16, image: '1553095066-5014bc7b7f2d', spec: 'IP65 · 6–24W · CRI >90' },
-      { name: 'Street & Area Lighting',      count: 32, image: '1693946954332-9b42ca00b44c', spec: 'IP66 · 40–250W · EN 13201' },
-      { name: 'In-Ground Luminaires',        count: 14, image: '1703289773827-7f838dbd5558', spec: 'IP68 · 6–24W · RGBW' },
-      { name: 'Step Lights',                 count: 10, image: '1774978613585-469112b6f40f', spec: 'IP65 · 2–8W · Warm White' },
-      { name: 'Surface Ceiling Luminaires',  count: 12, image: '1515948725-edac7b5bb0fc', spec: 'IP44 · 10–40W · CRI >90' },
-      { name: 'Pendant Luminaires',          count: 8,  image: '1758915753369-6a33c7bc1d76', spec: 'IP44 · 6–18W · DALI-2' },
-      { name: 'Underwater Luminaires',       count: 8,  image: '1729925179294-30db20fab829', spec: 'IP68 · 6–18W · RGBW' },
-      { name: 'High Bay Luminaires',         count: 16, image: '1565199975350-a723a63c053f', spec: 'IP65 · 50–300W · IK10' },
-      { name: 'Flood Lights',               count: 16, image: '1612283157924-f0e11f121c3f', spec: 'IP66 · 50–500W · IK08' },
+      { name: 'Bollards', count: 28, image: '1767680148642-ac49a46543d3', spec: 'IP67 · 6–18W · Tunable White' },
+      { name: 'Tree Uplighters', count: 20, image: '1776528881610-6e0483144d54', spec: 'IP65 · 8–30W · Narrow Beam' },
+      { name: 'Projectors & Column Proj.', count: 18, image: '1779036440565-9e776cfce061', spec: 'IP66 · 20–150W · RGBW' },
+      { name: 'Post Top Luminaires', count: 22, image: '1560692659-467e4f0f3deb', spec: 'IP66 · 30–150W · DALI-2' },
+      { name: 'Up & Down Wall Lights', count: 16, image: '1553095066-5014bc7b7f2d', spec: 'IP65 · 6–24W · CRI >90' },
+      { name: 'Street & Area Lighting', count: 32, image: '1693946954332-9b42ca00b44c', spec: 'IP66 · 40–250W · EN 13201' },
+      { name: 'In-Ground Luminaires', count: 14, image: '1703289773827-7f838dbd5558', spec: 'IP68 · 6–24W · RGBW' },
+      { name: 'Step Lights', count: 10, image: '1774978613585-469112b6f40f', spec: 'IP65 · 2–8W · Warm White' },
+      { name: 'Surface Ceiling Luminaires', count: 12, image: '1515948725-edac7b5bb0fc', spec: 'IP44 · 10–40W · CRI >90' },
+      { name: 'Pendant Luminaires', count: 8, image: '1758915753369-6a33c7bc1d76', spec: 'IP44 · 6–18W · DALI-2' },
+      { name: 'Underwater Luminaires', count: 8, image: '1729925179294-30db20fab829', spec: 'IP68 · 6–18W · RGBW' },
+      { name: 'High Bay Luminaires', count: 16, image: '1565199975350-a723a63c053f', spec: 'IP65 · 50–300W · IK10' },
+      { name: 'Flood Lights', count: 16, image: '1612283157924-f0e11f121c3f', spec: 'IP66 · 50–500W · IK08' },
     ],
   },
   {
@@ -146,11 +158,11 @@ const PRODUCT_CATEGORIES = [
     image: '1711107796112-e5b4fe9aa075',
     desc: 'Precision downlights, pendants, linear systems and track spots engineered for perfect interior ambience.',
     sub: [
-      { name: 'Downlights',                  count: 28, image: '1711107796112-e5b4fe9aa075', spec: 'IP44 · 6–24W · DALI-2' },
-      { name: 'Linear Lighting Systems',     count: 24, image: '1570005616859-784c0e1644c5', spec: 'IP20 · up to 30W/m · Tunable White' },
-      { name: 'Surface Spotlights',          count: 18, image: '1608377205619-03a0b4c4e270', spec: 'IP20 · 10–35W · CRI >92' },
-      { name: 'Track & Surface Spotlights',  count: 14, image: '1582203423341-64b918240e25', spec: 'IP20 · 10–50W · CRI >92' },
-      { name: 'Architectural Pendant Lights',count: 8,  image: '1758915753369-6a33c7bc1d76', spec: 'IP20 · 6–18W · RGBW' },
+      { name: 'Downlights', count: 28, image: '1711107796112-e5b4fe9aa075', spec: 'IP44 · 6–24W · DALI-2' },
+      { name: 'Linear Lighting Systems', count: 24, image: '1570005616859-784c0e1644c5', spec: 'IP20 · up to 30W/m · Tunable White' },
+      { name: 'Surface Spotlights', count: 18, image: '1608377205619-03a0b4c4e270', spec: 'IP20 · 10–35W · CRI >92' },
+      { name: 'Track & Surface Spotlights', count: 14, image: '1582203423341-64b918240e25', spec: 'IP20 · 10–50W · CRI >92' },
+      { name: 'Architectural Pendant Lights', count: 8, image: '1758915753369-6a33c7bc1d76', spec: 'IP20 · 6–18W · RGBW' },
     ],
   },
   {
@@ -160,10 +172,10 @@ const PRODUCT_CATEGORIES = [
     image: '1571440727633-ca6b05da2008',
     desc: 'Linear washers, grazers and projectors that sculpt building surfaces with extraordinary precision.',
     sub: [
-      { name: 'Linear Facade Systems',       count: 20, image: '1585349781000-d086e113b2a2', spec: 'IP66 · up to 24W/m · RGBW' },
-      { name: 'Wall Washers',                count: 16, image: '1720996655234-1e87e4f07201', spec: 'IP65 · 10–50W · Tunable White' },
-      { name: 'Grazers',                    count: 14, image: '1559173525-d16dfd7c17fe', spec: 'IP67 · 6–18W · Narrow Beam' },
-      { name: 'Cove & Niche Lighting',       count: 14, image: '1564501838839-b8d1da6fd0e7', spec: 'IP44 · 8–24W · DALI-2' },
+      { name: 'Linear Facade Systems', count: 20, image: '1585349781000-d086e113b2a2', spec: 'IP66 · up to 24W/m · RGBW' },
+      { name: 'Wall Washers', count: 16, image: '1720996655234-1e87e4f07201', spec: 'IP65 · 10–50W · Tunable White' },
+      { name: 'Grazers', count: 14, image: '1559173525-d16dfd7c17fe', spec: 'IP67 · 6–18W · Narrow Beam' },
+      { name: 'Cove & Niche Lighting', count: 14, image: '1564501838839-b8d1da6fd0e7', spec: 'IP44 · 8–24W · DALI-2' },
     ],
   },
   {
@@ -173,9 +185,9 @@ const PRODUCT_CATEGORIES = [
     image: '1688124968558-974cf707348b',
     desc: 'Off-grid solar systems with integrated batteries and smart charge controllers for sustainable cities.',
     sub: [
-      { name: 'Solar Street Lights',         count: 22, image: '1740805276608-ef60e2e468ba', spec: '40–120W · LiFePO4 Battery' },
-      { name: 'Solar Garden Lights',         count: 18, image: '1465146344425-f00d5f5c8f07', spec: '6–18W · Auto Dusk-to-Dawn' },
-      { name: 'Solar High Mast Lights',      count: 12, image: '1625365492753-0ca6557b8aed', spec: '200–600W · 15–40m · Smart Control' },
+      { name: 'Solar Street Lights', count: 22, image: '1740805276608-ef60e2e468ba', spec: '40–120W · LiFePO4 Battery' },
+      { name: 'Solar Garden Lights', count: 18, image: '1465146344425-f00d5f5c8f07', spec: '6–18W · Auto Dusk-to-Dawn' },
+      { name: 'Solar High Mast Lights', count: 12, image: '1625365492753-0ca6557b8aed', spec: '200–600W · 15–40m · Smart Control' },
     ],
   },
   {
@@ -185,9 +197,9 @@ const PRODUCT_CATEGORIES = [
     image: '1604388727293-b1e9591d8056',
     desc: 'Custom-engineered galvanised steel and aluminium poles for every urban and architectural context.',
     sub: [
-      { name: 'Architectural Poles',         count: 18, image: '1604388727293-b1e9591d8056', spec: '3–10m · Custom Finishes' },
-      { name: 'Octagonal Poles',            count: 20, image: '1560692659-467e4f0f3deb', spec: '4–14m · Hot-dip Galvanised' },
-      { name: 'High Mast Poles',            count: 15, image: '1625365492753-0ca6557b8aed', spec: '15–40m · Winch System' },
+      { name: 'Architectural Poles', count: 18, image: '1604388727293-b1e9591d8056', spec: '3–10m · Custom Finishes' },
+      { name: 'Octagonal Poles', count: 20, image: '1560692659-467e4f0f3deb', spec: '4–14m · Hot-dip Galvanised' },
+      { name: 'High Mast Poles', count: 15, image: '1625365492753-0ca6557b8aed', spec: '15–40m · Winch System' },
     ],
   },
   {
@@ -197,10 +209,10 @@ const PRODUCT_CATEGORIES = [
     image: '1608377205619-03a0b4c4e270',
     desc: 'DALI-2, DMX and IoT-ready controls that integrate seamlessly with building management systems.',
     sub: [
-      { name: 'Smart Light Poles',           count: 8,  image: '1498036882173-b41c28a8ba34', spec: 'LoRa · NB-IoT · 5G Ready' },
-      { name: 'DALI-2 Control System',       count: 8,  image: '1525935944571-4e99237764c9', spec: 'EN 62386 · 64 Groups' },
-      { name: 'DMX Controllers',            count: 6,  image: '1480714378408-67cf0d13bc1b', spec: 'DMX 512 · 512 Channels' },
-      { name: 'IoT Smart City',             count: 6,  image: '1608377205619-03a0b4c4e270', spec: 'LoRa · NB-IoT · Mesh' },
+      { name: 'Smart Light Poles', count: 8, image: '1498036882173-b41c28a8ba34', spec: 'LoRa · NB-IoT · 5G Ready' },
+      { name: 'DALI-2 Control System', count: 8, image: '1525935944571-4e99237764c9', spec: 'EN 62386 · 64 Groups' },
+      { name: 'DMX Controllers', count: 6, image: '1480714378408-67cf0d13bc1b', spec: 'DMX 512 · 512 Channels' },
+      { name: 'IoT Smart City', count: 6, image: '1608377205619-03a0b4c4e270', spec: 'LoRa · NB-IoT · Mesh' },
     ],
   },
 ]
@@ -217,28 +229,40 @@ const SEARCH_TAGS = ['Downlights', 'Bollards', 'IP67 Outdoor', 'DALI-2', 'Solar 
 
 // ─── Mega-menu data ────────────────────────────────────────────────────────────
 const MEGA_PRODUCTS = [
-  { group: 'Outdoor Lighting', slug: 'outdoor', color: '#0F4C81', items: [
-    'Bollards', 'Tree Uplighters', 'Projectors & Column Projectors',
-    'Post Top Luminaires', 'Up & Down Wall Lights', 'Street & Area Lighting',
-    'In-Ground Luminaires', 'Step Lights', 'Surface Ceiling Luminaires',
-    'Pendant Luminaires', 'Underwater Luminaires', 'High Bay Luminaires', 'Flood Lights',
-  ]},
-  { group: 'Indoor Lighting', slug: 'indoor', color: '#5e35b1', items: [
-    'Downlights', 'Linear Lighting Systems', 'Surface Spotlights',
-    'Track & Surface Spotlights', 'Architectural Pendant Lights',
-  ]},
-  { group: 'Facade Lighting', slug: 'facade', color: '#0277bd', items: [
-    'Linear Facade Systems', 'Wall Washers', 'Grazers', 'Cove & Niche Lighting',
-  ]},
-  { group: 'Solar Lighting', slug: 'solar', color: '#e65100', items: [
-    'Solar Street Lights', 'Solar Garden Lights', 'Solar High Mast Lights',
-  ]},
-  { group: 'Lighting Poles', slug: 'poles', color: '#2e7d32', items: [
-    'Architectural Poles', 'Octagonal Poles', 'High Mast Poles',
-  ]},
-  { group: 'Smart Lighting', slug: 'smart', color: '#6a1b9a', items: [
-    'Smart Light Poles', 'DALI-2 Control System', 'DMX Controllers', 'IoT Smart City',
-  ]},
+  {
+    group: 'Outdoor Lighting', slug: 'outdoor', color: '#0F4C81', items: [
+      'Bollards', 'Tree Uplighters', 'Projectors & Column Projectors',
+      'Post Top Luminaires', 'Up & Down Wall Lights', 'Street & Area Lighting',
+      'In-Ground Luminaires', 'Step Lights', 'Surface Ceiling Luminaires',
+      'Pendant Luminaires', 'Underwater Luminaires', 'High Bay Luminaires', 'Flood Lights',
+    ]
+  },
+  {
+    group: 'Indoor Lighting', slug: 'indoor', color: '#5e35b1', items: [
+      'Downlights', 'Linear Lighting Systems', 'Surface Spotlights',
+      'Track & Surface Spotlights', 'Architectural Pendant Lights',
+    ]
+  },
+  {
+    group: 'Facade Lighting', slug: 'facade', color: '#0277bd', items: [
+      'Linear Facade Systems', 'Wall Washers', 'Grazers', 'Cove & Niche Lighting',
+    ]
+  },
+  {
+    group: 'Solar Lighting', slug: 'solar', color: '#e65100', items: [
+      'Solar Street Lights', 'Solar Garden Lights', 'Solar High Mast Lights',
+    ]
+  },
+  {
+    group: 'Lighting Poles', slug: 'poles', color: '#2e7d32', items: [
+      'Architectural Poles', 'Octagonal Poles', 'High Mast Poles',
+    ]
+  },
+  {
+    group: 'Smart Lighting', slug: 'smart', color: '#6a1b9a', items: [
+      'Smart Light Poles', 'DALI-2 Control System', 'DMX Controllers', 'IoT Smart City',
+    ]
+  },
 ]
 const MEGA_SOLUTIONS = [
   { group: 'Commercial', items: ['Hotels & Resorts', 'Retail & Shopping', 'Offices', 'Restaurants'] },
@@ -667,11 +691,11 @@ const FEATURED_PRODUCTS = [
       'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=1600&h=900&fit=crop&auto=format',
     ],
     specs: [
-      { label: 'Model',     value: 'G5043' },
-      { label: 'Type',      value: 'LED Garden Light' },
-      { label: 'Finish',    value: 'Anodised Aluminium' },
+      { label: 'Model', value: 'G5043' },
+      { label: 'Type', value: 'LED Garden Light' },
+      { label: 'Finish', value: 'Anodised Aluminium' },
       { label: 'IP Rating', value: 'IP65' },
-      { label: 'CCT',       value: '3000K / 4000K' },
+      { label: 'CCT', value: '3000K / 4000K' },
     ],
   },
   {
@@ -687,12 +711,12 @@ const FEATURED_PRODUCTS = [
       'https://images.unsplash.com/photo-1553095066-5014bc7b7f2d?w=1600&h=900&fit=crop&auto=format',
     ],
     specs: [
-      { label: 'Model',     value: 'GL Classic' },
-      { label: 'Type',      value: 'Post Lantern' },
-      { label: 'Body',      value: 'Cast Aluminium' },
+      { label: 'Model', value: 'GL Classic' },
+      { label: 'Type', value: 'Post Lantern' },
+      { label: 'Body', value: 'Cast Aluminium' },
       { label: 'IP Rating', value: 'IP66' },
-      { label: 'CCT',       value: '2700K / 3000K' },
-      { label: 'Finish',    value: 'Matte Black' },
+      { label: 'CCT', value: '2700K / 3000K' },
+      { label: 'Finish', value: 'Matte Black' },
     ],
   },
   {
@@ -708,12 +732,12 @@ const FEATURED_PRODUCTS = [
       'https://images.unsplash.com/photo-1559173525-d16dfd7c17fe?w=1600&h=900&fit=crop&auto=format',
     ],
     specs: [
-      { label: 'Model',     value: 'LG Linear' },
-      { label: 'Type',      value: 'Recessed Linear' },
-      { label: 'Body',      value: 'Extruded Aluminium' },
+      { label: 'Model', value: 'LG Linear' },
+      { label: 'Type', value: 'Recessed Linear' },
+      { label: 'Body', value: 'Extruded Aluminium' },
       { label: 'IP Rating', value: 'IP67' },
-      { label: 'CCT',       value: '2700K / 4000K' },
-      { label: 'Install',   value: 'Flush Inground' },
+      { label: 'CCT', value: '2700K / 4000K' },
+      { label: 'Install', value: 'Flush Inground' },
     ],
   },
   {
@@ -728,12 +752,12 @@ const FEATURED_PRODUCTS = [
       'https://images.unsplash.com/photo-1608377205619-03a0b4c4e270?w=1600&h=900&fit=crop&auto=format',
     ],
     specs: [
-      { label: 'Model',    value: 'SS Surface' },
-      { label: 'Type',     value: 'Surface Spotlight' },
-      { label: 'Heads',    value: '1 / 2 / 3 / 4' },
-      { label: 'IP Rating',value: 'IP20' },
-      { label: 'CCT',      value: '3000K / 4000K' },
-      { label: 'Finish',   value: 'Black / White' },
+      { label: 'Model', value: 'SS Surface' },
+      { label: 'Type', value: 'Surface Spotlight' },
+      { label: 'Heads', value: '1 / 2 / 3 / 4' },
+      { label: 'IP Rating', value: 'IP20' },
+      { label: 'CCT', value: '3000K / 4000K' },
+      { label: 'Finish', value: 'Black / White' },
     ],
   },
   {
@@ -748,12 +772,12 @@ const FEATURED_PRODUCTS = [
       'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&h=900&fit=crop&auto=format',
     ],
     specs: [
-      { label: 'Model',     value: 'GC Crown' },
-      { label: 'Type',      value: 'Ornamental Post Top' },
-      { label: 'Body',      value: 'Die-Cast Aluminium' },
+      { label: 'Model', value: 'GC Crown' },
+      { label: 'Type', value: 'Ornamental Post Top' },
+      { label: 'Body', value: 'Die-Cast Aluminium' },
       { label: 'IP Rating', value: 'IP65' },
-      { label: 'CCT',       value: '2700K / 3000K' },
-      { label: 'Finish',    value: 'Matte Black' },
+      { label: 'CCT', value: '2700K / 3000K' },
+      { label: 'Finish', value: 'Matte Black' },
     ],
   },
   {
@@ -768,12 +792,12 @@ const FEATURED_PRODUCTS = [
       'https://images.unsplash.com/photo-1529422085564-f38b543fb00e?w=1600&h=900&fit=crop&auto=format',
     ],
     specs: [
-      { label: 'Model',     value: 'GP Globe' },
-      { label: 'Type',      value: 'Globe Post Top' },
-      { label: 'Body',      value: 'Die-Cast Aluminium' },
+      { label: 'Model', value: 'GP Globe' },
+      { label: 'Type', value: 'Globe Post Top' },
+      { label: 'Body', value: 'Die-Cast Aluminium' },
       { label: 'IP Rating', value: 'IP65' },
-      { label: 'CCT',       value: '3000K / 4000K' },
-      { label: 'Finish',    value: 'Matte Black / Grey' },
+      { label: 'CCT', value: '3000K / 4000K' },
+      { label: 'Finish', value: 'Matte Black / Grey' },
     ],
   },
   {
@@ -788,12 +812,12 @@ const FEATURED_PRODUCTS = [
       'https://images.unsplash.com/photo-1480944657103-7fed22359e1d?w=1600&h=900&fit=crop&auto=format',
     ],
     specs: [
-      { label: 'Model',     value: 'HX Helix' },
-      { label: 'Type',      value: 'Decorative Post Top' },
-      { label: 'Rings',     value: '3× LED Ring' },
+      { label: 'Model', value: 'HX Helix' },
+      { label: 'Type', value: 'Decorative Post Top' },
+      { label: 'Rings', value: '3× LED Ring' },
       { label: 'IP Rating', value: 'IP65' },
-      { label: 'CCT',       value: '3000K / 4000K' },
-      { label: 'Finish',    value: 'Gun Metal / Silver' },
+      { label: 'CCT', value: '3000K / 4000K' },
+      { label: 'Finish', value: 'Gun Metal / Silver' },
     ],
   },
   {
@@ -808,12 +832,12 @@ const FEATURED_PRODUCTS = [
       'https://images.unsplash.com/photo-1685459842175-788b5f24ccf2?w=1600&h=900&fit=crop&auto=format',
     ],
     specs: [
-      { label: 'Model',     value: 'GO Globe' },
-      { label: 'Type',      value: 'Globe Park Lantern' },
-      { label: 'Body',      value: 'Die-Cast Aluminium' },
+      { label: 'Model', value: 'GO Globe' },
+      { label: 'Type', value: 'Globe Park Lantern' },
+      { label: 'Body', value: 'Die-Cast Aluminium' },
       { label: 'IP Rating', value: 'IP66' },
-      { label: 'CCT',       value: '3000K / 4000K' },
-      { label: 'Finish',    value: 'Matte Black' },
+      { label: 'CCT', value: '3000K / 4000K' },
+      { label: 'Finish', value: 'Matte Black' },
     ],
   },
   {
@@ -828,12 +852,12 @@ const FEATURED_PRODUCTS = [
       'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1600&h=900&fit=crop&auto=format',
     ],
     specs: [
-      { label: 'Model',     value: 'HX Helix Pro' },
-      { label: 'Type',      value: 'Decorative Street Light' },
-      { label: 'Rings',     value: '3× Angled LED Ring' },
+      { label: 'Model', value: 'HX Helix Pro' },
+      { label: 'Type', value: 'Decorative Street Light' },
+      { label: 'Rings', value: '3× Angled LED Ring' },
       { label: 'IP Rating', value: 'IP65' },
-      { label: 'CCT',       value: '3000K / 4000K' },
-      { label: 'Finish',    value: 'Gun Metal' },
+      { label: 'CCT', value: '3000K / 4000K' },
+      { label: 'Finish', value: 'Gun Metal' },
     ],
   },
   {
@@ -848,12 +872,12 @@ const FEATURED_PRODUCTS = [
       'https://images.unsplash.com/photo-1586766820393-556ca02e1bcd?w=1600&h=900&fit=crop&auto=format',
     ],
     specs: [
-      { label: 'Model',     value: 'SG Sphere' },
-      { label: 'Type',      value: 'Sphere Garden Light' },
-      { label: 'Globe',     value: 'Borosilicate Clear' },
+      { label: 'Model', value: 'SG Sphere' },
+      { label: 'Type', value: 'Sphere Garden Light' },
+      { label: 'Globe', value: 'Borosilicate Clear' },
       { label: 'IP Rating', value: 'IP66' },
-      { label: 'CCT',       value: '3000K / 4000K' },
-      { label: 'Finish',    value: 'Matte Black' },
+      { label: 'CCT', value: '3000K / 4000K' },
+      { label: 'Finish', value: 'Matte Black' },
     ],
   },
 ]
@@ -897,8 +921,8 @@ function adaptHeroSlides(slides: any[] | undefined, defaultSlides: typeof HERO_S
       headline: Array.isArray(s.headline)
         ? s.headline
         : typeof s.headline === 'string'
-        ? s.headline.split('\n')
-        : fallback.headline,
+          ? s.headline.split('\n')
+          : fallback.headline,
       sub: s.sub || fallback.sub,
       location: s.location || fallback.location,
     };
@@ -923,8 +947,8 @@ function adaptFeaturedProducts(
     const specs = (p.technical_specs && p.technical_specs.length > 0)
       ? p.technical_specs.slice(0, 6)
       : (p.specs && p.specs.length > 0)
-      ? p.specs.slice(0, 6).map((s, i) => ({ label: `Spec ${i + 1}`, value: s }))
-      : fallback.specs;
+        ? p.specs.slice(0, 6).map((s, i) => ({ label: `Spec ${i + 1}`, value: s }))
+        : fallback.specs;
 
     const bgSlides = (p.gallery && p.gallery.length > 0)
       ? p.gallery
@@ -945,14 +969,14 @@ function adaptFeaturedProducts(
   });
 }
 
-const BG_DURATION   = 2500   // ms per background slide
+const BG_DURATION = 2500   // ms per background slide
 const PROD_DURATION = 8000   // ms per product
 
 function FeaturedProduct({ products = FEATURED_PRODUCTS }: { products?: typeof FEATURED_PRODUCTS }) {
   const [prodIdx, setProdIdx] = useState(0)
-  const [bgIdx,   setBgIdx]   = useState(0)
-  const [bgProg,  setBgProg]  = useState(0)
-  const [prodProg,setProdProg]= useState(0)
+  const [bgIdx, setBgIdx] = useState(0)
+  const [bgProg, setBgProg] = useState(0)
+  const [prodProg, setProdProg] = useState(0)
   const [leaving, setLeaving] = useState(false)
 
   const product = products[prodIdx] || products[0]
@@ -966,8 +990,8 @@ function FeaturedProduct({ products = FEATURED_PRODUCTS }: { products?: typeof F
   useEffect(() => {
     setBgProg(0)
     const start = Date.now()
-    const tick  = setInterval(() => setBgProg(Math.min((Date.now() - start) / BG_DURATION, 1)), 16)
-    const adv   = setTimeout(() => setBgIdx(i => (i + 1) % totalBg), BG_DURATION)
+    const tick = setInterval(() => setBgProg(Math.min((Date.now() - start) / BG_DURATION, 1)), 16)
+    const adv = setTimeout(() => setBgIdx(i => (i + 1) % totalBg), BG_DURATION)
     return () => { clearInterval(tick); clearTimeout(adv) }
   }, [bgIdx, prodIdx, totalBg])
 
@@ -975,8 +999,8 @@ function FeaturedProduct({ products = FEATURED_PRODUCTS }: { products?: typeof F
   useEffect(() => {
     setProdProg(0)
     const start = Date.now()
-    const tick  = setInterval(() => setProdProg(Math.min((Date.now() - start) / PROD_DURATION, 1)), 16)
-    const adv   = setTimeout(() => {
+    const tick = setInterval(() => setProdProg(Math.min((Date.now() - start) / PROD_DURATION, 1)), 16)
+    const adv = setTimeout(() => {
       setLeaving(true)
       setTimeout(() => {
         setProdIdx(i => (i + 1) % products.length)
@@ -1198,7 +1222,7 @@ function FeaturedProduct({ products = FEATURED_PRODUCTS }: { products?: typeof F
               <ChevronRight size={12} />
             </button>
             <span className="font-label text-[6.5px] tracking-[0.2em] ml-2" style={{ color: 'rgba(255,255,255,0.2)' }}>
-              {String(prodIdx + 1).padStart(2,'0')} / {String(products.length).padStart(2,'0')}
+              {String(prodIdx + 1).padStart(2, '0')} / {String(products.length).padStart(2, '0')}
             </span>
           </div>
         </div>
@@ -1819,46 +1843,51 @@ function Products() {
 
               {/* Compact rows */}
               <div className="flex-1 overflow-y-auto hide-scrollbar" style={{ background: C.ink }}>
-                {active.sub.map((sub, si) => (
-                  <motion.div key={sub.name}
-                    initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.25, delay: si * 0.03 }}
-                    className="group flex items-center gap-3 px-6 py-3 cursor-pointer transition-all"
-                    style={{ borderBottom: `1px solid ${C.inkBorder}` }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = C.inkCard }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = 'transparent' }}>
-                    <span className="font-label text-[7px] tracking-[0.14em] w-3.5 shrink-0"
-                      style={{ color: C.bodyLight }}>
-                      {String(si + 1).padStart(2, '0')}
-                    </span>
-                    <div className="w-0.5 h-3 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
-                      style={{ background: C.amber }} />
-                    <div className="flex-1 min-w-0">
-                      <span className="font-sans text-[13px] leading-none block"
-                        style={{ color: C.bodyMid }}>
-                        {sub.name}
-                      </span>
-                      <span className="font-label text-[7px] tracking-[0.08em] block mt-1"
+                {active.sub.map((sub, si) => {
+                  const subSlug = sub.name.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+                  return (
+                    <Link
+                      key={sub.name}
+                      href={`/products/${active.id}/${subSlug}`}
+                      className="group flex items-center gap-3 px-6 py-3 cursor-pointer transition-all block"
+                      style={{ borderBottom: `1px solid ${C.inkBorder}` }}
+                      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = C.inkCard }}
+                      onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'transparent' }}
+                    >
+                      <span className="font-label text-[7px] tracking-[0.14em] w-3.5 shrink-0"
                         style={{ color: C.bodyLight }}>
-                        {sub.spec}
+                        {String(si + 1).padStart(2, '0')}
                       </span>
-                    </div>
-                    <span className="font-sans text-[11px] font-medium shrink-0"
-                      style={{ color: C.bodyLight }}>{sub.count}</span>
-                    <ChevronRight size={10} className="shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
-                      style={{ color: C.amber }} />
-                  </motion.div>
-                ))}
+                      <div className="w-0.5 h-3 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                        style={{ background: C.amber }} />
+                      <div className="flex-1 min-w-0">
+                        <span className="font-sans text-[13px] leading-none block group-hover:text-[#C9944A] transition-colors"
+                          style={{ color: C.bodyMid }}>
+                          {sub.name}
+                        </span>
+                        <span className="font-label text-[7px] tracking-[0.08em] block mt-1"
+                          style={{ color: C.bodyLight }}>
+                          {sub.spec}
+                        </span>
+                      </div>
+                      <span className="font-sans text-[11px] font-medium shrink-0"
+                        style={{ color: C.bodyLight }}>{sub.count}</span>
+                      <ChevronRight size={10} className="shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                        style={{ color: C.amber }} />
+                    </Link>
+                  );
+                })}
               </div>
 
               {/* Footer CTAs */}
               <div className="flex items-center gap-3 px-6 py-3.5"
                 style={{ borderTop: `1px solid ${C.inkBorder}`, background: C.inkCard }}>
-                <a href="#contact"
+                <Link
+                  href={`/products/${active.id}`}
                   className="inline-flex items-center gap-2 px-5 py-2.5 font-label text-[8px] tracking-[0.14em] uppercase transition-opacity hover:opacity-85"
                   style={{ background: C.amber, color: '#fff' }}>
                   View All {active.name} <ArrowRight size={8} />
-                </a>
+                </Link>
                 <a href="#downloads"
                   className="inline-flex items-center gap-2 px-5 py-2.5 font-label text-[8px] tracking-[0.14em] uppercase transition-opacity hover:opacity-75"
                   style={{ border: `1px solid ${C.inkBorder}`, color: C.bodyMid }}>
@@ -1897,22 +1926,26 @@ function Products() {
             </div>
 
             {/* Category info at bottom */}
-            <div className="absolute bottom-0 left-0 right-0 p-5">
+            <Link
+              href={`/products/${active.id}`}
+              className="absolute bottom-0 left-0 right-0 p-5 group/card cursor-pointer block z-10"
+            >
               <div className="flex items-center gap-2 mb-1.5">
                 <div className="w-3 h-px" style={{ background: C.amber }} />
                 <span className="font-label text-[7px] tracking-[0.26em] uppercase" style={{ color: C.amber }}>
                   {String(PRODUCT_CATEGORIES.findIndex(c => c.id === activeId) + 1).padStart(2, '0')} / 06
                 </span>
               </div>
-              <h3 className="font-serif font-semibold leading-tight mb-1.5"
+              <h3 className="font-serif font-semibold leading-tight mb-1.5 group-hover/card:text-[#C9944A] transition-colors"
                 style={{ fontSize: 'clamp(1.1rem, 1.8vw, 1.4rem)', color: '#fff', letterSpacing: '-0.02em' }}>
                 {active.name}
               </h3>
-              <p className="font-label text-[7px] tracking-[0.12em]"
+              <p className="font-label text-[7px] tracking-[0.12em] flex items-center justify-between"
                 style={{ color: 'rgba(255,255,255,0.45)' }}>
-                {active.count} Products · {active.sub.length} Ranges
+                <span>{active.count} Products · {active.sub.length} Ranges</span>
+                <span className="text-[#B5722A] font-semibold flex items-center gap-1 group-hover/card:underline">Showroom →</span>
               </p>
-            </div>
+            </Link>
           </motion.div>
         </AnimatePresence>
 
@@ -2765,24 +2798,24 @@ function Technology() {
 
 // ─── PROJECTS ────────────────────────────────────────────────────────────────
 const PROJECT_MARQUEE_ROW1 = [
-  { image: '1512453979798-5ea266f8880c', name: 'MHADA',              country: 'Mumbai, India',    type: 'Residential' },
+  { image: '1512453979798-5ea266f8880c', name: 'MHADA', country: 'Mumbai, India', type: 'Residential' },
   { image: '1486325212027-8081e485255e', name: 'Tata Realty — Intelian Park', country: 'Mumbai, India', type: 'Commercial' },
   { image: '1565538810643-b5bdb714032a', name: 'Tata Realty — OBLP', country: 'Bangalore, India', type: 'Commercial' },
   { image: '1600585154340-be6161a56a0c', name: 'KRC — Whispering Heights', country: 'Mumbai, India', type: 'Residential' },
-  { image: '1558618047-3c8c76ca7d13',   name: 'Piramal — Mahalaxmi', country: 'Mumbai, India',    type: 'Luxury' },
-  { image: '1559827291-72f59ad28f64',   name: 'Skycity Mall',        country: 'Kandivali, Mumbai', type: 'Retail' },
-  { image: '1499856871958-5b9627545d1a', name: 'Oberoi Mall',        country: 'Goregaon, Mumbai', type: 'Retail' },
-  { image: '1558618666-fcd25c85cd64',   name: 'Phoenix Mall',        country: 'Pune, India',      type: 'Retail' },
+  { image: '1558618047-3c8c76ca7d13', name: 'Piramal — Mahalaxmi', country: 'Mumbai, India', type: 'Luxury' },
+  { image: '1559827291-72f59ad28f64', name: 'Skycity Mall', country: 'Kandivali, Mumbai', type: 'Retail' },
+  { image: '1499856871958-5b9627545d1a', name: 'Oberoi Mall', country: 'Goregaon, Mumbai', type: 'Retail' },
+  { image: '1558618666-fcd25c85cd64', name: 'Phoenix Mall', country: 'Pune, India', type: 'Retail' },
 ]
 const PROJECT_MARQUEE_ROW2 = [
-  { image: '1436491865332-7a61a109cc05', name: 'Indigo Hotel',       country: 'Bangkok, Thailand', type: 'Hospitality' },
-  { image: '1512453979798-5ea266f8880c', name: 'DBH Hotel',          country: 'Dubai, UAE',        type: 'Hospitality' },
-  { image: '1480714378408-67cf0d13bc1b', name: 'KRC — Building 12',  country: 'Hyderabad, India',  type: 'Commercial' },
-  { image: '1571440727633-ca6b05da2008', name: 'KRC — Chennai',      country: 'Chennai, India',    type: 'Commercial' },
-  { image: '1467269204594-9661b134dd2b', name: 'KRC — Pune Kharadi', country: 'Pune, India',       type: 'Commercial' },
-  { image: '1465146344425-f00d5f5c8f07', name: 'KRC — Articia',      country: 'India',             type: 'Mixed-Use' },
-  { image: '1524995997946-a1c2e315a42f', name: 'Piramal — Bhandup',  country: 'Mumbai, India',     type: 'Residential' },
-  { image: '1519978778433-26bc8f7a9e52', name: 'BARC — Chembur',     country: 'Mumbai, India',     type: 'Institutional' },
+  { image: '1436491865332-7a61a109cc05', name: 'Indigo Hotel', country: 'Bangkok, Thailand', type: 'Hospitality' },
+  { image: '1512453979798-5ea266f8880c', name: 'DBH Hotel', country: 'Dubai, UAE', type: 'Hospitality' },
+  { image: '1480714378408-67cf0d13bc1b', name: 'KRC — Building 12', country: 'Hyderabad, India', type: 'Commercial' },
+  { image: '1571440727633-ca6b05da2008', name: 'KRC — Chennai', country: 'Chennai, India', type: 'Commercial' },
+  { image: '1467269204594-9661b134dd2b', name: 'KRC — Pune Kharadi', country: 'Pune, India', type: 'Commercial' },
+  { image: '1465146344425-f00d5f5c8f07', name: 'KRC — Articia', country: 'India', type: 'Mixed-Use' },
+  { image: '1524995997946-a1c2e315a42f', name: 'Piramal — Bhandup', country: 'Mumbai, India', type: 'Residential' },
+  { image: '1519978778433-26bc8f7a9e52', name: 'BARC — Chembur', country: 'Mumbai, India', type: 'Institutional' },
 ]
 
 const ALL_PROJECTS = [...PROJECT_MARQUEE_ROW1, ...PROJECT_MARQUEE_ROW2]
@@ -2792,24 +2825,24 @@ function Projects({ projects }: { projects?: any[] } = {}) {
   const inView = useInView(ref, { once: true, margin: '-60px' })
 
   const defaultRow1 = [
-    { image: '1512453979798-5ea266f8880c', name: 'MHADA',                       country: 'Mumbai, India',     type: 'Residential', year: '2023', scope: 'External Lighting' },
-    { image: '1486325212027-8081e485255e', name: 'Tata Realty — Intelian Park',  country: 'Mumbai, India',     type: 'Commercial',  year: '2023', scope: 'Facade & Landscape' },
-    { image: '1565538810643-b5bdb714032a', name: 'Tata Realty — OBLP',           country: 'Bangalore, India',  type: 'Commercial',  year: '2022', scope: 'Architectural Lighting' },
-    { image: '1600585154340-be6161a56a0c', name: 'KRC — Whispering Heights',     country: 'Mumbai, India',     type: 'Residential', year: '2023', scope: 'Full Project' },
-    { image: '1558618047-3c8c76ca7d13',   name: 'Piramal — Mahalaxmi',           country: 'Mumbai, India',     type: 'Luxury',      year: '2024', scope: 'Premium Lighting' },
-    { image: '1559827291-72f59ad28f64',   name: 'Skycity Mall',                  country: 'Kandivali, Mumbai', type: 'Retail',      year: '2023', scope: 'Mall Lighting' },
-    { image: '1499856871958-5b9627545d1a', name: 'Oberoi Mall',                  country: 'Goregaon, Mumbai',  type: 'Retail',      year: '2022', scope: 'Interior & Exterior' },
-    { image: '1558618666-fcd25c85cd64',   name: 'Phoenix Mall',                  country: 'Pune, India',       type: 'Retail',      year: '2023', scope: 'Full Lighting Design' },
+    { image: '1512453979798-5ea266f8880c', name: 'MHADA', country: 'Mumbai, India', type: 'Residential', year: '2023', scope: 'External Lighting' },
+    { image: '1486325212027-8081e485255e', name: 'Tata Realty — Intelian Park', country: 'Mumbai, India', type: 'Commercial', year: '2023', scope: 'Facade & Landscape' },
+    { image: '1565538810643-b5bdb714032a', name: 'Tata Realty — OBLP', country: 'Bangalore, India', type: 'Commercial', year: '2022', scope: 'Architectural Lighting' },
+    { image: '1600585154340-be6161a56a0c', name: 'KRC — Whispering Heights', country: 'Mumbai, India', type: 'Residential', year: '2023', scope: 'Full Project' },
+    { image: '1558618047-3c8c76ca7d13', name: 'Piramal — Mahalaxmi', country: 'Mumbai, India', type: 'Luxury', year: '2024', scope: 'Premium Lighting' },
+    { image: '1559827291-72f59ad28f64', name: 'Skycity Mall', country: 'Kandivali, Mumbai', type: 'Retail', year: '2023', scope: 'Mall Lighting' },
+    { image: '1499856871958-5b9627545d1a', name: 'Oberoi Mall', country: 'Goregaon, Mumbai', type: 'Retail', year: '2022', scope: 'Interior & Exterior' },
+    { image: '1558618666-fcd25c85cd64', name: 'Phoenix Mall', country: 'Pune, India', type: 'Retail', year: '2023', scope: 'Full Lighting Design' },
   ]
   const defaultRow2 = [
-    { image: '1436491865332-7a61a109cc05', name: 'Indigo Hotel',                 country: 'Bangkok, Thailand', type: 'Hospitality',   year: '2024', scope: 'Hotel Lighting' },
-    { image: '1512453979798-5ea266f8880c', name: 'DBH Hotel',                    country: 'Dubai, UAE',        type: 'Hospitality',   year: '2023', scope: 'Luxury Lighting' },
-    { image: '1480714378408-67cf0d13bc1b', name: 'KRC — Building 12',            country: 'Hyderabad, India',  type: 'Commercial',    year: '2024', scope: 'Office Lighting' },
-    { image: '1571440727633-ca6b05da2008', name: 'KRC — Chennai',                country: 'Chennai, India',    type: 'Commercial',    year: '2023', scope: 'Commercial Lighting' },
-    { image: '1467269204594-9661b134dd2b', name: 'KRC — Pune Kharadi',           country: 'Pune, India',       type: 'Commercial',    year: '2024', scope: 'Full Project' },
-    { image: '1465146344425-f00d5f5c8f07', name: 'KRC — Articia',                country: 'India',             type: 'Mixed-Use',     year: '2023', scope: 'Architectural' },
-    { image: '1524995997946-a1c2e315a42f', name: 'Piramal — Bhandup',            country: 'Mumbai, India',     type: 'Residential',   year: '2022', scope: 'Landscape Lighting' },
-    { image: '1519978778433-26bc8f7a9e52', name: 'BARC — Chembur',               country: 'Mumbai, India',     type: 'Institutional', year: '2023', scope: 'Campus Lighting' },
+    { image: '1436491865332-7a61a109cc05', name: 'Indigo Hotel', country: 'Bangkok, Thailand', type: 'Hospitality', year: '2024', scope: 'Hotel Lighting' },
+    { image: '1512453979798-5ea266f8880c', name: 'DBH Hotel', country: 'Dubai, UAE', type: 'Hospitality', year: '2023', scope: 'Luxury Lighting' },
+    { image: '1480714378408-67cf0d13bc1b', name: 'KRC — Building 12', country: 'Hyderabad, India', type: 'Commercial', year: '2024', scope: 'Office Lighting' },
+    { image: '1571440727633-ca6b05da2008', name: 'KRC — Chennai', country: 'Chennai, India', type: 'Commercial', year: '2023', scope: 'Commercial Lighting' },
+    { image: '1467269204594-9661b134dd2b', name: 'KRC — Pune Kharadi', country: 'Pune, India', type: 'Commercial', year: '2024', scope: 'Full Project' },
+    { image: '1465146344425-f00d5f5c8f07', name: 'KRC — Articia', country: 'India', type: 'Mixed-Use', year: '2023', scope: 'Architectural' },
+    { image: '1524995997946-a1c2e315a42f', name: 'Piramal — Bhandup', country: 'Mumbai, India', type: 'Residential', year: '2022', scope: 'Landscape Lighting' },
+    { image: '1519978778433-26bc8f7a9e52', name: 'BARC — Chembur', country: 'Mumbai, India', type: 'Institutional', year: '2023', scope: 'Campus Lighting' },
   ]
 
   const dbRow1 = projects && projects.length > 0 ? projects.filter(p => p.is_marquee_row1) : []
@@ -2832,11 +2865,11 @@ function Projects({ projects }: { projects?: any[] } = {}) {
     city: p.country?.split(',')[0]?.trim() || p.country || ''
   }))
 
-  const BG    = '#18100A'   // deep espresso — portfolio dark zone
-  const BGL   = 'rgba(255,255,255,0.05)'  // subtle divider on dark
+  const BG = '#18100A'   // deep espresso — portfolio dark zone
+  const BGL = 'rgba(255,255,255,0.05)'  // subtle divider on dark
   const CARD_W = 380
   const CARD_H = 260
-  const GAP    = 14
+  const GAP = 14
 
   const MarqueeCard = ({ p }: { p: typeof row1[0] }) => (
     <div className="group relative overflow-hidden shrink-0 cursor-pointer"
@@ -2968,14 +3001,14 @@ function Applications() {
   const [active, setActive] = useState(0)
 
   const apps = [
-    { tag: 'Hospitality',     name: 'Hotels & Hospitality',    desc: 'Bespoke ambience for lobbies, suites, ballrooms and resort exteriors.',       image: '1551882547-ff40c63fe5fa', count: 140 },
-    { tag: 'Residential',     name: 'Luxury Villas & Homes',   desc: 'Layered architectural light for private residences and villa communities.',     image: '1600585154340-be6161a56a0c', count: 88 },
-    { tag: 'Commercial',      name: 'Commercial Buildings',     desc: 'Efficient, specification-grade luminaires for offices and retail environments.', image: '1486325212027-8081e485255e', count: 112 },
-    { tag: 'Infrastructure',  name: 'Airports & Transit',       desc: 'High-lumen, IK10-rated systems for terminals, platforms and concourses.',       image: '1436491865332-7a61a109cc05', count: 64 },
-    { tag: 'Urban',           name: 'Roads & Highways',         desc: 'Smart EN 13201-compliant street lighting designed for 24/7 performance.',       image: '1558618047-3c8c76ca7d13', count: 76 },
-    { tag: 'Landscape',       name: 'Parks & Landscapes',       desc: 'Ground-level spikes, bollards and uplighters that elevate outdoor spaces.',     image: '1519978778433-26bc8f7a9e52', count: 95 },
-    { tag: 'Cultural',        name: 'Museums & Cultural',       desc: 'CRI >95 accent and display lighting for galleries, museums and heritage sites.', image: '1565538810643-b5bdb714032a', count: 58 },
-    { tag: 'Smart',           name: 'Smart Cities',             desc: 'IoT-ready luminaires with DALI-2, DMX and centralised control integration.',   image: '1480714378408-67cf0d13bc1b', count: 42 },
+    { tag: 'Hospitality', name: 'Hotels & Hospitality', desc: 'Bespoke ambience for lobbies, suites, ballrooms and resort exteriors.', image: '1551882547-ff40c63fe5fa', count: 140 },
+    { tag: 'Residential', name: 'Luxury Villas & Homes', desc: 'Layered architectural light for private residences and villa communities.', image: '1600585154340-be6161a56a0c', count: 88 },
+    { tag: 'Commercial', name: 'Commercial Buildings', desc: 'Efficient, specification-grade luminaires for offices and retail environments.', image: '1486325212027-8081e485255e', count: 112 },
+    { tag: 'Infrastructure', name: 'Airports & Transit', desc: 'High-lumen, IK10-rated systems for terminals, platforms and concourses.', image: '1436491865332-7a61a109cc05', count: 64 },
+    { tag: 'Urban', name: 'Roads & Highways', desc: 'Smart EN 13201-compliant street lighting designed for 24/7 performance.', image: '1558618047-3c8c76ca7d13', count: 76 },
+    { tag: 'Landscape', name: 'Parks & Landscapes', desc: 'Ground-level spikes, bollards and uplighters that elevate outdoor spaces.', image: '1519978778433-26bc8f7a9e52', count: 95 },
+    { tag: 'Cultural', name: 'Museums & Cultural', desc: 'CRI >95 accent and display lighting for galleries, museums and heritage sites.', image: '1565538810643-b5bdb714032a', count: 58 },
+    { tag: 'Smart', name: 'Smart Cities', desc: 'IoT-ready luminaires with DALI-2, DMX and centralised control integration.', image: '1480714378408-67cf0d13bc1b', count: 42 },
   ]
 
   return (
@@ -3341,7 +3374,7 @@ function Contact() {
             <div className="mt-10 flex flex-col gap-4" style={{ borderTop: `1px solid ${C.inkBorder}`, paddingTop: '2rem' }}>
               {[
                 { icon: Phone, value: '+91 22 4567 8900', label: 'International HQ Line' },
-                { icon: Mail,  value: 'info@ziviolife.com', label: 'General Enquiries'    },
+                { icon: Mail, value: 'info@ziviolife.com', label: 'General Enquiries' },
               ].map(({ icon: Icon, value, label }) => (
                 <div key={label} className="flex items-center gap-4">
                   <div className="w-8 h-8 flex items-center justify-center rounded-full shrink-0"
@@ -3594,7 +3627,7 @@ function TestimonialSlider({ testimonials, C }: { testimonials: Testimonial[]; C
                   {/* Verified dot */}
                   <div className="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full flex items-center justify-center"
                     style={{ background: C.navyDark, border: `1.5px solid ${C.amber}` }}>
-                    <svg viewBox="0 0 10 10" width="9" height="9" fill={C.amber}><path d="M4.1 7.3L1.5 4.7l.9-.9 1.7 1.7 3.5-3.5.9.9z"/></svg>
+                    <svg viewBox="0 0 10 10" width="9" height="9" fill={C.amber}><path d="M4.1 7.3L1.5 4.7l.9-.9 1.7 1.7 3.5-3.5.9.9z" /></svg>
                   </div>
                 </div>
               </motion.div>
@@ -3617,9 +3650,9 @@ function TestimonialSlider({ testimonials, C }: { testimonials: Testimonial[]; C
 
             {/* Stars */}
             <div className="flex gap-1">
-              {[1,2,3,4,5].map(s => (
+              {[1, 2, 3, 4, 5].map(s => (
                 <svg key={s} viewBox="0 0 12 12" width="11" height="11" fill={C.amber}>
-                  <path d="M6 1l1.4 2.9 3.2.5-2.3 2.2.5 3.2L6 8.3 3.2 9.8l.5-3.2L1.4 4.4l3.2-.5z"/>
+                  <path d="M6 1l1.4 2.9 3.2.5-2.3 2.2.5 3.2L6 8.3 3.2 9.8l.5-3.2L1.4 4.4l3.2-.5z" />
                 </svg>
               ))}
             </div>
@@ -3671,14 +3704,14 @@ function TestimonialSlider({ testimonials, C }: { testimonials: Testimonial[]; C
                 style={{ border: `1px solid rgba(255,255,255,0.15)`, background: 'transparent', color: 'rgba(255,255,255,0.5)' }}
                 onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = C.amber; (e.currentTarget as HTMLButtonElement).style.color = C.amber }}
                 onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(255,255,255,0.15)'; (e.currentTarget as HTMLButtonElement).style.color = 'rgba(255,255,255,0.5)' }}>
-                <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 15l-5-5 5-5"/></svg>
+                <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 15l-5-5 5-5" /></svg>
               </button>
               <button onClick={() => setActive(a => (a + 1) % total)}
                 className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200"
                 style={{ border: `1px solid rgba(255,255,255,0.15)`, background: 'transparent', color: 'rgba(255,255,255,0.5)' }}
                 onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = C.amber; (e.currentTarget as HTMLButtonElement).style.color = C.amber }}
                 onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(255,255,255,0.15)'; (e.currentTarget as HTMLButtonElement).style.color = 'rgba(255,255,255,0.5)' }}>
-                <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M8 5l5 5-5 5"/></svg>
+                <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M8 5l5 5-5 5" /></svg>
               </button>
               <span className="font-label text-[7px] tracking-[0.15em] self-center ml-2" style={{ color: 'rgba(255,255,255,0.25)' }}>
                 PAUSE ON HOVER · AUTO-ADVANCES
@@ -3794,375 +3827,375 @@ function NewsMedia({ open, onClose }: { open: boolean; onClose: () => void }) {
   return (
     <AnimatePresence>
       {open && (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 40 }}
-      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed inset-0 z-[80] overflow-y-auto"
-      style={{ background: C.ink }}>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 40 }}
+          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          className="fixed inset-0 z-[80] overflow-y-auto"
+          style={{ background: C.ink }}>
 
-      {/* Close button */}
-      <button onClick={onClose}
-        className="fixed top-5 right-6 z-[90] flex items-center gap-2 px-4 py-2 rounded-full font-sans font-semibold text-[11px] tracking-wide uppercase transition-all hover:opacity-80"
-        style={{ background: C.bodyDark, color: C.ink, letterSpacing: '0.06em', boxShadow: '0 4px 20px rgba(0,0,0,0.3)' }}>
-        <X size={13} /> Close
-      </button>
+          {/* Close button */}
+          <button onClick={onClose}
+            className="fixed top-5 right-6 z-[90] flex items-center gap-2 px-4 py-2 rounded-full font-sans font-semibold text-[11px] tracking-wide uppercase transition-all hover:opacity-80"
+            style={{ background: C.bodyDark, color: C.ink, letterSpacing: '0.06em', boxShadow: '0 4px 20px rgba(0,0,0,0.3)' }}>
+            <X size={13} /> Close
+          </button>
 
-    <section id="news" style={{ background: C.ink }}>
+          <section id="news" style={{ background: C.ink }}>
 
-      {/* ══ CINEMATIC HERO ══ */}
-      <div className="relative overflow-hidden" style={{ height: '72vh', minHeight: 520 }}>
-        <motion.div className="absolute inset-0"
-          initial={{ scale: 1.06 }} animate={{ scale: 1 }}
-          transition={{ duration: 1.8, ease: 'easeOut' }}>
-          <img src={img('1560257084-d568f6eb7b29', 1920, 1080)} alt="ZiVIO News"
-            className="w-full h-full object-cover" />
-        </motion.div>
-        {/* Multi-layer overlay */}
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(115deg, rgba(4,3,1,0.88) 0%, rgba(4,3,1,0.46) 50%, rgba(4,3,1,0.12) 100%)' }} />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(4,3,1,0.9) 0%, transparent 45%)' }} />
-
-        {/* Content */}
-        <div className="absolute inset-0 flex flex-col justify-between">
-          {/* Top bar */}
-          <div className="max-w-[1440px] mx-auto w-full px-10 lg:px-16 pt-10 flex items-center justify-between">
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2, duration: 0.7 }}
-              className="flex items-center gap-3">
-              <div style={{ width: 24, height: 1, background: C.amber }} />
-              <span className="font-label text-[7px] tracking-[0.38em] uppercase" style={{ color: C.amber }}>ZiVIO · News & Media</span>
-            </motion.div>
-            <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3, duration: 0.6 }}
-              className="font-label text-[7px] tracking-[0.2em] hidden lg:block" style={{ color: 'rgba(255,255,255,0.22)' }}>
-              {new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}
-            </motion.span>
-          </div>
-
-          {/* Hero headline */}
-          <div className="max-w-[1440px] mx-auto w-full px-10 lg:px-16 pb-14">
-            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.15, ease: [0.16,1,0.3,1] }}>
-              <div className="overflow-hidden mb-3">
-                <motion.h1 className="font-serif font-bold" initial={{ y: '100%' }} animate={{ y: 0 }}
-                  transition={{ duration: 1, delay: 0.2, ease: [0.16,1,0.3,1] }}
-                  style={{ fontSize: 'clamp(2.8rem,6vw,7rem)', color: '#fff', letterSpacing: '-0.04em', lineHeight: 0.92 }}>
-                  Stories That Define
-                </motion.h1>
-              </div>
-              <div className="overflow-hidden mb-6">
-                <motion.h1 className="font-serif font-light italic" initial={{ y: '100%' }} animate={{ y: 0 }}
-                  transition={{ duration: 1, delay: 0.3, ease: [0.16,1,0.3,1] }}
-                  style={{ fontSize: 'clamp(2.8rem,6vw,7rem)', color: C.amberLt, letterSpacing: '-0.04em', lineHeight: 0.92 }}>
-                  Our Journey.
-                </motion.h1>
-              </div>
-              <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.5 }}
-                className="font-sans" style={{ fontSize: 14, color: 'rgba(255,255,255,0.45)', maxWidth: 500, lineHeight: 1.75 }}>
-                Discover milestones, industry recognition, innovation, and community initiatives that define ZiVIO LIFE across 15+ countries.
-              </motion.p>
-            </motion.div>
-          </div>
-        </div>
-      </div>
-
-      {/* ══ STICKY FILTER ══ */}
-      <div className="sticky z-30" style={{ top: 56, background: 'rgba(250,249,246,0.96)', backdropFilter: 'blur(16px)', borderBottom: `1px solid ${C.inkBorder}` }}>
-        <div className="max-w-[1440px] mx-auto px-10 lg:px-16 flex items-center justify-between">
-          <div className="flex items-center gap-1 overflow-x-auto hide-scrollbar py-3.5">
-            {NEWS_CATEGORIES.map(cat => (
-              <button key={cat} onClick={() => setActiveCategory(cat)}
-                className="whitespace-nowrap font-label text-[7px] tracking-[0.2em] uppercase px-3.5 py-1.5 rounded-full transition-all duration-200"
-                style={{
-                  background: activeCategory === cat ? C.bodyDark : 'transparent',
-                  color: activeCategory === cat ? '#fff' : C.bodyLight,
-                  border: `1px solid ${activeCategory === cat ? C.bodyDark : C.inkBorder}`,
-                }}>
-                {cat}
-              </button>
-            ))}
-          </div>
-          <span className="font-label text-[7px] tracking-[0.18em] shrink-0 ml-6 hidden md:block" style={{ color: C.bodyLight }}>
-            {filtered.length} {filtered.length === 1 ? 'story' : 'stories'}
-          </span>
-        </div>
-      </div>
-
-      {/* ══ EDITORIAL LEAD STORY + SIDE STACK ══ */}
-      {hero && (
-        <div style={{ borderBottom: `1px solid ${C.inkBorder}` }}>
-          <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_380px]" style={{ minHeight: 520 }}>
-
-            {/* Hero story — full image with overlay text */}
-            <motion.div className="group relative cursor-pointer overflow-hidden"
-              style={{ borderRight: `1px solid ${C.inkBorder}` }}
-              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-              <motion.img src={img(hero.image, 1200, 700)} alt={hero.headline}
-                className="w-full h-full object-cover absolute inset-0"
-                style={{ minHeight: 420 }}
-                whileHover={{ scale: 1.03 }}
-                transition={{ duration: 0.8, ease: [0.25,0.46,0.45,0.94] }} />
-              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(4,3,1,0.96) 0%, rgba(4,3,1,0.55) 35%, rgba(4,3,1,0.1) 70%)' }} />
-              <div className="absolute inset-x-0 bottom-0 p-8 lg:p-12">
-                <span className="inline-flex items-center gap-2 font-label text-[6.5px] tracking-[0.2em] uppercase mb-4 px-2.5 py-1 rounded-full"
-                  style={{ background: C.amber, color: '#fff' }}>
-                  {hero.tag}
-                </span>
-                <h2 className="font-serif font-bold mb-3 leading-tight"
-                  style={{ fontSize: 'clamp(1.4rem,2.8vw,2.4rem)', color: '#fff', letterSpacing: '-0.025em', maxWidth: 640 }}>
-                  {hero.headline}
-                </h2>
-                <p className="font-sans mb-5" style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', maxWidth: 520, lineHeight: 1.7 }}>
-                  {hero.summary}
-                </p>
-                <div className="flex items-center gap-3">
-                  <span className="font-label text-[6.5px] tracking-[0.18em] uppercase" style={{ color: 'rgba(255,255,255,0.35)' }}>{hero.date}</span>
-                  <div className="flex items-center gap-1.5 font-label text-[7px] tracking-[0.2em] uppercase transition-all group-hover:gap-3 duration-200"
-                    style={{ color: C.amberLt }}>
-                    Read Story <ArrowRight size={8} />
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Side: 2 stacked stories */}
-            <div className="flex flex-col">
-              {(secondary.length > 0 ? secondary : NEWS_ITEMS.slice(1,3)).map((n, ni) => (
-                <motion.div key={n.id}
-                  className="group cursor-pointer flex flex-col flex-1"
-                  style={{ borderBottom: ni === 0 ? `1px solid ${C.inkBorder}` : 'none' }}
-                  initial={{ opacity: 0, x: 16 }} whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }} transition={{ duration: 0.55, delay: ni * 0.1 }}>
-                  {/* Image */}
-                  <div className="relative overflow-hidden" style={{ height: 180 }}>
-                    <motion.img src={img(n.image, 600, 360)} alt={n.headline}
-                      className="w-full h-full object-cover"
-                      whileHover={{ scale: 1.06 }}
-                      transition={{ duration: 0.65, ease: [0.25,0.46,0.45,0.94] }} />
-                    <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.22) 0%, transparent 60%)' }} />
-                    <span className="absolute top-3 left-3 font-label text-[5.5px] tracking-[0.16em] uppercase px-2 py-0.5 rounded-full"
-                      style={{ background: `${C.amber}dd`, color: '#fff', backdropFilter: 'blur(4px)' }}>
-                      {n.category}
-                    </span>
-                  </div>
-                  {/* Text */}
-                  <div className="p-6 flex flex-col flex-1">
-                    <span className="font-label text-[6px] tracking-[0.18em] uppercase mb-2 block" style={{ color: C.bodyLight }}>{n.date}</span>
-                    <h3 className="font-serif font-semibold leading-snug mb-2 flex-1"
-                      style={{ fontSize: '0.88rem', color: C.bodyDark, letterSpacing: '-0.014em' }}>
-                      {n.headline}
-                    </h3>
-                    <div className="flex items-center gap-1.5 font-label text-[6.5px] tracking-[0.16em] uppercase group-hover:gap-2.5 transition-all duration-200"
-                      style={{ color: C.amber }}>
-                      Read More <ArrowRight size={8} />
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ══ ARTICLE STRIP — remaining stories ══ */}
-      {rest.length > 0 && (
-        <div style={{ borderBottom: `1px solid ${C.inkBorder}` }}>
-          <div className="max-w-[1440px] mx-auto px-10 lg:px-16" style={{ paddingTop: 56, paddingBottom: 64 }}>
-            <div className="flex items-center gap-3 mb-10">
-              <div style={{ width: 20, height: 1, background: C.amber }} />
-              <span className="font-label text-[7px] tracking-[0.3em] uppercase" style={{ color: C.amber }}>More Stories</span>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-10">
-              {rest.map((n, ni) => (
-                <motion.div key={n.id} className="group cursor-pointer"
-                  initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }} transition={{ duration: 0.45, delay: ni * 0.07 }}>
-                  {/* Image */}
-                  <div className="overflow-hidden rounded-xl mb-4" style={{ aspectRatio: '16/10' }}>
-                    <motion.img src={img(n.image, 640, 400)} alt={n.headline}
-                      className="w-full h-full object-cover"
-                      whileHover={{ scale: 1.06 }}
-                      transition={{ duration: 0.6, ease: [0.25,0.46,0.45,0.94] }} />
-                  </div>
-                  {/* Meta */}
-                  <div className="flex items-center gap-2 mb-2.5">
-                    <span className="font-label text-[6px] tracking-[0.18em] uppercase px-2 py-0.5 rounded-full"
-                      style={{ background: `${C.amber}18`, color: C.amberDk, border: `1px solid ${C.amber}33` }}>
-                      {n.category}
-                    </span>
-                    <span className="font-label text-[6px] tracking-[0.14em] uppercase" style={{ color: C.bodyLight }}>{n.date}</span>
-                  </div>
-                  <h3 className="font-serif font-semibold leading-snug mb-2"
-                    style={{ fontSize: '0.9rem', color: C.bodyDark, letterSpacing: '-0.014em' }}>
-                    {n.headline}
-                  </h3>
-                  <p className="font-sans text-[11.5px] leading-relaxed mb-3"
-                    style={{ color: C.bodyMid, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
-                    {n.summary}
-                  </p>
-                  <div className="flex items-center gap-1.5 font-label text-[6.5px] tracking-[0.18em] uppercase group-hover:gap-3 transition-all"
-                    style={{ color: C.amber }}>
-                    Read More <ArrowRight size={8} />
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ══ TIMELINE ══ */}
-      <div style={{ background: C.navyDark, borderBottom: `1px solid rgba(255,255,255,0.06)` }}>
-        <div className="max-w-[1440px] mx-auto px-10 lg:px-16" style={{ paddingTop: 64, paddingBottom: 72 }}>
-          <div className="flex items-center gap-3 mb-14">
-            <div style={{ width: 20, height: 1, background: C.amber }} />
-            <span className="font-label text-[7px] tracking-[0.3em] uppercase" style={{ color: C.amber }}>Our Journey</span>
-          </div>
-          {/* Horizontal scrollable timeline */}
-          <div className="overflow-x-auto hide-scrollbar">
-            <div className="flex items-start gap-0 min-w-max pb-2">
-              {TIMELINE.map((t, ti) => (
-                <motion.div key={t.year}
-                  className="flex flex-col items-center"
-                  style={{ width: 180 }}
-                  initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }} transition={{ duration: 0.45, delay: ti * 0.06 }}>
-                  {/* Year + label */}
-                  <div className="text-center mb-5">
-                    <p className="font-serif font-bold mb-1"
-                      style={{ fontSize: '1.2rem', color: ti === TIMELINE.length - 1 ? C.amber : 'rgba(255,255,255,0.55)', letterSpacing: '-0.02em' }}>
-                      {t.year}
-                    </p>
-                    <p className="font-sans font-semibold text-[11px]" style={{ color: ti === TIMELINE.length - 1 ? C.amberLt : 'rgba(255,255,255,0.38)' }}>
-                      {t.label}
-                    </p>
-                  </div>
-                  {/* Node + line */}
-                  <div className="flex items-center w-full relative mb-5">
-                    <div className="flex-1 h-px" style={{ background: ti > 0 ? 'rgba(255,255,255,0.1)' : 'transparent' }} />
-                    <div className="w-3 h-3 rounded-full shrink-0 z-10"
-                      style={{ background: ti === TIMELINE.length - 1 ? C.amber : 'rgba(255,255,255,0.2)', boxShadow: ti === TIMELINE.length - 1 ? `0 0 0 4px ${C.amber}30` : 'none' }} />
-                    <div className="flex-1 h-px" style={{ background: ti < TIMELINE.length - 1 ? 'rgba(255,255,255,0.1)' : 'transparent' }} />
-                  </div>
-                  {/* Description */}
-                  <p className="font-sans text-[11px] text-center leading-relaxed px-3"
-                    style={{ color: 'rgba(255,255,255,0.3)' }}>
-                    {t.desc}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* ══ FULL-BLEED GALLERY ══ */}
-      <div style={{ background: '#0C0A07' }}>
-        <div className="max-w-[1440px] mx-auto px-10 lg:px-16" style={{ paddingTop: 64, paddingBottom: 72 }}>
-          <div className="flex items-center justify-between mb-10">
-            <div className="flex items-center gap-3">
-              <div style={{ width: 20, height: 1, background: C.amber }} />
-              <span className="font-label text-[7px] tracking-[0.3em] uppercase" style={{ color: C.amber }}>Image Gallery</span>
-            </div>
-            <span className="font-label text-[6.5px] tracking-[0.18em] uppercase hidden md:block" style={{ color: 'rgba(255,255,255,0.2)' }}>
-              Click to Enlarge
-            </span>
-          </div>
-          {/* 4-col masonry */}
-          <div style={{ columns: 4, columnGap: 10 }}>
-            {GALLERY_IMAGES.map((g, gi) => (
-              <motion.div key={g.id}
-                className="group cursor-pointer break-inside-avoid overflow-hidden"
-                style={{ borderRadius: 8, marginBottom: 10, position: 'relative' }}
-                initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-                viewport={{ once: true }} transition={{ duration: 0.4, delay: gi * 0.04 }}
-                onClick={() => setLightbox({ idx: gi })}>
-                <motion.img
-                  src={img(g.id, 480, gi % 3 === 0 ? 560 : gi % 3 === 1 ? 340 : 440)} alt={g.caption}
-                  className="w-full object-cover block"
-                  style={{ borderRadius: 8 }}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.55, ease: [0.25,0.46,0.45,0.94] }} />
-                {/* Gold hover overlay */}
-                <motion.div className="absolute inset-0 flex items-end p-3"
-                  style={{ borderRadius: 8, background: `linear-gradient(to top, ${C.amberDk}cc 0%, transparent 60%)` }}
-                  initial={{ opacity: 0 }} whileHover={{ opacity: 1 }}
-                  transition={{ duration: 0.25 }}>
-                  <p className="font-label text-[6px] tracking-[0.12em] text-white leading-tight">{g.caption}</p>
-                </motion.div>
+            {/* ══ CINEMATIC HERO ══ */}
+            <div className="relative overflow-hidden" style={{ height: '72vh', minHeight: 520 }}>
+              <motion.div className="absolute inset-0"
+                initial={{ scale: 1.06 }} animate={{ scale: 1 }}
+                transition={{ duration: 1.8, ease: 'easeOut' }}>
+                <img src={img('1560257084-d568f6eb7b29', 1920, 1080)} alt="ZiVIO News"
+                  className="w-full h-full object-cover" />
               </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
+              {/* Multi-layer overlay */}
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(115deg, rgba(4,3,1,0.88) 0%, rgba(4,3,1,0.46) 50%, rgba(4,3,1,0.12) 100%)' }} />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(4,3,1,0.9) 0%, transparent 45%)' }} />
 
-      {/* ══ NEWSLETTER CTA — full bleed bold ══ */}
-      <div style={{ background: C.ink, borderTop: `1px solid ${C.inkBorder}` }}>
-        <div className="max-w-[1440px] mx-auto px-10 lg:px-16" style={{ paddingTop: 80, paddingBottom: 88 }}>
-          <motion.div className="text-center"
-            initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.65 }}>
-            {/* Oversized eyebrow */}
-            <p className="font-label text-[7.5px] tracking-[0.4em] uppercase mb-6" style={{ color: C.amber }}>Stay Updated</p>
-            {/* Giant headline */}
-            <h2 className="font-serif font-bold mb-4 mx-auto"
-              style={{ fontSize: 'clamp(2.4rem,5vw,5.5rem)', color: C.bodyDark, letterSpacing: '-0.04em', lineHeight: 0.92, maxWidth: 820 }}>
-              Never Miss a<br />
-              <span style={{ color: C.amber, fontStyle: 'italic', fontWeight: 300 }}>ZiVIO Story.</span>
-            </h2>
-            <p className="font-sans mx-auto mb-10"
-              style={{ fontSize: 14, color: C.bodyMid, maxWidth: 480, lineHeight: 1.75 }}>
-              Follow our journey as we innovate, support communities, and deliver world-class lighting solutions globally.
-            </p>
-            <div className="flex items-center justify-center gap-4 flex-wrap">
-              <a href="#contact"
-                className="inline-flex items-center gap-2.5 font-label text-[9px] tracking-[0.24em] uppercase px-8 py-4 transition-all hover:-translate-y-0.5"
-                style={{ background: C.bodyDark, color: '#fff', borderRadius: 4, boxShadow: '0 8px 32px rgba(0,0,0,0.14)' }}>
-                Subscribe to Updates <ArrowRight size={9} />
-              </a>
-              <a href="#contact"
-                className="inline-flex items-center gap-2 font-label text-[9px] tracking-[0.22em] uppercase px-8 py-4 transition-all hover:border-amber-500"
-                style={{ border: `1px solid ${C.inkBorder}`, color: C.bodyMid, borderRadius: 4 }}>
-                Contact Us
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* ══ LIGHTBOX ══ */}
-      <AnimatePresence>
-        {lbImg && (
-          <motion.div className="fixed inset-0 z-[200] flex items-center justify-center"
-            style={{ background: 'rgba(4,3,1,0.94)', backdropFilter: 'blur(12px)' }}
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            onClick={() => setLightbox(null)}>
-            <motion.div className="relative max-w-4xl w-full px-4"
-              initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.94, opacity: 0 }}
-              transition={{ duration: 0.35, ease: [0.22,1,0.36,1] }}
-              onClick={e => e.stopPropagation()}>
-              <img src={img(lbImg.id, 1400, 900)} alt={lbImg.caption}
-                className="w-full object-cover" style={{ borderRadius: 12, maxHeight: '78vh' }} />
-              <div className="flex items-center justify-between mt-4 px-1">
-                <div className="flex items-center gap-3">
-                  <button onClick={lbPrev} className="w-9 h-9 rounded-full flex items-center justify-center"
-                    style={{ border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.5)' }}>
-                    <ChevronLeft size={13} />
-                  </button>
-                  <button onClick={lbNext} className="w-9 h-9 rounded-full flex items-center justify-center"
-                    style={{ border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.5)' }}>
-                    <ChevronRight size={13} />
-                  </button>
-                  <p className="font-label text-[7px] tracking-[0.16em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>{lbImg.caption}</p>
+              {/* Content */}
+              <div className="absolute inset-0 flex flex-col justify-between">
+                {/* Top bar */}
+                <div className="max-w-[1440px] mx-auto w-full px-10 lg:px-16 pt-10 flex items-center justify-between">
+                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2, duration: 0.7 }}
+                    className="flex items-center gap-3">
+                    <div style={{ width: 24, height: 1, background: C.amber }} />
+                    <span className="font-label text-[7px] tracking-[0.38em] uppercase" style={{ color: C.amber }}>ZiVIO · News & Media</span>
+                  </motion.div>
+                  <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3, duration: 0.6 }}
+                    className="font-label text-[7px] tracking-[0.2em] hidden lg:block" style={{ color: 'rgba(255,255,255,0.22)' }}>
+                    {new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}
+                  </motion.span>
                 </div>
-                <button onClick={() => setLightbox(null)}
-                  className="w-9 h-9 rounded-full flex items-center justify-center"
-                  style={{ background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.6)' }}>
-                  <X size={14} />
-                </button>
+
+                {/* Hero headline */}
+                <div className="max-w-[1440px] mx-auto w-full px-10 lg:px-16 pb-14">
+                  <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}>
+                    <div className="overflow-hidden mb-3">
+                      <motion.h1 className="font-serif font-bold" initial={{ y: '100%' }} animate={{ y: 0 }}
+                        transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                        style={{ fontSize: 'clamp(2.8rem,6vw,7rem)', color: '#fff', letterSpacing: '-0.04em', lineHeight: 0.92 }}>
+                        Stories That Define
+                      </motion.h1>
+                    </div>
+                    <div className="overflow-hidden mb-6">
+                      <motion.h1 className="font-serif font-light italic" initial={{ y: '100%' }} animate={{ y: 0 }}
+                        transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                        style={{ fontSize: 'clamp(2.8rem,6vw,7rem)', color: C.amberLt, letterSpacing: '-0.04em', lineHeight: 0.92 }}>
+                        Our Journey.
+                      </motion.h1>
+                    </div>
+                    <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.5 }}
+                      className="font-sans" style={{ fontSize: 14, color: 'rgba(255,255,255,0.45)', maxWidth: 500, lineHeight: 1.75 }}>
+                      Discover milestones, industry recognition, innovation, and community initiatives that define ZiVIO LIFE across 15+ countries.
+                    </motion.p>
+                  </motion.div>
+                </div>
               </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </section>
-    </motion.div>
+            </div>
+
+            {/* ══ STICKY FILTER ══ */}
+            <div className="sticky z-30" style={{ top: 56, background: 'rgba(250,249,246,0.96)', backdropFilter: 'blur(16px)', borderBottom: `1px solid ${C.inkBorder}` }}>
+              <div className="max-w-[1440px] mx-auto px-10 lg:px-16 flex items-center justify-between">
+                <div className="flex items-center gap-1 overflow-x-auto hide-scrollbar py-3.5">
+                  {NEWS_CATEGORIES.map(cat => (
+                    <button key={cat} onClick={() => setActiveCategory(cat)}
+                      className="whitespace-nowrap font-label text-[7px] tracking-[0.2em] uppercase px-3.5 py-1.5 rounded-full transition-all duration-200"
+                      style={{
+                        background: activeCategory === cat ? C.bodyDark : 'transparent',
+                        color: activeCategory === cat ? '#fff' : C.bodyLight,
+                        border: `1px solid ${activeCategory === cat ? C.bodyDark : C.inkBorder}`,
+                      }}>
+                      {cat}
+                    </button>
+                  ))}
+                </div>
+                <span className="font-label text-[7px] tracking-[0.18em] shrink-0 ml-6 hidden md:block" style={{ color: C.bodyLight }}>
+                  {filtered.length} {filtered.length === 1 ? 'story' : 'stories'}
+                </span>
+              </div>
+            </div>
+
+            {/* ══ EDITORIAL LEAD STORY + SIDE STACK ══ */}
+            {hero && (
+              <div style={{ borderBottom: `1px solid ${C.inkBorder}` }}>
+                <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_380px]" style={{ minHeight: 520 }}>
+
+                  {/* Hero story — full image with overlay text */}
+                  <motion.div className="group relative cursor-pointer overflow-hidden"
+                    style={{ borderRight: `1px solid ${C.inkBorder}` }}
+                    initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
+                    <motion.img src={img(hero.image, 1200, 700)} alt={hero.headline}
+                      className="w-full h-full object-cover absolute inset-0"
+                      style={{ minHeight: 420 }}
+                      whileHover={{ scale: 1.03 }}
+                      transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }} />
+                    <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(4,3,1,0.96) 0%, rgba(4,3,1,0.55) 35%, rgba(4,3,1,0.1) 70%)' }} />
+                    <div className="absolute inset-x-0 bottom-0 p-8 lg:p-12">
+                      <span className="inline-flex items-center gap-2 font-label text-[6.5px] tracking-[0.2em] uppercase mb-4 px-2.5 py-1 rounded-full"
+                        style={{ background: C.amber, color: '#fff' }}>
+                        {hero.tag}
+                      </span>
+                      <h2 className="font-serif font-bold mb-3 leading-tight"
+                        style={{ fontSize: 'clamp(1.4rem,2.8vw,2.4rem)', color: '#fff', letterSpacing: '-0.025em', maxWidth: 640 }}>
+                        {hero.headline}
+                      </h2>
+                      <p className="font-sans mb-5" style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', maxWidth: 520, lineHeight: 1.7 }}>
+                        {hero.summary}
+                      </p>
+                      <div className="flex items-center gap-3">
+                        <span className="font-label text-[6.5px] tracking-[0.18em] uppercase" style={{ color: 'rgba(255,255,255,0.35)' }}>{hero.date}</span>
+                        <div className="flex items-center gap-1.5 font-label text-[7px] tracking-[0.2em] uppercase transition-all group-hover:gap-3 duration-200"
+                          style={{ color: C.amberLt }}>
+                          Read Story <ArrowRight size={8} />
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Side: 2 stacked stories */}
+                  <div className="flex flex-col">
+                    {(secondary.length > 0 ? secondary : NEWS_ITEMS.slice(1, 3)).map((n, ni) => (
+                      <motion.div key={n.id}
+                        className="group cursor-pointer flex flex-col flex-1"
+                        style={{ borderBottom: ni === 0 ? `1px solid ${C.inkBorder}` : 'none' }}
+                        initial={{ opacity: 0, x: 16 }} whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }} transition={{ duration: 0.55, delay: ni * 0.1 }}>
+                        {/* Image */}
+                        <div className="relative overflow-hidden" style={{ height: 180 }}>
+                          <motion.img src={img(n.image, 600, 360)} alt={n.headline}
+                            className="w-full h-full object-cover"
+                            whileHover={{ scale: 1.06 }}
+                            transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }} />
+                          <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.22) 0%, transparent 60%)' }} />
+                          <span className="absolute top-3 left-3 font-label text-[5.5px] tracking-[0.16em] uppercase px-2 py-0.5 rounded-full"
+                            style={{ background: `${C.amber}dd`, color: '#fff', backdropFilter: 'blur(4px)' }}>
+                            {n.category}
+                          </span>
+                        </div>
+                        {/* Text */}
+                        <div className="p-6 flex flex-col flex-1">
+                          <span className="font-label text-[6px] tracking-[0.18em] uppercase mb-2 block" style={{ color: C.bodyLight }}>{n.date}</span>
+                          <h3 className="font-serif font-semibold leading-snug mb-2 flex-1"
+                            style={{ fontSize: '0.88rem', color: C.bodyDark, letterSpacing: '-0.014em' }}>
+                            {n.headline}
+                          </h3>
+                          <div className="flex items-center gap-1.5 font-label text-[6.5px] tracking-[0.16em] uppercase group-hover:gap-2.5 transition-all duration-200"
+                            style={{ color: C.amber }}>
+                            Read More <ArrowRight size={8} />
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* ══ ARTICLE STRIP — remaining stories ══ */}
+            {rest.length > 0 && (
+              <div style={{ borderBottom: `1px solid ${C.inkBorder}` }}>
+                <div className="max-w-[1440px] mx-auto px-10 lg:px-16" style={{ paddingTop: 56, paddingBottom: 64 }}>
+                  <div className="flex items-center gap-3 mb-10">
+                    <div style={{ width: 20, height: 1, background: C.amber }} />
+                    <span className="font-label text-[7px] tracking-[0.3em] uppercase" style={{ color: C.amber }}>More Stories</span>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-10">
+                    {rest.map((n, ni) => (
+                      <motion.div key={n.id} className="group cursor-pointer"
+                        initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }} transition={{ duration: 0.45, delay: ni * 0.07 }}>
+                        {/* Image */}
+                        <div className="overflow-hidden rounded-xl mb-4" style={{ aspectRatio: '16/10' }}>
+                          <motion.img src={img(n.image, 640, 400)} alt={n.headline}
+                            className="w-full h-full object-cover"
+                            whileHover={{ scale: 1.06 }}
+                            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }} />
+                        </div>
+                        {/* Meta */}
+                        <div className="flex items-center gap-2 mb-2.5">
+                          <span className="font-label text-[6px] tracking-[0.18em] uppercase px-2 py-0.5 rounded-full"
+                            style={{ background: `${C.amber}18`, color: C.amberDk, border: `1px solid ${C.amber}33` }}>
+                            {n.category}
+                          </span>
+                          <span className="font-label text-[6px] tracking-[0.14em] uppercase" style={{ color: C.bodyLight }}>{n.date}</span>
+                        </div>
+                        <h3 className="font-serif font-semibold leading-snug mb-2"
+                          style={{ fontSize: '0.9rem', color: C.bodyDark, letterSpacing: '-0.014em' }}>
+                          {n.headline}
+                        </h3>
+                        <p className="font-sans text-[11.5px] leading-relaxed mb-3"
+                          style={{ color: C.bodyMid, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                          {n.summary}
+                        </p>
+                        <div className="flex items-center gap-1.5 font-label text-[6.5px] tracking-[0.18em] uppercase group-hover:gap-3 transition-all"
+                          style={{ color: C.amber }}>
+                          Read More <ArrowRight size={8} />
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* ══ TIMELINE ══ */}
+            <div style={{ background: C.navyDark, borderBottom: `1px solid rgba(255,255,255,0.06)` }}>
+              <div className="max-w-[1440px] mx-auto px-10 lg:px-16" style={{ paddingTop: 64, paddingBottom: 72 }}>
+                <div className="flex items-center gap-3 mb-14">
+                  <div style={{ width: 20, height: 1, background: C.amber }} />
+                  <span className="font-label text-[7px] tracking-[0.3em] uppercase" style={{ color: C.amber }}>Our Journey</span>
+                </div>
+                {/* Horizontal scrollable timeline */}
+                <div className="overflow-x-auto hide-scrollbar">
+                  <div className="flex items-start gap-0 min-w-max pb-2">
+                    {TIMELINE.map((t, ti) => (
+                      <motion.div key={t.year}
+                        className="flex flex-col items-center"
+                        style={{ width: 180 }}
+                        initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }} transition={{ duration: 0.45, delay: ti * 0.06 }}>
+                        {/* Year + label */}
+                        <div className="text-center mb-5">
+                          <p className="font-serif font-bold mb-1"
+                            style={{ fontSize: '1.2rem', color: ti === TIMELINE.length - 1 ? C.amber : 'rgba(255,255,255,0.55)', letterSpacing: '-0.02em' }}>
+                            {t.year}
+                          </p>
+                          <p className="font-sans font-semibold text-[11px]" style={{ color: ti === TIMELINE.length - 1 ? C.amberLt : 'rgba(255,255,255,0.38)' }}>
+                            {t.label}
+                          </p>
+                        </div>
+                        {/* Node + line */}
+                        <div className="flex items-center w-full relative mb-5">
+                          <div className="flex-1 h-px" style={{ background: ti > 0 ? 'rgba(255,255,255,0.1)' : 'transparent' }} />
+                          <div className="w-3 h-3 rounded-full shrink-0 z-10"
+                            style={{ background: ti === TIMELINE.length - 1 ? C.amber : 'rgba(255,255,255,0.2)', boxShadow: ti === TIMELINE.length - 1 ? `0 0 0 4px ${C.amber}30` : 'none' }} />
+                          <div className="flex-1 h-px" style={{ background: ti < TIMELINE.length - 1 ? 'rgba(255,255,255,0.1)' : 'transparent' }} />
+                        </div>
+                        {/* Description */}
+                        <p className="font-sans text-[11px] text-center leading-relaxed px-3"
+                          style={{ color: 'rgba(255,255,255,0.3)' }}>
+                          {t.desc}
+                        </p>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* ══ FULL-BLEED GALLERY ══ */}
+            <div style={{ background: '#0C0A07' }}>
+              <div className="max-w-[1440px] mx-auto px-10 lg:px-16" style={{ paddingTop: 64, paddingBottom: 72 }}>
+                <div className="flex items-center justify-between mb-10">
+                  <div className="flex items-center gap-3">
+                    <div style={{ width: 20, height: 1, background: C.amber }} />
+                    <span className="font-label text-[7px] tracking-[0.3em] uppercase" style={{ color: C.amber }}>Image Gallery</span>
+                  </div>
+                  <span className="font-label text-[6.5px] tracking-[0.18em] uppercase hidden md:block" style={{ color: 'rgba(255,255,255,0.2)' }}>
+                    Click to Enlarge
+                  </span>
+                </div>
+                {/* 4-col masonry */}
+                <div style={{ columns: 4, columnGap: 10 }}>
+                  {GALLERY_IMAGES.map((g, gi) => (
+                    <motion.div key={g.id}
+                      className="group cursor-pointer break-inside-avoid overflow-hidden"
+                      style={{ borderRadius: 8, marginBottom: 10, position: 'relative' }}
+                      initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }} transition={{ duration: 0.4, delay: gi * 0.04 }}
+                      onClick={() => setLightbox({ idx: gi })}>
+                      <motion.img
+                        src={img(g.id, 480, gi % 3 === 0 ? 560 : gi % 3 === 1 ? 340 : 440)} alt={g.caption}
+                        className="w-full object-cover block"
+                        style={{ borderRadius: 8 }}
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }} />
+                      {/* Gold hover overlay */}
+                      <motion.div className="absolute inset-0 flex items-end p-3"
+                        style={{ borderRadius: 8, background: `linear-gradient(to top, ${C.amberDk}cc 0%, transparent 60%)` }}
+                        initial={{ opacity: 0 }} whileHover={{ opacity: 1 }}
+                        transition={{ duration: 0.25 }}>
+                        <p className="font-label text-[6px] tracking-[0.12em] text-white leading-tight">{g.caption}</p>
+                      </motion.div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* ══ NEWSLETTER CTA — full bleed bold ══ */}
+            <div style={{ background: C.ink, borderTop: `1px solid ${C.inkBorder}` }}>
+              <div className="max-w-[1440px] mx-auto px-10 lg:px-16" style={{ paddingTop: 80, paddingBottom: 88 }}>
+                <motion.div className="text-center"
+                  initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }} transition={{ duration: 0.65 }}>
+                  {/* Oversized eyebrow */}
+                  <p className="font-label text-[7.5px] tracking-[0.4em] uppercase mb-6" style={{ color: C.amber }}>Stay Updated</p>
+                  {/* Giant headline */}
+                  <h2 className="font-serif font-bold mb-4 mx-auto"
+                    style={{ fontSize: 'clamp(2.4rem,5vw,5.5rem)', color: C.bodyDark, letterSpacing: '-0.04em', lineHeight: 0.92, maxWidth: 820 }}>
+                    Never Miss a<br />
+                    <span style={{ color: C.amber, fontStyle: 'italic', fontWeight: 300 }}>ZiVIO Story.</span>
+                  </h2>
+                  <p className="font-sans mx-auto mb-10"
+                    style={{ fontSize: 14, color: C.bodyMid, maxWidth: 480, lineHeight: 1.75 }}>
+                    Follow our journey as we innovate, support communities, and deliver world-class lighting solutions globally.
+                  </p>
+                  <div className="flex items-center justify-center gap-4 flex-wrap">
+                    <a href="#contact"
+                      className="inline-flex items-center gap-2.5 font-label text-[9px] tracking-[0.24em] uppercase px-8 py-4 transition-all hover:-translate-y-0.5"
+                      style={{ background: C.bodyDark, color: '#fff', borderRadius: 4, boxShadow: '0 8px 32px rgba(0,0,0,0.14)' }}>
+                      Subscribe to Updates <ArrowRight size={9} />
+                    </a>
+                    <a href="#contact"
+                      className="inline-flex items-center gap-2 font-label text-[9px] tracking-[0.22em] uppercase px-8 py-4 transition-all hover:border-amber-500"
+                      style={{ border: `1px solid ${C.inkBorder}`, color: C.bodyMid, borderRadius: 4 }}>
+                      Contact Us
+                    </a>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+
+            {/* ══ LIGHTBOX ══ */}
+            <AnimatePresence>
+              {lbImg && (
+                <motion.div className="fixed inset-0 z-[200] flex items-center justify-center"
+                  style={{ background: 'rgba(4,3,1,0.94)', backdropFilter: 'blur(12px)' }}
+                  initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                  onClick={() => setLightbox(null)}>
+                  <motion.div className="relative max-w-4xl w-full px-4"
+                    initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.94, opacity: 0 }}
+                    transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                    onClick={e => e.stopPropagation()}>
+                    <img src={img(lbImg.id, 1400, 900)} alt={lbImg.caption}
+                      className="w-full object-cover" style={{ borderRadius: 12, maxHeight: '78vh' }} />
+                    <div className="flex items-center justify-between mt-4 px-1">
+                      <div className="flex items-center gap-3">
+                        <button onClick={lbPrev} className="w-9 h-9 rounded-full flex items-center justify-center"
+                          style={{ border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.5)' }}>
+                          <ChevronLeft size={13} />
+                        </button>
+                        <button onClick={lbNext} className="w-9 h-9 rounded-full flex items-center justify-center"
+                          style={{ border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.5)' }}>
+                          <ChevronRight size={13} />
+                        </button>
+                        <p className="font-label text-[7px] tracking-[0.16em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>{lbImg.caption}</p>
+                      </div>
+                      <button onClick={() => setLightbox(null)}
+                        className="w-9 h-9 rounded-full flex items-center justify-center"
+                        style={{ background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.6)' }}>
+                        <X size={14} />
+                      </button>
+                    </div>
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </section>
+        </motion.div>
       )}
     </AnimatePresence>
   )
@@ -4194,32 +4227,32 @@ function Footer({ onCareers, testimonials: propTestimonials }: { onCareers: () =
   })) : defaultTestimonials
 
   const team = [
-    { name: 'Shree Jirapure',    role: 'CEO & Founder',            avatar: '1560250097-0b93528c311a' },
-    { name: 'Shridhar Morab',    role: 'Business Head',            avatar: '1507003211169-0a1dd7228f2d' },
-    { name: 'Priya Jirapure',    role: 'Regional Director',        avatar: '1573496359142-b8d87734a5a2' },
-    { name: 'Vinod Rao',         role: 'HR Head',                  avatar: '1519085360753-af0119f7cbe7' },
-    { name: 'Anjali Bunkar',     role: 'Technical Head',           avatar: '1494790108755-2616b612b786' },
-    { name: 'Prakash Bane',      role: 'Production Head',          avatar: '1472099645785-5658abf4ff4e' },
+    { name: 'Shree Jirapure', role: 'CEO & Founder', avatar: '1560250097-0b93528c311a' },
+    { name: 'Shridhar Morab', role: 'Business Head', avatar: '1507003211169-0a1dd7228f2d' },
+    { name: 'Priya Jirapure', role: 'Regional Director', avatar: '1573496359142-b8d87734a5a2' },
+    { name: 'Vinod Rao', role: 'HR Head', avatar: '1519085360753-af0119f7cbe7' },
+    { name: 'Anjali Bunkar', role: 'Technical Head', avatar: '1494790108755-2616b612b786' },
+    { name: 'Prakash Bane', role: 'Production Head', avatar: '1472099645785-5658abf4ff4e' },
   ]
 
   const socials = [
-    { name: 'LinkedIn',   href: '#', svg: <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> },
-    { name: 'Instagram',  href: '#', svg: <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg> },
-    { name: 'YouTube',    href: '#', svg: <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg> },
-    { name: 'Twitter/X',  href: '#', svg: <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.261 5.635 5.903-5.635zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> },
-    { name: 'Facebook',   href: '#', svg: <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> },
-    { name: 'Pinterest',  href: '#', svg: <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg> },
-    { name: 'Houzz',      href: '#', svg: <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 0L.585 6.818v10.364L12 24l11.415-6.818V6.818L12 0zm0 2.182l9.006 5.385-3.75 2.246-5.256-2.85V2.182zm-1.5.546v4.525l-5.25 2.85-3.15-1.884L10.5 2.728zm-6.75 7.136l3.006 1.8v5.4L3.75 15.25V9.864zm8.25 1.8l3 1.8v3.872l-3 1.788V11.664zm-1.5 7.65l-3.75-2.244v-5.4l3.75 2.25v5.394zm1.5.006V13.93l3 1.8v3.628l-3 1.762zm4.5-2.682l-3-1.8v-3.87l3-1.8v7.47z"/></svg> },
-    { name: 'WhatsApp',   href: '#', svg: <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> },
+    { name: 'LinkedIn', href: '#', svg: <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg> },
+    { name: 'Instagram', href: '#', svg: <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" /></svg> },
+    { name: 'YouTube', href: '#', svg: <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z" /></svg> },
+    { name: 'Twitter/X', href: '#', svg: <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.261 5.635 5.903-5.635zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg> },
+    { name: 'Facebook', href: '#', svg: <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg> },
+    { name: 'Pinterest', href: '#', svg: <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z" /></svg> },
+    { name: 'Houzz', href: '#', svg: <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 0L.585 6.818v10.364L12 24l11.415-6.818V6.818L12 0zm0 2.182l9.006 5.385-3.75 2.246-5.256-2.85V2.182zm-1.5.546v4.525l-5.25 2.85-3.15-1.884L10.5 2.728zm-6.75 7.136l3.006 1.8v5.4L3.75 15.25V9.864zm8.25 1.8l3 1.8v3.872l-3 1.788V11.664zm-1.5 7.65l-3.75-2.244v-5.4l3.75 2.25v5.394zm1.5.006V13.93l3 1.8v3.628l-3 1.762zm4.5-2.682l-3-1.8v-3.87l3-1.8v7.47z" /></svg> },
+    { name: 'WhatsApp', href: '#', svg: <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg> },
   ]
 
   const productLinks = [
-    { label: 'Outdoor Lighting',       count: 168, slug: 'outdoor' },
-    { label: 'Indoor Lighting',        count: 92,  slug: 'indoor' },
-    { label: 'Facade Lighting',        count: 64,  slug: 'facade' },
-    { label: 'Solar Lighting',         count: 52,  slug: 'solar' },
-    { label: 'Lighting Poles',         count: 53,  slug: 'poles' },
-    { label: 'Smart Lighting',         count: 28,  slug: 'smart' },
+    { label: 'Outdoor Lighting', count: 168, slug: 'outdoor' },
+    { label: 'Indoor Lighting', count: 92, slug: 'indoor' },
+    { label: 'Facade Lighting', count: 64, slug: 'facade' },
+    { label: 'Solar Lighting', count: 52, slug: 'solar' },
+    { label: 'Lighting Poles', count: 53, slug: 'poles' },
+    { label: 'Smart Lighting', count: 28, slug: 'smart' },
   ]
 
   return (
@@ -4253,13 +4286,13 @@ function Footer({ onCareers, testimonials: propTestimonials }: { onCareers: () =
           {/* 6-col compact roster */}
           {(() => {
             const localPhotos: Record<string, string> = {
-              'Shree Jirapure':  shreeJirapurePhoto,
-              'Priya Jirapure':  priyaJirapurePhoto,
-              'Anjali Bunkar':   anjaliBunkarPhoto,
-              'Shridhar Morab':  shridharMorabPhoto,
+              'Shree Jirapure': shreeJirapurePhoto,
+              'Priya Jirapure': priyaJirapurePhoto,
+              'Anjali Bunkar': anjaliBunkarPhoto,
+              'Shridhar Morab': shridharMorabPhoto,
             }
             const unsplashPhotos: Record<string, string> = {
-              'Vinod Rao':    'photo-1725568124885-4a8b4758f1fc',
+              'Vinod Rao': 'photo-1725568124885-4a8b4758f1fc',
               'Prakash Bane': 'photo-1774660810047-46e73147b32b',
             }
             return (
@@ -4413,7 +4446,7 @@ function Footer({ onCareers, testimonials: propTestimonials }: { onCareers: () =
                   </h3>
                   {/* Star rating */}
                   <div className="flex gap-2 mb-5">
-                    {[1,2,3,4,5].map(s => (
+                    {[1, 2, 3, 4, 5].map(s => (
                       <button key={s}
                         onMouseEnter={() => setHoverRating(s)}
                         onMouseLeave={() => setHoverRating(0)}
@@ -4422,13 +4455,13 @@ function Footer({ onCareers, testimonials: propTestimonials }: { onCareers: () =
                         <svg viewBox="0 0 24 24" width="28" height="28"
                           fill={(hoverRating || rating) >= s ? C.amber : 'none'}
                           stroke={C.amber} strokeWidth="1.5">
-                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                         </svg>
                       </button>
                     ))}
                     {rating > 0 && (
                       <span className="self-center font-label text-[9px] tracking-wider ml-1" style={{ color: C.bodyLight }}>
-                        {['','Poor','Fair','Good','Great','Excellent'][rating]}
+                        {['', 'Poor', 'Fair', 'Good', 'Great', 'Excellent'][rating]}
                       </span>
                     )}
                   </div>
@@ -4471,7 +4504,7 @@ function Footer({ onCareers, testimonials: propTestimonials }: { onCareers: () =
             </p>
             {/* Certifications */}
             <div className="flex flex-wrap gap-1.5 mb-7">
-              {['ISO 9001','CE','RoHS','LM79','LM80','IK10'].map(cert => (
+              {['ISO 9001', 'CE', 'RoHS', 'LM79', 'LM80', 'IK10'].map(cert => (
                 <span key={cert} className="font-label text-[6.5px] tracking-[0.14em] uppercase px-2 py-1"
                   style={{ border: `1px solid ${C.inkBorder}`, color: C.bodyLight }}>
                   {cert}
@@ -4526,7 +4559,7 @@ function Footer({ onCareers, testimonials: propTestimonials }: { onCareers: () =
           <div className="lg:col-span-2 px-8 py-10" style={{ borderRight: `1px solid ${C.inkBorder}` }}>
             <p className="font-label text-[7.5px] tracking-[0.28em] uppercase mb-6" style={{ color: C.amber }}>Company</p>
             <ul>
-              {['About','Projects','Technology','Downloads','News','Careers','ZiVIO CARE','Partners'].map(link => (
+              {['About', 'Projects', 'Technology', 'Downloads', 'News', 'Careers', 'ZiVIO CARE', 'Partners'].map(link => (
                 <li key={link}>
                   <a href={link === 'Careers' ? undefined : `#${link.toLowerCase()}`}
                     onClick={link === 'Careers' ? (e) => { e.preventDefault(); onCareers() } : undefined}
@@ -4544,9 +4577,9 @@ function Footer({ onCareers, testimonials: propTestimonials }: { onCareers: () =
             <p className="font-label text-[7.5px] tracking-[0.28em] uppercase mb-6" style={{ color: C.amber }}>Contact</p>
             <div className="flex flex-col gap-5">
               {[
-                { icon: MapPin, line1: 'Bandra Kurla Complex',  line2: 'Mumbai 400 051, India' },
-                { icon: Phone,  line1: '+91 22 4567 8900',      line2: 'Mon–Fri 9am–6pm IST' },
-                { icon: Mail,   line1: 'info@ziviolife.com',    line2: 'Response within 24h' },
+                { icon: MapPin, line1: 'Bandra Kurla Complex', line2: 'Mumbai 400 051, India' },
+                { icon: Phone, line1: '+91 22 4567 8900', line2: 'Mon–Fri 9am–6pm IST' },
+                { icon: Mail, line1: 'info@ziviolife.com', line2: 'Response within 24h' },
               ].map(({ icon: Icon, line1, line2 }) => (
                 <div key={line1} className="flex items-start gap-3">
                   <Icon size={11} className="mt-0.5 shrink-0" style={{ color: C.amber }} />
@@ -4571,7 +4604,7 @@ function Footer({ onCareers, testimonials: propTestimonials }: { onCareers: () =
           Designed &amp; Engineered in India · Global Reach
         </p>
         <div className="flex gap-5">
-          {['Privacy Policy','Cookie Policy','Terms of Use'].map(link => (
+          {['Privacy Policy', 'Cookie Policy', 'Terms of Use'].map(link => (
             <a key={link} href="#"
               className="font-label text-[7.5px] tracking-wider transition-colors hover:text-[#111]"
               style={{ color: C.bodyLight }}>
@@ -4814,10 +4847,10 @@ function SearchModal({ open, onClose }: { open: boolean; onClose: () => void }) 
                   {/* Categories */}
                   <div className="grid grid-cols-4 gap-2">
                     {[
-                      { label: 'Products',  color: C.amber,   icon: '◈' },
-                      { label: 'Projects',  color: '#6366F1', icon: '◉' },
+                      { label: 'Products', color: C.amber, icon: '◈' },
+                      { label: 'Projects', color: '#6366F1', icon: '◉' },
                       { label: 'Downloads', color: '#10B981', icon: '▤' },
-                      { label: 'Contact',   color: '#F43F5E', icon: '◎' },
+                      { label: 'Contact', color: '#F43F5E', icon: '◎' },
                     ].map(({ label, color, icon }) => (
                       <button key={label} onClick={() => setQ(label)}
                         className="flex flex-col items-center gap-2 py-4 rounded-xl transition-all hover:scale-105"
@@ -4914,7 +4947,7 @@ function CareersPage({ open, onClose }: { open: boolean; onClose: () => void }) 
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault(); setDragOver(false)
     const f = e.dataTransfer.files[0]
-    if (f && ['application/pdf','application/msword','application/vnd.openxmlformats-officedocument.wordprocessingml.document'].includes(f.type)) setResumeFile(f)
+    if (f && ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'].includes(f.type)) setResumeFile(f)
   }
 
   const handleApply = (jobId: number) => {
@@ -5277,7 +5310,7 @@ function CareersPage({ open, onClose }: { open: boolean; onClose: () => void }) 
                 <form onSubmit={handleInquiry} className="flex flex-col gap-4 rounded-2xl p-8"
                   style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {(['name','email','mobile'] as const).map(f => (
+                    {(['name', 'email', 'mobile'] as const).map(f => (
                       <input key={f} type={f === 'email' ? 'email' : f === 'mobile' ? 'tel' : 'text'}
                         placeholder={f === 'name' ? 'Full Name *' : f === 'email' ? 'Email Address *' : 'Mobile Number'}
                         value={inquiryData[f]} onChange={e => setInquiryData(d => ({ ...d, [f]: e.target.value }))}
@@ -5329,12 +5362,12 @@ function CareersPage({ open, onClose }: { open: boolean; onClose: () => void }) 
 
 // ─── ARCHITECTS & CONSULTANTS PAGE ───────────────────────────────────────────
 const AC_SERVICES = [
-  { icon: Compass,   title: 'Specification Support',   desc: 'Detailed photometric data, IES files, BIM objects and spec sheets delivered to your desk.' },
-  { icon: Cpu,       title: 'Custom Luminaire Design',  desc: 'Bespoke fixtures engineered to match your design intent — form, finish, and CCT.' },
-  { icon: Shield,    title: 'DALI & Smart Controls',    desc: 'Full DALI-2, Tunable White, and scene-control integration for intelligent spaces.' },
-  { icon: Award,     title: 'Mock-up & Sample Room',    desc: 'Dedicated sample room at our Vasao facility for pre-approval lighting trials.' },
-  { icon: Globe,     title: 'Site & Project Support',   desc: 'Our engineers attend site visits, review reflected ceiling plans, and guide installation.' },
-  { icon: TrendingUp, title: 'Loyalty Programme',       desc: 'Priority project pricing, CPD sessions, and co-branding opportunities for registered firms.' },
+  { icon: Compass, title: 'Specification Support', desc: 'Detailed photometric data, IES files, BIM objects and spec sheets delivered to your desk.' },
+  { icon: Cpu, title: 'Custom Luminaire Design', desc: 'Bespoke fixtures engineered to match your design intent — form, finish, and CCT.' },
+  { icon: Shield, title: 'DALI & Smart Controls', desc: 'Full DALI-2, Tunable White, and scene-control integration for intelligent spaces.' },
+  { icon: Award, title: 'Mock-up & Sample Room', desc: 'Dedicated sample room at our Vasao facility for pre-approval lighting trials.' },
+  { icon: Globe, title: 'Site & Project Support', desc: 'Our engineers attend site visits, review reflected ceiling plans, and guide installation.' },
+  { icon: TrendingUp, title: 'Loyalty Programme', desc: 'Priority project pricing, CPD sessions, and co-branding opportunities for registered firms.' },
 ]
 
 const PROJECT_TYPES = [
@@ -5344,7 +5377,7 @@ const PROJECT_TYPES = [
 ]
 
 const WHATSAPP_NUMBER = '919022456789'
-const INQUIRY_EMAIL   = 'projects@ziviolife.com'
+const INQUIRY_EMAIL = 'projects@ziviolife.com'
 
 function ArchConsultPage({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [form, setForm] = useState({
@@ -5421,7 +5454,7 @@ function ArchConsultPage({ open, onClose }: { open: boolean; onClose: () => void
   const inputCls = "w-full px-4 py-3 font-sans text-[13px] rounded-xl outline-none transition-all"
   const inputStyle = { background: C.inkMid, border: `1.5px solid ${C.inkBorder}`, color: C.bodyDark }
   const focusAmber = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => (e.target.style.borderColor = C.amber)
-  const blurReset  = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => (e.target.style.borderColor = C.inkBorder)
+  const blurReset = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => (e.target.style.borderColor = C.inkBorder)
 
   return (
     <AnimatePresence>
@@ -5516,9 +5549,9 @@ function ArchConsultPage({ open, onClose }: { open: boolean; onClose: () => void
             <div className="max-w-5xl mx-auto px-6 lg:px-10 grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
                 { v: '1,000+', l: 'Projects Delivered' },
-                { v: '300+',   l: 'Architect Partnerships' },
-                { v: '15+',    l: 'Countries' },
-                { v: '48h',    l: 'Specification Turnaround' },
+                { v: '300+', l: 'Architect Partnerships' },
+                { v: '15+', l: 'Countries' },
+                { v: '48h', l: 'Specification Turnaround' },
               ].map(({ v, l }) => (
                 <div key={l} className="text-center">
                   <p className="font-sans font-black" style={{ fontSize: 'clamp(28px,4vw,44px)', color: C.amber, letterSpacing: '-0.03em', lineHeight: 1 }}>{v}</p>
@@ -5662,8 +5695,8 @@ function SplashScreen({ onDone }: { onDone: () => void }) {
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3) }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-  const isIn   = phase === 'in'
-  const isOut  = phase === 'out'
+  const isIn = phase === 'in'
+  const isOut = phase === 'out'
 
   return (
     <motion.div
