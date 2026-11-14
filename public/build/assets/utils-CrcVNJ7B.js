@@ -1,0 +1,1 @@
+import{mt as e,t}from"./utilities-Bu3Rer-R.js";function n(...n){return t(e(n))}function r(e){return typeof e==`string`?e:e.url}export{r as n,n as t};
