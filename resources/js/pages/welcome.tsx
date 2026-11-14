@@ -4477,7 +4477,7 @@ function Footer({ onCareers, testimonials: propTestimonials }: { onCareers: () =
 
           {/* Brand + Socials */}
           <div className="lg:col-span-4 px-8 lg:px-12 py-10" style={{ borderRight: `1px solid ${C.inkBorder}` }}>
-            <BrandLogo theme="dark" size="lg" className="mb-5" />
+            <BrandLogo theme="light" size="lg" className="mb-5" />
             <p className="text-[13px] leading-relaxed mb-6" style={{ color: C.bodyMid, maxWidth: 260 }}>
               A global manufacturer of premium architectural lighting. Engineering precision, delivering excellence across 68 countries.
             </p>
