@@ -217,26 +217,26 @@ const SEARCH_TAGS = ['Downlights', 'Bollards', 'IP67 Outdoor', 'DALI-2', 'Solar 
 
 // ─── Mega-menu data ────────────────────────────────────────────────────────────
 const MEGA_PRODUCTS = [
-  { group: 'Outdoor Lighting', color: '#0F4C81', items: [
+  { group: 'Outdoor Lighting', slug: 'outdoor', color: '#0F4C81', items: [
     'Bollards', 'Tree Uplighters', 'Projectors & Column Projectors',
     'Post Top Luminaires', 'Up & Down Wall Lights', 'Street & Area Lighting',
     'In-Ground Luminaires', 'Step Lights', 'Surface Ceiling Luminaires',
     'Pendant Luminaires', 'Underwater Luminaires', 'High Bay Luminaires', 'Flood Lights',
   ]},
-  { group: 'Indoor Lighting', color: '#5e35b1', items: [
+  { group: 'Indoor Lighting', slug: 'indoor', color: '#5e35b1', items: [
     'Downlights', 'Linear Lighting Systems', 'Surface Spotlights',
     'Track & Surface Spotlights', 'Architectural Pendant Lights',
   ]},
-  { group: 'Facade Lighting', color: '#0277bd', items: [
+  { group: 'Facade Lighting', slug: 'facade', color: '#0277bd', items: [
     'Linear Facade Systems', 'Wall Washers', 'Grazers', 'Cove & Niche Lighting',
   ]},
-  { group: 'Solar Lighting', color: '#e65100', items: [
+  { group: 'Solar Lighting', slug: 'solar', color: '#e65100', items: [
     'Solar Street Lights', 'Solar Garden Lights', 'Solar High Mast Lights',
   ]},
-  { group: 'Lighting Poles', color: '#2e7d32', items: [
+  { group: 'Lighting Poles', slug: 'poles', color: '#2e7d32', items: [
     'Architectural Poles', 'Octagonal Poles', 'High Mast Poles',
   ]},
-  { group: 'Smart Lighting', color: '#6a1b9a', items: [
+  { group: 'Smart Lighting', slug: 'smart', color: '#6a1b9a', items: [
     'Smart Light Poles', 'DALI-2 Control System', 'DMX Controllers', 'IoT Smart City',
   ]},
 ]
@@ -418,7 +418,7 @@ function Header({ onAbout, onNews, onCareers, onArchConsult, onSearch }: { onAbo
                   onMouseEnter={() => hasMega ? openMega(label) : setMegaOpen(null)}
                   onMouseLeave={() => hasMega ? closeMega() : null}>
                   <a
-                    href={label === 'Home' ? '#' : (label === 'About' || label === 'News' || label === 'Careers') ? undefined : `#${label.toLowerCase().replace(/\s+/g, '-')}`}
+                    href={label === 'Home' ? '/' : label === 'Products' ? '/products' : (label === 'About' || label === 'News' || label === 'Careers') ? undefined : `#${label.toLowerCase().replace(/\s+/g, '-')}`}
                     onClick={label === 'About' ? (e) => { e.preventDefault(); onAbout() } : label === 'News' ? (e) => { e.preventDefault(); onNews() } : label === 'Careers' ? (e) => { e.preventDefault(); onCareers() } : undefined}
                     className="flex items-center gap-1 px-3 py-2 font-sans font-black uppercase transition-all duration-200"
                     style={{
@@ -539,16 +539,18 @@ function Header({ onAbout, onNews, onCareers, onArchConsult, onSearch }: { onAbo
                       className="flex flex-col"
                       style={{ borderRight: ci < megaData.length - 1 ? `1px solid ${C.inkBorder}` : 'none', paddingRight: 22, paddingLeft: ci > 0 ? 22 : 0 }}>
 
-                      {/* Column header — bold black */}
-                      <div className="mb-4 pb-3" style={{ borderBottom: `2px solid ${colColor}` }}>
+                      {/* Column header */}
+                      <a href={megaOpen === 'Products' ? `/products/${(col as any).slug || ''}` : '#solutions'}
+                        className="mb-4 pb-3 block group transition-opacity hover:opacity-80"
+                        style={{ borderBottom: `2px solid ${colColor}` }}>
                         <p className="font-sans font-bold text-[12px] leading-tight" style={{ color: C.bodyDark }}>{col.group}</p>
-                      </div>
+                      </a>
 
                       {/* Items */}
                       <ul className="flex flex-col gap-0 flex-1">
                         {col.items.map(item => (
                           <li key={item}>
-                            <a href="#products"
+                            <a href={megaOpen === 'Products' ? `/products/${(col as any).slug || ''}` : '#solutions'}
                               className="flex items-center gap-2.5 py-1.5 group transition-all"
                               style={{ borderBottom: `1px solid ${C.inkBorder}` }}>
                               <span className="w-0 h-px shrink-0 transition-all duration-200 group-hover:w-3"
@@ -565,7 +567,7 @@ function Header({ onAbout, onNews, onCareers, onArchConsult, onSearch }: { onAbo
                       </ul>
 
                       {/* View all */}
-                      <a href="#products"
+                      <a href={megaOpen === 'Products' ? `/products/${(col as any).slug || ''}` : '#solutions'}
                         className="inline-flex items-center gap-1.5 mt-4 font-label text-[7.5px] tracking-[0.2em] uppercase transition-opacity hover:opacity-70"
                         style={{ color: colColor }}>
                         View All <ArrowRight size={8} />
@@ -1340,7 +1342,7 @@ function Hero({ slides = HERO_SLIDES }: { slides?: typeof HERO_SLIDES }) {
           <motion.div className="flex items-center gap-5"
             initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}>
-            <a href="#products"
+            <a href="/products"
               className="inline-flex items-center gap-3 font-label text-[8.5px] tracking-[0.26em] uppercase transition-all duration-300 hover:-translate-y-0.5 hover:shadow-2xl"
               style={{ background: C.amber, color: '#fff', padding: '13px 30px', borderRadius: 3, boxShadow: `0 6px 28px ${C.amber}50` }}>
               Explore Products
@@ -4343,7 +4345,7 @@ function Footer({ onCareers, testimonials: propTestimonials }: { onCareers: () =
               </p>
             </div>
             <div className="flex items-center gap-3">
-              <a href="#products"
+              <a href="/products"
                 className="inline-flex items-center gap-2 px-5 py-2.5 font-label text-[8px] tracking-[0.14em] uppercase transition-all hover:-translate-y-px"
                 style={{ background: C.bodyDark, color: C.ink, borderRadius: 10 }}>
                 Browse Products <ArrowRight size={9} />
@@ -4496,12 +4498,12 @@ function Footer({ onCareers, testimonials: propTestimonials }: { onCareers: () =
           <div className="lg:col-span-3 px-8 py-10" style={{ borderRight: `1px solid ${C.inkBorder}` }}>
             <p className="font-label text-[7.5px] tracking-[0.28em] uppercase mb-6" style={{ color: C.amber }}>Products</p>
             <ul>
-              {productLinks.map(({ label, count }) => (
+              {productLinks.map(({ label, count, slug }) => (
                 <li key={label}>
-                  <a href="#products"
+                  <a href={`/products/${slug}`}
                     className="group flex items-center justify-between py-3 transition-colors"
                     style={{ borderBottom: `1px solid ${C.inkBorder}` }}>
-                    <span className="text-[13px] group-hover:text-[#111] transition-colors" style={{ color: C.bodyMid }}>{label}</span>
+                    <span className="text-[13px] group-hover:text-[#B5722A] transition-colors" style={{ color: C.bodyMid }}>{label}</span>
                     <div className="flex items-center gap-3">
                       <span className="font-label text-[8px] tracking-wider" style={{ color: C.bodyLight }}>{count}</span>
                       <span className="font-label text-[7px] tracking-[0.1em] uppercase px-2 py-0.5 opacity-0 group-hover:opacity-100 transition-opacity"

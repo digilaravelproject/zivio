@@ -1,361 +1,443 @@
-import { Link } from '@inertiajs/react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { ChevronDown, Search } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { Link } from '@inertiajs/react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { ArrowRight, ChevronDown, Compass, Globe, Mail, Phone, X } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
 
-import { NavigationLink, navigationLinks } from '@/data/navigationData';
-import { cn } from '@/lib/utils';
+import { BrandLogo } from '@/components/common/BrandLogo'
 
-const secondaryLinks = [
-    { label: 'About Us', href: '/about-company' },
-    { label: 'Team', href: '/teams' },
-    { label: 'Quality', href: '#quality' },
-    { label: 'Sustainability', href: '#sustainability' },
-    { label: 'Control', href: '#control' },
-    { label: 'Career', href: '#career' },
-    { label: 'ZIVIO Care', href: '#zivio-care' },
-];
-
-export function Navbar() {
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-    useEffect(() => {
-        const updateNavbar = () => setIsScrolled(window.scrollY > 24);
-
-        updateNavbar();
-        window.addEventListener('scroll', updateNavbar);
-
-        return () => window.removeEventListener('scroll', updateNavbar);
-    }, []);
-
-    useEffect(() => {
-        document.body.style.overflow = isMenuOpen ? 'hidden' : '';
-
-        return () => {
-            document.body.style.overflow = '';
-        };
-    }, [isMenuOpen]);
-
-    const handleHomeClick = (e: React.MouseEvent) => {
-        if (window.location.pathname === '/') {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    };
-
-    return (
-        <>
-            <header
-                className={cn(
-                    'sticky top-0 z-[100] transition-all duration-500 w-full border-b backdrop-blur-2xl',
-                    isMenuOpen 
-                        ? 'border-transparent bg-transparent' 
-                        : 'border-black/[0.06] bg-white/90 shadow-[0_12px_40px_rgba(0,0,0,0.06)]'
-                )}
-            >
-                <nav className="mx-auto flex h-16 max-w-[1536px] items-center justify-between gap-3 px-4 sm:h-20 sm:px-8 lg:px-12">
-                    {/* Brand Logo & Left Menu items Container */}
-                    <div className="flex items-center gap-8 xl:gap-12">
-                        <Link
-                            href="/"
-                            onClick={handleHomeClick}
-                            className="flex shrink-0 items-center relative z-50"
-                            aria-label="ZIVIO LIFE home"
-                        >
-                            <img
-                                src="/images/zivio-life-logo.png"
-                                alt="ZIVIO LIFE"
-                                className="h-8 w-auto object-contain transition-all duration-300 sm:h-9 lg:h-11"
-                                width={180}
-                                height={44}
-                            />
-                        </Link>
-
-                        {/* Top-level menu (Desktop) - Logo ke pass, left side */}
-                        <div className="hidden lg:flex items-center gap-6 xl:gap-8">
-                            {navigationLinks.map((link) =>
-                                link.children ? (
-                                    <div key={link.label} className="group relative py-6">
-                                        <button className="flex items-center gap-1.5 whitespace-nowrap font-montserrat text-[15px] leading-[20px] font-bold uppercase transition duration-300 text-neutral-800 hover:text-[#BDA18A]">
-                                            {link.label}
-                                            <ChevronDown className="size-3.5 transition-transform duration-300 group-hover:rotate-180" strokeWidth={2} />
-                                            <span className="absolute bottom-4 left-0 h-px w-0 bg-[#BDA18A] transition-all duration-500 group-hover:w-full" />
-                                        </button>
-
-                                        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                                            <div className="flex flex-col min-w-[220px] border border-black/[0.06] bg-white/95 backdrop-blur-xl shadow-[0_24px_80px_rgba(0,0,0,0.12)] p-2 rounded-md relative overflow-hidden">
-                                                <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#BDA18A]/40 to-transparent" />
-
-                                                {link.children.map((child) => (
-                                                    <Link
-                                                        key={child.label}
-                                                        href={child.href}
-                                                        className="px-4 py-3 font-montserrat text-[14px] leading-[18px] font-bold text-neutral-700 transition-all duration-300 hover:text-[#BDA18A] hover:bg-black/[0.03] hover:pl-5 rounded-sm flex items-center"
-                                                    >
-                                                        {child.label}
-                                                    </Link>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    </div>
-                                ) : (
-                                    <Link
-                                        key={link.label}
-                                        href={link.href!}
-                                        onClick={link.href === '/' ? handleHomeClick : undefined}
-                                        className="group relative whitespace-nowrap font-montserrat text-[15px] leading-[20px] font-bold uppercase transition duration-300 py-6 text-neutral-800 hover:text-[#BDA18A]"
-                                    >
-                                        {link.label}
-                                        <span className="absolute bottom-4 left-0 h-px w-0 bg-[#BDA18A] transition-all duration-500 group-hover:w-full" />
-                                    </Link>
-                                )
-                            )}
-                        </div>
-                    </div>
-
-                    {/* Right side Hamburger controls */}
-                    <div className="flex shrink-0 items-center gap-3">
-                        <button
-                            type="button"
-                            className="hidden size-9 place-items-center text-neutral-800 transition hover:text-[#BDA18A] sm:size-10"
-                            aria-label="Search"
-                        >
-                            <Search className="size-4.5 sm:size-5 transition-colors text-neutral-800 hover:text-[#BDA18A]" strokeWidth={1.6} />
-                        </button>
-
-                        {/* Luxury Hamburger button */}
-                        <button
-                            type="button"
-                            onClick={() => setIsMenuOpen((prev) => !prev)}
-                            className="relative z-50 flex h-10 w-10 items-center justify-center focus:outline-none group"
-                            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-                        >
-                            <div className="relative w-7 h-5 flex flex-col justify-between items-end">
-                                <span
-                                    className={cn(
-                                        "h-[2px] transition-all duration-300 absolute right-0 top-0 bg-neutral-900 group-hover:bg-[#BDA18A]",
-                                        isMenuOpen && "w-7 rotate-45 translate-y-[9px]"
-                                    )}
-                                />
-                                <span
-                                    className={cn(
-                                        "h-[2px] transition-all duration-200 absolute right-0 top-1/2 -translate-y-1/2 bg-neutral-900 group-hover:w-7 group-hover:bg-[#BDA18A]",
-                                        isMenuOpen ? "w-0 opacity-0" : "w-4"
-                                    )}
-                                />
-                                <span
-                                    className={cn(
-                                        "h-[2px] transition-all duration-300 absolute right-0 bottom-0 bg-neutral-900 group-hover:bg-[#BDA18A]",
-                                        isMenuOpen 
-                                            ? "w-7 -rotate-45 -translate-y-[9px]" 
-                                            : "w-5.5 group-hover:w-4"
-                                    )}
-                                />
-                            </div>
-                        </button>
-                    </div>
-                </nav>
-            </header>
-
-            {/* Full Screen Luxury Menu Section */}
-            <AnimatePresence>
-                {isMenuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.35, ease: "easeInOut" }}
-                        className="fixed inset-0 z-[99] bg-white text-neutral-800 backdrop-blur-lg flex flex-col overflow-y-auto"
-                    >
-                        <div className="mx-auto w-full max-w-[1536px] px-4 sm:px-8 lg:px-12 py-24 sm:py-32 flex-1 flex flex-col justify-between">
-                            
-                            {/* Layout split on Desktop */}
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start my-auto">
-                                
-                                {/* Left Side (Desktop Only) - Brand Context */}
-                                <div className="hidden lg:flex flex-col space-y-8 pr-12 border-r border-black/[0.06]">
-                                    <div className="space-y-4">
-                                        <span className="font-montserrat text-xs tracking-[0.2em] text-[#BDA18A] uppercase font-semibold">
-                                            Premium Lighting Experiences
-                                        </span>
-                                        <h2 className="text-4xl xl:text-5xl font-montserrat font-light text-neutral-800 leading-tight">
-                                            Crafting the future of <br />
-                                            <span className="font-bold text-neutral-950">illuminating spaces.</span>
-                                        </h2>
-                                    </div>
-                                    <p className="text-neutral-600 font-montserrat text-sm max-w-sm leading-relaxed">
-                                        We design and manufacture elite architectural lighting solutions. Elevating environments through state-of-the-art aesthetics and functional brilliance.
-                                    </p>
-                                    <div className="pt-6 space-y-2">
-                                        <div className="text-xs text-neutral-500 font-semibold tracking-wider uppercase">Contact Us</div>
-                                        <div className="text-neutral-800 font-medium hover:text-[#BDA18A] transition">info@zivio.life</div>
-                                        <div className="text-neutral-800 font-medium hover:text-[#BDA18A] transition">+91 98765 43210</div>
-                                    </div>
-                                </div>
-
-                                {/* Right Side (Desktop Secondary Links) / Mobile Full Content */}
-                                <div className="flex flex-col justify-center">
-                                    {/* Desktop: Show Hamburger Menus only */}
-                                    <div className="hidden lg:flex flex-col space-y-5">
-                                        <span className="font-montserrat text-xs tracking-[0.2em] text-neutral-500 uppercase font-semibold mb-2">
-                                            Discover ZIVIO
-                                        </span>
-                                        {secondaryLinks.map((link, idx) => (
-                                            <motion.div
-                                                key={link.label}
-                                                initial={{ opacity: 0, x: 20 }}
-                                                animate={{ opacity: 1, x: 0 }}
-                                                transition={{ delay: idx * 0.05 }}
-                                            >
-                                                <Link
-                                                    href={link.href}
-                                                    onClick={() => setIsMenuOpen(false)}
-                                                    className="group flex items-center font-montserrat text-2xl xl:text-3xl font-light text-neutral-700 hover:text-[#BDA18A] transition duration-300"
-                                                >
-                                                    <span className="w-0 group-hover:w-6 h-[1px] bg-[#BDA18A] mr-0 group-hover:mr-4 transition-all duration-300" />
-                                                    {link.label}
-                                                </Link>
-                                            </motion.div>
-                                        ))}
-                                    </div>
-
-                                    {/* Mobile: Show all menu items */}
-                                    <div className="flex lg:hidden flex-col space-y-6">
-                                        {/* Primary Links: Home, Company, Products, Projects, Contact (Bold) */}
-                                        <div className="space-y-1">
-                                            <span className="font-montserrat text-[10px] tracking-[0.2em] text-[#BDA18A] uppercase font-semibold block mb-4">
-                                                Navigation
-                                            </span>
-                                            {navigationLinks.map((link, idx) => (
-                                                <MobileHamburgerLink
-                                                    key={link.label}
-                                                    link={link}
-                                                    index={idx}
-                                                    setIsMenuOpen={setIsMenuOpen}
-                                                />
-                                            ))}
-                                        </div>
-
-                                        {/* Gap / Divider */}
-                                        <div className="h-[1px] bg-black/[0.06] w-full my-4" />
-
-                                        {/* Secondary Links: About Us, Team, Quality, Sustainability, Control, Career, ZIVIO Care (Normal font weight) */}
-                                        <div className="space-y-4 pl-1">
-                                            <span className="font-montserrat text-[10px] tracking-[0.2em] text-neutral-500 uppercase font-semibold block mb-2">
-                                                Company Info
-                                            </span>
-                                            {secondaryLinks.map((link, idx) => (
-                                                <motion.div
-                                                    key={link.label}
-                                                    initial={{ opacity: 0, y: 10 }}
-                                                    animate={{ opacity: 1, y: 0 }}
-                                                    transition={{ delay: (idx + navigationLinks.length) * 0.04 }}
-                                                >
-                                                    <Link
-                                                        href={link.href}
-                                                        onClick={() => setIsMenuOpen(false)}
-                                                        className="block font-montserrat text-[16px] leading-[22px] font-normal text-neutral-600 hover:text-[#BDA18A] transition-colors"
-                                                    >
-                                                        {link.label}
-                                                    </Link>
-                                                </motion.div>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            {/* Luxury footer line */}
-                            <div className="border-t border-black/[0.06] pt-8 mt-12 flex flex-col sm:flex-row justify-between items-center text-xs text-neutral-500 gap-4">
-                                <div>&copy; {new Date().getFullYear()} ZIVIO LIFE. All Rights Reserved.</div>
-                                <div className="flex gap-6">
-                                    <a href="#" className="hover:text-neutral-800 transition">Privacy Policy</a>
-                                    <a href="#" className="hover:text-neutral-800 transition">Terms of Service</a>
-                                </div>
-                            </div>
-
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </>
-    );
+const C = {
+  ink:       '#0B0B0B',
+  inkCard:   '#111111',
+  inkMid:    '#181818',
+  inkBorder: 'rgba(255,255,255,0.08)',
+  amber:     '#B5722A',
+  amberLt:   '#C9944A',
+  amberDk:   '#8C4E18',
+  navyDark:  '#09090D',
+  bodyDark:  '#F4EFE6',
+  bodyMid:   'rgba(244,239,230,0.60)',
+  bodyLight: 'rgba(244,239,230,0.36)',
 }
 
-function MobileHamburgerLink({
-    link,
-    index,
-    setIsMenuOpen
-}: {
-    link: NavigationLink;
-    index: number;
-    setIsMenuOpen: (val: boolean) => void
-}) {
-    const [isOpen, setIsOpen] = useState(false);
+const MEGA_PRODUCTS = [
+  {
+    group: 'Outdoor Lighting',
+    slug: 'outdoor',
+    color: '#0F4C81',
+    items: ['Bollards', 'Tree Uplighters', 'Projectors', 'Post Top Luminaires', 'Wall Lights', 'In-Ground Luminaires'],
+  },
+  {
+    group: 'Indoor Lighting',
+    slug: 'indoor',
+    color: '#5e35b1',
+    items: ['Downlights', 'Linear Lighting Systems', 'Surface Spotlights', 'Track Spotlights', 'Pendants'],
+  },
+  {
+    group: 'Facade Lighting',
+    slug: 'facade',
+    color: '#0277bd',
+    items: ['Linear Facade Systems', 'Wall Washers', 'Grazers', 'Cove & Niche Lighting'],
+  },
+  {
+    group: 'Solar Lighting',
+    slug: 'solar',
+    color: '#e65100',
+    items: ['Solar Street Lights', 'Solar Garden Lights', 'Solar High Mast Lights'],
+  },
+  {
+    group: 'Lighting Poles',
+    slug: 'poles',
+    color: '#2e7d32',
+    items: ['Architectural Poles', 'Octagonal Poles', 'High Mast Poles'],
+  },
+  {
+    group: 'Smart Lighting',
+    slug: 'smart',
+    color: '#6a1b9a',
+    items: ['Smart Light Poles', 'DALI-2 Controls', 'DMX Controllers', 'IoT Smart City'],
+  },
+]
 
-    if (link.children) {
-        return (
-            <motion.div
-                initial={{ opacity: 0, x: -12 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.04, duration: 0.25 }}
-                className="border-b border-black/[0.04]"
+export function Navbar() {
+  const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [langOpen, setLangOpen] = useState(false)
+  const [lang, setLang] = useState('EN')
+  const [megaOpen, setMegaOpen] = useState(false)
+  const megaTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  useEffect(() => {
+    const fn = () => setScrolled(window.scrollY > 20)
+    window.addEventListener('scroll', fn)
+    return () => window.removeEventListener('scroll', fn)
+  }, [])
+
+  const openMega = () => {
+    if (megaTimer.current) clearTimeout(megaTimer.current)
+    setMegaOpen(true)
+  }
+  const closeMega = () => {
+    megaTimer.current = setTimeout(() => setMegaOpen(false), 140)
+  }
+
+  const navLinks = [
+    { label: 'Home', href: '/' },
+    { label: 'Products', href: '/products', hasMega: true },
+    { label: 'Solutions', href: '/#solutions' },
+    { label: 'Projects', href: '/#projects' },
+    { label: 'Downloads', href: '/#downloads' },
+    { label: 'About', href: '/about-company' },
+    { label: 'Contact', href: '/#contact' },
+  ]
+
+  return (
+    <>
+      {/* ── Top Utility Strip ── */}
+      <div
+        className="relative z-50 hidden lg:block select-none"
+        style={{ backgroundColor: C.navyDark, borderBottom: `1px solid rgba(182,141,64,0.18)` }}
+      >
+        <div className="mx-auto flex h-[34px] max-w-[1536px] items-center justify-between px-6 lg:px-12">
+          {/* Left CTA */}
+          <Link
+            href="/#contact"
+            className="group flex items-center gap-3 transition-all"
+          >
+            <span
+              className="flex h-5 w-5 items-center justify-center rounded"
+              style={{ background: `${C.amber}22`, border: `1px solid ${C.amber}50` }}
             >
-                <button
-                    onClick={() => setIsOpen(!isOpen)}
-                    className="flex w-full items-center justify-between py-3 font-montserrat text-[18px] leading-[24px] font-bold text-neutral-800 uppercase transition duration-300 hover:text-[#BDA18A]"
+              <Compass size={10} style={{ color: C.amber }} />
+            </span>
+            <span
+              className="font-sans text-[10px] font-black uppercase tracking-[0.14em] text-white transition-opacity group-hover:opacity-80"
+            >
+              Architects &amp; Consultants
+            </span>
+            <span
+              className="rounded px-2 py-0.5 font-sans text-[7px] font-bold uppercase tracking-[0.18em]"
+              style={{ background: `${C.amber}18`, color: C.amber, border: `1px solid ${C.amber}35` }}
+            >
+              Project Inquiry
+            </span>
+            <ArrowRight size={9} className="transition-transform group-hover:translate-x-0.5" style={{ color: C.amber }} />
+          </Link>
+
+          {/* Right Contact Details & Lang */}
+          <div className="flex items-center gap-6">
+            <a
+              href="tel:+912245678900"
+              className="flex items-center gap-2 font-sans text-[8px] uppercase tracking-[0.18em] transition-opacity hover:opacity-80"
+              style={{ color: 'rgba(255,255,255,0.65)' }}
+            >
+              <Phone size={9} style={{ color: C.amber }} /> +91 22 4567 8900
+            </a>
+            <span style={{ width: 1, height: 10, background: 'rgba(255,255,255,0.15)' }} />
+            <a
+              href="mailto:info@ziviolife.com"
+              className="flex items-center gap-2 font-sans text-[8px] uppercase tracking-[0.18em] transition-opacity hover:opacity-80"
+              style={{ color: 'rgba(255,255,255,0.65)' }}
+            >
+              <Mail size={9} style={{ color: C.amber }} /> info@ziviolife.com
+            </a>
+            <span style={{ width: 1, height: 10, background: 'rgba(255,255,255,0.15)' }} />
+            <div className="relative">
+              <button
+                onClick={() => setLangOpen((l) => !l)}
+                className="flex items-center gap-1 font-sans text-[8px] uppercase tracking-[0.18em] transition-opacity hover:opacity-80"
+                style={{ color: 'rgba(255,255,255,0.65)' }}
+              >
+                <Globe size={8} style={{ color: C.amber }} /> {lang}
+                <ChevronDown size={7} className={`transition-transform ${langOpen ? 'rotate-180' : ''}`} />
+              </button>
+              <AnimatePresence>
+                {langOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    className="absolute right-0 top-full z-50 mt-2 py-1"
+                    style={{
+                      background: '#121216',
+                      border: `1px solid rgba(255,255,255,0.1)`,
+                      minWidth: 70,
+                      boxShadow: '0 8px 24px rgba(0,0,0,0.6)',
+                    }}
+                  >
+                    {['EN', 'AR', 'FR', 'DE', 'HI'].map((l) => (
+                      <button
+                        key={l}
+                        onClick={() => {
+                          setLang(l)
+                          setLangOpen(false)
+                        }}
+                        className="w-full px-4 py-1.5 text-left font-sans text-[8px] uppercase tracking-[0.18em] transition-colors"
+                        style={{ color: l === lang ? C.amber : 'rgba(255,255,255,0.65)' }}
+                      >
+                        {l}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Main Sticky Header ── */}
+      <header
+        className="sticky top-0 z-40 w-full transition-all duration-300"
+        style={{
+          background: scrolled ? 'rgba(11,11,11,0.96)' : 'rgba(11,11,11,0.90)',
+          backdropFilter: 'blur(20px)',
+          borderBottom: `1px solid ${C.inkBorder}`,
+          boxShadow: scrolled ? '0 10px 30px rgba(0,0,0,0.45)' : 'none',
+        }}
+      >
+        <div className="mx-auto flex h-[66px] max-w-[1536px] items-center justify-between px-6 lg:px-12">
+          {/* Exact Brand Logo */}
+          <BrandLogo />
+
+          {/* Desktop Nav */}
+          <nav className="hidden xl:flex items-center gap-1">
+            {navLinks.map(({ label, href, hasMega }) => {
+              const isCurrent = typeof window !== 'undefined' && window.location.pathname === href
+              return (
+                <div
+                  key={label}
+                  className="relative"
+                  onMouseEnter={hasMega ? openMega : undefined}
+                  onMouseLeave={hasMega ? closeMega : undefined}
                 >
-                    {link.label}
-                    <ChevronDown className={cn("size-4 transition-transform duration-300 text-neutral-500", isOpen && "rotate-180")} />
-                </button>
-                <AnimatePresence>
-                    {isOpen && (
-                        <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: 'auto', opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            className="overflow-hidden"
-                        >
-                            <div className="flex flex-col pb-3 pl-4 space-y-3 pt-1">
-                                {link.children.map((child) => (
-                                    <Link
-                                        key={child.label}
-                                        href={child.href}
-                                        onClick={() => setIsMenuOpen(false)}
-                                        className="font-montserrat text-[15px] leading-[20px] font-medium text-neutral-600 transition-colors hover:text-[#BDA18A]"
-                                    >
-                                        {child.label}
-                                    </Link>
-                                ))}
-                            </div>
-                        </motion.div>
+                  <Link
+                    href={href}
+                    className="flex items-center gap-1 rounded-sm px-3.5 py-2 font-sans text-[11px] font-bold uppercase tracking-[0.08em] transition-all duration-200"
+                    style={{
+                      color: isCurrent || (hasMega && megaOpen) ? C.amber : 'rgba(255,255,255,0.9)',
+                      background: hasMega && megaOpen ? `${C.amber}14` : 'transparent',
+                    }}
+                  >
+                    {label}
+                    {hasMega && (
+                      <ChevronDown
+                        size={9}
+                        className={`transition-transform duration-200 ${megaOpen ? 'rotate-180 text-[#B5722A]' : 'text-white/40'}`}
+                      />
                     )}
-                </AnimatePresence>
-            </motion.div>
-        );
-    }
+                  </Link>
 
-    return (
-        <motion.div
-            initial={{ opacity: 0, x: -12 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: index * 0.04, duration: 0.25 }}
-        >
+                  {/* Active Indicator bar */}
+                  {isCurrent && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute bottom-0 left-3 right-3 rounded-full"
+                      style={{ height: 2, background: C.amber }}
+                    />
+                  )}
+                </div>
+              )
+            })}
+          </nav>
+
+          {/* Right Action: Contact CTA & Mobile Hamburger */}
+          <div className="flex items-center gap-3">
             <Link
-                href={link.href!}
-                onClick={(e) => {
-                    setIsMenuOpen(false);
-                    if (link.href === '/' && window.location.pathname === '/') {
-                        e.preventDefault();
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }
-                }}
-                className="flex border-b border-black/[0.04] py-3 font-montserrat text-[18px] leading-[24px] font-bold text-neutral-800 uppercase transition duration-300 hover:text-[#BDA18A]"
+              href="/#contact"
+              className="hidden sm:flex items-center overflow-hidden rounded-xl transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]"
+              style={{
+                background: C.inkCard,
+                border: `1.5px solid ${C.inkBorder}`,
+                boxShadow: '0 4px 18px rgba(0,0,0,0.3)',
+              }}
             >
-                {link.label}
+              <span
+                className="flex h-9 w-9 items-center justify-center"
+                style={{ background: C.amber }}
+              >
+                <Phone size={13} style={{ color: '#fff' }} />
+              </span>
+              <span
+                className="px-3.5 font-sans text-[11px] font-black uppercase text-white"
+                style={{ letterSpacing: '0.1em' }}
+              >
+                Contact
+              </span>
             </Link>
-        </motion.div>
-    );
+
+            {/* Mobile Hamburger */}
+            <button
+              onClick={() => setMenuOpen(true)}
+              className="flex xl:hidden flex-col gap-[5px] p-2 text-white"
+              aria-label="Open navigation menu"
+            >
+              <span className="h-[2px] w-5 rounded-full bg-white/80" />
+              <span className="h-[2px] w-3.5 rounded-full" style={{ background: C.amber }} />
+              <span className="h-[2px] w-5 rounded-full bg-white/80" />
+            </button>
+          </div>
+        </div>
+
+        {/* ── Mega Menu for Products ── */}
+        <AnimatePresence>
+          {megaOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -6, clipPath: 'inset(0 0 100% 0)' }}
+              animate={{ opacity: 1, y: 0, clipPath: 'inset(0 0 0% 0)' }}
+              exit={{ opacity: 0, clipPath: 'inset(0 0 100% 0)' }}
+              transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute inset-x-0 top-full z-50 border-b"
+              style={{
+                background: C.ink,
+                borderColor: C.inkBorder,
+                boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
+              }}
+              onMouseEnter={openMega}
+              onMouseLeave={closeMega}
+            >
+              {/* Top Accent Strip */}
+              <div className="flex h-[3px]">
+                {MEGA_PRODUCTS.map((col) => (
+                  <div key={col.group} className="flex-1" style={{ background: col.color }} />
+                ))}
+              </div>
+
+              <div className="mx-auto max-w-[1536px] px-8 py-7">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                  {MEGA_PRODUCTS.map((col, ci) => (
+                    <div
+                      key={col.group}
+                      className="flex flex-col"
+                      style={{
+                        borderRight: ci < MEGA_PRODUCTS.length - 1 ? `1px solid ${C.inkBorder}` : 'none',
+                        paddingRight: 16,
+                      }}
+                    >
+                      {/* Family Header */}
+                      <Link
+                        href={`/products/${col.slug}`}
+                        className="mb-3 pb-2 transition-colors hover:opacity-80"
+                        style={{ borderBottom: `2px solid ${col.color}` }}
+                      >
+                        <p className="font-sans text-[12px] font-bold text-white">{col.group}</p>
+                      </Link>
+
+                      {/* Items */}
+                      <ul className="flex flex-col gap-1.5 flex-1">
+                        {col.items.map((item) => (
+                          <li key={item}>
+                            <Link
+                              href={`/products/${col.slug}`}
+                              className="group flex items-center gap-2 py-1 text-[11.5px] text-white/60 transition-colors hover:text-[#B5722A]"
+                            >
+                              <span
+                                className="h-px w-0 transition-all duration-200 group-hover:w-2.5"
+                                style={{ background: col.color }}
+                              />
+                              {item}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+
+                      {/* View All Family */}
+                      <Link
+                        href={`/products/${col.slug}`}
+                        className="mt-4 inline-flex items-center gap-1.5 font-sans text-[8px] font-bold uppercase tracking-[0.2em] transition-opacity hover:opacity-75"
+                        style={{ color: col.color }}
+                      >
+                        View All <ArrowRight size={8} />
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Bottom Showroom Action Strip */}
+                <div
+                  className="mt-6 flex flex-wrap items-center justify-between border-t pt-4"
+                  style={{ borderColor: C.inkBorder }}
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full animate-pulse" style={{ background: C.amber }} />
+                    <span className="font-sans text-[12px] font-semibold text-white/80">
+                      500+ luminaires across 6 architectural families
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <Link
+                      href="/products"
+                      className="inline-flex items-center gap-2 rounded-md px-4 py-2 font-sans text-[9px] font-black uppercase tracking-[0.16em] text-white transition-opacity hover:opacity-85"
+                      style={{ background: C.amber }}
+                    >
+                      Open Full Showroom <ArrowRight size={10} />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </header>
+
+      {/* ── Mobile Slide-out Drawer ── */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex justify-end bg-black/80 backdrop-blur-md"
+            onClick={() => setMenuOpen(false)}
+          >
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="flex h-full w-full max-w-[320px] flex-col overflow-y-auto p-6"
+              style={{ background: '#0D0D10', borderLeft: `1px solid ${C.inkBorder}` }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between pb-6 border-b" style={{ borderColor: C.inkBorder }}>
+                <BrandLogo />
+                <button
+                  onClick={() => setMenuOpen(false)}
+                  className="flex h-8 w-8 items-center justify-center rounded-full text-white/70 hover:text-white"
+                  style={{ background: C.inkCard }}
+                >
+                  <X size={16} />
+                </button>
+              </div>
+
+              <div className="flex flex-col gap-2 py-6">
+                {navLinks.map(({ label, href }) => (
+                  <Link
+                    key={label}
+                    href={href}
+                    onClick={() => setMenuOpen(false)}
+                    className="flex items-center justify-between py-3 font-sans text-base font-bold text-white transition-colors hover:text-[#B5722A]"
+                  >
+                    {label}
+                    <ArrowRight size={12} className="text-white/30" />
+                  </Link>
+                ))}
+              </div>
+
+              {/* Mobile CTA */}
+              <div className="mt-auto pt-6 border-t" style={{ borderColor: C.inkBorder }}>
+                <Link
+                  href="/#contact"
+                  onClick={() => setMenuOpen(false)}
+                  className="flex w-full items-center justify-center gap-2 rounded-xl py-3.5 font-sans text-xs font-bold uppercase tracking-wider text-white"
+                  style={{ background: C.amber }}
+                >
+                  <Phone size={13} /> Contact Us
+                </Link>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  )
 }
