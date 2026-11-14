@@ -5708,23 +5708,18 @@ function SplashScreen({ onDone }: { onDone: () => void }) {
         }}
         transition={{ duration: isOut ? 0.55 : 1.05, ease: [0.22, 1, 0.36, 1] }}>
 
-        {/* ── ZiVIO ── */}
-        <div className="flex items-baseline leading-none" style={{ gap: 0 }}>
-          {/* Zi — slightly lighter weight for elegance */}
-          <span className="font-sans font-black"
-            style={{ fontSize: 'clamp(72px, 15vw, 130px)', color: '#FFFFFF', letterSpacing: '-0.055em', lineHeight: 0.88 }}>
-            Zi
-          </span>
-          {/* V — amber accent */}
-          <span className="font-sans font-black"
-            style={{ fontSize: 'clamp(72px, 15vw, 130px)', color: C.amber, letterSpacing: '-0.055em', lineHeight: 0.88 }}>
-            V
-          </span>
-          {/* IO */}
-          <span className="font-sans font-black"
-            style={{ fontSize: 'clamp(72px, 15vw, 130px)', color: '#FFFFFF', letterSpacing: '-0.055em', lineHeight: 0.88 }}>
-            IO
-          </span>
+        {/* ── Official ZiVIO Brand Logo Image ── */}
+        <div className="flex items-center justify-center">
+          <img
+            src="/images/zivio-logo-light.png"
+            alt="ZiVIO"
+            className="object-contain"
+            style={{
+              height: 'clamp(55px, 12vw, 110px)',
+              width: 'auto',
+              maxWidth: '85vw',
+            }}
+          />
         </div>
 
         {/* ── LIFE + separator + by ARTIZE LITE — inline ── */}
