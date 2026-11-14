@@ -520,7 +520,24 @@ export default function ProductDetailsPage({
 
                                 <div className="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                                     {relatedProducts.map((p, idx) => (
-                                        <ProductListingCard key={p.id} product={p} index={idx} />
+                                        <ProductListingCard
+                                            key={p.id}
+                                            product={{
+                                                id: String(p.id),
+                                                slug: p.slug,
+                                                name: p.name,
+                                                category: p.category?.environment?.name || p.category?.name || 'Architectural',
+                                                type: p.category?.name || 'Luminaire',
+                                                image: p.image,
+                                                gallery: p.gallery || [p.image],
+                                                shortDescription: p.short_description || p.shortDescription || '',
+                                                description: p.description,
+                                                specs: p.specs || [],
+                                                technicalSpecs: p.technical_specs || [],
+                                                applications: p.applications || [],
+                                            } as any}
+                                            index={idx}
+                                        />
                                     ))}
                                 </div>
                             </div>

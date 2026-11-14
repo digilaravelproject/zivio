@@ -8,6 +8,14 @@ type ProductListingCardProps = {
 };
 
 export function ProductListingCard({ product, index }: ProductListingCardProps) {
+    const categoryName = typeof product.category === 'object' && product.category !== null
+        ? ((product.category as any).environment?.name || (product.category as any).name || 'Architectural')
+        : (product.category || 'Architectural');
+
+    const typeName = product.type || (typeof product.category === 'object' && product.category !== null ? (product.category as any).name : 'Luminaire');
+    const shortDesc = product.shortDescription || (product as any).short_description || '';
+    const specsList = Array.isArray(product.specs) ? product.specs : [];
+
     return (
         <Reveal
             className="h-full"
@@ -38,11 +46,11 @@ export function ProductListingCard({ product, index }: ProductListingCardProps) 
                 {/* Category / Subcategory Tag */}
                 <div className="flex items-center gap-2 mb-2 pl-0.5">
                     <span className="font-sans text-[0.66rem] font-bold tracking-[0.16em] text-[#B5722A] uppercase">
-                        {product.category}
+                        {categoryName}
                     </span>
                     <span className="text-white/20 text-xs">•</span>
                     <span className="font-sans text-[0.64rem] font-semibold tracking-[0.12em] text-white/50 uppercase">
-                        {product.type}
+                        {typeName}
                     </span>
                 </div>
 
@@ -52,21 +60,28 @@ export function ProductListingCard({ product, index }: ProductListingCardProps) 
                 </h3>
 
                 {/* Short Description */}
-                <p className="mt-2 font-sans text-[0.8rem] leading-6 text-white/60 pl-0.5 line-clamp-2">
-                    {product.shortDescription}
-                </p>
+                {shortDesc && (
+                    <p className="mt-2 font-sans text-[0.8rem] leading-6 text-white/60 pl-0.5 line-clamp-2">
+                        {shortDesc}
+                    </p>
+                )}
 
                 {/* Technical Specs Small Pills */}
-                <div className="mt-4 flex flex-wrap gap-1.5 pl-0.5">
-                    {product.specs.slice(0, 2).map((spec) => (
-                        <span
-                            key={spec}
-                            className="rounded-full border border-white/[0.08] bg-white/[0.04] px-2.5 py-0.5 font-sans text-[0.62rem] font-semibold tracking-wide text-white/70"
-                        >
-                            {spec}
-                        </span>
-                    ))}
-                </div>
+                {specsList.length > 0 && (
+                    <div className="mt-4 flex flex-wrap gap-1.5 pl-0.5">
+                        {specsList.slice(0, 2).map((spec, sIdx) => {
+                            const specText = typeof spec === 'string' ? spec : (spec as any)?.value || (spec as any)?.label || String(spec);
+                            return (
+                                <span
+                                    key={sIdx}
+                                    className="rounded-full border border-white/[0.08] bg-white/[0.04] px-2.5 py-0.5 font-sans text-[0.62rem] font-semibold tracking-wide text-white/70"
+                                >
+                                    {specText}
+                                </span>
+                            );
+                        })}
+                    </div>
+                )}
 
                 {/* View Details Visual CTA */}
                 <div className="mt-auto pt-4 border-t border-white/[0.08] flex items-center justify-between pl-0.5">
