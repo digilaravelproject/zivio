@@ -15,7 +15,7 @@ export const homepageSeo = {
         'ZIVIO LIFE, Architectural Lighting, Premium Lighting, Indoor Lighting, Outdoor Lighting, Pole Lighting, Solar Lighting, Commercial Lighting, Residential Lighting, Luxury Lighting Solutions',
     siteName: 'ZIVIO LIFE',
     url: siteUrl,
-    logoUrl: absoluteUrl('/images/zivio-life-logo.svg'),
+    logoUrl: absoluteUrl('/images/zivio-logo.png'),
     imageUrl: absoluteUrl('/images/zivio-social-preview.png'),
     imageWidth: '1200',
     imageHeight: '630',

@@ -19,13 +19,12 @@ export function BrandLogo({
 
   const barHeight = isLg ? 36 : isSm ? 24 : 30
   const barWidth = isLg ? 3.5 : isSm ? 2.5 : 3.2
-  const zivioSize = isLg ? 26 : isSm ? 19 : 23
+  const logoHeight = isLg ? 26 : isSm ? 18 : 22
   const lifeSize = isLg ? 8.5 : isSm ? 6.8 : 7.8
   const artizeSize = isLg ? 7.5 : isSm ? 5.8 : 6.8
 
-  const textColor = isLight ? '#111111' : '#FFFFFF'
-  const subTextColor = isLight ? 'rgba(0,0,0,0.55)' : 'rgba(255,255,255,0.65)'
-  const dividerColor = isLight ? 'rgba(0,0,0,0.20)' : 'rgba(255,255,255,0.25)'
+  const subTextColor = isLight ? 'rgba(0,0,0,0.60)' : 'rgba(255,255,255,0.65)'
+  const dividerColor = isLight ? 'rgba(0,0,0,0.25)' : 'rgba(255,255,255,0.25)'
 
   return (
     <Link
@@ -44,22 +43,18 @@ export function BrandLogo({
       />
 
       <div className="flex flex-col leading-none">
-        {/* ZiVIO wordmark with signature amber V from flash screen */}
-        <div
-          className="flex items-baseline leading-none font-sans font-black transition-opacity group-hover:opacity-90"
-          style={{
-            fontSize: zivioSize,
-            letterSpacing: '-0.05em',
-            lineHeight: 1,
-          }}
-        >
-          <span style={{ color: textColor }}>Zi</span>
-          <span style={{ color: '#B5722A' }}>V</span>
-          <span style={{ color: textColor }}>IO</span>
+        {/* Official ZiVIO PNG Brand Logo Image */}
+        <div className="flex items-center">
+          <img
+            src={isLight ? '/images/zivio-logo-dark.png' : '/images/zivio-logo-light.png'}
+            alt="ZiVIO"
+            style={{ height: logoHeight, width: 'auto' }}
+            className="object-contain transition-opacity group-hover:opacity-90 max-h-none"
+          />
         </div>
 
-        {/* LIFE + by ARTIZE LITE from flash screen */}
-        <div className="flex items-center gap-1.5 mt-0.5">
+        {/* LIFE + by ARTIZE LITE */}
+        <div className="flex items-center gap-1.5 mt-1">
           <span
             className="font-sans font-black"
             style={{
