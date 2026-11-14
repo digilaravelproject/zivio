@@ -1,6 +1,6 @@
 import { Head, router, useForm } from '@inertiajs/react';
-import { useState } from 'react';
 import { Plus, Edit2, Trash2, Globe2, Image as ImageIcon } from 'lucide-react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -60,6 +60,7 @@ export default function EnvironmentsIndex({ environments }: Props) {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+
         if (editingEnv) {
             form.transform((data) => ({
                 ...data,
@@ -133,6 +134,7 @@ export default function EnvironmentsIndex({ environments }: Props) {
                                     value={form.data.name}
                                     onChange={(e) => {
                                         form.setData('name', e.target.value);
+
                                         if (!editingEnv) {
                                             form.setData('slug', e.target.value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, ''));
                                         }
@@ -186,6 +188,7 @@ export default function EnvironmentsIndex({ environments }: Props) {
                                             onChange={(e) => {
                                                 const file = e.target.files?.[0] || null;
                                                 form.setData('image_file', file);
+
                                                 if (file) {
                                                     setImagePreview(URL.createObjectURL(file));
                                                 }

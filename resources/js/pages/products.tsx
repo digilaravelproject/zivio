@@ -1,12 +1,12 @@
 import { Head, Link, router } from '@inertiajs/react';
-import { useEffect, useState, useMemo, lazy, Suspense } from 'react';
-import { SlidersHorizontal, X, Check, ChevronRight, Home, ArrowLeft, ArrowUpRight, Layers } from 'lucide-react';
 import { AnimatePresence } from 'framer-motion';
+import { SlidersHorizontal, X, Check, ChevronRight, Home, ArrowLeft, ArrowUpRight, Layers } from 'lucide-react';
+import { useEffect, useState, useMemo, lazy, Suspense } from 'react';
 
-import { Navbar } from '@/components/layout/Navbar';
-import { ProductListingCard } from '@/components/products/ProductListingCard';
 import { Reveal } from '@/components/animations/Reveal';
 import { SplashScreen } from '@/components/common/SplashScreen';
+import { Navbar } from '@/components/layout/Navbar';
+import { ProductListingCard } from '@/components/products/ProductListingCard';
 
 interface Category {
     id: number;
@@ -93,13 +93,16 @@ export default function ProductsPage({
         if (selectedEnv === 'all') {
             return environments.flatMap((e) => e.categories);
         }
+
         const env = environments.find((e) => e.slug === selectedEnv);
+
         return env ? env.categories : [];
     }, [environments, selectedEnv]);
 
     const handleEnvSelect = (envSlug: string) => {
         setSelectedEnv(envSlug);
         setSelectedCat('all');
+
         if (envSlug === 'all') {
             router.get('/products', {}, { preserveState: true });
         } else {
@@ -109,6 +112,7 @@ export default function ProductsPage({
 
     const handleCatSelect = (catSlug: string) => {
         setSelectedCat(catSlug);
+
         if (catSlug === 'all') {
             if (selectedEnv === 'all') {
                 router.get('/products', {}, { preserveState: true });
@@ -124,6 +128,7 @@ export default function ProductsPage({
     const handleFilterToggle = (attrSlug: string, value: string) => {
         const currentVals = selectedFilters[attrSlug] || [];
         let newVals: string[];
+
         if (currentVals.includes(value)) {
             newVals = currentVals.filter((v) => v !== value);
         } else {
@@ -131,6 +136,7 @@ export default function ProductsPage({
         }
 
         const queryParams: Record<string, any> = { ...selectedFilters };
+
         if (newVals.length > 0) {
             queryParams[attrSlug] = newVals.join(',');
         } else {
@@ -353,7 +359,10 @@ export default function ProductsPage({
                                     // All environments grouped
                                     <div className="space-y-12">
                                         {environments.map((env) => {
-                                            if (!env.categories || env.categories.length === 0) return null;
+                                            if (!env.categories || env.categories.length === 0) {
+return null;
+}
+
                                             return (
                                                 <div key={env.id} className="space-y-4">
                                                     <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">

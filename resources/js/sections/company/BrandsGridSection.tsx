@@ -1,7 +1,7 @@
 import { Link } from '@inertiajs/react';
-import { brandsPageData } from '@/data/companyPagesData';
 import { Reveal } from '@/components/animations/Reveal';
 import { SiteButton } from '@/components/site/SiteButton';
+import { brandsPageData } from '@/data/companyPagesData';
 
 export function BrandsGridSection() {
     return (

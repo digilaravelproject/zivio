@@ -1,5 +1,5 @@
-import { Reveal } from '@/components/animations/Reveal';
 import { Shield, Leaf, Sparkles, Users } from 'lucide-react';
+import { Reveal } from '@/components/animations/Reveal';
 
 const pillars = [
     {
@@ -66,6 +66,7 @@ export function WhyChooseUsSection() {
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                     {pillars.map((pillar, index) => {
                         const IconComponent = pillar.icon;
+
                         return (
                             <Reveal
                                 key={pillar.title}

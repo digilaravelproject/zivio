@@ -1,5 +1,5 @@
-import { trustData, valuesData } from '@/data/aboutPageData';
 import { Reveal } from '@/components/animations/Reveal';
+import { trustData, valuesData } from '@/data/aboutPageData';
 
 export function AboutValuesSection() {
     return (

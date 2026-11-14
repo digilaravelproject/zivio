@@ -1,5 +1,4 @@
 import { Head, router, useForm } from '@inertiajs/react';
-import { useState, useMemo } from 'react';
 import {
     Plus,
     Edit2,
@@ -15,6 +14,7 @@ import {
     Calendar,
     Briefcase,
 } from 'lucide-react';
+import { useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -89,6 +89,7 @@ export default function ProjectsIndex({ projects }: Props) {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+
         if (editingProject) {
             form.transform((data) => ({
                 ...data,
@@ -137,6 +138,7 @@ export default function ProjectsIndex({ projects }: Props) {
     // Unique types for filter bar
     const availableTypes = useMemo(() => {
         const types = Array.from(new Set(projects.map((p) => p.type)));
+
         return ['ALL', ...types];
     }, [projects]);
 
@@ -329,6 +331,7 @@ export default function ProjectsIndex({ projects }: Props) {
                                             onChange={(e) => {
                                                 const file = e.target.files?.[0] || null;
                                                 form.setData('image_file', file);
+
                                                 if (file) {
                                                     setImagePreview(URL.createObjectURL(file));
                                                 }
@@ -354,6 +357,7 @@ export default function ProjectsIndex({ projects }: Props) {
                                             onChange={(e) => {
                                                 const val = e.target.value;
                                                 form.setData('image', val);
+
                                                 if (val && !form.data.image_file) {
                                                     if (val.startsWith('http://') || val.startsWith('https://') || val.startsWith('/')) {
                                                         setImagePreview(val);

@@ -69,11 +69,15 @@ export function Navbar() {
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', fn)
+
     return () => window.removeEventListener('scroll', fn)
   }, [])
 
   const openMega = () => {
-    if (megaTimer.current) clearTimeout(megaTimer.current)
+    if (megaTimer.current) {
+clearTimeout(megaTimer.current)
+}
+
     setMegaOpen(true)
   }
   const closeMega = () => {
@@ -203,6 +207,7 @@ export function Navbar() {
           <nav className="hidden xl:flex items-center gap-1">
             {navLinks.map(({ label, href, hasMega }) => {
               const isCurrent = typeof window !== 'undefined' && window.location.pathname === href
+
               return (
                 <div
                   key={label}

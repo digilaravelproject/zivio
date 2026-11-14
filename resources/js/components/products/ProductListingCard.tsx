@@ -1,6 +1,6 @@
 import { Link } from '@inertiajs/react';
-import type { CatalogProduct } from '@/data/productsCatalogData';
 import { Reveal } from '@/components/animations/Reveal';
+import type { CatalogProduct } from '@/data/productsCatalogData';
 
 type ProductListingCardProps = {
     product: CatalogProduct;
@@ -71,6 +71,7 @@ export function ProductListingCard({ product, index }: ProductListingCardProps) 
                     <div className="mt-4 flex flex-wrap gap-1.5 pl-0.5">
                         {specsList.slice(0, 2).map((spec, sIdx) => {
                             const specText = typeof spec === 'string' ? spec : (spec as any)?.value || (spec as any)?.label || String(spec);
+
                             return (
                                 <span
                                     key={sIdx}

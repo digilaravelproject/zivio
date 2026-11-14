@@ -19,6 +19,7 @@ export function CategoryShowcaseSection({ environments = [] }: CategoryShowcaseS
                 href: `/products/${env.slug}`,
             }));
         }
+
         return categories;
     }, [environments]);
 

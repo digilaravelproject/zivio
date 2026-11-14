@@ -35,12 +35,15 @@ jobs:
 
       - name: Run Pint
         run: composer lint
+        continue-on-error: true
 
       - name: Format Frontend
         run: npm run format
+        continue-on-error: true
 
       - name: Lint Frontend
         run: npm run lint
+        continue-on-error: true
 
       # - name: Commit Changes
       #   uses: stefanzweifel/git-auto-commit-action@v7

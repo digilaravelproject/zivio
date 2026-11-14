@@ -1,6 +1,6 @@
 import { Head, router, useForm } from '@inertiajs/react';
-import { useState } from 'react';
 import { Plus, Edit2, Trash2, Layers, Image as ImageIcon, Filter } from 'lucide-react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -51,9 +51,11 @@ export default function CategoriesIndex({ categories, environments, selectedEnvi
         setEditingCat(null);
         form.reset();
         setImagePreview(null);
+
         if (selectedEnvironmentId) {
             form.setData('environment_id', parseInt(selectedEnvironmentId));
         }
+
         setIsCreateOpen(true);
     };
 
@@ -75,6 +77,7 @@ export default function CategoriesIndex({ categories, environments, selectedEnvi
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+
         if (editingCat) {
             form.transform((data) => ({
                 ...data,
@@ -194,6 +197,7 @@ export default function CategoriesIndex({ categories, environments, selectedEnvi
                                     className="bg-white dark:bg-zinc-800 border-slate-300 dark:border-zinc-700 text-slate-900 dark:text-slate-100 font-medium placeholder:text-slate-400"
                                     onChange={(e) => {
                                         form.setData('name', e.target.value);
+
                                         if (!editingCat) {
                                             form.setData('slug', e.target.value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, ''));
                                         }
@@ -252,6 +256,7 @@ export default function CategoriesIndex({ categories, environments, selectedEnvi
                                             onChange={(e) => {
                                                 const file = e.target.files?.[0] || null;
                                                 form.setData('image_file', file);
+
                                                 if (file) {
                                                     setImagePreview(URL.createObjectURL(file));
                                                 }

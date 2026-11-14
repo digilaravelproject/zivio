@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
 import { ZivioWordmarkSvg } from './ZivioWordmarkSvg'
 
 const C = {
@@ -19,7 +19,10 @@ export function SplashScreen({ onDone, fast = false }: { onDone: () => void; fas
     const t1 = setTimeout(() => setPhase('hold'), holdTime)
     const t2 = setTimeout(() => setPhase('out'), outTime)
     const t3 = setTimeout(onDone, doneTime)
-    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3) }
+
+    return () => {
+ clearTimeout(t1); clearTimeout(t2); clearTimeout(t3) 
+}
   }, [fast, onDone])
 
   const isIn   = phase === 'in'

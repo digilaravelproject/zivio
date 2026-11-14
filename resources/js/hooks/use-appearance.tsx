@@ -81,11 +81,13 @@ export function initializeTheme(): void {
     }
 
     currentAppearance = getStoredAppearance();
+
     if (currentAppearance === 'system') {
         currentAppearance = 'light';
         localStorage.setItem('appearance', 'light');
         setCookie('appearance', 'light');
     }
+
     applyTheme(currentAppearance);
 
     // Set up system theme change listener

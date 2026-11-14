@@ -1,5 +1,4 @@
 import { Head, router, useForm } from '@inertiajs/react';
-import { useState, useMemo } from 'react';
 import {
     Plus,
     Edit2,
@@ -18,6 +17,7 @@ import {
     LayoutGrid,
     Table as TableIcon,
 } from 'lucide-react';
+import { useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -133,6 +133,7 @@ export default function CataloguesIndex({ catalogues, categories, stats, filters
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+
         if (editingCatalogue) {
             form.transform((data) => ({
                 ...data,
@@ -184,6 +185,7 @@ export default function CataloguesIndex({ catalogues, categories, stats, filters
         CATEGORY_PRESETS.forEach((c) => set.add(c));
         categories?.forEach((c) => set.add(c));
         catalogues?.forEach((c) => set.add(c.category));
+
         return Array.from(set);
     }, [categories, catalogues]);
 
@@ -284,6 +286,7 @@ export default function CataloguesIndex({ catalogues, categories, stats, filters
                         </button>
                         {allCategoriesList.map((cat) => {
                             const count = catalogues.filter((c) => c.category === cat).length;
+
                             return (
                                 <button
                                     key={cat}

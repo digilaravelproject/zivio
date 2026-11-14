@@ -1,5 +1,4 @@
 import { Head, router, useForm } from '@inertiajs/react';
-import { useState } from 'react';
 import {
     Plus,
     Edit2,
@@ -14,6 +13,7 @@ import {
     Layers,
     Sparkles,
 } from 'lucide-react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -39,10 +39,14 @@ interface Props {
 }
 
 const resolveMediaUrl = (val: string | null | undefined, w = 600, h = 340) => {
-    if (!val) return '';
+    if (!val) {
+return '';
+}
+
     if (val.startsWith('http') || val.startsWith('/')) {
         return val;
     }
+
     return `https://images.unsplash.com/photo-${val}?w=${w}&h=${h}&fit=crop&auto=format&q=80`;
 };
 
@@ -500,6 +504,7 @@ export default function HeroSlidesIndex({ slides }: Props) {
                                                 onChange={(e) => {
                                                     const file = e.target.files?.[0] || null;
                                                     form.setData('poster_file', file);
+
                                                     if (file) {
                                                         setPosterPreview(URL.createObjectURL(file));
                                                     }
@@ -540,6 +545,7 @@ export default function HeroSlidesIndex({ slides }: Props) {
                                                 onChange={(e) => {
                                                     const file = e.target.files?.[0] || null;
                                                     form.setData('image_file', file);
+
                                                     if (file) {
                                                         setImagePreview(URL.createObjectURL(file));
                                                     }

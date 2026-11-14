@@ -1,5 +1,4 @@
 import { Head, Link, router } from '@inertiajs/react';
-import { useState } from 'react';
 import {
     Plus,
     Edit2,
@@ -19,6 +18,7 @@ import {
     Globe2,
     Filter,
 } from 'lucide-react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
@@ -98,7 +98,10 @@ export default function ProductsIndex({
     };
 
     const handleSearchSubmit = (e?: React.FormEvent) => {
-        if (e) e.preventDefault();
+        if (e) {
+e.preventDefault();
+}
+
         handleFilterChange('search', searchTerm);
     };
 

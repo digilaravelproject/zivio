@@ -1,15 +1,27 @@
-import { useState, useEffect, useRef, useCallback, useMemo } from 'react'
 import { Head, Link, router } from '@inertiajs/react'
-import shreeJirapurePhoto from './imports/shree_jirapure.jpeg'
-import priyaJirapurePhoto from './imports/priya_jirapure.jpeg'
+import { motion, AnimatePresence, useInView } from 'framer-motion'
+import {
+  Search, X, ArrowRight, MapPin, Phone, Mail,
+  Download, Shield, Zap, Globe, Award, Cpu, Droplets,
+  CheckCircle, ChevronLeft, ChevronRight, ChevronDown,
+  Star, TrendingUp, Building2, Sliders, Compass, MessageCircle, Send
+} from 'lucide-react'
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react'
+import { BrandLogo } from '@/components/common/BrandLogo'
+import { ZivioWordmarkSvg } from '@/components/common/ZivioWordmarkSvg'
+import heroLuxuryTerrace from './imports/3c6b2e14a19517ce443bab64f61bad94.jpg'
 import anjaliBunkarPhoto from './imports/anjali_bunkar.jpeg'
+import heroLuxuryInterior from './imports/c12c7970491d4d3db92ebe22ee8a35d8.jpg'
+import heroStreetLantern from './imports/E1.jpg'
+import priyaJirapurePhoto from './imports/priya_jirapure.jpeg'
+import shreeJirapurePhoto from './imports/shree_jirapure.jpeg'
 import shridharMorabPhoto from './imports/WhatsApp_Image_2026-07-28_at_12.40.15_PM.jpeg'
 import g5043Product from './imports/WhatsApp_Image_2026-08-03_at_1.38.59_PM.jpeg'
 import g5043Bg1 from './imports/WhatsApp_Image_2026-08-03_at_1.39.00_PM.jpeg'
 import g5043Bg2 from './imports/WhatsApp_Image_2026-08-03_at_1.39.00_PM__1_.jpeg'
-import classicLanternProduct from './imports/WhatsApp_Image_2026-08-03_at_1.49.55_PM__1_.jpeg'
 import classicLanternBg1 from './imports/WhatsApp_Image_2026-08-03_at_1.49.54_PM.jpeg'
 import classicLanternBg2 from './imports/WhatsApp_Image_2026-08-03_at_1.49.55_PM.jpeg'
+import classicLanternProduct from './imports/WhatsApp_Image_2026-08-03_at_1.49.55_PM__1_.jpeg'
 import classicLanternBg3 from './imports/WhatsApp_Image_2026-08-03_at_1.49.55_PM__2_.jpeg'
 import linearProduct from './imports/WhatsApp_Image_2026-08-03_at_1.56.45_PM.jpeg'
 import linearBg1 from './imports/WhatsApp_Image_2026-08-03_at_1.56.45_PM__1_.jpeg'
@@ -20,27 +32,15 @@ import crownBg1 from './imports/WhatsApp_Image_2026-08-03_at_2.04.36_PM__1_.jpeg
 import crownBg2 from './imports/WhatsApp_Image_2026-08-03_at_2.04.37_PM.jpeg'
 import surfaceProduct from './imports/WhatsApp_Image_2026-08-03_at_2.08.24_PM.jpeg'
 import surfaceBg1 from './imports/WhatsApp_Image_2026-08-03_at_2.08.24_PM__1_.jpeg'
-import globeProduct from './imports/WhatsApp_Image_2026-08-03_at_2.12.26_PM.jpeg'
 import globeBg1 from './imports/WhatsApp_Image_2026-08-03_at_2.12.25_PM.jpeg'
+import globeProduct from './imports/WhatsApp_Image_2026-08-03_at_2.12.26_PM.jpeg'
 import globeBg2 from './imports/WhatsApp_Image_2026-08-03_at_2.12.26_PM__1_.jpeg'
 // Hero atmospheric slides — named by scene
-import heroLuxuryTerrace from './imports/3c6b2e14a19517ce443bab64f61bad94.jpg'
-import heroLuxuryInterior from './imports/c12c7970491d4d3db92ebe22ee8a35d8.jpg'
-import heroStreetLantern from './imports/E1.jpg'
 import helixPostProduct from './imports/PT1.PNG'
 import globePostProduct2 from './imports/PT2.PNG'
 import helixPostAlt from './imports/PT1-1.PNG'
 import globePostAlt from './imports/PT2-1.PNG'
 import helixPostV3 from './imports/PT1-2.PNG'
-import { BrandLogo } from '@/components/common/BrandLogo'
-import { ZivioWordmarkSvg } from '@/components/common/ZivioWordmarkSvg'
-import { motion, AnimatePresence, useInView } from 'framer-motion'
-import {
-  Search, X, ArrowRight, MapPin, Phone, Mail,
-  Download, Shield, Zap, Globe, Award, Cpu, Droplets,
-  CheckCircle, ChevronLeft, ChevronRight, ChevronDown,
-  Star, TrendingUp, Building2, Sliders, Compass, MessageCircle, Send
-} from 'lucide-react'
 
 // ─── Palette — Brief spec: Warm Off-White · Rich Charcoal · Matte Gold ────────
 const C = {
@@ -276,10 +276,14 @@ const TOP_NAV = ['Home', 'About', 'Products', 'Solutions', 'Projects', 'Download
 
 // ─── Utility ──────────────────────────────────────────────────────────────────
 const img = (id: string, w = 800, h = 600) => {
-  if (!id) return ''
+  if (!id) {
+return ''
+}
+
   if (id.startsWith('http://') || id.startsWith('https://') || id.startsWith('/') || id.startsWith('data:')) {
     return id
   }
+
   return `https://images.unsplash.com/photo-${id}?w=${w}&h=${h}&fit=crop&auto=format&q=80`
 }
 
@@ -287,16 +291,26 @@ const img = (id: string, w = 800, h = 600) => {
 function useCountUp(target: number, duration = 2000, active = false) {
   const [n, setN] = useState(0)
   useEffect(() => {
-    if (!active) return
+    if (!active) {
+return
+}
+
     let t0: number | null = null
     const step = (ts: number) => {
-      if (!t0) t0 = ts
+      if (!t0) {
+t0 = ts
+}
+
       const p = Math.min((ts - t0) / duration, 1)
       setN(Math.floor((1 - Math.pow(1 - p, 3)) * target))
-      if (p < 1) requestAnimationFrame(step)
+
+      if (p < 1) {
+requestAnimationFrame(step)
+}
     }
     requestAnimationFrame(step)
   }, [target, duration, active])
+
   return n
 }
 
@@ -309,6 +323,7 @@ const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } 
 function InView({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   const ref = useRef(null)
   const v = useInView(ref, { once: true, margin: '-60px' })
+
   return (
     <motion.div ref={ref} variants={stagger} initial="hidden" animate={v ? 'visible' : 'hidden'} className={className}>
       {children}
@@ -329,15 +344,21 @@ function Header({ onAbout, onNews, onCareers, onArchConsult, onSearch }: { onAbo
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 60)
     window.addEventListener('scroll', fn)
+
     return () => window.removeEventListener('scroll', fn)
   }, [])
 
 
   const openMega = (label: string) => {
-    if (megaTimer.current) clearTimeout(megaTimer.current)
+    if (megaTimer.current) {
+clearTimeout(megaTimer.current)
+}
+
     setMegaOpen(label)
   }
-  const closeMega = () => { megaTimer.current = setTimeout(() => setMegaOpen(null), 140) }
+  const closeMega = () => {
+ megaTimer.current = setTimeout(() => setMegaOpen(null), 140) 
+}
 
   const megaData = megaOpen === 'Products' ? MEGA_PRODUCTS : megaOpen === 'Solutions' ? MEGA_SOLUTIONS : null
 
@@ -390,7 +411,9 @@ function Header({ onAbout, onNews, onCareers, onArchConsult, onSearch }: { onAbo
                     className="absolute right-0 top-full mt-2 py-1 z-50"
                     style={{ background: C.navyMid, border: `1px solid rgba(255,255,255,0.1)`, minWidth: 70, boxShadow: '0 8px 24px rgba(0,0,0,0.6)' }}>
                     {['EN', 'AR', 'FR', 'DE', 'HI'].map(l => (
-                      <button key={l} onClick={() => { setLang(l); setLangOpen(false) }}
+                      <button key={l} onClick={() => {
+ setLang(l); setLangOpen(false) 
+}}
                         className="w-full text-left px-4 py-1.5 font-label text-[8px] tracking-[0.18em] uppercase transition-colors"
                         style={{ color: l === lang ? C.amber : 'rgba(255,255,255,0.55)' }}>
                         {l}
@@ -426,13 +449,20 @@ function Header({ onAbout, onNews, onCareers, onArchConsult, onSearch }: { onAbo
             {TOP_NAV.map(label => {
               const hasMega = label === 'Products' || label === 'Solutions'
               const isActive = megaOpen === label
+
               return (
                 <div key={label} className="relative"
                   onMouseEnter={() => hasMega ? openMega(label) : setMegaOpen(null)}
                   onMouseLeave={() => hasMega ? closeMega() : null}>
                   <a
                     href={label === 'Home' ? '/' : label === 'Products' ? '/products' : (label === 'About' || label === 'News' || label === 'Careers') ? undefined : `#${label.toLowerCase().replace(/\s+/g, '-')}`}
-                    onClick={label === 'About' ? (e) => { e.preventDefault(); onAbout() } : label === 'News' ? (e) => { e.preventDefault(); onNews() } : label === 'Careers' ? (e) => { e.preventDefault(); onCareers() } : undefined}
+                    onClick={label === 'About' ? (e) => {
+ e.preventDefault(); onAbout() 
+} : label === 'News' ? (e) => {
+ e.preventDefault(); onNews() 
+} : label === 'Careers' ? (e) => {
+ e.preventDefault(); onCareers() 
+} : undefined}
                     className="flex items-center gap-1 px-3 py-2 font-sans font-black uppercase transition-all duration-200"
                     style={{
                       fontSize: 10.5,
@@ -530,7 +560,11 @@ function Header({ onAbout, onNews, onCareers, onArchConsult, onSearch }: { onAbo
             transition={{ duration: 0.26, ease: [0.22, 1, 0.36, 1] }}
             className="fixed inset-x-0 z-40"
             style={{ top: 104, background: C.ink, borderBottom: `1px solid ${C.inkBorder}`, boxShadow: '0 12px 48px rgba(0,0,0,0.10)' }}
-            onMouseEnter={() => { if (megaTimer.current) clearTimeout(megaTimer.current) }}
+            onMouseEnter={() => {
+ if (megaTimer.current) {
+clearTimeout(megaTimer.current)
+} 
+}}
             onMouseLeave={closeMega}>
 
             {/* Top accent bar — coloured per category */}
@@ -547,6 +581,7 @@ function Header({ onAbout, onNews, onCareers, onArchConsult, onSearch }: { onAbo
                 style={{ gridTemplateColumns: megaOpen === 'Products' ? 'repeat(6,1fr)' : 'repeat(4,1fr)' }}>
                 {megaData.map((col, ci) => {
                   const colColor = (col as typeof MEGA_PRODUCTS[0]).color ?? C.amber
+
                   return (
                     <div key={col.group}
                       className="flex flex-col"
@@ -636,7 +671,25 @@ function Header({ onAbout, onNews, onCareers, onArchConsult, onSearch }: { onAbo
               {TOP_NAV.map((label, i) => (
                 <motion.a key={label}
                   href={label === 'Home' ? '#' : (label === 'About' || label === 'News' || label === 'Careers') ? undefined : `#${label.toLowerCase().replace(/\s+/g, '-')}`}
-                  onClick={(e) => { if (label === 'About' || label === 'News' || label === 'Careers') e.preventDefault(); setMenuOpen(false); if (label === 'About') onAbout(); if (label === 'News') onNews(); if (label === 'Careers') onCareers() }}
+                  onClick={(e) => {
+ if (label === 'About' || label === 'News' || label === 'Careers') {
+e.preventDefault();
+}
+
+ setMenuOpen(false);
+
+ if (label === 'About') {
+onAbout();
+}
+
+ if (label === 'News') {
+onNews();
+}
+
+ if (label === 'Careers') {
+onCareers()
+} 
+}}
                   initial={{ opacity: 0, x: 18 }} animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.12 + i * 0.04, ease: 'easeOut' }}
                   className="flex items-center justify-between px-7 py-4 font-sans font-semibold uppercase transition-colors hover:text-white"
@@ -891,9 +944,13 @@ export interface WelcomeProps {
 }
 
 function adaptHeroSlides(slides: any[] | undefined, defaultSlides: typeof HERO_SLIDES) {
-  if (!slides || !Array.isArray(slides) || slides.length === 0) return defaultSlides;
+  if (!slides || !Array.isArray(slides) || slides.length === 0) {
+return defaultSlides;
+}
+
   return slides.map((s, idx) => {
     const fallback = defaultSlides[idx % defaultSlides.length];
+
     return {
       id: s.id ?? idx,
       type: (s.type === 'video' ? 'video' : 'image') as 'video' | 'image',
@@ -975,7 +1032,10 @@ function FeaturedProduct({ products = FEATURED_PRODUCTS }: { products?: typeof F
     const start = Date.now()
     const tick = setInterval(() => setBgProg(Math.min((Date.now() - start) / BG_DURATION, 1)), 16)
     const adv = setTimeout(() => setBgIdx(i => (i + 1) % totalBg), BG_DURATION)
-    return () => { clearInterval(tick); clearTimeout(adv) }
+
+    return () => {
+ clearInterval(tick); clearTimeout(adv) 
+}
   }, [bgIdx, prodIdx, totalBg])
 
   // Product auto-advance
@@ -990,13 +1050,21 @@ function FeaturedProduct({ products = FEATURED_PRODUCTS }: { products?: typeof F
         setLeaving(false)
       }, 500)
     }, PROD_DURATION)
-    return () => { clearInterval(tick); clearTimeout(adv) }
+
+    return () => {
+ clearInterval(tick); clearTimeout(adv) 
+}
   }, [prodIdx, products.length])
 
   const goTo = (idx: number) => {
-    if (idx === prodIdx) return
+    if (idx === prodIdx) {
+return
+}
+
     setLeaving(true)
-    setTimeout(() => { setProdIdx(idx); setLeaving(false) }, 450)
+    setTimeout(() => {
+ setProdIdx(idx); setLeaving(false) 
+}, 450)
   }
 
   return (
@@ -1148,6 +1216,7 @@ function FeaturedProduct({ products = FEATURED_PRODUCTS }: { products?: typeof F
         <div className="flex items-stretch overflow-x-auto hide-scrollbar">
           {products.map((p, i) => {
             const isActive = i === prodIdx
+
             return (
               <button key={i} onClick={() => goTo(i)}
                 className="flex-shrink-0 flex flex-col items-center justify-between transition-all duration-300 relative group"
@@ -1193,15 +1262,23 @@ function FeaturedProduct({ products = FEATURED_PRODUCTS }: { products?: typeof F
             <button onClick={() => goTo((prodIdx - 1 + products.length) % products.length)}
               className="w-8 h-8 flex items-center justify-center transition-all"
               style={{ border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.4)' }}
-              onMouseEnter={e => { const b = e.currentTarget as HTMLButtonElement; b.style.borderColor = C.amber; b.style.color = C.amber }}
-              onMouseLeave={e => { const b = e.currentTarget as HTMLButtonElement; b.style.borderColor = 'rgba(255,255,255,0.12)'; b.style.color = 'rgba(255,255,255,0.4)' }}>
+              onMouseEnter={e => {
+ const b = e.currentTarget as HTMLButtonElement; b.style.borderColor = C.amber; b.style.color = C.amber 
+}}
+              onMouseLeave={e => {
+ const b = e.currentTarget as HTMLButtonElement; b.style.borderColor = 'rgba(255,255,255,0.12)'; b.style.color = 'rgba(255,255,255,0.4)' 
+}}>
               <ChevronLeft size={12} />
             </button>
             <button onClick={() => goTo((prodIdx + 1) % products.length)}
               className="w-8 h-8 flex items-center justify-center transition-all"
               style={{ border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.4)' }}
-              onMouseEnter={e => { const b = e.currentTarget as HTMLButtonElement; b.style.borderColor = C.amber; b.style.color = C.amber }}
-              onMouseLeave={e => { const b = e.currentTarget as HTMLButtonElement; b.style.borderColor = 'rgba(255,255,255,0.12)'; b.style.color = 'rgba(255,255,255,0.4)' }}>
+              onMouseEnter={e => {
+ const b = e.currentTarget as HTMLButtonElement; b.style.borderColor = C.amber; b.style.color = C.amber 
+}}
+              onMouseLeave={e => {
+ const b = e.currentTarget as HTMLButtonElement; b.style.borderColor = 'rgba(255,255,255,0.12)'; b.style.color = 'rgba(255,255,255,0.4)' 
+}}>
               <ChevronRight size={12} />
             </button>
             <span className="font-label text-[6.5px] tracking-[0.2em] ml-2" style={{ color: 'rgba(255,255,255,0.2)' }}>
@@ -1223,7 +1300,9 @@ function Hero({ slides = HERO_SLIDES }: { slides?: typeof HERO_SLIDES }) {
   const [progress, setProgress] = useState(0)
   const total = slides.length
 
-  const goTo = useCallback((idx: number) => { setSlide(Math.min(idx, slides.length - 1)); setProgress(0) }, [slides.length])
+  const goTo = useCallback((idx: number) => {
+ setSlide(Math.min(idx, slides.length - 1)); setProgress(0) 
+}, [slides.length])
   const next = useCallback(() => goTo((slide + 1) % total), [slide, total, goTo])
   const prev = useCallback(() => goTo((slide - 1 + total) % total), [slide, total, goTo])
 
@@ -1232,7 +1311,10 @@ function Hero({ slides = HERO_SLIDES }: { slides?: typeof HERO_SLIDES }) {
     const start = Date.now()
     const tick = setInterval(() => setProgress(Math.min((Date.now() - start) / SLIDE_DURATION, 1)), 16)
     const advance = setTimeout(next, SLIDE_DURATION)
-    return () => { clearInterval(tick); clearTimeout(advance) }
+
+    return () => {
+ clearInterval(tick); clearTimeout(advance) 
+}
   }, [slide, next])
 
   const safeSlide = Math.min(slide, slides.length - 1)
@@ -1368,6 +1450,7 @@ function Hero({ slides = HERO_SLIDES }: { slides?: typeof HERO_SLIDES }) {
           {slides.map((sl, i) => {
             const cat = sl.label.split('·')[1]?.trim() ?? sl.label
             const isActive = i === safeSlide
+
             return (
               <button key={i} onClick={() => goTo(i)}
                 className="flex items-center gap-3 py-3 w-full justify-end group transition-all duration-300"
@@ -1400,8 +1483,12 @@ function Hero({ slides = HERO_SLIDES }: { slides?: typeof HERO_SLIDES }) {
               <button key={bi} onClick={btn.fn}
                 className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200"
                 style={{ border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.4)' }}
-                onMouseEnter={e => { const b = e.currentTarget as HTMLButtonElement; b.style.borderColor = C.amber; b.style.color = C.amber }}
-                onMouseLeave={e => { const b = e.currentTarget as HTMLButtonElement; b.style.borderColor = 'rgba(255,255,255,0.15)'; b.style.color = 'rgba(255,255,255,0.4)' }}>
+                onMouseEnter={e => {
+ const b = e.currentTarget as HTMLButtonElement; b.style.borderColor = C.amber; b.style.color = C.amber 
+}}
+                onMouseLeave={e => {
+ const b = e.currentTarget as HTMLButtonElement; b.style.borderColor = 'rgba(255,255,255,0.15)'; b.style.color = 'rgba(255,255,255,0.4)' 
+}}>
                 {btn.icon}
               </button>
             ))}
@@ -1546,6 +1633,7 @@ function TruePartnership() {
               {TRUSTED_PILLARS.map((p, i) => {
                 const Icon = p.icon
                 const isActive = p.id === activeId
+
                 return (
                   <motion.button key={p.id}
                     initial={{ opacity: 0, x: -10 }} animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -1758,6 +1846,7 @@ function Products() {
           <nav className="hidden lg:flex flex-col flex-1">
             {PRODUCT_CATEGORIES.map((cat, i) => {
               const active_ = cat.id === activeId
+
               return (
                 <motion.button key={cat.id}
                   initial={{ opacity: 0, x: -12 }} animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -1828,14 +1917,19 @@ function Products() {
               <div className="flex-1 overflow-y-auto hide-scrollbar" style={{ background: C.ink }}>
                 {active.sub.map((sub, si) => {
                   const subSlug = sub.name.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
                   return (
                     <Link
                       key={sub.name}
                       href={`/products/${active.id}/${subSlug}`}
                       className="group flex items-center gap-3 px-6 py-3 cursor-pointer transition-all block"
                       style={{ borderBottom: `1px solid ${C.inkBorder}` }}
-                      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = C.inkCard }}
-                      onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'transparent' }}
+                      onMouseEnter={e => {
+ (e.currentTarget as HTMLElement).style.background = C.inkCard 
+}}
+                      onMouseLeave={e => {
+ (e.currentTarget as HTMLElement).style.background = 'transparent' 
+}}
                     >
                       <span className="font-label text-[7px] tracking-[0.14em] w-3.5 shrink-0"
                         style={{ color: C.bodyLight }}>
@@ -1943,6 +2037,7 @@ function ImpactStat({ value, suffix, label, desc, index, sectionInView }: {
   index: number, sectionInView: boolean
 }) {
   const count = useCountUp(value, 1800, sectionInView)
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -2079,19 +2174,36 @@ function AboutPage({ open, onClose }: { open: boolean; onClose: () => void }) {
   }
 
   useEffect(() => {
-    if (!open) { setChapter(0); return }
+    if (!open) {
+ setChapter(0);
+
+ return 
+}
+
     const handle = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose()
-      if (e.key === 'ArrowRight') go(Math.min(chapter + 1, ABOUT_CHAPTERS.length - 1))
-      if (e.key === 'ArrowLeft') go(Math.max(chapter - 1, 0))
+      if (e.key === 'Escape') {
+onClose()
+}
+
+      if (e.key === 'ArrowRight') {
+go(Math.min(chapter + 1, ABOUT_CHAPTERS.length - 1))
+}
+
+      if (e.key === 'ArrowLeft') {
+go(Math.max(chapter - 1, 0))
+}
     }
     window.addEventListener('keydown', handle)
+
     return () => window.removeEventListener('keydown', handle)
   }, [open, chapter])
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
+
+    return () => {
+ document.body.style.overflow = '' 
+}
   }, [open])
 
   const ch = ABOUT_CHAPTERS[chapter]
@@ -2130,6 +2242,7 @@ function AboutPage({ open, onClose }: { open: boolean; onClose: () => void }) {
               {ABOUT_CHAPTERS.map((c, i) => {
                 const active = i === chapter
                 const done = i < chapter
+
                 return (
                   <button key={c.id} onClick={() => go(i)}
                     className="group relative flex items-center gap-4 px-8 py-4 text-left transition-all duration-200"
@@ -2473,29 +2586,51 @@ function WhyZivio() {
   const [activeStory, setActiveStory] = useState<number | null>(null)
   const [storyProgress, setStoryProgress] = useState(0)
   useEffect(() => {
-    if (activeStory === null) return
+    if (activeStory === null) {
+return
+}
+
     const handle = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setActiveStory(null)
-      if (e.key === 'ArrowRight') setActiveStory(i => i !== null ? Math.min(i + 1, STORIES.length - 1) : null)
-      if (e.key === 'ArrowLeft') setActiveStory(i => i !== null ? Math.max(i - 1, 0) : null)
+      if (e.key === 'Escape') {
+setActiveStory(null)
+}
+
+      if (e.key === 'ArrowRight') {
+setActiveStory(i => i !== null ? Math.min(i + 1, STORIES.length - 1) : null)
+}
+
+      if (e.key === 'ArrowLeft') {
+setActiveStory(i => i !== null ? Math.max(i - 1, 0) : null)
+}
     }
     window.addEventListener('keydown', handle)
+
     return () => window.removeEventListener('keydown', handle)
   }, [activeStory])
   useEffect(() => {
     document.body.style.overflow = activeStory !== null ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
+
+    return () => {
+ document.body.style.overflow = '' 
+}
   }, [activeStory])
 
   // Progress bar animation
   useEffect(() => {
-    if (activeStory === null) { setStoryProgress(0); return }
+    if (activeStory === null) {
+ setStoryProgress(0);
+
+ return 
+}
+
     setStoryProgress(0)
     const t = setTimeout(() => setStoryProgress(100), 50)
+
     return () => clearTimeout(t)
   }, [activeStory])
 
   const story = activeStory !== null ? STORIES[activeStory] : null
+
   // keep overlay render but hide the main section content — we only render the overlay now
   return (
     <AnimatePresence>
@@ -2521,7 +2656,11 @@ function WhyZivio() {
             </div>
             <motion.div key={`content-${story.id}`} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }} className="flex-1 px-8 lg:px-12 pb-12">
               <div className="mb-8">
-                {(() => { const Icon = story.icon; return <Icon size={20} style={{ color: C.amber }} className="mb-5" /> })()}
+                {(() => {
+ const Icon = story.icon;
+
+ return <Icon size={20} style={{ color: C.amber }} className="mb-5" /> 
+})()}
                 <h2 className="font-serif font-medium leading-[0.9] mb-4 whitespace-pre-line" style={{ fontSize: 'clamp(2.2rem, 4vw, 3.8rem)', color: C.bodyDark, letterSpacing: '-0.025em' }}>{story.headline}</h2>
                 <p className="text-sm" style={{ color: C.bodyMid }}>{story.tagline}</p>
               </div>
@@ -3541,8 +3680,12 @@ function TestimonialSlider({ testimonials, C }: { testimonials: Testimonial[]; C
   const DURATION = 6000
 
   useEffect(() => {
-    if (paused) return
+    if (paused) {
+return
+}
+
     const id = setInterval(() => setActive(a => (a + 1) % total), DURATION)
+
     return () => clearInterval(id)
   }, [total, paused])
 
@@ -3685,15 +3828,23 @@ function TestimonialSlider({ testimonials, C }: { testimonials: Testimonial[]; C
               <button onClick={() => setActive(a => (a - 1 + total) % total)}
                 className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200"
                 style={{ border: `1px solid rgba(255,255,255,0.15)`, background: 'transparent', color: 'rgba(255,255,255,0.5)' }}
-                onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = C.amber; (e.currentTarget as HTMLButtonElement).style.color = C.amber }}
-                onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(255,255,255,0.15)'; (e.currentTarget as HTMLButtonElement).style.color = 'rgba(255,255,255,0.5)' }}>
+                onMouseEnter={e => {
+ (e.currentTarget as HTMLButtonElement).style.borderColor = C.amber; (e.currentTarget as HTMLButtonElement).style.color = C.amber 
+}}
+                onMouseLeave={e => {
+ (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(255,255,255,0.15)'; (e.currentTarget as HTMLButtonElement).style.color = 'rgba(255,255,255,0.5)' 
+}}>
                 <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 15l-5-5 5-5" /></svg>
               </button>
               <button onClick={() => setActive(a => (a + 1) % total)}
                 className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200"
                 style={{ border: `1px solid rgba(255,255,255,0.15)`, background: 'transparent', color: 'rgba(255,255,255,0.5)' }}
-                onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = C.amber; (e.currentTarget as HTMLButtonElement).style.color = C.amber }}
-                onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(255,255,255,0.15)'; (e.currentTarget as HTMLButtonElement).style.color = 'rgba(255,255,255,0.5)' }}>
+                onMouseEnter={e => {
+ (e.currentTarget as HTMLButtonElement).style.borderColor = C.amber; (e.currentTarget as HTMLButtonElement).style.color = C.amber 
+}}
+                onMouseLeave={e => {
+ (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(255,255,255,0.15)'; (e.currentTarget as HTMLButtonElement).style.color = 'rgba(255,255,255,0.5)' 
+}}>
                 <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M8 5l5 5-5 5" /></svg>
               </button>
               <span className="font-label text-[7px] tracking-[0.15em] self-center ml-2" style={{ color: 'rgba(255,255,255,0.25)' }}>
@@ -4278,6 +4429,7 @@ function Footer({ onCareers, testimonials: propTestimonials }: { onCareers: () =
               'Vinod Rao': 'photo-1725568124885-4a8b4758f1fc',
               'Prakash Bane': 'photo-1774660810047-46e73147b32b',
             }
+
             return (
               <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
                 {team.map((m, mi) => {
@@ -4456,7 +4608,11 @@ function Footer({ onCareers, testimonials: propTestimonials }: { onCareers: () =
                     className="w-full text-sm outline-none resize-none p-4 rounded-lg mb-4"
                     style={{ border: `1px solid ${C.inkBorder}`, color: C.bodyDark, background: C.ink }} />
                   <button
-                    onClick={() => { if (rating > 0 && reviewText.trim()) { setReviewSent(true) } }}
+                    onClick={() => {
+ if (rating > 0 && reviewText.trim()) {
+ setReviewSent(true) 
+} 
+}}
                     disabled={rating === 0 || !reviewText.trim()}
                     className="w-full py-3 font-label text-[9px] tracking-[0.16em] uppercase transition-opacity disabled:opacity-40 rounded-lg"
                     style={{ background: C.bodyDark, color: C.ink }}>
@@ -4542,7 +4698,9 @@ function Footer({ onCareers, testimonials: propTestimonials }: { onCareers: () =
               {['About', 'Projects', 'Technology', 'Downloads', 'News', 'Careers', 'ZiVIO CARE', 'Partners'].map(link => (
                 <li key={link}>
                   <a href={link === 'Careers' ? undefined : `#${link.toLowerCase()}`}
-                    onClick={link === 'Careers' ? (e) => { e.preventDefault(); onCareers() } : undefined}
+                    onClick={link === 'Careers' ? (e) => {
+ e.preventDefault(); onCareers() 
+} : undefined}
                     className="flex items-center py-3 group transition-colors"
                     style={{ borderBottom: `1px solid ${C.inkBorder}`, cursor: 'pointer' }}>
                     <span className="text-[13px] group-hover:text-[#111] transition-colors" style={{ color: C.bodyMid }}>{link}</span>
@@ -4658,12 +4816,19 @@ function SearchModal({ open, onClose }: { open: boolean; onClose: () => void }) 
   const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    if (open) { setQ(''); setTimeout(() => inputRef.current?.focus(), 100) }
+    if (open) {
+ setQ(''); setTimeout(() => inputRef.current?.focus(), 100) 
+}
   }, [open])
 
   useEffect(() => {
-    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
+    const handler = (e: KeyboardEvent) => {
+ if (e.key === 'Escape') {
+onClose()
+} 
+}
     window.addEventListener('keydown', handler)
+
     return () => window.removeEventListener('keydown', handler)
   }, [onClose])
 
@@ -4718,7 +4883,9 @@ function SearchModal({ open, onClose }: { open: boolean; onClose: () => void }) 
               <AnimatePresence>
                 {q && (
                   <motion.button initial={{ opacity: 0, scale: 0.7 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.7 }}
-                    onClick={() => { setQ(''); inputRef.current?.focus() }}
+                    onClick={() => {
+ setQ(''); inputRef.current?.focus() 
+}}
                     className="w-6 h-6 rounded-full flex items-center justify-center transition-colors hover:bg-white/10"
                     style={{ color: 'rgba(255,255,255,0.4)' }}>
                     <X size={12} />
@@ -4927,7 +5094,10 @@ function CareersPage({ open, onClose }: { open: boolean; onClose: () => void }) 
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault(); setDragOver(false)
     const f = e.dataTransfer.files[0]
-    if (f && ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'].includes(f.type)) setResumeFile(f)
+
+    if (f && ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'].includes(f.type)) {
+setResumeFile(f)
+}
   }
 
   const handleApply = (jobId: number) => {
@@ -4937,8 +5107,12 @@ function CareersPage({ open, onClose }: { open: boolean; onClose: () => void }) 
     setTimeout(() => document.getElementById('careers-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100)
   }
 
-  const handleSubmit = (e: React.FormEvent) => { e.preventDefault(); setSubmitted(true) }
-  const handleInquiry = (e: React.FormEvent) => { e.preventDefault(); setInquirySent(true) }
+  const handleSubmit = (e: React.FormEvent) => {
+ e.preventDefault(); setSubmitted(true) 
+}
+  const handleInquiry = (e: React.FormEvent) => {
+ e.preventDefault(); setInquirySent(true) 
+}
 
   const inp = (field: keyof typeof formData, placeholder: string, type = 'text') => (
     <input type={type} placeholder={placeholder} value={formData[field]}
@@ -5223,7 +5397,9 @@ function CareersPage({ open, onClose }: { open: boolean; onClose: () => void }) 
                   <p className="font-sans font-semibold text-[12px] uppercase tracking-wide mb-3" style={{ color: C.bodyDark }}>Resume Upload *</p>
                   <div
                     onClick={() => fileInputRef.current?.click()}
-                    onDragOver={e => { e.preventDefault(); setDragOver(true) }}
+                    onDragOver={e => {
+ e.preventDefault(); setDragOver(true) 
+}}
                     onDragLeave={() => setDragOver(false)}
                     onDrop={handleDrop}
                     className="cursor-pointer flex flex-col items-center justify-center gap-3 rounded-xl py-10 transition-all"
@@ -5247,7 +5423,13 @@ function CareersPage({ open, onClose }: { open: boolean; onClose: () => void }) 
                       </>
                     )}
                     <input ref={fileInputRef} type="file" accept=".pdf,.doc,.docx" className="hidden"
-                      onChange={e => { const f = e.target.files?.[0]; if (f) setResumeFile(f) }} />
+                      onChange={e => {
+ const f = e.target.files?.[0];
+
+ if (f) {
+setResumeFile(f)
+} 
+}} />
                   </div>
                 </div>
 
@@ -5423,8 +5605,10 @@ function ArchConsultPage({ open, onClose }: { open: boolean; onClose: () => void
   const sendWhatsApp = () => {
     if (!form.name || !form.email) {
       alert('Please enter your Name and Email address.')
+
       return
     }
+
     saveToBackend(() => {
       window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildMessage())}`, '_blank')
       setSent('whatsapp')
@@ -5672,7 +5856,10 @@ function SplashScreen({ onDone }: { onDone: () => void }) {
     const t1 = setTimeout(() => setPhase('hold'), 100)
     const t2 = setTimeout(() => setPhase('out'), 2900)
     const t3 = setTimeout(onDone, 3600)
-    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3) }
+
+    return () => {
+ clearTimeout(t1); clearTimeout(t2); clearTimeout(t3) 
+}
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   const isIn = phase === 'in'
@@ -5783,9 +5970,12 @@ export default function App({
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); setSearchOpen(true) }
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+ e.preventDefault(); setSearchOpen(true) 
+}
     }
     window.addEventListener('keydown', handler)
+
     return () => window.removeEventListener('keydown', handler)
   }, [])
 

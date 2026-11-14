@@ -1,6 +1,6 @@
 import { Head, Link, useForm } from '@inertiajs/react';
-import { useState, useMemo } from 'react';
 import { Plus, Trash2, ArrowLeft, Lightbulb, Sliders, Image as ImageIcon, Images, X, Upload } from 'lucide-react';
+import { useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -78,17 +78,20 @@ export default function ProductEdit({ product, environments = [], attributes = [
 
     const availableCategories = useMemo(() => {
         const env = safeEnvironments.find((e) => e.id === selectedEnvId);
+
         return env ? (env.categories || []) : [];
     }, [safeEnvironments, selectedEnvId]);
 
     // Map existing variants to form structure
     const initialVariants = (product.variants || []).map((v) => {
         const attrMap: Record<number, number> = {};
+
         if (v.attribute_values) {
             v.attribute_values.forEach((av) => {
                 attrMap[av.attribute_id] = av.id;
             });
         }
+
         return {
             id: v.id,
             sku: v.sku,
@@ -126,7 +129,10 @@ export default function ProductEdit({ product, environments = [], attributes = [
 
     const handleNewGalleryUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
         const files = Array.from(e.target.files || []);
-        if (files.length === 0) return;
+
+        if (files.length === 0) {
+return;
+}
 
         const newItems = files.map((file) => ({
             id: Math.random().toString(36).substring(2, 9),
@@ -209,7 +215,10 @@ export default function ProductEdit({ product, environments = [], attributes = [
     };
 
     const addSpecPill = () => {
-        if (!specPillInput.trim()) return;
+        if (!specPillInput.trim()) {
+return;
+}
+
         form.setData('specs', [...form.data.specs, specPillInput.trim()]);
         setSpecPillInput('');
     };
@@ -221,7 +230,10 @@ export default function ProductEdit({ product, environments = [], attributes = [
     };
 
     const addAppTag = () => {
-        if (!appTagInput.trim()) return;
+        if (!appTagInput.trim()) {
+return;
+}
+
         form.setData('applications', [...form.data.applications, appTagInput.trim()]);
         setAppTagInput('');
     };
@@ -277,6 +289,7 @@ export default function ProductEdit({ product, environments = [], attributes = [
                                     const envId = parseInt(e.target.value);
                                     setSelectedEnvId(envId);
                                     const cats = environments.find((env) => env.id === envId)?.categories || [];
+
                                     if (cats.length > 0) {
                                         form.setData('category_id', cats[0].id);
                                     }
@@ -371,6 +384,7 @@ export default function ProductEdit({ product, environments = [], attributes = [
                                         onChange={(e) => {
                                             const file = e.target.files?.[0] || null;
                                             form.setData('image_file', file);
+
                                             if (file) {
                                                 setImagePreview(URL.createObjectURL(file));
                                             }

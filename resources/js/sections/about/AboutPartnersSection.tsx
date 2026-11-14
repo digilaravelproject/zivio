@@ -1,5 +1,5 @@
-import { partnersData } from '@/data/aboutPageData';
 import { Reveal } from '@/components/animations/Reveal';
+import { partnersData } from '@/data/aboutPageData';
 
 export function AboutPartnersSection() {
     return (

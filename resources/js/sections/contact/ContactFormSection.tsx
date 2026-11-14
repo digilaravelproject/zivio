@@ -1,8 +1,9 @@
-import { ArrowUpRight, Check, Mail, MapPin, Phone } from 'lucide-react';
-import { type FormEvent, useState, useEffect } from 'react';
 import { router } from '@inertiajs/react';
-import { contactPageData } from '@/data/contactPageData';
+import { ArrowUpRight, Check, Mail, MapPin, Phone } from 'lucide-react';
+import {  useState, useEffect } from 'react';
+import type {FormEvent} from 'react';
 import { Reveal } from '@/components/animations/Reveal';
+import { contactPageData } from '@/data/contactPageData';
 
 type ContactFormState = {
     name: string;
@@ -32,6 +33,7 @@ export function ContactFormSection() {
         if (typeof window !== 'undefined') {
             const params = new URLSearchParams(window.location.search);
             const productParam = params.get('product');
+
             if (productParam) {
                 setFormData((prev) => ({
                     ...prev,

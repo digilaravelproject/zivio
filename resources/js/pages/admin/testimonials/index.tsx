@@ -1,5 +1,4 @@
 import { Head, router, useForm } from '@inertiajs/react';
-import { useState, useMemo } from 'react';
 import {
     Plus,
     Edit2,
@@ -14,6 +13,7 @@ import {
     XCircle,
     Quote,
 } from 'lucide-react';
+import { useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -81,6 +81,7 @@ export default function TestimonialsIndex({ testimonials }: Props) {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+
         if (editingItem) {
             form.transform((data) => ({
                 ...data,
@@ -112,8 +113,14 @@ export default function TestimonialsIndex({ testimonials }: Props) {
     };
 
     const getAvatarUrl = (avatar: string | null) => {
-        if (!avatar) return null;
-        if (avatar.startsWith('http') || avatar.startsWith('/')) return avatar;
+        if (!avatar) {
+return null;
+}
+
+        if (avatar.startsWith('http') || avatar.startsWith('/')) {
+return avatar;
+}
+
         return `https://images.unsplash.com/photo-${avatar}?w=120&h=120&fit=crop&crop=faces`;
     };
 
@@ -147,8 +154,12 @@ export default function TestimonialsIndex({ testimonials }: Props) {
 
     const activeCount = useMemo(() => testimonials.filter((t) => t.is_active).length, [testimonials]);
     const avgRating = useMemo(() => {
-        if (testimonials.length === 0) return 0;
+        if (testimonials.length === 0) {
+return 0;
+}
+
         const total = testimonials.reduce((acc, curr) => acc + curr.rating, 0);
+
         return (total / testimonials.length).toFixed(1);
     }, [testimonials]);
 
@@ -292,6 +303,7 @@ export default function TestimonialsIndex({ testimonials }: Props) {
                             ) : (
                                 filteredTestimonials.map((item) => {
                                     const avatarUrl = getAvatarUrl(item.avatar);
+
                                     return (
                                         <tr key={item.id} className="hover:bg-muted/20 transition-colors">
                                             {/* Sort Order */}
@@ -530,6 +542,7 @@ export default function TestimonialsIndex({ testimonials }: Props) {
                                             accept="image/*"
                                             onChange={(e) => {
                                                 const file = e.target.files?.[0];
+
                                                 if (file) {
                                                     form.setData('avatar_file', file);
                                                     setImagePreview(URL.createObjectURL(file));
@@ -544,6 +557,7 @@ export default function TestimonialsIndex({ testimonials }: Props) {
                                                 value={form.data.avatar}
                                                 onChange={(e) => {
                                                     form.setData('avatar', e.target.value);
+
                                                     if (e.target.value) {
                                                         setImagePreview(getAvatarUrl(e.target.value));
                                                     }

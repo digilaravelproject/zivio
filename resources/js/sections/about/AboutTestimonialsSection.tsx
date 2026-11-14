@@ -1,5 +1,5 @@
-import { testimonialsData } from '@/data/aboutPageData';
 import { Reveal } from '@/components/animations/Reveal';
+import { testimonialsData } from '@/data/aboutPageData';
 
 export function AboutTestimonialsSection() {
     return (

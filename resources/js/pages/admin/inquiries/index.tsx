@@ -1,6 +1,6 @@
 import { Head, router } from '@inertiajs/react';
-import { useState } from 'react';
 import { Mail, CheckCircle2, Clock, Phone, Building2, ExternalLink, Trash2 } from 'lucide-react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 
 interface Inquiry {
@@ -53,7 +53,11 @@ export default function InquiriesIndex({ inquiries, currentStatus }: Props) {
 
     const handleUpdate = (e: React.FormEvent) => {
         e.preventDefault();
-        if (!selectedInquiry) return;
+
+        if (!selectedInquiry) {
+return;
+}
+
         router.patch(`/admin/inquiries/${selectedInquiry.id}`, {
             status: editingStatus,
             notes: editingNotes,

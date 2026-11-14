@@ -1,6 +1,6 @@
 import { Head, Link, useForm } from '@inertiajs/react';
-import { useState, useMemo } from 'react';
 import { Plus, Trash2, ArrowLeft, Lightbulb, Sliders, Check, FileText, Upload, Image as ImageIcon, Images, X } from 'lucide-react';
+import { useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -52,6 +52,7 @@ export default function ProductCreate({ environments = [], attributes = [] }: Pr
 
     const availableCategories = useMemo(() => {
         const env = safeEnvironments.find((e) => e.id === selectedEnvId);
+
         return env ? (env.categories || []) : [];
     }, [safeEnvironments, selectedEnvId]);
 
@@ -84,7 +85,10 @@ export default function ProductCreate({ environments = [], attributes = [] }: Pr
 
     const handleGalleryUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
         const files = Array.from(e.target.files || []);
-        if (files.length === 0) return;
+
+        if (files.length === 0) {
+return;
+}
 
         const newItems = files.map((file) => ({
             id: Math.random().toString(36).substring(2, 9),
@@ -161,7 +165,10 @@ export default function ProductCreate({ environments = [], attributes = [] }: Pr
     };
 
     const addSpecPill = () => {
-        if (!specPillInput.trim()) return;
+        if (!specPillInput.trim()) {
+return;
+}
+
         form.setData('specs', [...form.data.specs, specPillInput.trim()]);
         setSpecPillInput('');
     };
@@ -173,7 +180,10 @@ export default function ProductCreate({ environments = [], attributes = [] }: Pr
     };
 
     const addAppTag = () => {
-        if (!appTagInput.trim()) return;
+        if (!appTagInput.trim()) {
+return;
+}
+
         form.setData('applications', [...form.data.applications, appTagInput.trim()]);
         setAppTagInput('');
     };
@@ -226,6 +236,7 @@ export default function ProductCreate({ environments = [], attributes = [] }: Pr
                                     const envId = parseInt(e.target.value);
                                     setSelectedEnvId(envId);
                                     const cats = environments.find((env) => env.id === envId)?.categories || [];
+
                                     if (cats.length > 0) {
                                         form.setData('category_id', cats[0].id);
                                     }
@@ -327,6 +338,7 @@ export default function ProductCreate({ environments = [], attributes = [] }: Pr
                                         onChange={(e) => {
                                             const file = e.target.files?.[0] || null;
                                             form.setData('image_file', file);
+
                                             if (file) {
                                                 setImagePreview(URL.createObjectURL(file));
                                             }

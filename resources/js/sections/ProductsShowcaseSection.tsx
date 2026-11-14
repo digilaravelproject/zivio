@@ -33,6 +33,7 @@ export function ProductsShowcaseSection({ dbProducts = [] }: ProductsShowcaseSec
                 subtitle: p.short_description || p.category?.name || 'Architectural Luminaire',
             }));
         }
+
         return productsData;
     }, [dbProducts]);
 

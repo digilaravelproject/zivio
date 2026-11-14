@@ -28,6 +28,7 @@ export function HeroSection() {
 
     if (!isMounted) {
         const slide = heroSlides[0];
+
         return (
             <section className="relative h-[85svh] min-h-[500px] overflow-hidden bg-[#080808] text-[#F5F5F2] sm:min-h-[600px]">
                 <div className="absolute inset-0 z-0 h-full w-full">

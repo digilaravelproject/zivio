@@ -1,5 +1,5 @@
-import { introData } from '@/data/aboutPageData';
 import { Reveal } from '@/components/animations/Reveal';
+import { introData } from '@/data/aboutPageData';
 
 export function AboutIntroSection() {
     return (

@@ -1,5 +1,4 @@
 import { Head, Link, router } from '@inertiajs/react';
-import { useState } from 'react';
 import {
     Lightbulb,
     Globe2,
@@ -19,6 +18,7 @@ import {
     Send,
     FileText,
 } from 'lucide-react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { dashboard } from '@/routes';
 

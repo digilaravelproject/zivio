@@ -1,6 +1,6 @@
 import { Head, router, useForm } from '@inertiajs/react';
-import { useState } from 'react';
 import { Plus, Trash2, Sliders, X, Tag } from 'lucide-react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -62,7 +62,10 @@ export default function AttributesIndex({ attributes }: Props) {
     };
 
     const handleAddValue = (attributeId: number) => {
-        if (!newValueString.trim()) return;
+        if (!newValueString.trim()) {
+return;
+}
+
         router.post(`/admin/attributes/${attributeId}/values`, {
             value: newValueString.trim(),
         }, {

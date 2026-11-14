@@ -1,5 +1,5 @@
-import { philosophyBlocks } from '@/data/aboutPageData';
 import { Reveal } from '@/components/animations/Reveal';
+import { philosophyBlocks } from '@/data/aboutPageData';
 
 export function AboutPhilosophySection() {
     const [philosophy, sustainability, vision] = philosophyBlocks;

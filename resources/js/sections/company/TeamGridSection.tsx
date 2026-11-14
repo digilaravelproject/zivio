@@ -1,5 +1,5 @@
-import { teamsPageData } from '@/data/companyPagesData';
 import { Reveal } from '@/components/animations/Reveal';
+import { teamsPageData } from '@/data/companyPagesData';
 
 export function TeamGridSection() {
     return (

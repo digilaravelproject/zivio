@@ -1,13 +1,13 @@
 import { Head, Link, useForm } from '@inertiajs/react';
-import { useMemo, useState, useEffect, lazy, Suspense } from 'react';
-import { ArrowLeft, Check, Send, Download, Sliders, ShieldCheck } from 'lucide-react';
 import { AnimatePresence } from 'framer-motion';
+import { ArrowLeft, Check, Send, Download, Sliders, ShieldCheck } from 'lucide-react';
+import { useMemo, useState, useEffect, lazy, Suspense } from 'react';
 
+import { Reveal } from '@/components/animations/Reveal';
+import { SplashScreen } from '@/components/common/SplashScreen';
 import { Navbar } from '@/components/layout/Navbar';
 import { ProductDetailGallery } from '@/components/products/ProductDetailGallery';
 import { ProductListingCard } from '@/components/products/ProductListingCard';
-import { Reveal } from '@/components/animations/Reveal';
-import { SplashScreen } from '@/components/common/SplashScreen';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -114,11 +114,16 @@ export default function ProductDetailsPage({
 
     // Find the closest matching variant based on selected attributes
     const matchedVariant = useMemo(() => {
-        if (!product?.variants || product.variants.length === 0) return null;
+        if (!product?.variants || product.variants.length === 0) {
+return null;
+}
 
         // Try exact match
         const exact = product.variants.find((v) => {
-            if (!v.attribute_values) return false;
+            if (!v.attribute_values) {
+return false;
+}
+
             return Object.entries(selectedAttributes).every(([attrSlug, attrVal]) => {
                 return v.attribute_values?.some(
                     (av) => av.attribute?.slug === attrSlug && av.value === attrVal
@@ -126,7 +131,9 @@ export default function ProductDetailsPage({
             });
         });
 
-        if (exact) return exact;
+        if (exact) {
+return exact;
+}
 
         // Fallback to default variant or first variant
         return product.variants.find((v) => v.is_default) || product.variants[0];
@@ -249,12 +256,19 @@ export default function ProductDetailsPage({
                                 <ProductDetailGallery
                                     images={(() => {
                                         const list: string[] = [];
-                                        if (product.image) list.push(product.image);
+
+                                        if (product.image) {
+list.push(product.image);
+}
+
                                         if (Array.isArray(product.gallery)) {
                                             product.gallery.forEach((img) => {
-                                                if (img && !list.includes(img)) list.push(img);
+                                                if (img && !list.includes(img)) {
+list.push(img);
+}
                                             });
                                         }
+
                                         return list.length > 0 ? list : [product.image || '/images/placeholder.png'];
                                     })()}
                                     name={product.name}
@@ -370,6 +384,7 @@ export default function ProductDetailsPage({
                                                             <div className="flex flex-wrap gap-1.5">
                                                                 {attrGroup.values.map((val) => {
                                                                     const isSelected = currentValue === val;
+
                                                                     return (
                                                                         <button
                                                                             key={val}
