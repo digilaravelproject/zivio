@@ -1,4 +1,5 @@
 import { Link } from '@inertiajs/react'
+import { ZivioWordmarkSvg } from './ZivioWordmarkSvg'
 
 export interface BrandLogoProps {
   className?: string
@@ -19,12 +20,13 @@ export function BrandLogo({
 
   const barHeight = isLg ? 36 : isSm ? 24 : 30
   const barWidth = isLg ? 3.5 : isSm ? 2.5 : 3.2
-  const logoHeight = isLg ? 26 : isSm ? 18 : 22
+  const logoHeight = isLg ? 28 : isSm ? 19 : 23
   const lifeSize = isLg ? 8.5 : isSm ? 6.8 : 7.8
   const artizeSize = isLg ? 7.5 : isSm ? 5.8 : 6.8
 
   const subTextColor = isLight ? 'rgba(0,0,0,0.60)' : 'rgba(255,255,255,0.65)'
   const dividerColor = isLight ? 'rgba(0,0,0,0.25)' : 'rgba(255,255,255,0.25)'
+  const textColor = isLight ? '#111111' : '#FFFFFF'
 
   return (
     <Link
@@ -43,13 +45,13 @@ export function BrandLogo({
       />
 
       <div className="flex flex-col leading-none">
-        {/* Official ZiVIO PNG Brand Logo Image */}
-        <div className="flex items-center">
-          <img
-            src={isLight ? '/images/zivio-logo-dark.png' : '/images/zivio-logo-light.png'}
-            alt="ZiVIO"
+        {/* Official ZiVIO Vector Wordmark with exact #DA9807 gold accent */}
+        <div className="flex items-center" style={{ height: logoHeight }}>
+          <ZivioWordmarkSvg
+            textColor={textColor}
+            accentColor="#DA9807"
             style={{ height: logoHeight, width: 'auto' }}
-            className="object-contain transition-opacity group-hover:opacity-90 max-h-none"
+            className="transition-opacity group-hover:opacity-90"
           />
         </div>
 

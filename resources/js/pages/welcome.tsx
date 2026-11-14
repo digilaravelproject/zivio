@@ -33,6 +33,7 @@ import helixPostAlt from './imports/PT1-1.PNG'
 import globePostAlt from './imports/PT2-1.PNG'
 import helixPostV3 from './imports/PT1-2.PNG'
 import { BrandLogo } from '@/components/common/BrandLogo'
+import { ZivioWordmarkSvg } from '@/components/common/ZivioWordmarkSvg'
 import { motion, AnimatePresence, useInView } from 'framer-motion'
 import {
   Search, X, ArrowRight, MapPin, Phone, Mail,
@@ -5708,17 +5709,12 @@ function SplashScreen({ onDone }: { onDone: () => void }) {
         }}
         transition={{ duration: isOut ? 0.55 : 1.05, ease: [0.22, 1, 0.36, 1] }}>
 
-        {/* ── Official ZiVIO Brand Logo Image ── */}
-        <div className="flex items-center justify-center">
-          <img
-            src="/images/zivio-logo-light.png"
-            alt="ZiVIO"
-            className="object-contain"
-            style={{
-              height: 'clamp(55px, 12vw, 110px)',
-              width: 'auto',
-              maxWidth: '85vw',
-            }}
+        {/* ── Official ZiVIO Vector Wordmark with exact #DA9807 gold accent ── */}
+        <div className="flex items-center justify-center" style={{ height: 'clamp(55px, 12vw, 110px)' }}>
+          <ZivioWordmarkSvg
+            textColor="#FFFFFF"
+            accentColor="#DA9807"
+            style={{ height: 'clamp(55px, 12vw, 110px)', width: 'auto', maxWidth: '85vw' }}
           />
         </div>
 
