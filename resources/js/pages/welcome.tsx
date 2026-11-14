@@ -404,9 +404,8 @@ function Header({ onAbout, onNews, onCareers, onArchConsult, onSearch }: { onAbo
       </div>
 
       {/* ── Main header bar ── */}
-      <header className="fixed inset-x-0 z-50 transition-all duration-500"
+      <header className="fixed top-0 lg:top-[34px] inset-x-0 z-50 transition-all duration-500"
         style={{
-          top: 30,
           background: scrolled ? 'rgba(250,250,247,0.97)' : 'transparent',
           backdropFilter: scrolled ? 'blur(20px)' : 'none',
           borderBottom: scrolled ? `1px solid ${C.inkBorder}` : 'none',
@@ -416,7 +415,7 @@ function Header({ onAbout, onNews, onCareers, onArchConsult, onSearch }: { onAbo
         {/* Brand-red hairline — only on scroll */}
         {scrolled && <div className="w-full" style={{ height: 1.5, background: `linear-gradient(to right, transparent, ${C.amber} 30%, ${C.amber} 70%, transparent)` }} />}
 
-        <div className="flex items-center justify-between px-8 lg:px-14" style={{ height: scrolled ? 60 : 70, transition: 'height 0.4s ease' }}>
+        <div className="flex items-center justify-between px-4 sm:px-6 lg:px-14" style={{ height: scrolled ? 60 : 70, transition: 'height 0.4s ease' }}>
 
           {/* ── Logo ── */}
           <BrandLogo theme={scrolled ? 'light' : 'dark'} size="md" />
@@ -510,11 +509,11 @@ function Header({ onAbout, onNews, onCareers, onArchConsult, onSearch }: { onAbo
             </a>
 
             {/* Mobile hamburger */}
-            <button className="xl:hidden flex flex-col gap-[5px] p-2" style={{ color: C.bodyMid }}
+            <button className="xl:hidden flex flex-col gap-[5px] p-2" aria-label="Open Navigation Menu"
               onClick={() => setMenuOpen(true)}>
-              <span className="block rounded-full" style={{ width: 22, height: 2, background: C.bodyMid }} />
+              <span className="block rounded-full transition-colors" style={{ width: 22, height: 2, background: scrolled ? '#111111' : '#FFFFFF' }} />
               <span className="block rounded-full" style={{ width: 15, height: 2, background: C.amber }} />
-              <span className="block rounded-full" style={{ width: 22, height: 2, background: C.bodyMid }} />
+              <span className="block rounded-full transition-colors" style={{ width: 22, height: 2, background: scrolled ? '#111111' : '#FFFFFF' }} />
             </button>
           </div>
         </div>
@@ -1000,10 +999,10 @@ function FeaturedProduct({ products = FEATURED_PRODUCTS }: { products?: typeof F
   }
 
   return (
-    <section style={{ background: '#080604', overflow: 'hidden' }}>
+    <section className="w-full max-w-[100vw] overflow-hidden" style={{ background: '#080604', overflow: 'hidden' }}>
 
       {/* ══ TOP — full-bleed cinematic stage ══ */}
-      <div className="relative" style={{ height: '82vh', minHeight: 580 }}>
+      <div className="relative overflow-hidden" style={{ minHeight: 640 }}>
 
         {/* Background photo crossfade */}
         <AnimatePresence mode="sync">
@@ -1024,10 +1023,10 @@ function FeaturedProduct({ products = FEATURED_PRODUCTS }: { products?: typeof F
           style={{ background: 'linear-gradient(to top, rgba(5,3,1,0.98) 0%, rgba(5,3,1,0.15) 35%, transparent 60%)' }} />
 
         {/* ── Main content ── */}
-        <div className="absolute inset-0 flex items-stretch">
+        <div className="relative lg:absolute inset-0 flex flex-col-reverse lg:flex-row items-center lg:items-stretch overflow-hidden">
 
-          {/* LEFT — product info (40%) */}
-          <div className="flex flex-col justify-center pl-12 lg:pl-20 pr-8 z-10" style={{ width: '42%' }}>
+          {/* LEFT — product info */}
+          <div className="flex flex-col justify-center px-6 lg:pl-20 lg:pr-8 z-10 w-full lg:w-[42%] py-8 lg:py-0">
             <AnimatePresence mode="wait">
               <motion.div key={`info-${prodIdx}`}
                 initial={{ opacity: 0, y: 18 }}
@@ -1057,7 +1056,7 @@ function FeaturedProduct({ products = FEATURED_PRODUCTS }: { products?: typeof F
 
                 {/* Name */}
                 <h2 className="font-serif leading-[0.88] mb-4"
-                  style={{ fontSize: 'clamp(2.6rem, 4vw, 5.2rem)', color: '#fff', letterSpacing: '-0.04em', fontWeight: 800 }}>
+                  style={{ fontSize: 'clamp(2.4rem, 4vw, 5.2rem)', color: '#fff', letterSpacing: '-0.04em', fontWeight: 800 }}>
                   {product.name}<br />
                   <span style={{ color: C.amber, fontWeight: 300, fontStyle: 'italic' }}>{product.nameAccent}</span>
                 </h2>
@@ -1078,7 +1077,7 @@ function FeaturedProduct({ products = FEATURED_PRODUCTS }: { products?: typeof F
                 </div>
 
                 {/* CTAs */}
-                <div className="flex gap-3">
+                <div className="flex flex-wrap gap-3">
                   <a href={product.href ?? "#products"}
                     className="flex items-center gap-2 font-label text-[7.5px] tracking-[0.16em] uppercase transition-all hover:-translate-y-px"
                     style={{ background: C.amber, color: '#fff', padding: '11px 22px', boxShadow: `0 6px 24px ${C.amber}44` }}>
@@ -1095,11 +1094,11 @@ function FeaturedProduct({ products = FEATURED_PRODUCTS }: { products?: typeof F
             </AnimatePresence>
           </div>
 
-          {/* RIGHT — floating product image (60%) */}
-          <div className="relative flex-1 flex items-center justify-center">
+          {/* RIGHT — floating product image */}
+          <div className="relative flex-1 w-full min-h-[300px] lg:min-h-0 flex items-center justify-center overflow-hidden">
             {/* Amber glow */}
             <div className="absolute pointer-events-none" style={{
-              width: 560, height: 560,
+              width: 'min(560px, 90vw)', height: 'min(560px, 90vw)',
               background: `radial-gradient(circle, ${C.amber}1E 0%, transparent 68%)`,
               filter: 'blur(60px)',
             }} />
@@ -1240,7 +1239,7 @@ function Hero({ slides = HERO_SLIDES }: { slides?: typeof HERO_SLIDES }) {
   const eyebrow = s?.label?.split('·')[1]?.trim() ?? s?.label ?? ''
 
   return (
-    <section style={{ position: 'relative', height: '100svh', minHeight: 640, overflow: 'hidden', background: '#050403' }}>
+    <section className="w-full max-w-[100vw] overflow-hidden" style={{ position: 'relative', height: '100svh', minHeight: 640, overflow: 'hidden', background: '#050403' }}>
 
       {/* ── Full-bleed background — cinematic crossfade + Ken Burns ── */}
       <AnimatePresence mode="sync">
@@ -1282,7 +1281,7 @@ function Hero({ slides = HERO_SLIDES }: { slides?: typeof HERO_SLIDES }) {
         style={{ width: 3, background: `linear-gradient(to bottom, transparent 5%, ${C.amber} 30%, ${C.amber} 70%, transparent 95%)` }} />
 
       {/* ── Progress bars — top ── */}
-      <div className="absolute top-0 left-3 right-0 z-30 flex" style={{ height: 2, gap: 2 }}>
+      <div className="absolute top-0 inset-x-0 z-30 flex px-3 sm:px-6" style={{ height: 2, gap: 2 }}>
         {slides.map((_, i) => (
           <button key={i} onClick={() => goTo(i)} className="flex-1 relative overflow-hidden"
             style={{ background: 'rgba(255,255,255,0.1)', cursor: 'pointer' }}>
@@ -1298,7 +1297,7 @@ function Hero({ slides = HERO_SLIDES }: { slides?: typeof HERO_SLIDES }) {
       <div className="absolute inset-0 z-10 flex">
 
         {/* ─ LEFT CONTENT — bottom-anchored ─ */}
-        <div className="flex-1 flex flex-col justify-end pb-32 pl-14 lg:pl-20 pr-8">
+        <div className="flex-1 flex flex-col justify-end pb-28 sm:pb-32 px-5 sm:px-8 lg:pl-20 lg:pr-8">
 
           {/* Eyebrow */}
           <AnimatePresence mode="wait">
@@ -1322,7 +1321,7 @@ function Hero({ slides = HERO_SLIDES }: { slides?: typeof HERO_SLIDES }) {
                   transition={{ duration: 1, delay: li * 0.1, ease: [0.16, 1, 0.3, 1] }}
                   className="font-serif block"
                   style={{
-                    fontSize: 'clamp(3rem, 6.5vw, 8.4rem)',
+                    fontSize: 'clamp(2.3rem, 6.5vw, 8.4rem)',
                     fontWeight: li === 0 ? 800 : 300,
                     fontStyle: li === 1 ? 'italic' : 'normal',
                     lineHeight: 0.9,
@@ -1410,8 +1409,8 @@ function Hero({ slides = HERO_SLIDES }: { slides?: typeof HERO_SLIDES }) {
       </div>
 
       {/* ── Bottom spec bar ── */}
-      <div className="absolute bottom-0 left-3 right-0 z-20" style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
-        <div className="max-w-[1440px] mx-auto pl-14 lg:pl-20 pr-10 flex items-center justify-between py-4">
+      <div className="absolute bottom-0 inset-x-0 z-20" style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:pl-20 lg:pr-10 flex items-center justify-between py-4">
           {/* Location specs */}
           <AnimatePresence mode="wait">
             <motion.p key={`loc-${safeSlide}`}
@@ -5800,7 +5799,7 @@ export default function App({
   }, [])
 
   return (
-    <div style={{ background: C.ink }}>
+    <div className="w-full max-w-[100vw] overflow-x-hidden relative" style={{ background: C.ink }}>
       <Head title="ZiVIO LIFE — Architectural Lighting Solutions">
         <meta name="description" content="ZiVIO LIFE delivers precision architectural lighting solutions, facade systems, bollards, and landscape illumination across 15+ countries." />
       </Head>
@@ -5811,7 +5810,7 @@ export default function App({
       <CareersPage open={careersOpen} onClose={() => setCareersOpen(false)} />
       <ArchConsultPage open={archOpen} onClose={() => setArchOpen(false)} />
       <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
-      <main>
+      <main className="w-full max-w-[100vw] overflow-x-hidden">
         <Hero slides={resolvedHero} />
         <FeaturedProduct products={resolvedFeatured} />
         <Products />

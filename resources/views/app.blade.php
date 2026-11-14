@@ -17,14 +17,16 @@
             })();
         </script>
 
-        {{-- Inline style to set the HTML background color based on our theme in app.css --}}
+        {{-- Inline style to set the HTML background color to brand luxury black and prevent mobile horizontal overflow --}}
         <style>
-            html {
-                background-color: oklch(1 0 0);
-            }
-
-            html.dark {
-                background-color: oklch(0.145 0 0);
+            html, body {
+                background-color: #0B0B0B !important;
+                color: #F4EFE6;
+                overflow-x: hidden !important;
+                max-width: 100vw !important;
+                width: 100% !important;
+                margin: 0;
+                padding: 0;
             }
         </style>
 
