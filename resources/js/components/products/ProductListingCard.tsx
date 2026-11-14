@@ -25,11 +25,11 @@ export function ProductListingCard({ product, index }: ProductListingCardProps) 
         >
             <Link
                 href={`/product/${product.slug}`}
-                className="group relative flex flex-col h-full border border-white/[0.08] bg-[#121215] p-4 transition-all duration-500 hover:border-[#B5722A]/80 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-sm cursor-pointer block select-none"
+                className="group relative flex flex-col h-full border border-black/[0.08] bg-white p-4 transition-all duration-500 hover:border-[#B5722A] hover:shadow-[0_16px_36px_rgba(0,0,0,0.06)] rounded-sm cursor-pointer block select-none"
                 aria-label={`View ${product.name}`}
             >
                 {/* 1:1 Aspect Ratio Image Frame */}
-                <div className="relative w-full aspect-square overflow-hidden border border-white/[0.05] bg-[#0A0A0C] mb-5 rounded-xs">
+                <div className="relative w-full aspect-square overflow-hidden border border-black/[0.06] bg-[#F7F6F2] mb-5 rounded-xs">
                     <img
                         src={product.image}
                         alt={product.name}
@@ -48,20 +48,20 @@ export function ProductListingCard({ product, index }: ProductListingCardProps) 
                     <span className="font-sans text-[0.66rem] font-bold tracking-[0.16em] text-[#B5722A] uppercase">
                         {categoryName}
                     </span>
-                    <span className="text-white/20 text-xs">•</span>
-                    <span className="font-sans text-[0.64rem] font-semibold tracking-[0.12em] text-white/50 uppercase">
+                    <span className="text-black/25 text-xs">•</span>
+                    <span className="font-sans text-[0.64rem] font-semibold tracking-[0.12em] text-black/55 uppercase">
                         {typeName}
                     </span>
                 </div>
 
                 {/* Product Title */}
-                <h3 className="text-lg sm:text-xl font-bold text-white pl-0.5 transition-colors duration-300 group-hover:text-[#C9944A]">
+                <h3 className="text-lg sm:text-xl font-bold text-[#121212] pl-0.5 transition-colors duration-300 group-hover:text-[#B5722A]">
                     {product.name}
                 </h3>
 
                 {/* Short Description */}
                 {shortDesc && (
-                    <p className="mt-2 font-sans text-[0.8rem] leading-6 text-white/60 pl-0.5 line-clamp-2">
+                    <p className="mt-2 font-sans text-[0.8rem] leading-6 text-[#555555] pl-0.5 line-clamp-2">
                         {shortDesc}
                     </p>
                 )}
@@ -75,7 +75,7 @@ export function ProductListingCard({ product, index }: ProductListingCardProps) 
                             return (
                                 <span
                                     key={sIdx}
-                                    className="rounded-full border border-white/[0.08] bg-white/[0.04] px-2.5 py-0.5 font-sans text-[0.62rem] font-semibold tracking-wide text-white/70"
+                                    className="rounded-full border border-black/[0.08] bg-[#F2F0EB] px-2.5 py-0.5 font-sans text-[0.62rem] font-semibold tracking-wide text-[#333333]"
                                 >
                                     {specText}
                                 </span>
@@ -85,8 +85,8 @@ export function ProductListingCard({ product, index }: ProductListingCardProps) 
                 )}
 
                 {/* View Details Visual CTA */}
-                <div className="mt-auto pt-4 border-t border-white/[0.08] flex items-center justify-between pl-0.5">
-                    <span className="inline-flex items-center gap-1.5 text-[0.74rem] font-bold tracking-[0.18em] text-white/90 uppercase transition-all duration-300 group-hover:text-[#B5722A] group-hover:pl-1.5">
+                <div className="mt-auto pt-4 border-t border-black/[0.08] flex items-center justify-between pl-0.5">
+                    <span className="inline-flex items-center gap-1.5 text-[0.74rem] font-bold tracking-[0.18em] text-[#181818] uppercase transition-all duration-300 group-hover:text-[#B5722A] group-hover:pl-1.5">
                         View Details
                         <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                     </span>

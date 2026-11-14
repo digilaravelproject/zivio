@@ -162,31 +162,31 @@ export default function ProductsPage({
                 {splash && <SplashScreen onDone={() => setSplash(false)} fast />}
             </AnimatePresence>
 
-            <main className="min-h-screen bg-[#0B0B0B] text-[#F4EFE6] antialiased">
-                <Navbar />
+            <main className="min-h-screen bg-[#FBFBFA] text-[#141414] antialiased">
+                <Navbar theme="light" />
 
-                {/* Compact Luxury Header & Breadcrumbs (Dark Theme) */}
-                <section className="relative px-4 py-2.5 sm:py-3 sm:px-6 lg:px-10 border-b border-white/[0.08] bg-[#111114]">
+                {/* Compact Luxury Header & Breadcrumbs (Light Theme) */}
+                <section className="relative px-4 py-2.5 sm:py-3 sm:px-6 lg:px-10 border-b border-black/[0.08] bg-white">
                     <div className="mx-auto max-w-7xl">
                         {/* Short Breadcrumbs */}
                         <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5">
-                            <div className="flex items-center gap-1.5 text-[11px] uppercase tracking-wider text-white/50">
-                                <Link href="/" className="hover:text-white flex items-center gap-1 transition">
+                            <div className="flex items-center gap-1.5 text-[11px] uppercase tracking-wider text-black/50">
+                                <Link href="/" className="hover:text-black flex items-center gap-1 transition">
                                     <Home className="size-3 text-[#B5722A]" /> Home
                                 </Link>
-                                <ChevronRight className="size-3 text-white/20" />
+                                <ChevronRight className="size-3 text-black/20" />
                                 <Link
                                     href="/products"
-                                    className={`hover:text-white transition ${selectedEnv === 'all' && !currentCategory ? 'text-[#B5722A] font-semibold' : ''}`}
+                                    className={`hover:text-black transition ${selectedEnv === 'all' && !currentCategory ? 'text-[#B5722A] font-semibold' : ''}`}
                                 >
                                     Catalogue
                                 </Link>
                                 {currentEnvironment && (
                                     <>
-                                        <ChevronRight className="size-3 text-white/20" />
+                                        <ChevronRight className="size-3 text-black/20" />
                                         <Link
                                             href={`/products/${currentEnvironment.slug}`}
-                                            className={`hover:text-white transition ${!currentCategory ? 'text-[#B5722A] font-semibold' : ''}`}
+                                            className={`hover:text-black transition ${!currentCategory ? 'text-[#B5722A] font-semibold' : ''}`}
                                         >
                                             {currentEnvironment.name}
                                         </Link>
@@ -194,7 +194,7 @@ export default function ProductsPage({
                                 )}
                                 {currentCategory && (
                                     <>
-                                        <ChevronRight className="size-3 text-white/20" />
+                                        <ChevronRight className="size-3 text-black/20" />
                                         <span className="text-[#B5722A] font-semibold">
                                             {currentCategory.name}
                                         </span>
@@ -215,16 +215,16 @@ export default function ProductsPage({
 
                         {/* Title Row */}
                         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-1">
-                            <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
+                            <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#111111]">
                                 {currentCategory
                                     ? currentCategory.name
                                     : currentEnvironment
                                       ? `${currentEnvironment.name} Luminaires`
                                       : 'Architectural Lighting Collection'}
                             </h1>
-                            <div className="text-xs text-white/50">
+                            <div className="text-xs text-black/60">
                                 {currentCategory ? (
-                                    <>Showing <span className="text-white font-bold">{products.length}</span> systems</>
+                                    <>Showing <span className="text-[#111111] font-bold">{products.length}</span> systems</>
                                 ) : (
                                     <>Select a category below to explore technical models</>
                                 )}
@@ -244,7 +244,7 @@ export default function ProductsPage({
                             <div className="space-y-5">
                                 {/* Technical Filters Bar */}
                                 {filterableAttributes.length > 0 && (
-                                    <div className="bg-[#121215] border border-white/[0.08] shadow-xs px-4 py-2.5 rounded-lg flex flex-wrap items-center justify-between gap-3 text-xs">
+                                    <div className="bg-white border border-black/[0.08] shadow-xs px-4 py-2.5 rounded-lg flex flex-wrap items-center justify-between gap-3 text-xs">
                                         <div className="flex flex-wrap items-center gap-2.5">
                                             <span className="font-semibold uppercase tracking-wider text-[#B5722A] flex items-center gap-1.5 text-[11px]">
                                                 <SlidersHorizontal className="size-3.5" /> Filters:
@@ -255,11 +255,11 @@ export default function ProductsPage({
                                                     <select
                                                         value={(selectedFilters[attr.slug] && selectedFilters[attr.slug][0]) || ''}
                                                         onChange={(e) => handleFilterToggle(attr.slug, e.target.value)}
-                                                        className="bg-[#18181C] border border-white/[0.1] rounded px-2.5 py-1 text-xs text-white focus:border-[#B5722A] focus:outline-none"
+                                                        className="bg-[#F7F6F2] border border-black/[0.12] rounded px-2.5 py-1 text-xs text-[#111111] focus:border-[#B5722A] focus:outline-none"
                                                     >
                                                         <option value="">{attr.name}</option>
                                                         {attr.values.map((v) => (
-                                                            <option key={v.id} value={v.value}>
+                                                            <option key={v.id} value={v.value} className="bg-white text-[#111111]">
                                                                 {v.value}
                                                             </option>
                                                         ))}
@@ -277,8 +277,8 @@ export default function ProductsPage({
                                             )}
                                         </div>
 
-                                        <span className="text-xs text-white/50">
-                                            <span className="text-white font-bold">{products.length}</span> Products
+                                        <span className="text-xs text-black/60">
+                                            <span className="text-[#111111] font-bold">{products.length}</span> Products
                                         </span>
                                     </div>
                                 )}
@@ -308,9 +308,9 @@ export default function ProductsPage({
                                         ))}
                                     </div>
                                 ) : (
-                                    <div className="border border-white/[0.08] bg-[#121215] p-20 text-center flex flex-col items-center justify-center rounded-sm shadow-xs">
+                                    <div className="border border-black/[0.08] bg-white p-20 text-center flex flex-col items-center justify-center rounded-sm shadow-xs">
                                         <div className="h-[1px] w-12 bg-[#B5722A] mb-4" />
-                                        <span className="font-sans text-sm tracking-wide text-white/60">
+                                        <span className="font-sans text-sm tracking-wide text-[#555555]">
                                             No products found in this category matching your filter criteria.
                                         </span>
                                         <Link
@@ -328,13 +328,13 @@ export default function ProductsPage({
                             /* ============================================================== */
                             <div className="space-y-8">
                                 {/* Environment Navigation Tabs */}
-                                <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none text-xs border-b border-white/[0.08] pb-4">
+                                <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none text-xs border-b border-black/[0.08] pb-4">
                                     <button
                                         onClick={() => handleEnvSelect('all')}
                                         className={`px-4 py-2 rounded-full font-sans text-xs font-semibold tracking-wider uppercase whitespace-nowrap transition ${
                                             selectedEnv === 'all'
-                                                ? 'bg-[#B5722A] text-white shadow-[0_4px_16px_rgba(181,114,42,0.35)]'
-                                                : 'bg-white/[0.04] border border-white/[0.08] text-white/70 hover:border-[#B5722A] hover:text-white'
+                                                ? 'bg-[#B5722A] text-white shadow-[0_4px_16px_rgba(181,114,42,0.25)]'
+                                                : 'bg-white border border-black/[0.1] text-black/70 hover:border-[#B5722A] hover:text-[#B5722A]'
                                         }`}
                                     >
                                         All Environments
@@ -345,8 +345,8 @@ export default function ProductsPage({
                                             onClick={() => handleEnvSelect(env.slug)}
                                             className={`px-4 py-2 rounded-full font-sans text-xs font-semibold tracking-wider uppercase whitespace-nowrap transition ${
                                                 selectedEnv === env.slug
-                                                    ? 'bg-[#B5722A] text-white shadow-[0_4px_16px_rgba(181,114,42,0.35)]'
-                                                    : 'bg-white/[0.04] border border-white/[0.08] text-white/70 hover:border-[#B5722A] hover:text-white'
+                                                    ? 'bg-[#B5722A] text-white shadow-[0_4px_16px_rgba(181,114,42,0.25)]'
+                                                    : 'bg-white border border-black/[0.1] text-black/70 hover:border-[#B5722A] hover:text-[#B5722A]'
                                             }`}
                                         >
                                             {env.name}
@@ -360,18 +360,18 @@ export default function ProductsPage({
                                     <div className="space-y-12">
                                         {environments.map((env) => {
                                             if (!env.categories || env.categories.length === 0) {
-return null;
-}
+                                                return null;
+                                            }
 
                                             return (
                                                 <div key={env.id} className="space-y-4">
-                                                    <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
+                                                    <div className="flex items-center justify-between border-b border-black/[0.08] pb-3">
                                                         <div className="flex items-center gap-2.5">
                                                             <span className="h-4 w-1.5 bg-[#B5722A] rounded-full" />
-                                                            <h2 className="text-lg font-bold uppercase tracking-wider text-white">
+                                                            <h2 className="text-lg font-bold uppercase tracking-wider text-[#111111]">
                                                                 {env.name}
                                                             </h2>
-                                                            <span className="text-xs text-white/50 font-medium">
+                                                            <span className="text-xs text-black/50 font-medium">
                                                                 ({env.categories.length} Categories)
                                                             </span>
                                                         </div>
@@ -388,9 +388,9 @@ return null;
                                                             <Link
                                                                 key={cat.id}
                                                                 href={`/products/${env.slug}/${cat.slug}`}
-                                                                className="group flex flex-col border border-white/[0.08] bg-[#121215] p-3.5 sm:p-4 transition-all duration-300 hover:border-[#B5722A] hover:shadow-[0_16px_40px_rgba(0,0,0,0.5)] rounded-sm"
+                                                                className="group flex flex-col border border-black/[0.08] bg-white p-3.5 sm:p-4 transition-all duration-300 hover:border-[#B5722A] hover:shadow-[0_16px_36px_rgba(0,0,0,0.06)] rounded-sm"
                                                             >
-                                                                <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#0A0A0C] border border-white/[0.04] mb-3 rounded-xs">
+                                                                <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#F7F6F2] border border-black/[0.04] mb-3 rounded-xs">
                                                                     <img
                                                                         src={cat.image || '/images/products-uses-images/archis/archis-product.jpg'}
                                                                         alt={cat.name}
@@ -401,12 +401,12 @@ return null;
                                                                 </div>
 
                                                                 <div className="flex items-baseline justify-between pt-1">
-                                                                    <h3 className="font-bold text-sm text-white group-hover:text-[#C9944A] transition-colors line-clamp-1">
+                                                                    <h3 className="font-bold text-sm text-[#111111] group-hover:text-[#B5722A] transition-colors line-clamp-1">
                                                                         {cat.name}
                                                                     </h3>
                                                                 </div>
 
-                                                                <div className="mt-2.5 pt-2 border-t border-white/[0.06] flex items-center justify-between text-[11px] text-white/50">
+                                                                <div className="mt-2.5 pt-2 border-t border-black/[0.06] flex items-center justify-between text-[11px] text-black/50">
                                                                     <span>{cat.products_count ?? 0} Systems</span>
                                                                     <span className="text-[#B5722A] font-semibold flex items-center gap-0.5 group-hover:underline">
                                                                         Explore <ArrowUpRight className="size-3" />
@@ -422,13 +422,13 @@ return null;
                                 ) : (
                                     // Single environment categories grid
                                     <div className="space-y-4">
-                                        <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
+                                        <div className="flex items-center justify-between border-b border-black/[0.08] pb-3">
                                             <div className="flex items-center gap-2.5">
                                                 <span className="h-4 w-1.5 bg-[#B5722A] rounded-full" />
-                                                <h2 className="text-lg font-bold uppercase tracking-wider text-white">
+                                                <h2 className="text-lg font-bold uppercase tracking-wider text-[#111111]">
                                                     {currentEnvironment?.name || selectedEnv} Categories
                                                 </h2>
-                                                <span className="text-xs text-white/50 font-medium">
+                                                <span className="text-xs text-black/50 font-medium">
                                                     ({availableCategories.length} Categories)
                                                 </span>
                                             </div>
@@ -439,9 +439,9 @@ return null;
                                                 <Link
                                                     key={cat.id}
                                                     href={`/products/${selectedEnv}/${cat.slug}`}
-                                                    className="group flex flex-col border border-white/[0.08] bg-[#121215] p-3.5 sm:p-4 transition-all duration-300 hover:border-[#B5722A] hover:shadow-[0_16px_40px_rgba(0,0,0,0.5)] rounded-sm"
+                                                    className="group flex flex-col border border-black/[0.08] bg-white p-3.5 sm:p-4 transition-all duration-300 hover:border-[#B5722A] hover:shadow-[0_16px_36px_rgba(0,0,0,0.06)] rounded-sm"
                                                 >
-                                                    <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#0A0A0C] border border-white/[0.04] mb-3 rounded-xs">
+                                                    <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#F7F6F2] border border-black/[0.04] mb-3 rounded-xs">
                                                         <img
                                                             src={cat.image || '/images/products-uses-images/archis/archis-product.jpg'}
                                                             alt={cat.name}
@@ -452,12 +452,12 @@ return null;
                                                     </div>
 
                                                     <div className="flex items-baseline justify-between pt-1">
-                                                        <h3 className="font-bold text-sm text-white group-hover:text-[#C9944A] transition-colors line-clamp-1">
+                                                        <h3 className="font-bold text-sm text-[#111111] group-hover:text-[#B5722A] transition-colors line-clamp-1">
                                                             {cat.name}
                                                         </h3>
                                                     </div>
 
-                                                    <div className="mt-2.5 pt-2 border-t border-white/[0.06] flex items-center justify-between text-[11px] text-white/50">
+                                                    <div className="mt-2.5 pt-2 border-t border-black/[0.06] flex items-center justify-between text-[11px] text-black/50">
                                                         <span>{cat.products_count ?? 0} Systems</span>
                                                         <span className="text-[#B5722A] font-semibold flex items-center gap-0.5 group-hover:underline">
                                                             Explore <ArrowUpRight className="size-3" />
@@ -473,7 +473,7 @@ return null;
                     </div>
                 </section>
 
-                <Suspense fallback={<div className="min-h-32 bg-[#0B0B0B]" />}>
+                <Suspense fallback={<div className="min-h-32 bg-[#FAF9F6]" />}>
                     <FooterSection />
                 </Suspense>
             </main>

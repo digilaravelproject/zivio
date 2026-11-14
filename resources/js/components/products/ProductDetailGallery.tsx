@@ -12,8 +12,8 @@ export function ProductDetailGallery({ images, name }: ProductDetailGalleryProps
 
     if (images.length === 0) {
         return (
-            <div className="relative w-full h-[380px] border border-white/[0.08] bg-[#121215] flex items-center justify-center rounded-sm">
-                <span className="font-sans text-xs text-white/50">No Images Available</span>
+            <div className="relative w-full h-[380px] border border-black/[0.08] bg-white flex items-center justify-center rounded-sm">
+                <span className="font-sans text-xs text-black/50">No Images Available</span>
             </div>
         );
     }
@@ -35,10 +35,10 @@ export function ProductDetailGallery({ images, name }: ProductDetailGalleryProps
                                 onMouseEnter={() => setActiveIndex(idx)}
                                 onClick={() => setActiveIndex(idx)}
                                 className={cn(
-                                    'relative size-14 sm:size-16 overflow-hidden border bg-[#121215] transition-all duration-200 rounded-sm shrink-0 cursor-pointer',
+                                    'relative size-14 sm:size-16 overflow-hidden border bg-white transition-all duration-200 rounded-sm shrink-0 cursor-pointer',
                                     isActive
                                         ? 'border-[#B5722A] ring-1 ring-[#B5722A] shadow-xs'
-                                        : 'border-white/10 hover:border-white/30 opacity-70 hover:opacity-100',
+                                        : 'border-black/10 hover:border-black/30 opacity-70 hover:opacity-100',
                                 )}
                                 aria-label={`View image ${idx + 1}`}
                             >
@@ -55,7 +55,7 @@ export function ProductDetailGallery({ images, name }: ProductDetailGalleryProps
             )}
 
             {/* Main Featured Image Box */}
-            <div className="relative flex-1 w-full h-[320px] sm:h-[380px] lg:h-[420px] overflow-hidden border border-white/[0.08] bg-[#121215] rounded-sm flex items-center justify-center group shadow-xs">
+            <div className="relative flex-1 w-full h-[320px] sm:h-[380px] lg:h-[420px] overflow-hidden border border-black/[0.08] bg-white rounded-sm flex items-center justify-center group shadow-xs">
                 <img
                     src={activeImage}
                     alt={`${name} architectural luminaire`}
@@ -69,7 +69,7 @@ export function ProductDetailGallery({ images, name }: ProductDetailGalleryProps
                 <div className="absolute top-0 right-0 h-16 w-[1.5px] bg-[#B5722A] pointer-events-none" />
 
                 {/* Subtle zoom indicator on hover */}
-                <div className="absolute bottom-3 right-3 bg-black/80 backdrop-blur-sm border border-white/10 text-white/70 p-1.5 rounded text-[11px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                <div className="absolute bottom-3 right-3 bg-black/75 backdrop-blur-sm border border-black/10 text-white/90 p-1.5 rounded text-[11px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 shadow-sm">
                     <ZoomIn className="size-3.5 text-[#B5722A]" />
                     <span className="font-sans text-[10px] uppercase tracking-wider font-semibold">Hover to Zoom</span>
                 </div>

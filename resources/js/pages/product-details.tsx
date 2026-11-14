@@ -186,8 +186,8 @@ return exact;
         return (
             <>
                 <Head title="Product Not Found | ZIVIO LIFE" />
-                <main className="min-h-screen bg-[#0B0B0B] text-[#F4EFE6] flex flex-col justify-between antialiased">
-                    <Navbar />
+                <main className="min-h-screen bg-[#FBFBFA] text-[#141414] flex flex-col justify-between antialiased">
+                    <Navbar theme="light" />
                     <div className="flex-1 flex flex-col items-center justify-center py-40 px-4 text-center">
                         <div className="h-[1.5px] w-16 bg-[#B5722A] mb-6" />
                         <h1 className="text-3xl font-bold mb-4 text-white">Product Not Found</h1>
@@ -218,22 +218,22 @@ return exact;
                 {splash && <SplashScreen onDone={() => setSplash(false)} fast />}
             </AnimatePresence>
 
-            <main className="min-h-screen bg-[#0B0B0B] text-[#F4EFE6] antialiased">
-                <Navbar />
+            <main className="min-h-screen bg-[#FBFBFA] text-[#141414] antialiased">
+                <Navbar theme="light" />
 
-                {/* Breadcrumbs (Dark Luxury Theme) */}
-                <section className="relative px-4 py-2.5 sm:px-6 lg:px-10 border-b border-white/[0.08] bg-[#111114]">
+                {/* Breadcrumbs (Light Luxury Theme) */}
+                <section className="relative px-4 py-2.5 sm:px-6 lg:px-10 border-b border-black/[0.08] bg-white">
                     <div className="mx-auto max-w-7xl">
                         <div className="flex flex-wrap items-center justify-between gap-3 text-xs">
-                            <div className="flex items-center gap-1.5 font-sans text-[0.68rem] font-bold tracking-[0.16em] text-white/50 uppercase">
+                            <div className="flex items-center gap-1.5 font-sans text-[0.68rem] font-bold tracking-[0.16em] text-black/50 uppercase">
                                 <Link href="/" className="transition hover:text-[#B5722A]">Home</Link>
-                                <span className="text-white/20">/</span>
+                                <span className="text-black/20">/</span>
                                 <Link href="/products" className="transition hover:text-[#B5722A]">Catalogue</Link>
-                                <span className="text-white/20">/</span>
-                                <Link href={`/products/${product.category?.environment?.slug || ''}`} className="transition hover:text-[#B5722A] text-white/70">{envName}</Link>
-                                <span className="text-white/20">/</span>
-                                <Link href={`/products/${product.category?.environment?.slug || ''}/${product.category?.slug || ''}`} className="transition hover:text-[#B5722A] text-white/70">{catName}</Link>
-                                <span className="text-white/20">/</span>
+                                <span className="text-black/20">/</span>
+                                <Link href={`/products/${product.category?.environment?.slug || ''}`} className="transition hover:text-[#B5722A] text-black/70">{envName}</Link>
+                                <span className="text-black/20">/</span>
+                                <Link href={`/products/${product.category?.environment?.slug || ''}/${product.category?.slug || ''}`} className="transition hover:text-[#B5722A] text-black/70">{catName}</Link>
+                                <span className="text-black/20">/</span>
                                 <span className="text-[#B5722A]">{product.name}</span>
                             </div>
 
@@ -282,12 +282,12 @@ list.push(img);
                                             download
                                             target="_blank"
                                             rel="noreferrer"
-                                            className="inline-flex items-center justify-center gap-1.5 border border-white/[0.08] bg-[#121215] hover:border-[#B5722A] px-3 py-2 text-[11px] font-semibold text-white/90 rounded transition shadow-2xs"
+                                            className="inline-flex items-center justify-center gap-1.5 border border-black/[0.08] bg-white hover:border-[#B5722A] px-3 py-2 text-[11px] font-semibold text-[#111111] rounded transition shadow-2xs"
                                         >
                                             <Download className="size-3.5 text-[#B5722A]" /> .IES Photometrics
                                         </a>
                                     ) : (
-                                        <div className="inline-flex items-center justify-center gap-1.5 border border-white/[0.05] bg-[#16161A] px-3 py-2 text-[11px] text-white/40 rounded">
+                                        <div className="inline-flex items-center justify-center gap-1.5 border border-black/[0.05] bg-[#F7F6F2] px-3 py-2 text-[11px] text-black/50 rounded">
                                             <ShieldCheck className="size-3.5 text-[#B5722A]" /> IES On Request
                                         </div>
                                     )}
@@ -298,12 +298,12 @@ list.push(img);
                                             download
                                             target="_blank"
                                             rel="noreferrer"
-                                            className="inline-flex items-center justify-center gap-1.5 border border-white/[0.08] bg-[#121215] hover:border-[#B5722A] px-3 py-2 text-[11px] font-semibold text-white/90 rounded transition shadow-2xs"
+                                            className="inline-flex items-center justify-center gap-1.5 border border-black/[0.08] bg-white hover:border-[#B5722A] px-3 py-2 text-[11px] font-semibold text-[#111111] rounded transition shadow-2xs"
                                         >
                                             <Download className="size-3.5 text-[#B5722A]" /> PDF Datasheet
                                         </a>
                                     ) : (
-                                        <div className="inline-flex items-center justify-center gap-1.5 border border-white/[0.05] bg-[#16161A] px-3 py-2 text-[11px] text-white/40 rounded">
+                                        <div className="inline-flex items-center justify-center gap-1.5 border border-black/[0.05] bg-[#F7F6F2] px-3 py-2 text-[11px] text-black/50 rounded">
                                             <Download className="size-3.5 text-[#B5722A]" /> CE / CB Compliant
                                         </div>
                                     )}
@@ -318,27 +318,27 @@ list.push(img);
                                         <span className="text-[0.66rem] font-bold tracking-[0.18em] text-[#B5722A] uppercase">
                                             {envName}
                                         </span>
-                                        <span className="text-white/20 text-xs">•</span>
-                                        <span className="font-sans text-[0.66rem] font-bold tracking-[0.16em] text-white/60 uppercase">
+                                        <span className="text-black/25 text-xs">•</span>
+                                        <span className="font-sans text-[0.66rem] font-bold tracking-[0.16em] text-black/60 uppercase">
                                             {catName}
                                         </span>
                                     </div>
 
                                     {matchedVariant && (
-                                        <span className="inline-flex items-center gap-1.5 bg-white/[0.04] border border-white/[0.08] px-2.5 py-0.5 rounded font-mono text-[11px] text-white/90">
-                                            <span className="text-white/40 uppercase text-[9px] font-sans">SKU:</span>
+                                        <span className="inline-flex items-center gap-1.5 bg-[#F2F0EB] border border-black/[0.08] px-2.5 py-0.5 rounded font-mono text-[11px] text-[#111111]">
+                                            <span className="text-black/50 uppercase text-[9px] font-sans">SKU:</span>
                                             <span className="font-bold text-[#B5722A]">{matchedVariant.sku}</span>
                                         </span>
                                     )}
                                 </div>
 
                                 {/* Product Title */}
-                                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight mb-2">
+                                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#111111] tracking-tight mb-2">
                                     {product.name}
                                 </h1>
 
                                 {/* Short Description */}
-                                <p className="font-sans text-xs sm:text-sm leading-relaxed text-white/70 mb-3 max-w-2xl">
+                                <p className="font-sans text-xs sm:text-sm leading-relaxed text-[#555555] mb-3 max-w-2xl">
                                     {product.short_description}
                                 </p>
 
@@ -348,7 +348,7 @@ list.push(img);
                                         {product.specs.map((spec) => (
                                             <span
                                                 key={spec}
-                                                className="rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-0.5 font-sans text-[11px] font-semibold text-white/80"
+                                                className="rounded-full border border-black/[0.08] bg-[#F2F0EB] px-2.5 py-0.5 font-sans text-[11px] font-semibold text-[#333333]"
                                             >
                                                 {spec}
                                             </span>
@@ -358,12 +358,12 @@ list.push(img);
 
                                 {/* Interactive Technical Variant Selector */}
                                 {variantAttributes.length > 0 && (
-                                    <div className="border border-white/[0.08] bg-[#121215] p-3.5 sm:p-4 rounded-sm mb-3.5 space-y-3 shadow-2xs">
-                                        <div className="flex items-center justify-between border-b border-white/[0.08] pb-2">
+                                    <div className="border border-black/[0.08] bg-white p-3.5 sm:p-4 rounded-sm mb-3.5 space-y-3 shadow-2xs">
+                                        <div className="flex items-center justify-between border-b border-black/[0.08] pb-2">
                                             <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#B5722A] flex items-center gap-1.5">
                                                 <Sliders className="size-3.5" /> Technical Configuration
                                             </span>
-                                            <span className="text-[10px] text-white/40">
+                                            <span className="text-[10px] text-black/40">
                                                 {product.variants?.length || 0} Variants Available
                                             </span>
                                         </div>
@@ -375,9 +375,9 @@ list.push(img);
 
                                                 return (
                                                     <div key={attrGroup.id} className="space-y-1">
-                                                        <div className="text-[10px] uppercase tracking-wider font-bold text-white/70 flex items-center justify-between">
+                                                        <div className="text-[10px] uppercase tracking-wider font-bold text-black/70 flex items-center justify-between">
                                                             <span>{attrGroup.name}</span>
-                                                            {attrGroup.unit && <span className="text-white/40 lowercase">({attrGroup.unit})</span>}
+                                                            {attrGroup.unit && <span className="text-black/40 lowercase">({attrGroup.unit})</span>}
                                                         </div>
 
                                                         {isShortList ? (
@@ -398,7 +398,7 @@ list.push(img);
                                                                             className={`px-2.5 py-1 text-[11px] font-semibold rounded border transition-all cursor-pointer ${
                                                                                 isSelected
                                                                                     ? 'border-[#B5722A] bg-[#B5722A] text-white shadow-2xs'
-                                                                                    : 'border-white/[0.08] bg-white/[0.03] text-white/70 hover:border-[#B5722A] hover:bg-white/[0.06]'
+                                                                                    : 'border-black/[0.08] bg-[#F7F6F2] text-[#333333] hover:border-[#B5722A] hover:bg-black/[0.04]'
                                                                             }`}
                                                                         >
                                                                             {val}
@@ -415,10 +415,10 @@ list.push(img);
                                                                         [attrGroup.slug]: e.target.value,
                                                                     });
                                                                 }}
-                                                                className="w-full bg-[#18181D] border border-white/[0.08] rounded px-2.5 py-1.5 text-xs text-white/90 focus:border-[#B5722A] focus:outline-none"
+                                                                className="w-full bg-white border border-black/[0.1] rounded px-2.5 py-1.5 text-xs text-[#111111] focus:border-[#B5722A] focus:outline-none"
                                                             >
                                                                 {attrGroup.values.map((val) => (
-                                                                    <option key={val} value={val} className="bg-[#18181D] text-white">
+                                                                    <option key={val} value={val} className="bg-white text-[#111111]">
                                                                         {val}
                                                                     </option>
                                                                 ))}
@@ -432,7 +432,7 @@ list.push(img);
                                 )}
 
                                 {/* B2B Specification & Quotation Box */}
-                                <div className="border border-white/[0.08] bg-[#121215] p-3.5 sm:p-4 rounded-sm shadow-2xs relative overflow-hidden">
+                                <div className="border border-black/[0.08] bg-white p-3.5 sm:p-4 rounded-sm shadow-2xs relative overflow-hidden">
                                     <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#B5722A]" />
                                     
                                     <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
@@ -445,22 +445,22 @@ list.push(img);
                                         </Button>
                                         <Link
                                             href={`/contact?product=${encodeURIComponent(product.name)}`}
-                                            className="inline-flex items-center justify-center border border-white/[0.15] bg-white/[0.04] px-4 py-2.5 text-xs font-semibold tracking-wider text-white uppercase hover:border-[#B5722A] hover:bg-white/[0.08] rounded transition"
+                                            className="inline-flex items-center justify-center border border-black/[0.12] bg-[#F7F6F2] px-4 py-2.5 text-xs font-semibold tracking-wider text-[#111111] uppercase hover:border-[#B5722A] hover:bg-[#ECEBE6] rounded transition"
                                         >
                                             Consult Engineer
                                         </Link>
                                     </div>
 
                                     {/* Reassurance highlights */}
-                                    <div className="mt-2.5 pt-2 border-t border-white/[0.06] flex flex-wrap items-center justify-between text-[11px] text-white/50 gap-2">
+                                    <div className="mt-2.5 pt-2 border-t border-black/[0.06] flex flex-wrap items-center justify-between text-[11px] text-black/55 gap-2">
                                         <span className="flex items-center gap-1">
-                                            <Check className="size-3 text-emerald-400" /> B2B Architectural Schedules
+                                            <Check className="size-3 text-emerald-600" /> B2B Architectural Schedules
                                         </span>
                                         <span className="flex items-center gap-1">
-                                            <Check className="size-3 text-emerald-400" /> Photometrics & 3D BIM
+                                            <Check className="size-3 text-emerald-600" /> Photometrics & 3D BIM
                                         </span>
                                         <span className="flex items-center gap-1">
-                                            <Check className="size-3 text-emerald-400" /> 24h Turnaround
+                                            <Check className="size-3 text-emerald-600" /> 24h Turnaround
                                         </span>
                                     </div>
                                 </div>
@@ -469,7 +469,7 @@ list.push(img);
 
                         {/* Technical Specifications Table */}
                         {product.technical_specs && product.technical_specs.length > 0 && (
-                            <div className="mt-20 border-t border-white/[0.08] pt-16">
+                            <div className="mt-20 border-t border-black/[0.08] pt-16">
                                 <div className="grid gap-12 lg:grid-cols-12">
                                     <div className="lg:col-span-4">
                                         <div className="flex items-center gap-3 mb-4">
@@ -478,26 +478,26 @@ list.push(img);
                                                 DATASHEET
                                             </span>
                                         </div>
-                                        <h2 className="text-2xl font-semibold text-white sm:text-3xl leading-tight">
+                                        <h2 className="text-2xl font-semibold text-[#111111] sm:text-3xl leading-tight">
                                             Technical Specifications
                                         </h2>
-                                        <p className="mt-4 font-sans text-xs leading-5 text-white/60">
+                                        <p className="mt-4 font-sans text-xs leading-5 text-[#555555]">
                                             Engineered compliance standards, physical tolerances, and photometric configurations for architectural consistency.
                                         </p>
                                     </div>
                                     <div className="lg:col-span-8">
-                                        <div className="border border-white/[0.08] bg-[#121215] shadow-xs overflow-hidden rounded-xs">
+                                        <div className="border border-black/[0.08] bg-white shadow-xs overflow-hidden rounded-xs">
                                             <table className="w-full text-left font-sans text-[0.78rem] border-collapse">
                                                 <tbody>
                                                     {product.technical_specs.map((spec, idx) => (
                                                         <tr
                                                             key={idx}
-                                                            className={`border-b border-white/[0.06] ${idx % 2 === 0 ? 'bg-[#121215]' : 'bg-[#15151A]'}`}
+                                                            className={`border-b border-black/[0.06] ${idx % 2 === 0 ? 'bg-white' : 'bg-[#FAF9F6]'}`}
                                                         >
-                                                            <td className="px-5 py-4 font-bold text-white w-1/3">
+                                                            <td className="px-5 py-4 font-bold text-[#111111] w-1/3">
                                                                 {spec.label}
                                                             </td>
-                                                            <td className="px-5 py-4 text-white/70">
+                                                            <td className="px-5 py-4 text-[#444444]">
                                                                 {spec.value}
                                                             </td>
                                                         </tr>
@@ -512,7 +512,7 @@ list.push(img);
 
                         {/* Related Products Showcase */}
                         {relatedProducts && relatedProducts.length > 0 && (
-                            <div className="mt-24 border-t border-white/[0.08] pt-20">
+                            <div className="mt-24 border-t border-black/[0.08] pt-20">
                                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
                                     <div>
                                         <div className="flex items-center gap-3 mb-3">
@@ -521,13 +521,13 @@ list.push(img);
                                                 CATALOG
                                             </span>
                                         </div>
-                                        <h2 className="text-2xl font-bold text-white sm:text-3xl tracking-tight">
+                                        <h2 className="text-2xl font-bold text-[#111111] sm:text-3xl tracking-tight">
                                             Related Lighting Systems
                                         </h2>
                                     </div>
                                     <Link
                                         href="/products"
-                                        className="font-sans text-[0.74rem] font-bold tracking-[0.14em] text-[#B5722A] uppercase transition hover:text-[#C9944A]"
+                                        className="font-sans text-[0.74rem] font-bold tracking-[0.14em] text-[#B5722A] uppercase transition hover:text-[#8C4E18]"
                                     >
                                         View Full Collection →
                                     </Link>
@@ -562,21 +562,21 @@ list.push(img);
 
                 {/* Inquiry Modal */}
                 {isInquiryModalOpen && (
-                    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4">
-                        <div className="bg-[#121215] border border-white/[0.08] rounded-xl p-6 sm:p-8 max-w-lg w-full shadow-2xl space-y-5 animate-in fade-in zoom-in-95 text-white">
-                            <div className="flex justify-between items-start border-b border-white/[0.08] pb-4">
+                    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-md p-4">
+                        <div className="bg-white border border-black/[0.1] rounded-xl p-6 sm:p-8 max-w-lg w-full shadow-2xl space-y-5 animate-in fade-in zoom-in-95 text-[#111111]">
+                            <div className="flex justify-between items-start border-b border-black/[0.08] pb-4">
                                 <div>
                                     <span className="text-[10px] font-bold tracking-[0.2em] text-[#B5722A] uppercase block">
                                         SPECIFICATION INQUIRY
                                     </span>
-                                    <h2 className="text-xl font-bold text-white mt-1">{product.name}</h2>
+                                    <h2 className="text-xl font-bold text-[#111111] mt-1">{product.name}</h2>
                                     {matchedVariant && (
-                                        <p className="text-xs text-white/50 font-mono mt-0.5">SKU: {matchedVariant.sku}</p>
+                                        <p className="text-xs text-black/50 font-mono mt-0.5">SKU: {matchedVariant.sku}</p>
                                     )}
                                 </div>
                                 <button
                                     onClick={() => setIsInquiryModalOpen(false)}
-                                    className="text-white/50 hover:text-white text-lg p-1"
+                                    className="text-black/40 hover:text-black text-lg p-1"
                                 >
                                     ✕
                                 </button>
@@ -584,11 +584,11 @@ list.push(img);
 
                             {inquirySuccess ? (
                                 <div className="py-12 text-center space-y-3">
-                                    <div className="size-12 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center mx-auto">
+                                    <div className="size-12 rounded-full bg-emerald-500/10 text-emerald-600 border border-emerald-500/20 flex items-center justify-center mx-auto">
                                         <Check className="size-6" />
                                     </div>
-                                    <h3 className="text-lg font-bold text-white">Inquiry Submitted</h3>
-                                    <p className="text-xs text-white/60 max-w-xs mx-auto">
+                                    <h3 className="text-lg font-bold text-[#111111]">Inquiry Submitted</h3>
+                                    <p className="text-xs text-[#555555] max-w-xs mx-auto">
                                         Our lighting technical engineers will review your specification requirements and respond with CAD/photometric files and a quotation.
                                     </p>
                                 </div>
@@ -596,20 +596,20 @@ list.push(img);
                                 <form onSubmit={handleInquirySubmit} className="space-y-4">
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                         <div>
-                                            <Label className="text-xs text-white/70">Your Name *</Label>
+                                            <Label className="text-xs text-black/70">Your Name *</Label>
                                             <Input
                                                 required
-                                                className="bg-[#18181D] border-white/[0.1] text-xs h-9 text-white focus:border-[#B5722A]"
+                                                className="bg-[#F9F8F6] border-black/[0.12] text-xs h-9 text-[#111111] focus:border-[#B5722A]"
                                                 value={inquiryForm.data.name}
                                                 onChange={(e) => inquiryForm.setData('name', e.target.value)}
                                             />
                                         </div>
                                         <div>
-                                            <Label className="text-xs text-white/70">Corporate Email *</Label>
+                                            <Label className="text-xs text-black/70">Corporate Email *</Label>
                                             <Input
                                                 type="email"
                                                 required
-                                                className="bg-[#18181D] border-white/[0.1] text-xs h-9 text-white focus:border-[#B5722A]"
+                                                className="bg-[#F9F8F6] border-black/[0.12] text-xs h-9 text-[#111111] focus:border-[#B5722A]"
                                                 value={inquiryForm.data.email}
                                                 onChange={(e) => inquiryForm.setData('email', e.target.value)}
                                             />
@@ -618,18 +618,18 @@ list.push(img);
 
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                         <div>
-                                            <Label className="text-xs text-white/70">Company / Studio</Label>
+                                            <Label className="text-xs text-black/70">Company / Studio</Label>
                                             <Input
-                                                className="bg-[#18181D] border-white/[0.1] text-xs h-9 text-white focus:border-[#B5722A]"
+                                                className="bg-[#F9F8F6] border-black/[0.12] text-xs h-9 text-[#111111] focus:border-[#B5722A]"
                                                 placeholder="Architecture firm / Contractor"
                                                 value={inquiryForm.data.company}
                                                 onChange={(e) => inquiryForm.setData('company', e.target.value)}
                                             />
                                         </div>
                                         <div>
-                                            <Label className="text-xs text-white/70">Phone Number</Label>
+                                            <Label className="text-xs text-black/70">Phone Number</Label>
                                             <Input
-                                                className="bg-[#18181D] border-white/[0.1] text-xs h-9 text-white focus:border-[#B5722A]"
+                                                className="bg-[#F9F8F6] border-black/[0.12] text-xs h-9 text-[#111111] focus:border-[#B5722A]"
                                                 value={inquiryForm.data.phone}
                                                 onChange={(e) => inquiryForm.setData('phone', e.target.value)}
                                             />
@@ -637,22 +637,22 @@ list.push(img);
                                     </div>
 
                                     <div>
-                                        <Label className="text-xs text-white/70">Project Scope / Message</Label>
+                                        <Label className="text-xs text-black/70">Project Scope / Message</Label>
                                         <textarea
                                             rows={3}
                                             required
-                                            className="w-full rounded-md border border-white/[0.1] bg-[#18181D] px-3 py-2 text-xs text-white focus:border-[#B5722A] focus:outline-none"
+                                            className="w-full rounded-md border border-black/[0.12] bg-[#F9F8F6] px-3 py-2 text-xs text-[#111111] focus:border-[#B5722A] focus:outline-none"
                                             value={inquiryForm.data.message}
                                             onChange={(e) => inquiryForm.setData('message', e.target.value)}
                                         />
                                     </div>
 
-                                    <div className="flex justify-end gap-3 pt-3 border-t border-white/[0.08]">
+                                    <div className="flex justify-end gap-3 pt-3 border-t border-black/[0.08]">
                                         <Button
                                             type="button"
                                             variant="ghost"
                                             onClick={() => setIsInquiryModalOpen(false)}
-                                            className="text-xs text-white/60 hover:text-white"
+                                            className="text-xs text-black/60 hover:text-black"
                                         >
                                             Cancel
                                         </Button>
@@ -670,7 +670,7 @@ list.push(img);
                     </div>
                 )}
 
-                <Suspense fallback={<div className="min-h-32 bg-[#0B0B0B]" />}>
+                <Suspense fallback={<div className="min-h-32 bg-[#FAF9F6]" />}>
                     <FooterSection />
                 </Suspense>
             </main>

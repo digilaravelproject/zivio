@@ -58,7 +58,12 @@ const MEGA_PRODUCTS = [
   },
 ]
 
-export function Navbar() {
+export interface NavbarProps {
+  theme?: 'dark' | 'light'
+}
+
+export function Navbar({ theme = 'dark' }: NavbarProps) {
+  const isLight = theme === 'light'
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [langOpen, setLangOpen] = useState(false)
@@ -193,15 +198,19 @@ clearTimeout(megaTimer.current)
       <header
         className="sticky top-0 z-40 w-full transition-all duration-300"
         style={{
-          background: scrolled ? 'rgba(11,11,11,0.96)' : 'rgba(11,11,11,0.90)',
+          background: isLight
+            ? (scrolled ? 'rgba(255,255,255,0.98)' : 'rgba(255,255,255,0.95)')
+            : (scrolled ? 'rgba(11,11,11,0.96)' : 'rgba(11,11,11,0.90)'),
           backdropFilter: 'blur(20px)',
-          borderBottom: `1px solid ${C.inkBorder}`,
-          boxShadow: scrolled ? '0 10px 30px rgba(0,0,0,0.45)' : 'none',
+          borderBottom: `1px solid ${isLight ? 'rgba(0,0,0,0.08)' : C.inkBorder}`,
+          boxShadow: scrolled
+            ? (isLight ? '0 8px 24px rgba(0,0,0,0.05)' : '0 10px 30px rgba(0,0,0,0.45)')
+            : 'none',
         }}
       >
         <div className="mx-auto flex h-[66px] max-w-[1536px] items-center justify-between px-6 lg:px-12">
           {/* Exact Brand Logo */}
-          <BrandLogo />
+          <BrandLogo theme={theme} />
 
           {/* Desktop Nav */}
           <nav className="hidden xl:flex items-center gap-1">
@@ -219,15 +228,19 @@ clearTimeout(megaTimer.current)
                     href={href}
                     className="flex items-center gap-1 rounded-sm px-3.5 py-2 font-sans text-[11px] font-bold uppercase tracking-[0.08em] transition-all duration-200"
                     style={{
-                      color: isCurrent || (hasMega && megaOpen) ? C.amber : 'rgba(255,255,255,0.9)',
-                      background: hasMega && megaOpen ? `${C.amber}14` : 'transparent',
+                      color: isCurrent || (hasMega && megaOpen)
+                        ? C.amber
+                        : (isLight ? '#1A1A1A' : 'rgba(255,255,255,0.9)'),
+                      background: hasMega && megaOpen ? (isLight ? 'rgba(181,114,42,0.1)' : `${C.amber}14`) : 'transparent',
                     }}
                   >
                     {label}
                     {hasMega && (
                       <ChevronDown
                         size={9}
-                        className={`transition-transform duration-200 ${megaOpen ? 'rotate-180 text-[#B5722A]' : 'text-white/40'}`}
+                        className={`transition-transform duration-200 ${
+                          megaOpen ? 'rotate-180 text-[#B5722A]' : (isLight ? 'text-black/50' : 'text-white/40')
+                        }`}
                       />
                     )}
                   </Link>
@@ -251,9 +264,9 @@ clearTimeout(megaTimer.current)
               href="/#contact"
               className="hidden sm:flex items-center overflow-hidden rounded-xl transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]"
               style={{
-                background: C.inkCard,
-                border: `1.5px solid ${C.inkBorder}`,
-                boxShadow: '0 4px 18px rgba(0,0,0,0.3)',
+                background: isLight ? '#F5F4F0' : C.inkCard,
+                border: isLight ? '1.5px solid rgba(0,0,0,0.1)' : `1.5px solid ${C.inkBorder}`,
+                boxShadow: isLight ? '0 2px 8px rgba(0,0,0,0.04)' : '0 4px 18px rgba(0,0,0,0.3)',
               }}
             >
               <span
@@ -263,8 +276,8 @@ clearTimeout(megaTimer.current)
                 <Phone size={13} style={{ color: '#fff' }} />
               </span>
               <span
-                className="px-3.5 font-sans text-[11px] font-black uppercase text-white"
-                style={{ letterSpacing: '0.1em' }}
+                className="px-3.5 font-sans text-[11px] font-black uppercase"
+                style={{ letterSpacing: '0.1em', color: isLight ? '#111111' : '#FFFFFF' }}
               >
                 Contact
               </span>
@@ -276,9 +289,9 @@ clearTimeout(megaTimer.current)
               className="flex xl:hidden flex-col gap-[5px] p-2 text-white"
               aria-label="Open navigation menu"
             >
-              <span className="h-[2px] w-5 rounded-full bg-white/80" />
+              <span className={`h-[2px] w-5 rounded-full ${isLight ? 'bg-black/80' : 'bg-white/80'}`} />
               <span className="h-[2px] w-3.5 rounded-full" style={{ background: C.amber }} />
-              <span className="h-[2px] w-5 rounded-full bg-white/80" />
+              <span className={`h-[2px] w-5 rounded-full ${isLight ? 'bg-black/80' : 'bg-white/80'}`} />
             </button>
           </div>
         </div>
@@ -293,9 +306,9 @@ clearTimeout(megaTimer.current)
               transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
               className="absolute inset-x-0 top-full z-50 border-b"
               style={{
-                background: C.ink,
-                borderColor: C.inkBorder,
-                boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
+                background: isLight ? '#FFFFFF' : C.ink,
+                borderColor: isLight ? 'rgba(0,0,0,0.08)' : C.inkBorder,
+                boxShadow: isLight ? '0 20px 50px rgba(0,0,0,0.1)' : '0 20px 60px rgba(0,0,0,0.5)',
               }}
               onMouseEnter={openMega}
               onMouseLeave={closeMega}
@@ -314,7 +327,9 @@ clearTimeout(megaTimer.current)
                       key={col.group}
                       className="flex flex-col"
                       style={{
-                        borderRight: ci < MEGA_PRODUCTS.length - 1 ? `1px solid ${C.inkBorder}` : 'none',
+                        borderRight: ci < MEGA_PRODUCTS.length - 1
+                          ? `1px solid ${isLight ? 'rgba(0,0,0,0.06)' : C.inkBorder}`
+                          : 'none',
                         paddingRight: 16,
                       }}
                     >
@@ -324,7 +339,7 @@ clearTimeout(megaTimer.current)
                         className="mb-3 pb-2 transition-colors hover:opacity-80"
                         style={{ borderBottom: `2px solid ${col.color}` }}
                       >
-                        <p className="font-sans text-[12px] font-bold text-white">{col.group}</p>
+                        <p className={`font-sans text-[12px] font-bold ${isLight ? 'text-[#111111]' : 'text-white'}`}>{col.group}</p>
                       </Link>
 
                       {/* Items */}
@@ -333,7 +348,9 @@ clearTimeout(megaTimer.current)
                           <li key={item}>
                             <Link
                               href={`/products/${col.slug}`}
-                              className="group flex items-center gap-2 py-1 text-[11.5px] text-white/60 transition-colors hover:text-[#B5722A]"
+                              className={`group flex items-center gap-2 py-1 text-[11.5px] transition-colors hover:text-[#B5722A] ${
+                                isLight ? 'text-black/60' : 'text-white/60'
+                              }`}
                             >
                               <span
                                 className="h-px w-0 transition-all duration-200 group-hover:w-2.5"
@@ -360,11 +377,11 @@ clearTimeout(megaTimer.current)
                 {/* Bottom Showroom Action Strip */}
                 <div
                   className="mt-6 flex flex-wrap items-center justify-between border-t pt-4"
-                  style={{ borderColor: C.inkBorder }}
+                  style={{ borderColor: isLight ? 'rgba(0,0,0,0.08)' : C.inkBorder }}
                 >
                   <div className="flex items-center gap-2">
                     <span className="h-2 w-2 rounded-full animate-pulse" style={{ background: C.amber }} />
-                    <span className="font-sans text-[12px] font-semibold text-white/80">
+                    <span className={`font-sans text-[12px] font-semibold ${isLight ? 'text-black/80' : 'text-white/80'}`}>
                       500+ luminaires across 6 architectural families
                     </span>
                   </div>
