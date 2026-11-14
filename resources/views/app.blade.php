@@ -17,18 +17,30 @@
             })();
         </script>
 
-        {{-- Inline style to set the HTML background color to brand luxury black and prevent mobile horizontal overflow --}}
-        <style>
-            html, body {
-                background-color: #0B0B0B !important;
-                color: #F4EFE6;
-                overflow-x: hidden !important;
-                max-width: 100vw !important;
-                width: 100% !important;
-                margin: 0;
-                padding: 0;
-            }
-        </style>
+        {{-- Inline style: Apply luxury black only to the landing page, allowing admin and public app pages to use their proper high-contrast themes --}}
+        @if ($page['component'] === 'welcome')
+            <style>
+                html, body {
+                    background-color: #0B0B0B !important;
+                    color: #F4EFE6;
+                    overflow-x: hidden !important;
+                    max-width: 100vw !important;
+                    width: 100% !important;
+                    margin: 0;
+                    padding: 0;
+                }
+            </style>
+        @else
+            <style>
+                html, body {
+                    overflow-x: hidden;
+                    max-width: 100vw;
+                    width: 100%;
+                    margin: 0;
+                    padding: 0;
+                }
+            </style>
+        @endif
 
         <link rel="icon" href="/favicon.ico" sizes="any">
         <link rel="icon" href="/favicon.svg" type="image/svg+xml">

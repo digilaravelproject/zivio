@@ -128,7 +128,7 @@ export default function CategoriesIndex({ categories, environments, selectedEnvi
                     <select
                         value={selectedEnvironmentId || ''}
                         onChange={(e) => handleFilterEnv(e.target.value)}
-                        className="rounded-md border border-input bg-card px-3 py-2 text-sm text-foreground shadow-xs focus-visible:outline-none"
+                        className="rounded-md border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 px-3 py-2 text-sm font-medium text-slate-800 dark:text-slate-100 shadow-xs focus-visible:outline-none"
                     >
                         <option value="">All Environments</option>
                         {environments.map((env) => (
@@ -138,7 +138,7 @@ export default function CategoriesIndex({ categories, environments, selectedEnvi
                         ))}
                     </select>
 
-                    <Button onClick={openCreate} className="gap-2">
+                    <Button onClick={openCreate} className="gap-2 bg-[#B5722A] hover:bg-[#8C4E18] text-white font-bold cursor-pointer">
                         <Plus className="size-4" /> Add Category
                     </Button>
                 </div>
@@ -147,14 +147,15 @@ export default function CategoriesIndex({ categories, environments, selectedEnvi
             {/* Modal / Form Drawer */}
             {isCreateOpen && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
-                    <div className="bg-card border border-border rounded-xl p-6 max-w-md w-full shadow-2xl space-y-5 animate-in fade-in zoom-in-95">
-                        <div className="flex justify-between items-center border-b border-border/40 pb-3">
-                            <h2 className="text-lg font-semibold text-foreground">
+                    <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-xl p-6 max-w-md w-full shadow-2xl space-y-5 animate-in fade-in zoom-in-95">
+                        <div className="flex justify-between items-center border-b border-slate-200 dark:border-zinc-800 pb-3">
+                            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                                <Edit2 className="size-4 text-[#B5722A]" />
                                 {editingCat ? 'Edit Category' : 'Create Category'}
                             </h2>
                             <button
                                 onClick={() => setIsCreateOpen(false)}
-                                className="text-muted-foreground hover:text-foreground text-sm"
+                                className="text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 text-sm font-bold p-1 rounded transition"
                             >
                                 ✕
                             </button>
@@ -162,12 +163,14 @@ export default function CategoriesIndex({ categories, environments, selectedEnvi
 
                         <form onSubmit={handleSubmit} className="space-y-4">
                             <div>
-                                <Label htmlFor="environment_id">Environment Scope</Label>
+                                <Label htmlFor="environment_id" className="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-1">
+                                    Environment Scope *
+                                </Label>
                                 <select
                                     id="environment_id"
                                     value={form.data.environment_id}
                                     onChange={(e) => form.setData('environment_id', parseInt(e.target.value))}
-                                    className="w-full rounded-md border border-input bg-card px-3 py-2 text-sm text-foreground shadow-xs focus-visible:outline-none"
+                                    className="w-full rounded-md border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-3 py-2 text-sm font-medium text-slate-900 dark:text-slate-100 shadow-xs focus-visible:outline-none"
                                     required
                                 >
                                     <option value="" disabled>Select Environment</option>
@@ -177,15 +180,18 @@ export default function CategoriesIndex({ categories, environments, selectedEnvi
                                         </option>
                                     ))}
                                 </select>
-                                {form.errors.environment_id && <p className="text-xs text-destructive mt-1">{form.errors.environment_id}</p>}
+                                {form.errors.environment_id && <p className="text-xs text-red-600 mt-1">{form.errors.environment_id}</p>}
                             </div>
 
                             <div>
-                                <Label htmlFor="name">Category Name</Label>
+                                <Label htmlFor="name" className="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-1">
+                                    Category Name *
+                                </Label>
                                 <Input
                                     id="name"
                                     placeholder="e.g. Surface Ceiling Luminaires, Bollards"
                                     value={form.data.name}
+                                    className="bg-white dark:bg-zinc-800 border-slate-300 dark:border-zinc-700 text-slate-900 dark:text-slate-100 font-medium placeholder:text-slate-400"
                                     onChange={(e) => {
                                         form.setData('name', e.target.value);
                                         if (!editingCat) {
@@ -194,25 +200,30 @@ export default function CategoriesIndex({ categories, environments, selectedEnvi
                                     }}
                                     required
                                 />
-                                {form.errors.name && <p className="text-xs text-destructive mt-1">{form.errors.name}</p>}
+                                {form.errors.name && <p className="text-xs text-red-600 mt-1">{form.errors.name}</p>}
                             </div>
 
                             <div>
-                                <Label htmlFor="slug">Slug</Label>
+                                <Label htmlFor="slug" className="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-1">
+                                    Slug *
+                                </Label>
                                 <Input
                                     id="slug"
                                     placeholder="e.g. surface-ceiling-luminaires"
                                     value={form.data.slug}
+                                    className="bg-white dark:bg-zinc-800 border-slate-300 dark:border-zinc-700 text-slate-900 dark:text-slate-100 font-medium placeholder:text-slate-400"
                                     onChange={(e) => form.setData('slug', e.target.value)}
                                     required
                                 />
                             </div>
 
                             <div>
-                                <Label htmlFor="image_file">Category Image / Photo</Label>
+                                <Label htmlFor="image_file" className="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-1">
+                                    Category Image / Photo
+                                </Label>
                                 <div className="mt-1 flex flex-col gap-2">
                                     {imagePreview && (
-                                        <div className="relative w-full h-32 rounded border border-black/10 overflow-hidden bg-[#FAF9F5] flex items-center justify-center">
+                                        <div className="relative w-full h-32 rounded border border-slate-200 overflow-hidden bg-slate-50 flex items-center justify-center">
                                             <img
                                                 src={imagePreview}
                                                 alt="Preview"
@@ -232,7 +243,7 @@ export default function CategoriesIndex({ categories, environments, selectedEnvi
                                         </div>
                                     )}
 
-                                    <div className="relative flex items-center justify-center rounded-md border-2 border-dashed border-input bg-card p-4 hover:border-primary/50 transition">
+                                    <div className="relative flex items-center justify-center rounded-md border-2 border-dashed border-slate-300 dark:border-zinc-700 bg-slate-50/60 dark:bg-zinc-800/50 p-4 hover:border-[#B5722A] transition">
                                         <input
                                             id="image_file"
                                             type="file"
@@ -247,11 +258,11 @@ export default function CategoriesIndex({ categories, environments, selectedEnvi
                                             }}
                                         />
                                         <div className="flex flex-col items-center text-center">
-                                            <ImageIcon className="size-6 text-muted-foreground mb-1" />
-                                            <span className="text-xs font-semibold text-foreground">
+                                            <ImageIcon className="size-6 text-[#B5722A] mb-1" />
+                                            <span className="text-xs font-bold text-slate-800 dark:text-slate-200">
                                                 {form.data.image_file ? form.data.image_file.name : 'Click to upload or drag photo'}
                                             </span>
-                                            <span className="text-[10px] text-muted-foreground mt-0.5">
+                                            <span className="text-[11px] text-slate-500 mt-0.5">
                                                 PNG, JPG, WEBP up to 5MB
                                             </span>
                                         </div>
@@ -260,11 +271,13 @@ export default function CategoriesIndex({ categories, environments, selectedEnvi
                             </div>
 
                             <div>
-                                <Label htmlFor="description">Description</Label>
+                                <Label htmlFor="description" className="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-1">
+                                    Description
+                                </Label>
                                 <textarea
                                     id="description"
                                     rows={2}
-                                    className="w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-xs focus-visible:outline-none"
+                                    className="w-full rounded-md border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-3 py-2 text-sm font-medium text-slate-900 dark:text-slate-100 shadow-xs focus-visible:outline-none placeholder:text-slate-400"
                                     placeholder="Short description..."
                                     value={form.data.description}
                                     onChange={(e) => form.setData('description', e.target.value)}
@@ -273,11 +286,14 @@ export default function CategoriesIndex({ categories, environments, selectedEnvi
 
                             <div className="grid grid-cols-2 gap-3">
                                 <div>
-                                    <Label htmlFor="sort_order">Sort Order</Label>
+                                    <Label htmlFor="sort_order" className="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-1">
+                                        Sort Order
+                                    </Label>
                                     <Input
                                         id="sort_order"
                                         type="number"
                                         value={form.data.sort_order}
+                                        className="bg-white dark:bg-zinc-800 border-slate-300 dark:border-zinc-700 text-slate-900 dark:text-slate-100 font-medium"
                                         onChange={(e) => form.setData('sort_order', parseInt(e.target.value) || 0)}
                                     />
                                 </div>
@@ -287,18 +303,20 @@ export default function CategoriesIndex({ categories, environments, selectedEnvi
                                         id="is_active"
                                         checked={form.data.is_active}
                                         onChange={(e) => form.setData('is_active', e.target.checked)}
-                                        className="size-4 rounded border-gray-300"
+                                        className="size-4 rounded border-slate-300 accent-[#B5722A] cursor-pointer"
                                     />
-                                    <Label htmlFor="is_active" className="cursor-pointer">Active</Label>
+                                    <Label htmlFor="is_active" className="cursor-pointer text-sm font-bold text-slate-800 dark:text-slate-200">
+                                        Active
+                                    </Label>
                                 </div>
                             </div>
 
-                            <div className="flex justify-end gap-2 pt-3 border-t border-border/40">
-                                <Button type="button" variant="outline" onClick={() => setIsCreateOpen(false)}>
+                            <div className="flex justify-end gap-2 pt-3 border-t border-slate-200 dark:border-zinc-800">
+                                <Button type="button" variant="outline" onClick={() => setIsCreateOpen(false)} className="cursor-pointer font-medium">
                                     Cancel
                                 </Button>
-                                <Button type="submit" disabled={form.processing}>
-                                    {editingCat ? 'Save Changes' : 'Create'}
+                                <Button type="submit" disabled={form.processing} className="bg-[#B5722A] hover:bg-[#8C4E18] text-white font-bold cursor-pointer">
+                                    {editingCat ? 'Save Changes' : 'Create Category'}
                                 </Button>
                             </div>
                         </form>
@@ -311,26 +329,26 @@ export default function CategoriesIndex({ categories, environments, selectedEnvi
                 {categories.map((cat) => (
                     <div
                         key={cat.id}
-                        className="bg-card border border-border rounded-xl overflow-hidden shadow-xs hover:border-primary/50 transition flex flex-col justify-between"
+                        className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-xl overflow-hidden shadow-xs hover:border-[#B5722A]/60 transition flex flex-col justify-between group"
                     >
                         {cat.image ? (
-                            <div className="h-36 w-full overflow-hidden bg-muted relative">
+                            <div className="h-40 w-full overflow-hidden bg-slate-100 dark:bg-zinc-800 relative">
                                 <img
                                     src={cat.image}
                                     alt={cat.name}
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                 />
-                                <div className="absolute top-2 left-2 bg-primary/90 text-primary-foreground px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">
+                                <div className="absolute top-2 left-2 bg-[#B5722A] text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider shadow-xs">
                                     {cat.environment?.name}
                                 </div>
-                                <div className="absolute top-2 right-2 bg-black/70 backdrop-blur-md px-2 py-0.5 rounded-full text-[10px] font-semibold text-white">
+                                <div className="absolute top-2 right-2 bg-black/75 backdrop-blur-md px-2 py-0.5 rounded-full text-[10px] font-semibold text-white">
                                     {cat.products_count} Products
                                 </div>
                             </div>
                         ) : (
-                            <div className="h-36 w-full bg-muted/30 flex items-center justify-center text-muted-foreground relative">
-                                <ImageIcon className="size-8 stroke-1" />
-                                <div className="absolute top-2 left-2 bg-primary/90 text-primary-foreground px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">
+                            <div className="h-40 w-full bg-slate-100 dark:bg-zinc-800 flex items-center justify-center text-slate-400 relative">
+                                <ImageIcon className="size-8 stroke-1 text-[#B5722A]/60" />
+                                <div className="absolute top-2 left-2 bg-[#B5722A] text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider shadow-xs">
                                     {cat.environment?.name}
                                 </div>
                             </div>
@@ -338,17 +356,32 @@ export default function CategoriesIndex({ categories, environments, selectedEnvi
 
                         <div className="p-4 flex-1 flex flex-col justify-between">
                             <div>
-                                <h3 className="font-semibold text-base text-foreground leading-tight">{cat.name}</h3>
-                                <p className="text-[11px] text-muted-foreground font-mono mt-1">/{cat.slug}</p>
+                                <h3 className="font-bold text-base text-slate-900 dark:text-slate-100 leading-snug">{cat.name}</h3>
+                                <p className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-1">/{cat.slug}</p>
+                                {cat.description && (
+                                    <p className="text-xs text-slate-600 dark:text-slate-300 mt-2 line-clamp-2 leading-relaxed">
+                                        {cat.description}
+                                    </p>
+                                )}
                             </div>
 
-                            <div className="mt-4 pt-3 border-t border-border/40 flex items-center justify-between">
-                                <span className="text-[11px] text-muted-foreground">Order: #{cat.sort_order}</span>
-                                <div className="flex items-center gap-1">
-                                    <Button size="sm" variant="ghost" onClick={() => openEdit(cat)} className="size-7 p-0">
-                                        <Edit2 className="size-3.5" />
+                            <div className="mt-4 pt-3 border-t border-slate-100 dark:border-zinc-800 flex items-center justify-between gap-2">
+                                <span className="text-[11px] font-semibold text-slate-500">Order #{cat.sort_order}</span>
+                                <div className="flex items-center gap-1.5">
+                                    <Button
+                                        size="sm"
+                                        onClick={() => openEdit(cat)}
+                                        className="h-8 px-3 text-xs font-bold gap-1.5 bg-[#B5722A] hover:bg-[#8C4E18] text-white shadow-xs transition cursor-pointer"
+                                    >
+                                        <Edit2 className="size-3.5" /> Edit
                                     </Button>
-                                    <Button size="sm" variant="ghost" onClick={() => handleDelete(cat.id)} className="size-7 p-0 text-destructive hover:text-destructive">
+                                    <Button
+                                        size="sm"
+                                        variant="ghost"
+                                        onClick={() => handleDelete(cat.id)}
+                                        className="h-8 w-8 p-0 text-red-600 hover:text-red-700 hover:bg-red-50 dark:hover:bg-red-950/40 cursor-pointer"
+                                        title="Delete Category"
+                                    >
                                         <Trash2 className="size-3.5" />
                                     </Button>
                                 </div>

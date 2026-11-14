@@ -293,14 +293,24 @@ export default function EnvironmentsIndex({ environments }: Props) {
                                 )}
                             </div>
 
-                            <div className="mt-5 pt-4 border-t border-border/40 flex items-center justify-between">
-                                <span className="text-xs text-muted-foreground">Order: #{env.sort_order}</span>
+                            <div className="mt-5 pt-4 border-t border-border/40 flex items-center justify-between gap-2">
+                                <span className="text-xs font-semibold text-muted-foreground">Order: #{env.sort_order}</span>
                                 <div className="flex items-center gap-1.5">
-                                    <Button size="sm" variant="ghost" onClick={() => openEdit(env)} className="size-8 p-0">
-                                        <Edit2 className="size-4" />
+                                    <Button
+                                        size="sm"
+                                        onClick={() => openEdit(env)}
+                                        className="h-8 px-3 text-xs font-bold gap-1.5 bg-[#B5722A] hover:bg-[#8C4E18] text-white shadow-xs transition cursor-pointer"
+                                    >
+                                        <Edit2 className="size-3.5" /> Edit
                                     </Button>
-                                    <Button size="sm" variant="ghost" onClick={() => handleDelete(env.id)} className="size-8 p-0 text-destructive hover:text-destructive">
-                                        <Trash2 className="size-4" />
+                                    <Button
+                                        size="sm"
+                                        variant="ghost"
+                                        onClick={() => handleDelete(env.id)}
+                                        className="h-8 w-8 p-0 text-red-600 hover:text-red-700 hover:bg-red-50 dark:hover:bg-red-950/40 cursor-pointer"
+                                        title="Delete Environment"
+                                    >
+                                        <Trash2 className="size-3.5" />
                                     </Button>
                                 </div>
                             </div>
