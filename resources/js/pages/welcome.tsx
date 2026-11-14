@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react'
 import { Head } from '@inertiajs/react'
 import shreeJirapurePhoto from './imports/shree_jirapure.jpeg'
 import priyaJirapurePhoto from './imports/priya_jirapure.jpeg'
@@ -851,17 +851,78 @@ const FEATURED_PRODUCTS = [
   },
 ]
 
+export interface BackendProduct {
+  id: number;
+  name: string;
+  slug: string;
+  image: string | null;
+  gallery?: string[] | null;
+  short_description?: string | null;
+  description?: string | null;
+  specs?: string[] | null;
+  technical_specs?: Array<{ label: string; value: string }> | null;
+  category?: {
+    name: string;
+    environment?: { name: string; slug: string };
+  };
+}
+
+export interface WelcomeProps {
+  featuredProducts?: BackendProduct[];
+  environments?: any[];
+}
+
+function adaptFeaturedProducts(
+  dbProducts: BackendProduct[] | undefined,
+  defaultProducts: typeof FEATURED_PRODUCTS
+) {
+  if (!dbProducts || !Array.isArray(dbProducts) || dbProducts.length === 0) {
+    return defaultProducts;
+  }
+
+  return dbProducts.map((p, idx) => {
+    const fallback = defaultProducts[idx % defaultProducts.length];
+
+    const nameParts = p.name.trim().split(' ');
+    const nameAccent = nameParts.length > 1 ? nameParts.pop()! : '';
+    const mainName = nameParts.join(' ') || p.name;
+
+    const specs = (p.technical_specs && p.technical_specs.length > 0)
+      ? p.technical_specs.slice(0, 6)
+      : (p.specs && p.specs.length > 0)
+      ? p.specs.slice(0, 6).map((s, i) => ({ label: `Spec ${i + 1}`, value: s }))
+      : fallback.specs;
+
+    const bgSlides = (p.gallery && p.gallery.length > 0)
+      ? p.gallery
+      : (p.image ? [p.image, ...fallback.bgSlides.slice(1)] : fallback.bgSlides);
+
+    return {
+      badge: p.category?.name || p.category?.environment?.name || fallback.badge,
+      model: p.slug ? p.slug.split('-')[0].toUpperCase() : fallback.model,
+      name: mainName,
+      nameAccent: nameAccent || fallback.nameAccent,
+      desc: p.short_description || p.description || fallback.desc,
+      productImg: p.image || fallback.productImg,
+      bgSlides,
+      specs,
+      slug: p.slug,
+      href: `/product/${p.slug}`,
+    };
+  });
+}
+
 const BG_DURATION   = 2500   // ms per background slide
 const PROD_DURATION = 8000   // ms per product
 
-function FeaturedProduct() {
+function FeaturedProduct({ products = FEATURED_PRODUCTS }: { products?: typeof FEATURED_PRODUCTS }) {
   const [prodIdx, setProdIdx] = useState(0)
   const [bgIdx,   setBgIdx]   = useState(0)
   const [bgProg,  setBgProg]  = useState(0)
   const [prodProg,setProdProg]= useState(0)
   const [leaving, setLeaving] = useState(false)
 
-  const product = FEATURED_PRODUCTS[prodIdx]
+  const product = products[prodIdx] || products[0]
   const totalBg = product.bgSlides.length
 
   // Background slide cycle
@@ -885,12 +946,12 @@ function FeaturedProduct() {
     const adv   = setTimeout(() => {
       setLeaving(true)
       setTimeout(() => {
-        setProdIdx(i => (i + 1) % FEATURED_PRODUCTS.length)
+        setProdIdx(i => (i + 1) % products.length)
         setLeaving(false)
       }, 500)
     }, PROD_DURATION)
     return () => { clearInterval(tick); clearTimeout(adv) }
-  }, [prodIdx])
+  }, [prodIdx, products.length])
 
   const goTo = (idx: number) => {
     if (idx === prodIdx) return
@@ -978,7 +1039,7 @@ function FeaturedProduct() {
 
                 {/* CTAs */}
                 <div className="flex gap-3">
-                  <a href="#products"
+                  <a href={product.href ?? "#products"}
                     className="flex items-center gap-2 font-label text-[7.5px] tracking-[0.16em] uppercase transition-all hover:-translate-y-px"
                     style={{ background: C.amber, color: '#fff', padding: '11px 22px', boxShadow: `0 6px 24px ${C.amber}44` }}>
                     View Product <ArrowRight size={9} />
@@ -1032,7 +1093,7 @@ function FeaturedProduct() {
 
         {/* Top progress bar */}
         <div className="absolute top-0 left-0 right-0 flex" style={{ height: 2, gap: 2, zIndex: 30 }}>
-          {FEATURED_PRODUCTS.map((_, i) => (
+          {products.map((_, i) => (
             <button key={i} onClick={() => goTo(i)} className="flex-1 relative overflow-hidden"
               style={{ background: 'rgba(255,255,255,0.08)' }}>
               {i < prodIdx && <div className="absolute inset-0" style={{ background: C.amber }} />}
@@ -1045,7 +1106,7 @@ function FeaturedProduct() {
       {/* ══ BOTTOM — thumbnail filmstrip navigator ══ */}
       <div style={{ background: '#06040200', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
         <div className="flex items-stretch overflow-x-auto hide-scrollbar">
-          {FEATURED_PRODUCTS.map((p, i) => {
+          {products.map((p, i) => {
             const isActive = i === prodIdx
             return (
               <button key={i} onClick={() => goTo(i)}
@@ -1089,14 +1150,14 @@ function FeaturedProduct() {
 
           {/* Prev / Next controls at the end */}
           <div className="flex items-center gap-2 px-5 ml-auto shrink-0">
-            <button onClick={() => goTo((prodIdx - 1 + FEATURED_PRODUCTS.length) % FEATURED_PRODUCTS.length)}
+            <button onClick={() => goTo((prodIdx - 1 + products.length) % products.length)}
               className="w-8 h-8 flex items-center justify-center transition-all"
               style={{ border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.4)' }}
               onMouseEnter={e => { const b = e.currentTarget as HTMLButtonElement; b.style.borderColor = C.amber; b.style.color = C.amber }}
               onMouseLeave={e => { const b = e.currentTarget as HTMLButtonElement; b.style.borderColor = 'rgba(255,255,255,0.12)'; b.style.color = 'rgba(255,255,255,0.4)' }}>
               <ChevronLeft size={12} />
             </button>
-            <button onClick={() => goTo((prodIdx + 1) % FEATURED_PRODUCTS.length)}
+            <button onClick={() => goTo((prodIdx + 1) % products.length)}
               className="w-8 h-8 flex items-center justify-center transition-all"
               style={{ border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.4)' }}
               onMouseEnter={e => { const b = e.currentTarget as HTMLButtonElement; b.style.borderColor = C.amber; b.style.color = C.amber }}
@@ -1104,7 +1165,7 @@ function FeaturedProduct() {
               <ChevronRight size={12} />
             </button>
             <span className="font-label text-[6.5px] tracking-[0.2em] ml-2" style={{ color: 'rgba(255,255,255,0.2)' }}>
-              {String(prodIdx + 1).padStart(2,'0')} / {String(FEATURED_PRODUCTS.length).padStart(2,'0')}
+              {String(prodIdx + 1).padStart(2,'0')} / {String(products.length).padStart(2,'0')}
             </span>
           </div>
         </div>
@@ -5595,13 +5656,18 @@ function SplashScreen({ onDone }: { onDone: () => void }) {
 }
 
 // ─── App ──────────────────────────────────────────────────────────────────────
-export default function App() {
+export default function App({ featuredProducts, environments }: WelcomeProps = {}) {
   const [splash, setSplash] = useState(true)
   const [aboutOpen, setAboutOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
   const [newsOpen, setNewsOpen] = useState(false)
   const [careersOpen, setCareersOpen] = useState(false)
   const [archOpen, setArchOpen] = useState(false)
+
+  const resolvedFeatured = useMemo(
+    () => adaptFeaturedProducts(featuredProducts, FEATURED_PRODUCTS),
+    [featuredProducts]
+  )
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -5625,7 +5691,7 @@ export default function App() {
       <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
       <main>
         <Hero />
-        <FeaturedProduct />
+        <FeaturedProduct products={resolvedFeatured} />
         <Products />
         <TruePartnership />
         <Technology />

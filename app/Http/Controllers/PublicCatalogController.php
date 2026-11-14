@@ -198,7 +198,7 @@ class PublicCatalogController extends Controller
             ->with(['category.environment'])
             ->orderBy('is_featured', 'desc')
             ->orderBy('sort_order')
-            ->take(8)
+            ->take(12)
             ->get();
 
         $environments = Environment::where('is_active', true)
