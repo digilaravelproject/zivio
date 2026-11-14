@@ -1,0 +1,220 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\Project;
+use Illuminate\Database\Seeder;
+
+class ProjectSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        $projects = [
+            // Row 1 Projects
+            [
+                'image'           => '1512453979798-5ea266f8880c',
+                'name'            => 'MHADA',
+                'country'         => 'Mumbai, India',
+                'type'            => 'Residential',
+                'year'            => '2023',
+                'scope'           => 'External Lighting',
+                'is_marquee_row1' => true,
+                'is_marquee_row2' => false,
+                'sort_order'      => 1,
+                'is_active'       => true,
+            ],
+            [
+                'image'           => '1486325212027-8081e485255e',
+                'name'            => 'Tata Realty — Intelian Park',
+                'country'         => 'Mumbai, India',
+                'type'            => 'Commercial',
+                'year'            => '2023',
+                'scope'           => 'Facade & Landscape',
+                'is_marquee_row1' => true,
+                'is_marquee_row2' => false,
+                'sort_order'      => 2,
+                'is_active'       => true,
+            ],
+            [
+                'image'           => '1565538810643-b5bdb714032a',
+                'name'            => 'Tata Realty — OBLP',
+                'country'         => 'Bangalore, India',
+                'type'            => 'Commercial',
+                'year'            => '2022',
+                'scope'           => 'Architectural Lighting',
+                'is_marquee_row1' => true,
+                'is_marquee_row2' => false,
+                'sort_order'      => 3,
+                'is_active'       => true,
+            ],
+            [
+                'image'           => '1600585154340-be6161a56a0c',
+                'name'            => 'KRC — Whispering Heights',
+                'country'         => 'Mumbai, India',
+                'type'            => 'Residential',
+                'year'            => '2023',
+                'scope'           => 'Full Project',
+                'is_marquee_row1' => true,
+                'is_marquee_row2' => false,
+                'sort_order'      => 4,
+                'is_active'       => true,
+            ],
+            [
+                'image'           => '1558618047-3c8c76ca7d13',
+                'name'            => 'Piramal — Mahalaxmi',
+                'country'         => 'Mumbai, India',
+                'type'            => 'Luxury',
+                'year'            => '2024',
+                'scope'           => 'Premium Lighting',
+                'is_marquee_row1' => true,
+                'is_marquee_row2' => false,
+                'sort_order'      => 5,
+                'is_active'       => true,
+            ],
+            [
+                'image'           => '1559827291-72f59ad28f64',
+                'name'            => 'Skycity Mall',
+                'country'         => 'Kandivali, Mumbai',
+                'type'            => 'Retail',
+                'year'            => '2023',
+                'scope'           => 'Mall Lighting',
+                'is_marquee_row1' => true,
+                'is_marquee_row2' => false,
+                'sort_order'      => 6,
+                'is_active'       => true,
+            ],
+            [
+                'image'           => '1499856871958-5b9627545d1a',
+                'name'            => 'Oberoi Mall',
+                'country'         => 'Goregaon, Mumbai',
+                'type'            => 'Retail',
+                'year'            => '2022',
+                'scope'           => 'Interior & Exterior',
+                'is_marquee_row1' => true,
+                'is_marquee_row2' => false,
+                'sort_order'      => 7,
+                'is_active'       => true,
+            ],
+            [
+                'image'           => '1558618666-fcd25c85cd64',
+                'name'            => 'Phoenix Mall',
+                'country'         => 'Pune, India',
+                'type'            => 'Retail',
+                'year'            => '2023',
+                'scope'           => 'Full Lighting Design',
+                'is_marquee_row1' => true,
+                'is_marquee_row2' => false,
+                'sort_order'      => 8,
+                'is_active'       => true,
+            ],
+
+            // Row 2 Projects
+            [
+                'image'           => '1436491865332-7a61a109cc05',
+                'name'            => 'Indigo Hotel',
+                'country'         => 'Bangkok, Thailand',
+                'type'            => 'Hospitality',
+                'year'            => '2024',
+                'scope'           => 'Hotel Lighting',
+                'is_marquee_row1' => false,
+                'is_marquee_row2' => true,
+                'sort_order'      => 9,
+                'is_active'       => true,
+            ],
+            [
+                'image'           => '1512453979798-5ea266f8880c',
+                'name'            => 'DBH Hotel',
+                'country'         => 'Dubai, UAE',
+                'type'            => 'Hospitality',
+                'year'            => '2023',
+                'scope'           => 'Luxury Lighting',
+                'is_marquee_row1' => false,
+                'is_marquee_row2' => true,
+                'sort_order'      => 10,
+                'is_active'       => true,
+            ],
+            [
+                'image'           => '1480714378408-67cf0d13bc1b',
+                'name'            => 'KRC — Building 12',
+                'country'         => 'Hyderabad, India',
+                'type'            => 'Commercial',
+                'year'            => '2024',
+                'scope'           => 'Office Lighting',
+                'is_marquee_row1' => false,
+                'is_marquee_row2' => true,
+                'sort_order'      => 11,
+                'is_active'       => true,
+            ],
+            [
+                'image'           => '1571440727633-ca6b05da2008',
+                'name'            => 'KRC — Chennai',
+                'country'         => 'Chennai, India',
+                'type'            => 'Commercial',
+                'year'            => '2023',
+                'scope'           => 'Commercial Lighting',
+                'is_marquee_row1' => false,
+                'is_marquee_row2' => true,
+                'sort_order'      => 12,
+                'is_active'       => true,
+            ],
+            [
+                'image'           => '1467269204594-9661b134dd2b',
+                'name'            => 'KRC — Pune Kharadi',
+                'country'         => 'Pune, India',
+                'type'            => 'Commercial',
+                'year'            => '2024',
+                'scope'           => 'Full Project',
+                'is_marquee_row1' => false,
+                'is_marquee_row2' => true,
+                'sort_order'      => 13,
+                'is_active'       => true,
+            ],
+            [
+                'image'           => '1465146344425-f00d5f5c8f07',
+                'name'            => 'KRC — Articia',
+                'country'         => 'India',
+                'type'            => 'Mixed-Use',
+                'year'            => '2023',
+                'scope'           => 'Architectural',
+                'is_marquee_row1' => false,
+                'is_marquee_row2' => true,
+                'sort_order'      => 14,
+                'is_active'       => true,
+            ],
+            [
+                'image'           => '1524995997946-a1c2e315a42f',
+                'name'            => 'Piramal — Bhandup',
+                'country'         => 'Mumbai, India',
+                'type'            => 'Residential',
+                'year'            => '2022',
+                'scope'           => 'Landscape Lighting',
+                'is_marquee_row1' => false,
+                'is_marquee_row2' => true,
+                'sort_order'      => 15,
+                'is_active'       => true,
+            ],
+            [
+                'image'           => '1519978778433-26bc8f7a9e52',
+                'name'            => 'BARC — Chembur',
+                'country'         => 'Mumbai, India',
+                'type'            => 'Institutional',
+                'year'            => '2023',
+                'scope'           => 'Campus Lighting',
+                'is_marquee_row1' => false,
+                'is_marquee_row2' => true,
+                'sort_order'      => 16,
+                'is_active'       => true,
+            ],
+        ];
+
+        foreach ($projects as $item) {
+            Project::updateOrCreate(
+                ['name' => $item['name']],
+                $item
+            );
+        }
+    }
+}

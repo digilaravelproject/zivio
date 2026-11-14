@@ -3,8 +3,12 @@
 use App\Http\Controllers\Admin\AttributeController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\EnvironmentController;
+use App\Http\Controllers\Admin\HeroSlideController;
+use App\Http\Controllers\Admin\CatalogueController;
 use App\Http\Controllers\Admin\InquiryController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\PublicCatalogController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -40,6 +44,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             'in_progress_count' => \App\Models\ContactInquiry::where('status', 'in_progress')->count(),
             'contacted_count' => \App\Models\ContactInquiry::where('status', 'contacted')->count(),
             'closed_count' => \App\Models\ContactInquiry::where('status', 'closed')->count(),
+            'catalogues_count' => \App\Models\Catalogue::count(),
         ];
 
         // Catalog environment distribution
@@ -75,6 +80,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         // Environments (Indoor, Outdoor, Solar, etc.)
         Route::resource('environments', EnvironmentController::class)->except(['create', 'show', 'edit']);
 
+        // Hero Slides (Homepage Carousel)
+        Route::resource('hero-slides', HeroSlideController::class)->except(['create', 'show', 'edit']);
+
+        // Testimonials & Client Reviews
+        Route::resource('testimonials', TestimonialController::class)->except(['create', 'show', 'edit']);
+
         // Categories (Bollards, Surface Ceiling, etc.)
         Route::resource('categories', CategoryController::class)->except(['create', 'show', 'edit']);
 
@@ -90,6 +101,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('inquiries', [InquiryController::class, 'index'])->name('inquiries.index');
         Route::patch('inquiries/{inquiry}', [InquiryController::class, 'update'])->name('inquiries.update');
         Route::delete('inquiries/{inquiry}', [InquiryController::class, 'destroy'])->name('inquiries.destroy');
+
+        // Architecture & Projects Showcase
+        Route::resource('projects', ProjectController::class)->except(['create', 'show', 'edit']);
+
+        // Catalogues & Downloads
+        Route::resource('catalogues', CatalogueController::class)->except(['create', 'show', 'edit']);
     });
 });
 

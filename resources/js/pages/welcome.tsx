@@ -249,8 +249,13 @@ const MEGA_SOLUTIONS = [
 const TOP_NAV = ['Home', 'About', 'Products', 'Solutions', 'Projects', 'Downloads', 'News', 'Careers', 'ZiVIO CARE']
 
 // ─── Utility ──────────────────────────────────────────────────────────────────
-const img = (id: string, w = 800, h = 600) =>
-  `https://images.unsplash.com/photo-${id}?w=${w}&h=${h}&fit=crop&auto=format&q=80`
+const img = (id: string, w = 800, h = 600) => {
+  if (!id) return ''
+  if (id.startsWith('http://') || id.startsWith('https://') || id.startsWith('/') || id.startsWith('data:')) {
+    return id
+  }
+  return `https://images.unsplash.com/photo-${id}?w=${w}&h=${h}&fit=crop&auto=format&q=80`
+}
 
 // ─── Hooks ────────────────────────────────────────────────────────────────────
 function useCountUp(target: number, duration = 2000, active = false) {
@@ -870,6 +875,32 @@ export interface BackendProduct {
 export interface WelcomeProps {
   featuredProducts?: BackendProduct[];
   environments?: any[];
+  heroSlides?: any[];
+  projects?: any[];
+  testimonials?: any[];
+  catalogues?: any[];
+}
+
+function adaptHeroSlides(slides: any[] | undefined, defaultSlides: typeof HERO_SLIDES) {
+  if (!slides || !Array.isArray(slides) || slides.length === 0) return defaultSlides;
+  return slides.map((s, idx) => {
+    const fallback = defaultSlides[idx % defaultSlides.length];
+    return {
+      id: s.id ?? idx,
+      type: (s.type === 'video' ? 'video' : 'image') as 'video' | 'image',
+      video: s.video || fallback.video,
+      image: s.image || fallback.image,
+      poster: s.poster || fallback.poster,
+      label: s.label || fallback.label,
+      headline: Array.isArray(s.headline)
+        ? s.headline
+        : typeof s.headline === 'string'
+        ? s.headline.split('\n')
+        : fallback.headline,
+      sub: s.sub || fallback.sub,
+      location: s.location || fallback.location,
+    };
+  });
 }
 
 function adaptFeaturedProducts(
@@ -1178,12 +1209,12 @@ function FeaturedProduct({ products = FEATURED_PRODUCTS }: { products?: typeof F
 // ─── HERO ─────────────────────────────────────────────────────────────────────
 const SLIDE_DURATION = 5000
 
-function Hero() {
+function Hero({ slides = HERO_SLIDES }: { slides?: typeof HERO_SLIDES }) {
   const [slide, setSlide] = useState(0)
   const [progress, setProgress] = useState(0)
-  const total = HERO_SLIDES.length
+  const total = slides.length
 
-  const goTo = useCallback((idx: number) => { setSlide(Math.min(idx, HERO_SLIDES.length - 1)); setProgress(0) }, [])
+  const goTo = useCallback((idx: number) => { setSlide(Math.min(idx, slides.length - 1)); setProgress(0) }, [slides.length])
   const next = useCallback(() => goTo((slide + 1) % total), [slide, total, goTo])
   const prev = useCallback(() => goTo((slide - 1 + total) % total), [slide, total, goTo])
 
@@ -1193,10 +1224,10 @@ function Hero() {
     const tick = setInterval(() => setProgress(Math.min((Date.now() - start) / SLIDE_DURATION, 1)), 16)
     const advance = setTimeout(next, SLIDE_DURATION)
     return () => { clearInterval(tick); clearTimeout(advance) }
-  }, [slide]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [slide, next])
 
-  const safeSlide = Math.min(slide, HERO_SLIDES.length - 1)
-  const s = HERO_SLIDES[safeSlide]
+  const safeSlide = Math.min(slide, slides.length - 1)
+  const s = slides[safeSlide] || slides[0]
   const eyebrow = s?.label?.split('·')[1]?.trim() ?? s?.label ?? ''
 
   return (
@@ -1243,7 +1274,7 @@ function Hero() {
 
       {/* ── Progress bars — top ── */}
       <div className="absolute top-0 left-3 right-0 z-30 flex" style={{ height: 2, gap: 2 }}>
-        {HERO_SLIDES.map((_, i) => (
+        {slides.map((_, i) => (
           <button key={i} onClick={() => goTo(i)} className="flex-1 relative overflow-hidden"
             style={{ background: 'rgba(255,255,255,0.1)', cursor: 'pointer' }}>
             {i < safeSlide && <div className="absolute inset-0" style={{ background: C.amber }} />}
@@ -1325,7 +1356,7 @@ function Hero() {
 
         {/* ─ RIGHT — vertical slide navigator ─ */}
         <div className="hidden lg:flex flex-col justify-center items-end pr-10 gap-0" style={{ width: 200 }}>
-          {HERO_SLIDES.map((sl, i) => {
+          {slides.map((sl, i) => {
             const cat = sl.label.split('·')[1]?.trim() ?? sl.label
             const isActive = i === safeSlide
             return (
@@ -1392,7 +1423,7 @@ function Hero() {
               <div style={{ height: '100%', width: `${progress * 100}%`, background: C.amber, transition: 'width 0.1s linear' }} />
             </div>
             <span className="font-label text-[7px] tracking-[0.2em]" style={{ color: 'rgba(255,255,255,0.2)' }}>
-              {String(HERO_SLIDES.length).padStart(2, '0')}
+              {String(slides.length).padStart(2, '0')}
             </span>
           </div>
         </div>
@@ -2754,11 +2785,11 @@ const PROJECT_MARQUEE_ROW2 = [
 
 const ALL_PROJECTS = [...PROJECT_MARQUEE_ROW1, ...PROJECT_MARQUEE_ROW2]
 
-function Projects() {
+function Projects({ projects }: { projects?: any[] } = {}) {
   const ref = useRef<HTMLElement>(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
 
-  const row1 = [
+  const defaultRow1 = [
     { image: '1512453979798-5ea266f8880c', name: 'MHADA',                       country: 'Mumbai, India',     type: 'Residential', year: '2023', scope: 'External Lighting' },
     { image: '1486325212027-8081e485255e', name: 'Tata Realty — Intelian Park',  country: 'Mumbai, India',     type: 'Commercial',  year: '2023', scope: 'Facade & Landscape' },
     { image: '1565538810643-b5bdb714032a', name: 'Tata Realty — OBLP',           country: 'Bangalore, India',  type: 'Commercial',  year: '2022', scope: 'Architectural Lighting' },
@@ -2768,7 +2799,7 @@ function Projects() {
     { image: '1499856871958-5b9627545d1a', name: 'Oberoi Mall',                  country: 'Goregaon, Mumbai',  type: 'Retail',      year: '2022', scope: 'Interior & Exterior' },
     { image: '1558618666-fcd25c85cd64',   name: 'Phoenix Mall',                  country: 'Pune, India',       type: 'Retail',      year: '2023', scope: 'Full Lighting Design' },
   ]
-  const row2 = [
+  const defaultRow2 = [
     { image: '1436491865332-7a61a109cc05', name: 'Indigo Hotel',                 country: 'Bangkok, Thailand', type: 'Hospitality',   year: '2024', scope: 'Hotel Lighting' },
     { image: '1512453979798-5ea266f8880c', name: 'DBH Hotel',                    country: 'Dubai, UAE',        type: 'Hospitality',   year: '2023', scope: 'Luxury Lighting' },
     { image: '1480714378408-67cf0d13bc1b', name: 'KRC — Building 12',            country: 'Hyderabad, India',  type: 'Commercial',    year: '2024', scope: 'Office Lighting' },
@@ -2778,6 +2809,26 @@ function Projects() {
     { image: '1524995997946-a1c2e315a42f', name: 'Piramal — Bhandup',            country: 'Mumbai, India',     type: 'Residential',   year: '2022', scope: 'Landscape Lighting' },
     { image: '1519978778433-26bc8f7a9e52', name: 'BARC — Chembur',               country: 'Mumbai, India',     type: 'Institutional', year: '2023', scope: 'Campus Lighting' },
   ]
+
+  const dbRow1 = projects && projects.length > 0 ? projects.filter(p => p.is_marquee_row1) : []
+  const dbRow2 = projects && projects.length > 0 ? projects.filter(p => p.is_marquee_row2) : []
+
+  const mapItem = (p: any, fallback: typeof defaultRow1[0]) => ({
+    image: p.image || p.image_url || fallback.image,
+    name: p.name || fallback.name,
+    country: p.country || fallback.country,
+    type: p.type || fallback.type,
+    year: p.year ? String(p.year) : fallback.year,
+    scope: p.scope || fallback.scope,
+  })
+
+  const row1 = dbRow1.length > 0 ? dbRow1.map((p, i) => mapItem(p, defaultRow1[i % defaultRow1.length])) : defaultRow1
+  const row2 = dbRow2.length > 0 ? dbRow2.map((p, i) => mapItem(p, defaultRow2[i % defaultRow2.length])) : defaultRow2
+
+  const tickerList = [...row1, ...row2].map(p => ({
+    name: p.name,
+    city: p.country?.split(',')[0]?.trim() || p.country || ''
+  }))
 
   const BG    = '#18100A'   // deep espresso — portfolio dark zone
   const BGL   = 'rgba(255,255,255,0.05)'  // subtle divider on dark
@@ -2886,41 +2937,7 @@ function Projects() {
       {/* ── Project pill ticker — single sliding strip ── */}
       <div style={{ borderTop: `1px solid ${BGL}`, overflow: 'hidden', background: 'rgba(255,255,255,0.02)', padding: '12px 0' }}>
         <div className="ticker-track" style={{ gap: 10 }}>
-          {[
-            { name: 'MHADA', city: 'Mumbai' },
-            { name: 'Tata Realty — Intelian Park', city: 'Mumbai' },
-            { name: 'Tata Realty — OBLP', city: 'Bangalore' },
-            { name: 'KRC — Whispering Heights', city: 'Mumbai' },
-            { name: 'Piramal — Mahalaxmi', city: 'Mumbai' },
-            { name: 'Skycity Mall', city: 'Kandivali' },
-            { name: 'Oberoi Mall', city: 'Goregaon' },
-            { name: 'Phoenix Mall', city: 'Pune' },
-            { name: 'Indigo Hotel', city: 'Bangkok' },
-            { name: 'DBH Hotel', city: 'Dubai' },
-            { name: 'KRC — Building 12', city: 'Hyderabad' },
-            { name: 'KRC — Chennai', city: 'Chennai' },
-            { name: 'KRC — Pune Kharadi', city: 'Pune' },
-            { name: 'KRC — Articia', city: 'India' },
-            { name: 'Piramal — Bhandup', city: 'Mumbai' },
-            { name: 'BARC — Chembur', city: 'Mumbai' },
-            // duplicate for seamless loop
-            { name: 'MHADA', city: 'Mumbai' },
-            { name: 'Tata Realty — Intelian Park', city: 'Mumbai' },
-            { name: 'Tata Realty — OBLP', city: 'Bangalore' },
-            { name: 'KRC — Whispering Heights', city: 'Mumbai' },
-            { name: 'Piramal — Mahalaxmi', city: 'Mumbai' },
-            { name: 'Skycity Mall', city: 'Kandivali' },
-            { name: 'Oberoi Mall', city: 'Goregaon' },
-            { name: 'Phoenix Mall', city: 'Pune' },
-            { name: 'Indigo Hotel', city: 'Bangkok' },
-            { name: 'DBH Hotel', city: 'Dubai' },
-            { name: 'KRC — Building 12', city: 'Hyderabad' },
-            { name: 'KRC — Chennai', city: 'Chennai' },
-            { name: 'KRC — Pune Kharadi', city: 'Pune' },
-            { name: 'KRC — Articia', city: 'India' },
-            { name: 'Piramal — Bhandup', city: 'Mumbai' },
-            { name: 'BARC — Chembur', city: 'Mumbai' },
-          ].map((p, i) => (
+          {[...tickerList, ...tickerList].map((p, i) => (
             <span key={i} className="shrink-0 whitespace-nowrap inline-flex items-center gap-2"
               style={{
                 background: i % 4 === 0 ? `rgba(181,114,42,0.18)` : 'rgba(255,255,255,0.04)',
@@ -3131,8 +3148,8 @@ function Applications() {
 }
 
 // ─── DOWNLOADS ────────────────────────────────────────────────────────────────
-function Downloads() {
-  const docs = [
+function Downloads({ catalogues }: { catalogues?: any[] } = {}) {
+  const defaultDocs = [
     {
       tag: 'Company Profile',
       title: 'ZiVIO LIFE — Our Story',
@@ -3155,6 +3172,17 @@ function Downloads() {
     },
   ]
 
+  const docs = catalogues && catalogues.length > 0 ? catalogues.map((c, di) => ({
+    tag: c.category || 'Catalogue',
+    title: c.title,
+    desc: c.description || 'Architectural lighting catalogue and specifications.',
+    size: c.file_size || 'PDF',
+    image: c.cover_image || c.cover_image_url || (di % 2 === 0 ? '1497366216548-37526070297c' : '1558618666-fcd25c85cd64'),
+    href: c.file_url || c.file_path || '#',
+    dl: (c.title || 'catalogue').replace(/[^a-zA-Z0-9_-]/g, '_') + '.pdf',
+    accent: di === 0,
+  })) : defaultDocs
+
   return (
     <section id="downloads" style={{ background: C.ink, borderTop: `1px solid ${C.inkBorder}` }}>
       <div className="max-w-[1400px] mx-auto">
@@ -3166,7 +3194,7 @@ function Downloads() {
             <div className="w-5 h-px" style={{ background: C.amber }} />
             <span className="font-label text-[8px] tracking-[0.3em] uppercase" style={{ color: C.amber }}>Downloads</span>
           </div>
-          <span className="font-label text-[7px] tracking-[0.2em] uppercase" style={{ color: C.bodyLight }}>2 Documents Available</span>
+          <span className="font-label text-[7px] tracking-[0.2em] uppercase" style={{ color: C.bodyLight }}>{docs.length} Documents Available</span>
         </div>
 
         {/* ── Compact side-by-side rows ── */}
@@ -4116,14 +4144,14 @@ function NewsMedia({ open, onClose }: { open: boolean; onClose: () => void }) {
 }
 
 // ─── FOOTER ───────────────────────────────────────────────────────────────────
-function Footer({ onCareers }: { onCareers: () => void }) {
+function Footer({ onCareers, testimonials: propTestimonials }: { onCareers: () => void; testimonials?: any[] }) {
   const [reviewOpen, setReviewOpen] = useState(false)
   const [rating, setRating] = useState(0)
   const [hoverRating, setHoverRating] = useState(0)
   const [reviewText, setReviewText] = useState('')
   const [reviewSent, setReviewSent] = useState(false)
 
-  const testimonials = [
+  const defaultTestimonials = [
     { quote: 'ZiVIO delivered exceptional quality for our residential towers. Their attention to detail and on-time execution made all the difference.', name: 'Sushil Kadam', role: 'Project Head', company: 'Tata Realty', avatar: '1472099645785-5658abf4ff4e' },
     { quote: 'Working with ZiVIO on the Mahalaxmi facade was seamless. Their technical expertise and custom fixture solutions elevated the entire project.', name: 'Parshuram', role: 'Sr. Project Manager', company: 'Piramal Realty', avatar: '1507003211169-0a1dd7228f2d' },
     { quote: 'ZiVIO consistently delivers specification-grade luminaires with outstanding support. They are our go-to partner for every lighting design.', name: 'Sanchita Shinde', role: 'Principal Lighting Consultant', company: 'Shaviya Lighting Consultants', avatar: '1494790108755-2616b612b786' },
@@ -4131,6 +4159,14 @@ function Footer({ onCareers }: { onCareers: () => void }) {
     { quote: 'The ZiVIO team brought great professionalism and product quality to our sites. Delivery timelines and after-sales support are excellent.', name: 'Vaibhav Chandre', role: 'Project Manager', company: 'Tata Projects Ltd.', avatar: '1560250097-0b93528c311a' },
     { quote: 'ZiVIO\'s lighting solutions for our commercial sites have been outstanding. Their on-site coordination is truly world-class.', name: 'Basawraj', role: 'Site Engineer', company: 'Tata Projects Ltd.', avatar: '1519085360753-af0119f7cbe7' },
   ]
+
+  const testimonials = propTestimonials && propTestimonials.length > 0 ? propTestimonials.map((t, ti) => ({
+    quote: t.quote,
+    name: t.name,
+    role: t.role || defaultTestimonials[ti % defaultTestimonials.length].role,
+    company: t.company || defaultTestimonials[ti % defaultTestimonials.length].company,
+    avatar: t.avatar || defaultTestimonials[ti % defaultTestimonials.length].avatar,
+  })) : defaultTestimonials
 
   const team = [
     { name: 'Shree Jirapure',    role: 'CEO & Founder',            avatar: '1560250097-0b93528c311a' },
@@ -5656,13 +5692,25 @@ function SplashScreen({ onDone }: { onDone: () => void }) {
 }
 
 // ─── App ──────────────────────────────────────────────────────────────────────
-export default function App({ featuredProducts, environments }: WelcomeProps = {}) {
+export default function App({
+  featuredProducts,
+  environments,
+  heroSlides,
+  projects,
+  testimonials,
+  catalogues,
+}: WelcomeProps = {}) {
   const [splash, setSplash] = useState(true)
   const [aboutOpen, setAboutOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
   const [newsOpen, setNewsOpen] = useState(false)
   const [careersOpen, setCareersOpen] = useState(false)
   const [archOpen, setArchOpen] = useState(false)
+
+  const resolvedHero = useMemo(
+    () => adaptHeroSlides(heroSlides, HERO_SLIDES),
+    [heroSlides]
+  )
 
   const resolvedFeatured = useMemo(
     () => adaptFeaturedProducts(featuredProducts, FEATURED_PRODUCTS),
@@ -5690,17 +5738,17 @@ export default function App({ featuredProducts, environments }: WelcomeProps = {
       <ArchConsultPage open={archOpen} onClose={() => setArchOpen(false)} />
       <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
       <main>
-        <Hero />
+        <Hero slides={resolvedHero} />
         <FeaturedProduct products={resolvedFeatured} />
         <Products />
         <TruePartnership />
         <Technology />
-        <Projects />
+        <Projects projects={projects} />
         <Applications />
-        <Downloads />
+        <Downloads catalogues={catalogues} />
         <Contact />
       </main>
-      <Footer onCareers={() => setCareersOpen(true)} />
+      <Footer onCareers={() => setCareersOpen(true)} testimonials={testimonials} />
     </div>
   )
 }

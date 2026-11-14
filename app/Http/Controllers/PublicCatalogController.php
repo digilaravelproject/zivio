@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Attribute;
 use App\Models\Category;
+use App\Models\Catalogue;
 use App\Models\ContactInquiry;
 use App\Models\Environment;
+use App\Models\HeroSlide;
 use App\Models\Product;
+use App\Models\Project;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -208,9 +212,29 @@ class PublicCatalogController extends Controller
             ->orderBy('sort_order')
             ->get();
 
+        $heroSlides = HeroSlide::where('is_active', true)
+            ->orderBy('sort_order')
+            ->get();
+
+        $projects = Project::where('is_active', true)
+            ->orderBy('sort_order')
+            ->get();
+
+        $testimonials = Testimonial::where('is_active', true)
+            ->orderBy('sort_order')
+            ->get();
+
+        $catalogues = Catalogue::where('is_active', true)
+            ->orderBy('sort_order')
+            ->get();
+
         return Inertia::render('welcome', [
             'featuredProducts' => $featuredProducts,
-            'environments' => $environments,
+            'environments'     => $environments,
+            'heroSlides'       => $heroSlides,
+            'projects'         => $projects,
+            'testimonials'     => $testimonials,
+            'catalogues'       => $catalogues,
         ]);
     }
 }

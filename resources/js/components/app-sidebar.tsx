@@ -8,6 +8,9 @@ import {
     Sliders,
     Lightbulb,
     Mail,
+    SlidersHorizontal,
+    MessageSquareQuote,
+    Building2,
     ExternalLink,
 } from 'lucide-react';
 import AppLogo from '@/components/app-logo';
@@ -51,6 +54,26 @@ const mainNavItems: NavItem[] = [
         title: 'Products & Variants',
         href: '/admin/products',
         icon: Lightbulb,
+    },
+    {
+        title: 'Hero Slides',
+        href: '/admin/hero-slides',
+        icon: SlidersHorizontal,
+    },
+    {
+        title: 'Testimonials',
+        href: '/admin/testimonials',
+        icon: MessageSquareQuote,
+    },
+    {
+        title: 'Projects & Showcase',
+        href: '/admin/projects',
+        icon: Building2,
+    },
+    {
+        title: 'Catalogues & Downloads',
+        href: '/admin/catalogues',
+        icon: BookOpen,
     },
     {
         title: 'Inquiries & Leads',

@@ -39,6 +39,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CatalogSeeder::class,
             LandingPageProductsSeeder::class,
+            HeroSlideSeeder::class,
+            TestimonialSeeder::class,
+            ProjectSeeder::class,
+            CatalogueSeeder::class,
         ]);
 
         // 2. Seed Sample Inquiries so Admin Panel has realistic leads
