@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react'
-import { Head } from '@inertiajs/react'
+import { Head, router } from '@inertiajs/react'
 import shreeJirapurePhoto from './imports/shree_jirapure.jpeg'
 import priyaJirapurePhoto from './imports/priya_jirapure.jpeg'
 import anjaliBunkarPhoto from './imports/anjali_bunkar.jpeg'
@@ -3269,8 +3269,31 @@ function Downloads({ catalogues }: { catalogues?: any[] } = {}) {
 function Contact() {
   const [form, setForm] = useState({ name: '', email: '', company: '', project: '', message: '', type: 'Project Enquiry' })
   const [sent, setSent] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [focusedField, setFocusedField] = useState<string | null>(null)
-  const submit = (e: React.FormEvent) => { e.preventDefault(); setSent(true); setTimeout(() => setSent(false), 3500) }
+  const submit = (e: React.FormEvent) => {
+    e.preventDefault()
+    setLoading(true)
+    router.post('/inquiry', {
+      name: form.name,
+      email: form.email,
+      company: form.company,
+      project_type: form.type,
+      message: form.message || (form.project ? `Project: ${form.project}` : 'General Inquiry'),
+      specs_snapshot: {
+        project: form.project,
+        inquiry_type: form.type,
+      }
+    }, {
+      preserveScroll: true,
+      onSuccess: () => {
+        setSent(true)
+        setForm({ name: '', email: '', company: '', project: '', message: '', type: 'Project Enquiry' })
+        setTimeout(() => setSent(false), 5000)
+      },
+      onFinish: () => setLoading(false)
+    })
+  }
 
   const inquiryTypes = ['Project Enquiry', 'Request Quote', 'Dealer / Distributor', 'Technical Support', 'Careers']
 
@@ -5328,6 +5351,7 @@ function ArchConsultPage({ open, onClose }: { open: boolean; onClose: () => void
     area: '', budget: '', timeline: '', message: '',
   })
   const [sent, setSent] = useState<null | 'email' | 'whatsapp'>(null)
+  const [submitting, setSubmitting] = useState(false)
 
   const set = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm(d => ({ ...d, [k]: e.target.value }))
@@ -5339,22 +5363,57 @@ function ArchConsultPage({ open, onClose }: { open: boolean; onClose: () => void
     `📐 Area: ${form.area} sq.ft\n💰 Budget: ${form.budget}\n⏱ Timeline: ${form.timeline}\n\n` +
     `📝 Message:\n${form.message}`
 
+  const saveToBackend = (callback?: () => void) => {
+    setSubmitting(true)
+    router.post('/inquiry', {
+      name: form.name,
+      email: form.email,
+      phone: form.mobile,
+      company: form.firm,
+      project_type: form.projectType || 'Project Inquiry',
+      message: `Project: ${form.projectName || 'N/A'}\nLocation: ${form.projectLocation || 'N/A'}\nArea: ${form.area || 'N/A'} sq.ft\nBudget: ${form.budget || 'N/A'}\nTimeline: ${form.timeline || 'N/A'}\n\nDetails:\n${form.message || 'No additional notes'}`,
+      specs_snapshot: {
+        projectName: form.projectName,
+        projectLocation: form.projectLocation,
+        projectType: form.projectType,
+        area: form.area,
+        budget: form.budget,
+        timeline: form.timeline,
+        firm: form.firm,
+      }
+    }, {
+      preserveScroll: true,
+      onFinish: () => {
+        setSubmitting(false)
+        callback?.()
+      }
+    })
+  }
+
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault()
-    const sub = encodeURIComponent(`Project Inquiry – ${form.projectName || 'New Project'} | ${form.firm}`)
-    const body = encodeURIComponent(
-      `Dear ZiVIO LIFE Projects Team,\n\n` +
-      `Name: ${form.name}\nFirm: ${form.firm}\nEmail: ${form.email}\nMobile: ${form.mobile}\n\n` +
-      `Project Name: ${form.projectName}\nLocation: ${form.projectLocation}\nType: ${form.projectType}\n` +
-      `Area: ${form.area}\nBudget: ${form.budget}\nTimeline: ${form.timeline}\n\nMessage:\n${form.message}`
-    )
-    window.open(`mailto:${INQUIRY_EMAIL}?subject=${sub}&body=${body}`)
-    setSent('email')
+    saveToBackend(() => {
+      const sub = encodeURIComponent(`Project Inquiry – ${form.projectName || 'New Project'} | ${form.firm}`)
+      const body = encodeURIComponent(
+        `Dear ZiVIO LIFE Projects Team,\n\n` +
+        `Name: ${form.name}\nFirm: ${form.firm}\nEmail: ${form.email}\nMobile: ${form.mobile}\n\n` +
+        `Project Name: ${form.projectName}\nLocation: ${form.projectLocation}\nType: ${form.projectType}\n` +
+        `Area: ${form.area}\nBudget: ${form.budget}\nTimeline: ${form.timeline}\n\nMessage:\n${form.message}`
+      )
+      window.open(`mailto:${INQUIRY_EMAIL}?subject=${sub}&body=${body}`)
+      setSent('email')
+    })
   }
 
   const sendWhatsApp = () => {
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildMessage())}`, '_blank')
-    setSent('whatsapp')
+    if (!form.name || !form.email) {
+      alert('Please enter your Name and Email address.')
+      return
+    }
+    saveToBackend(() => {
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildMessage())}`, '_blank')
+      setSent('whatsapp')
+    })
   }
 
   const inputCls = "w-full px-4 py-3 font-sans text-[13px] rounded-xl outline-none transition-all"

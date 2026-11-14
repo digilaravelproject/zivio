@@ -176,9 +176,11 @@ class PublicCatalogController extends Controller
             'phone' => 'nullable|string|max:50',
             'company' => 'nullable|string|max:255',
             'project_type' => 'nullable|string|max:255',
-            'message' => 'required|string|max:3000',
+            'message' => 'nullable|string|max:3000',
             'specs_snapshot' => 'nullable|array',
         ]);
+
+        $validated['message'] = $validated['message'] ?: 'Project Inquiry submitted from website';
 
         $inquiry = ContactInquiry::create($validated);
 
