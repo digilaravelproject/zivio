@@ -418,19 +418,39 @@ function Header({ onAbout, onNews, onCareers, onArchConsult, onSearch }: { onAbo
         <div className="flex items-center justify-between px-8 lg:px-14" style={{ height: scrolled ? 60 : 70, transition: 'height 0.4s ease' }}>
 
           {/* ── Logo ── */}
-          <a href="#" className="flex items-center gap-3 shrink-0 group">
-            <span className="hidden lg:block rounded-full" style={{ width: 3, height: 30, background: `linear-gradient(to bottom, ${C.amber}, ${C.amberDk})` }} />
+          <Link href="/" className="flex items-center gap-2.5 shrink-0 group select-none" aria-label="ZiVIO LIFE Home">
+            <span
+              className="rounded-full shrink-0"
+              style={{
+                width: 3.2,
+                height: 30,
+                background: `linear-gradient(to bottom, ${C.amber}, ${C.amberDk})`,
+              }}
+            />
             <div className="flex flex-col leading-none">
-              <span className="font-sans font-black transition-all group-hover:opacity-85"
-                style={{ fontSize: 24, color: scrolled ? C.bodyDark : '#fff', letterSpacing: '-0.05em', lineHeight: 1 }}>
+              <span
+                className="font-sans font-black transition-all group-hover:opacity-90"
+                style={{
+                  fontSize: 24,
+                  color: scrolled ? C.bodyDark : '#FFFFFF',
+                  letterSpacing: '-0.05em',
+                  lineHeight: 1,
+                }}>
                 ZiVIO
               </span>
-              <span className="font-sans font-black"
-                style={{ fontSize: 8, color: C.amber, letterSpacing: '0.55em', textTransform: 'uppercase', lineHeight: 1.5 }}>
+              <span
+                className="font-sans font-black"
+                style={{
+                  fontSize: 8,
+                  color: C.amber,
+                  letterSpacing: '0.52em',
+                  textTransform: 'uppercase',
+                  lineHeight: 1.4,
+                }}>
                 LIFE
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* ── Nav — centred ── */}
           <nav className="hidden xl:flex items-center gap-0 absolute left-1/2 -translate-x-1/2">
@@ -636,13 +656,13 @@ function Header({ onAbout, onNews, onCareers, onArchConsult, onSearch }: { onAbo
             className="fixed inset-0 z-[90] flex flex-col" style={{ background: '#080808' }}>
             {/* Mobile menu header */}
             <div className="flex justify-between items-center px-7 py-5" style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
-              <div className="flex items-center gap-3">
-                <span className="w-0.5 h-6 rounded-full" style={{ background: C.amber }} />
+              <Link href="/" className="flex items-center gap-2.5 shrink-0 select-none">
+                <span className="w-[3px] h-6 rounded-full shrink-0" style={{ background: C.amber }} />
                 <div className="flex flex-col leading-none">
-                  <span className="font-sans font-black" style={{ fontSize: 19, color: '#fff', letterSpacing: '-0.04em', lineHeight: 1 }}>ZiVIO</span>
-                  <span className="font-sans font-bold" style={{ fontSize: 7, color: C.amber, letterSpacing: '0.45em', textTransform: 'uppercase', lineHeight: 1.5 }}>LIFE</span>
+                  <span className="font-sans font-black text-white" style={{ fontSize: 20, letterSpacing: '-0.05em', lineHeight: 1 }}>ZiVIO</span>
+                  <span className="font-sans font-black" style={{ fontSize: 7, color: C.amber, letterSpacing: '0.52em', textTransform: 'uppercase', lineHeight: 1.4 }}>LIFE</span>
                 </div>
-              </div>
+              </Link>
               <button onClick={() => setMenuOpen(false)}
                 className="w-9 h-9 flex items-center justify-center rounded-lg transition-colors hover:bg-white/10"
                 style={{ color: 'rgba(255,255,255,0.5)' }}>
@@ -4495,10 +4515,38 @@ function Footer({ onCareers, testimonials: propTestimonials }: { onCareers: () =
 
           {/* Brand + Socials */}
           <div className="lg:col-span-4 px-8 lg:px-12 py-10" style={{ borderRight: `1px solid ${C.inkBorder}` }}>
-            <div className="flex items-baseline gap-2 mb-5">
-              <span className="font-serif font-semibold" style={{ fontSize: '1.8rem', color: C.bodyDark, letterSpacing: '-0.03em' }}>ZiVIO</span>
-              <span className="font-label text-[8px] tracking-[0.4em] uppercase" style={{ color: C.amber }}>LIFE</span>
-            </div>
+            <Link href="/" className="inline-flex items-center gap-3 mb-5 group select-none" aria-label="ZiVIO LIFE Home">
+              <span
+                className="rounded-full shrink-0"
+                style={{
+                  width: 3.5,
+                  height: 34,
+                  background: `linear-gradient(to bottom, ${C.amber}, ${C.amberDk})`,
+                }}
+              />
+              <div className="flex flex-col leading-none">
+                <span
+                  className="font-sans font-black transition-all group-hover:opacity-90 text-white"
+                  style={{
+                    fontSize: 26,
+                    letterSpacing: '-0.05em',
+                    lineHeight: 1,
+                  }}>
+                  ZiVIO
+                </span>
+                <span
+                  className="font-sans font-black"
+                  style={{
+                    fontSize: 8.5,
+                    color: C.amber,
+                    letterSpacing: '0.52em',
+                    textTransform: 'uppercase',
+                    lineHeight: 1.4,
+                  }}>
+                  LIFE
+                </span>
+              </div>
+            </Link>
             <p className="text-[13px] leading-relaxed mb-6" style={{ color: C.bodyMid, maxWidth: 260 }}>
               A global manufacturer of premium architectural lighting. Engineering precision, delivering excellence across 68 countries.
             </p>

@@ -1,5 +1,5 @@
 import { Link } from '@inertiajs/react';
-
+import { BrandLogo } from '@/components/common/BrandLogo';
 import { footerData } from '@/data/footerData';
 
 function FooterLinkList({
@@ -39,19 +39,7 @@ export function FooterSection() {
             <div className="relative mx-auto max-w-[1440px]">
                 <div className="grid gap-10 border-b border-white/[0.08] pb-12 md:grid-cols-2 lg:grid-cols-[1.05fr_0.65fr_0.75fr_0.95fr] lg:gap-14">
                     <div>
-                        <Link
-                            href="/"
-                            className="inline-flex w-fit items-center"
-                            aria-label="ZIVIO LIFE home"
-                        >
-                            <img
-                                src="/images/zivio-life-logo.svg"
-                                alt="ZIVIO LIFE"
-                                className="block h-auto w-[9.5rem] object-contain drop-shadow-[0_12px_34px_rgba(218,152,7,0.16)] sm:w-[11rem]"
-                                width={180}
-                                height={44}
-                            />
-                        </Link>
+                        <BrandLogo size="lg" />
                         <p className="mt-5 max-w-sm font-sans text-sm leading-7 text-[#CFCFCB]">
                             {footerData.description}
                         </p>
