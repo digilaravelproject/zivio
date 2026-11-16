@@ -34,22 +34,22 @@ export function BrandLogo({
       className={`inline-flex items-center gap-2.5 shrink-0 group select-none ${className}`}
       aria-label="ZiVIO LIFE Home"
     >
-      {/* Amber vertical accent bar */}
+      {/* Architectural accent bar */}
       <span
         className="rounded-full shrink-0"
         style={{
           width: barWidth,
           height: barHeight,
-          background: 'linear-gradient(to bottom, #B5722A, #8C4E18)',
+          background: 'linear-gradient(to bottom, #BA9E89, #8C4E18)',
         }}
       />
 
       <div className="flex flex-col leading-none">
-        {/* Official ZiVIO Vector Wordmark with exact #DA9807 gold accent */}
+        {/* Official ZiVIO Vector Wordmark with exact #BA9E89 accent */}
         <div className="flex items-center" style={{ height: logoHeight }}>
           <ZivioWordmarkSvg
             textColor={textColor}
-            accentColor="#DA9807"
+            accentColor="#BA9E89"
             style={{ height: logoHeight, width: 'auto' }}
             className="transition-opacity group-hover:opacity-90"
           />
@@ -61,7 +61,7 @@ export function BrandLogo({
             className="font-sans font-black"
             style={{
               fontSize: lifeSize,
-              color: '#B5722A',
+              color: '#BA9E89',
               letterSpacing: '0.48em',
               textTransform: 'uppercase',
               lineHeight: 1,

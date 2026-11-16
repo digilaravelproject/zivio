@@ -60,11 +60,11 @@ export function SplashScreen({ onDone, fast = false }: { onDone: () => void; fas
         }}
         transition={{ duration: isOut ? 0.55 : 1.05, ease: [0.22, 1, 0.36, 1] }}>
 
-        {/* ── Official ZiVIO Vector Wordmark with exact #DA9807 gold accent ── */}
+        {/* ── Official ZiVIO Vector Wordmark with exact #BA9E89 accent ── */}
         <div className="flex items-center justify-center" style={{ height: 'clamp(46px, 9vw, 84px)' }}>
           <ZivioWordmarkSvg
             textColor="#FFFFFF"
-            accentColor="#DA9807"
+            accentColor="#BA9E89"
             style={{ height: 'clamp(46px, 9vw, 84px)', width: 'auto' }}
           />
         </div>

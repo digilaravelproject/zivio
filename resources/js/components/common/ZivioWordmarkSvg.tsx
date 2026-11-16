@@ -10,7 +10,7 @@ export interface ZivioWordmarkSvgProps {
 export function ZivioWordmarkSvg({
   className = '',
   textColor = '#FFFFFF',
-  accentColor = '#DA9807',
+  accentColor = '#BA9E89',
   style,
 }: ZivioWordmarkSvgProps) {
   const maskId = useId()
@@ -66,7 +66,7 @@ export function ZivioWordmarkSvg({
           d="M112.567 111.891L85.8438 50.76H98.1574L121.999 106.04H114.925L139.028 50.76H150.381L123.745 111.891H112.567Z"
           fill={textColor}
         />
-        {/* Second I — Signature Amber/Gold Accent (#DA9807) from Official Logo */}
+        {/* Second I — Signature Architectural Warm Bronze/Champagne Accent (#BA9E89 / rgb(186, 158, 137)) from Official Logo */}
         <path
           d="M156.832 111.891V50.76H168.185V111.891H156.832Z"
           fill={accentColor}
