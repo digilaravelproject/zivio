@@ -5980,7 +5980,7 @@ export default function App({
   }, [])
 
   return (
-    <div className="w-full max-w-[100vw] overflow-x-hidden relative" style={{ background: C.ink }}>
+    <div className="w-full relative" style={{ background: C.ink }}>
       <Head title="ZiVIO LIFE — Architectural Lighting Solutions">
         <meta name="description" content="ZiVIO LIFE delivers precision architectural lighting solutions, facade systems, bollards, and landscape illumination across 15+ countries." />
       </Head>
@@ -5991,7 +5991,7 @@ export default function App({
       <CareersPage open={careersOpen} onClose={() => setCareersOpen(false)} />
       <ArchConsultPage open={archOpen} onClose={() => setArchOpen(false)} />
       <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
-      <main className="w-full max-w-[100vw] overflow-x-hidden">
+      <main className="w-full">
         <Hero slides={resolvedHero} />
         <FeaturedProduct products={resolvedFeatured} />
         <Products />

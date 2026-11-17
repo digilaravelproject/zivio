@@ -20,22 +20,25 @@
         {{-- Inline style: Apply luxury black only to the landing page, allowing admin and public app pages to use their proper high-contrast themes --}}
         @if ($page['component'] === 'welcome')
             <style>
-                html, body {
+                html {
                     background-color: #0B0B0B !important;
                     color: #F4EFE6;
-                    overflow-x: hidden !important;
-                    max-width: 100vw !important;
-                    width: 100% !important;
+                    overflow-x: clip;
                     margin: 0;
                     padding: 0;
+                }
+                body {
+                    background-color: #0B0B0B !important;
+                    color: #F4EFE6;
+                    margin: 0;
+                    padding: 0;
+                    overflow-x: clip;
                 }
             </style>
         @else
             <style>
                 html, body {
-                    overflow-x: hidden;
-                    max-width: 100vw;
-                    width: 100%;
+                    overflow-x: clip;
                     margin: 0;
                     padding: 0;
                 }
